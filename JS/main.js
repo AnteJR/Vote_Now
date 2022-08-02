@@ -1,8 +1,12 @@
+/* MAIN.JS loads up Kaboom and sets the SpriteAtlas to be user down the line*/
+
+/* Kaboom function */
 kaboom({
     width: 124,
     height: 84,
     clearColor: [0, 0, 0],
     scale: 8,
+    pos: (10,10),
     font: "sink"
 });
 
@@ -76,9 +80,9 @@ loadSpriteAtlas("Images/Sprite_sheet.png", {
     "event_journal": {
         "x": 0,
         "y": 588,
-        "width": 1364,
+        "width": 1488,
         "height": 42,
-        "sliceX": 11,
+        "sliceX": 12,
         "anims": {
             "animated_BG": {
                 "from": 0,
@@ -242,32 +246,3 @@ loadSpriteAtlas("Images/Sprite_sheet.png", {
         }
     },
 });
-
-const elem1 = add([
-    pos(0, 0),
-    sprite("event_radio", { anim: "animated_BG" }),
-    area(),
-    "radio_event",
-    "radio"
-])
-
-const elem2 = add([
-    pos(0, 42),
-    sprite("event_marche", { anim: "animated_BG" }),
-    area(),
-    "marche_event",
-    "marche"
-])
-
-let mesObj = get();
-
-console.log(mesObj)
-
-onHover("radio", (a) => {
-    add([
-        pos(a.pos),
-        sprite("score_radio"),
-        area(),
-        "radio_score"
-    ])
-})
