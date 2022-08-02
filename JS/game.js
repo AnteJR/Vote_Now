@@ -57,34 +57,38 @@ let scores = [
 //scenarios stock les scénarios et les scènes correspondantes pour leur déroulement
 //scenarios contient : 0/name, 1/tour1, 2/tour2 ... 10/tour10, 11/votes_initial, 12/money_initial, 13/optics_initial
 let scenarios = [
-    ["suffrage_feminin", [1, 3], [4, 6], [5, 7], [1, 4], [2, 5], [3, 7], [0, 4], [7, 1], [5, 3], [6, 0], 40, 1000, 0.9]
+    ["suffrage_feminin", [1, 6], [4, 3], [5, 7], [1, 4], [2, 5], [3, 7], [0, 4], [7, 1], [5, 3], [6, 0], 40, 1000, 0.9]
 ]
 
 function testGame(top, bottom) {
+    if (elemTop && elemBottom) {
+        elemTop.destroy()
+        elemBottom.destroy()
+    }
     elemTop = add([
         pos(0, 0),
-        sprite(eventNames[top], { anim: "animated_BG" }),
+        sprite(eventNames[top] + "_" + spriteModifier[parseInt(rand(0, 5))], { anim: "animated_BG" }),
         area(),
         eventNames_ID
     ]);
 
     elemBottom = add([
         pos(0, 42),
-        sprite(eventNames[bottom], { anim: "animated_BG" }),
+        sprite(eventNames[bottom] + "_" + spriteModifier[parseInt(rand(0, 5))], { anim: "animated_BG" }),
         area(),
         eventNames_ID
     ]);
     elemTop.onClick(() => {
-        checkClick(top);
+        checkClick(top, "top");
     });
     elemBottom.onClick(() => {
-        checkClick(bottom);
+        checkClick(bottom, "bottom");
     });
 }
 
-function checkClick(nbr) {
+function checkClick(nbr, elemClicked) {
     if (money < scores[nbr][2] && scores[nbr][4] == false) {
-        alert("nope")
+        alert("nope");
     }
     else {
         if (scores[nbr][4] == false) {
@@ -95,7 +99,7 @@ function checkClick(nbr) {
         }
         optics = parseFloat((optics + (scores[nbr][3] / 100)).toFixed(2));
         votes = parseFloat((votes + (scores[nbr][1] * optics)).toFixed(2));
-        console.log("money : " + money + "   optics : " + optics + "   votes : " + votes)
+        console.log("money : " + money + "   optics : " + optics + "   votes : " + votes);
         tour++;
         if (tour <= 10) testGame(scenarios[scenar][tour][0], scenarios[scenar][tour][1]);
     }
