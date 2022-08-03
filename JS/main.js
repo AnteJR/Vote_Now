@@ -485,7 +485,7 @@ loadSpriteAtlas("Images/Journal_sheet.png", {
 });
 
 //sprite Atlas train
-loadSpriteAtlas("Images/Train_sheet.png", {
+loadSpriteAtlas("Images/Train_sheet_day.png", {
     "event_train_day_nice": {
         "x": 0,
         "y": 0,
@@ -518,9 +518,13 @@ loadSpriteAtlas("Images/Train_sheet.png", {
             },
             "idle": 0
         }
-    }, "event_train_dawn_nice": {
+    }
+});
+
+loadSpriteAtlas("Images/Train_sheet_dawn.png", {
+    "event_train_dawn_nice": {
         "x": 0,
-        "y": 504,
+        "y": 0,
         "width": 1488,
         "height": 504,
         "sliceX": 12,
@@ -536,7 +540,7 @@ loadSpriteAtlas("Images/Train_sheet.png", {
         }
     }, "event_train_dawn_rain": {
         "x": 1488,
-        "y": 504,
+        "y": 0,
         "width": 1488,
         "height": 504,
         "sliceX": 12,
@@ -550,9 +554,13 @@ loadSpriteAtlas("Images/Train_sheet.png", {
             },
             "idle": 0
         }
-    }, "event_train_dusk_nice": {
+    }
+});
+
+loadSpriteAtlas("Images/Train_sheet_dusk.png", {
+    "event_train_dusk_nice": {
         "x": 0,
-        "y": 1008,
+        "y": 0,
         "width": 1488,
         "height": 504,
         "sliceX": 12,
@@ -568,7 +576,7 @@ loadSpriteAtlas("Images/Train_sheet.png", {
         }
     }, "event_train_dusk_rain": {
         "x": 1488,
-        "y": 1008,
+        "y": 0,
         "width": 1488,
         "height": 504,
         "sliceX": 12,

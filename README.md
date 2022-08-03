@@ -7,7 +7,7 @@ Vote Now! is a minimal strategy game. The premise of the game is that you play a
 
 * Money. This determines if you can buy campaign materials. It can be earned by asking for donations from voters or sponsors.
 * Opinion/votes. This determines how much in your favor the vote is going. From 0 (no voting intentions in your favor) to 100 (all voting intentions to your favor), it will be influenced by purchasing add-space, distributing flyers and organizing events.
-* Image/optics. This determines if your party's image is in good shape or not. Currently, only one event can tarnish your image: organizing a protest in front of the Federal Parliament.
+* Image/optics. This determines if your party's image is in good shape or not. It is a modifier to the votes you get. This means that if you have 1.1 optics, it will add 1.1x the amount of votes you would normally get.
 
 ## Developper journal
 ### From 25.06 to 25.07 (about 25 hours)
