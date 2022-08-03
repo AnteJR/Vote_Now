@@ -896,3 +896,5 @@ loadSpriteAtlas("Images/Failure.png", {
 loadSprite("ui_top", "Images/UI.png");
 loadSprite("ui_bottom", "Images/UI_2.png");
 loadSprite("ui_end", "Images/Background_end.png");
+loadSprite("continue", "Images/Continue.png");
+loadSprite("to_menu", "Images/To_menu.png");
