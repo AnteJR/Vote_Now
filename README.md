@@ -1,8 +1,6 @@
 # Vote now!
 This is a game created in the context of a university programming class called "2D Video Games", supervised by Isaac Pante at the University of Lausanne. In this course, we learned to use Kaboom.JS, which I am using for this project.
 
-I own all of the visual and audio assets except for the font.
-
 Vote Now! is a minimal strategy game. The premise of the game is that you play as a political party aiming to pass or stop a bill from being inacted in Switzerland by propagandizing to influence voters' opinions. The game plays kind of like Reigns, as in you have a choice of 2 actions at a time that you can pick from. The game will work using 3 main variables.
 
 * Money. This determines if you can buy campaign materials. It can be earned by asking for donations from voters or sponsors.
@@ -29,3 +27,6 @@ Game UI is now done. Game operationnal and functionnal from basic testing. Bette
 * Complete end screen (all is functional, it just needs to have texts depending on the scenario played depending on if it's a victory/failure)
 * Music and sounds
 * Better code optimization and modularity
+
+________________________
+I own all of the visual and audio assets except for the fonts [Old Newspaper Types](https://www.dafont.com/oldnewspapertypes.font) and [Kitchen Sink](https://polyducks.itch.io/kitchen-sink-textmode-font), both of which are free to use with attribution.
