@@ -24,7 +24,6 @@ Basic game system and scenario mechanics is done. The game is technically operat
 Game UI is now done. Game operationnal and functionnal from basic testing. Better sprite management. More scenarios based on research; use of certain means of propaganda simply were not possible and/or common at the time (for example before 1922 the Swiss Radio stations did not exist). Canvas is now centered. Still needs:
 
 * A start screen and a menu
-* Complete end screen (all is functional, it just needs to have texts depending on the scenario played depending on if it's a victory/failure)
 * Music and sounds
 * Better code optimization and modularity
 

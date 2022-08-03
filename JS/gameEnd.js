@@ -12,7 +12,7 @@ function endScreen(scenarioPlayed, votesTotal) {
         pos(width() / 2, (height() / 2) - 10),
         text("", {
             size: 4,
-            width: 100,
+            width: 110,
             font: "sinko",
         }),
         "text_end"
@@ -62,8 +62,8 @@ function endScreen(scenarioPlayed, votesTotal) {
         victoryFailure.destroy();
         skipTxt.destroy();
 
-        if (isWin) endTxt.text = scenarios[scenarioPlayed][15];
-        else endTxt.text = scenarios[scenarioPlayed][16];
+        if (isWin) endTxt.text = scenarios[scenarioPlayed][15] + "\n \nYour score was: " + votesTotal + "%! Congrats!";
+        else endTxt.text = scenarios[scenarioPlayed][16] + "\n \nYour score was: " + votesTotal + "%! Better luck next time!";
         let btnToMenu = add([
             scale(0.5),
             pos(41, 80),
