@@ -856,4 +856,5 @@ loadSpriteAtlas("Images/Title.png", {
 });
 
 loadSprite("ui_top", "Images/UI.png");
-loadSprite("ui_bottom", "Images/UI_2.png")
+loadSprite("ui_bottom", "Images/UI_2.png");
+loadSprite("ui_end", "Images/Background_end.png");
