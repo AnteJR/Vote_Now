@@ -14,7 +14,8 @@ let moneyCount;
 let opticsCount;
 let daysUntilVote; // counters for the games' stats
 let UI;
-let UI_bottom; // basic UI
+let UI_bottom;
+let voteDate; // basic UI
 
 let eventNames = [
     "train",
@@ -51,12 +52,14 @@ let scores = [
 //scenarios stock les scénarios et les scènes correspondantes pour leur déroulement
 //scenarios contient : 0/name, 1/tour1, 2/tour2 ... 10/tour10, 11/votes_initial, 12/money_initial, 13/optics_initial, 14/date
 let scenarios = [
-    ["Achat_chemins_fer", [6, 4], [3, 1], [0, 6], [2, 1], [3, 4], [1, 6], [2, 3], [3, 0], [6, 4], [1, 0], 30, 2000, 0.75, "20th February 1898"],
-    ["AVS", [6, 3], [3, 4], [1, 3], [4, 1], [2, 6], [7, 1], [1, 4], [0, 6], [4, 3], [1, 7], 30, 2000, 0.95, "6th December 1925"],
-    ["suffrage_feminin", [1, 6], [4, 3], [5, 7], [1, 4], [2, 5], [3, 7], [0, 4], [7, 1], [5, 3], [6, 0], 40, 1000, 0.8, "7th February 1972"]
+    ["Achat_chemins_fer", [6, 4], [3, 1], [0, 6], [2, 1], [3, 4], [1, 6], [2, 3], [3, 0], [6, 4], [1, 0], 30, 2000, 0.75, "20th February 1898"], // 0
+    ["AVS", [6, 3], [3, 4], [1, 3], [4, 1], [2, 6], [7, 1], [1, 4], [0, 6], [4, 3], [1, 7], 30, 1500, 0.95, "6th December 1925"], // 1
+    ["Initiative_crise", [2, 3], [1, 4], [1, 2], [4, 3], [2, 6], [7, 0], [5, 2], [5, 0], [1, 4], [0, 5], 20, 500, 0.75, "2nd June 1935"], // 2
+    ["Romanche_langue_nat", [4, 3], [1, 6], [1, 0], [3, 6], [4, 7], [7, 2], [0, 1], [3, 6], [7, 1], [1, 3], 35, 1500, 0.95, "20th February 1938"], // 3
+    ["suffrage_feminin", [1, 6], [4, 3], [5, 7], [1, 4], [2, 5], [3, 7], [0, 4], [7, 1], [5, 3], [6, 0], 35, 1000, 0.8, "7th February 1972"] // 4
 ];
 
-function testGame(top, bottom) {
+function testGame(top, bottom, scene, turn) {
     if (elemTop && elemBottom) {
         elemTop.destroy();
         elemBottom.destroy();
@@ -64,26 +67,24 @@ function testGame(top, bottom) {
 
     elemTop = add([
         pos(0, 7),
-        sprite("event_" + eventNames[top] + "_" + spriteModifier[parseInt(rand(0, 5))], { anim: "animated_BG" }),
+        sprite("event_" + eventNames[top] + "_" + spriteModifier[parseInt(rand(0, 6))], { anim: "animated_BG" }),
         area(),
         eventNames[top]
     ]);
 
-    console.log(eventNames[top] + "_" + spriteModifier[parseInt(rand(0, 5))])
-
     elemBottom = add([
         pos(0, 49),
-        sprite("event_" + eventNames[bottom] + "_" + spriteModifier[parseInt(rand(0, 5))], { anim: "animated_BG" }),
+        sprite("event_" + eventNames[bottom] + "_" + spriteModifier[parseInt(rand(0, 6))], { anim: "animated_BG" }),
         area(),
         eventNames[top]
     ]);
 
     elemTop.onClick(() => {
-        checkClick(top);
+        checkClick(top, scene, turn);
     });
 
     elemBottom.onClick(() => {
-        checkClick(bottom);
+        checkClick(bottom, scene, turn);
     });
 
     elemTop.onHover(() => {
@@ -95,7 +96,7 @@ function testGame(top, bottom) {
     });
 }
 
-function checkClick(nbr) {
+function checkClick(nbr, scn, currentTurn) {
     if (moneyCount.value < scores[nbr][2] && scores[nbr][4] == false) { //if you can't afford it
         alert("nope");
     }
@@ -116,10 +117,19 @@ function checkClick(nbr) {
         moneyCount.text = "Money:" + moneyCount.value + ".-";
         opticsCount.text = "Optics:" + opticsCount.value;
 
-        tour++; //increment and relaunch the gameFunction
-        daysUntilVote.text = (11 - tour) + " days left";
-        if (tour <= 10) testGame(scenarios[scenar][tour][0], scenarios[scenar][tour][1]);
+        currentTurn++; //increment and relaunch the gameFunction
+        daysUntilVote.text = (11 - currentTurn) + " days left";
+        if (currentTurn <= 10) testGame(scenarios[scn][currentTurn][0], scenarios[scn][currentTurn][1], scn, currentTurn);
+        else endScreen(scn);
     }
+}
+
+function endScreen(scenarioPlayed) {
+    // destroy everything
+    
+    // add end screen UI
+    // add end screen text based on the scenario played
+    // add button to go back to the main menu
 }
 
 function checkHover(x, isTop) {
@@ -191,7 +201,7 @@ function gameSetup(scenario, initial_tour, initial_votes, initial_money, initial
     moneyCount.text = "Money:" + moneyCount.value + ".-";
     opticsCount.text = "Optics:" + opticsCount.value;
 
-    const voteDate = add([
+    voteDate = add([
         pos(1, 92),
         text("Vote day: " + dayOfVoting, {
             size: 4,
@@ -209,7 +219,7 @@ function gameSetup(scenario, initial_tour, initial_votes, initial_money, initial
         }),
     ]);
 
-    testGame(scenarios[scenario][initial_tour][0], scenarios[scenario][initial_tour][1]);
+    testGame(scenarios[scenario][initial_tour][0], scenarios[scenario][initial_tour][1], scenario, initial_tour);
 }
 
 gameSetup(scenar, tour, scenarios[scenar][11], scenarios[scenar][12], scenarios[scenar][13], scenarios[scenar][14]);

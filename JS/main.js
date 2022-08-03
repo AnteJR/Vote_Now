@@ -503,8 +503,8 @@ loadSpriteAtlas("Images/Train_sheet_day.png", {
             "idle": 0
         }
     }, "event_train_day_rain": {
-        "x": 0,
-        "y": 1488,
+        "x": 1488,
+        "y": 0,
         "width": 1488,
         "height": 504,
         "sliceX": 12,
