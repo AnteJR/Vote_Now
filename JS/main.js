@@ -3,7 +3,7 @@
 /* Kaboom function */
 kaboom({
     width: 124,
-    height: 91,
+    height: 98,
     clearColor: [0, 0, 0],
     scale: 7,
     font: "sink"
@@ -847,4 +847,5 @@ loadSpriteAtlas("Images/Title.png", {
     }
 });
 
-loadSprite("ui_top", "Images/UI.png")
+loadSprite("ui_top", "Images/UI.png");
+loadSprite("ui_bottom", "Images/UI_2.png")

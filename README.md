@@ -10,7 +10,7 @@ Vote Now! is a minimal strategy game. The premise of the game is that you play a
 * Image/optics. This determines if your party's image is in good shape or not. Currently, only one event can tarnish your image: organizing a protest in front of the Federal Parliament.
 
 ## Developper journal
-### From 25.06 to 25.07 (about 20 hours)
+### From 25.06 to 25.07 (about 25 hours)
 Most of this period has been dedicated to create most of the graphical elements using Aseprite to draw and GIMP to format the tilemaps. All is not done yet, as I want to have a menu, as well as a visual presentation/overlay to make the game feel like a whole. Plans have also been made to vary the elements' lighting to add variety, though this will come a later stage if I have time. Basic tiling and mapping of the textures as animations has been done, and basic placement of the visual for prototyping has developped.
 
 ### 02.08 (about 7 hours)
