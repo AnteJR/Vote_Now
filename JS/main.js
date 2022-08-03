@@ -3,10 +3,9 @@
 /* Kaboom function */
 kaboom({
     width: 124,
-    height: 84,
+    height: 91,
     clearColor: [0, 0, 0],
-    scale: 8,
-    pos: (10, 10),
+    scale: 7,
     font: "sink"
 });
 
@@ -167,7 +166,7 @@ loadSpriteAtlas("Images/Marche_sheet.png", {
             },
             "idle": 0
         }
-    }, "event_marche_dawn_nice": {
+    }, "event_marche_dusk_nice": {
         "x": 0,
         "y": 168,
         "width": 1488,
@@ -490,9 +489,10 @@ loadSpriteAtlas("Images/Train_sheet.png", {
     "event_train_day_nice": {
         "x": 0,
         "y": 0,
-        "width": 17732,
-        "height": 42,
-        "sliceX": 143,
+        "width": 1488,
+        "height": 504,
+        "sliceX": 12,
+        "sliceY": 12,
         "anims": {
             "animated_BG": {
                 "from": 0,
@@ -504,10 +504,11 @@ loadSpriteAtlas("Images/Train_sheet.png", {
         }
     }, "event_train_day_rain": {
         "x": 0,
-        "y": 42,
-        "width": 17732,
-        "height": 42,
-        "sliceX": 143,
+        "y": 1488,
+        "width": 1488,
+        "height": 504,
+        "sliceX": 12,
+        "sliceY": 12,
         "anims": {
             "animated_BG": {
                 "from": 0,
@@ -519,10 +520,11 @@ loadSpriteAtlas("Images/Train_sheet.png", {
         }
     }, "event_train_dawn_nice": {
         "x": 0,
-        "y": 84,
-        "width": 17732,
-        "height": 42,
-        "sliceX": 143,
+        "y": 504,
+        "width": 1488,
+        "height": 504,
+        "sliceX": 12,
+        "sliceY": 12,
         "anims": {
             "animated_BG": {
                 "from": 0,
@@ -533,11 +535,12 @@ loadSpriteAtlas("Images/Train_sheet.png", {
             "idle": 0
         }
     }, "event_train_dawn_rain": {
-        "x": 0,
-        "y": 126,
-        "width": 17732,
-        "height": 42,
-        "sliceX": 143,
+        "x": 1488,
+        "y": 504,
+        "width": 1488,
+        "height": 504,
+        "sliceX": 12,
+        "sliceY": 12,
         "anims": {
             "animated_BG": {
                 "from": 0,
@@ -549,10 +552,11 @@ loadSpriteAtlas("Images/Train_sheet.png", {
         }
     }, "event_train_dusk_nice": {
         "x": 0,
-        "y": 168,
-        "width": 17732,
-        "height": 42,
-        "sliceX": 143,
+        "y": 1008,
+        "width": 1488,
+        "height": 504,
+        "sliceX": 12,
+        "sliceY": 12,
         "anims": {
             "animated_BG": {
                 "from": 0,
@@ -563,11 +567,12 @@ loadSpriteAtlas("Images/Train_sheet.png", {
             "idle": 0
         }
     }, "event_train_dusk_rain": {
-        "x": 0,
-        "y": 210,
-        "width": 17732,
-        "height": 42,
-        "sliceX": 143,
+        "x": 1488,
+        "y": 1008,
+        "width": 1488,
+        "height": 504,
+        "sliceX": 12,
+        "sliceY": 12,
         "anims": {
             "animated_BG": {
                 "from": 0,
@@ -776,91 +781,51 @@ loadSpriteAtlas("Images/Effects_Sheet.png", {
         "x": 0,
         "y": 0,
         "width": 124,
-        "height": 42,
-        "sliceX": 1,
-        "sliceY": 1,
-        "anims": {
-            "idle": 0
-        }
+        "height": 42
     },
     "score_marche": {
         "x": 0,
         "y": 42,
         "width": 124,
-        "height": 42,
-        "sliceX": 1,
-        "sliceY": 1,
-        "anims": {
-            "idle": 0
-        }
+        "height": 42
     },
     "score_ag": {
         "x": 0,
         "y": 84,
         "width": 124,
-        "height": 42,
-        "sliceX": 1,
-        "sliceY": 1,
-        "anims": {
-            "idle": 0
-        }
+        "height": 42
     },
     "score_journal": {
         "x": 0,
         "y": 126,
         "width": 124,
-        "height": 42,
-        "sliceX": 1,
-        "sliceY": 1,
-        "anims": {
-            "idle": 0
-        }
+        "height": 42
     },
     "score_poste": {
         "x": 0,
         "y": 168,
         "width": 124,
-        "height": 42,
-        "sliceX": 1,
-        "sliceY": 1,
-        "anims": {
-            "idle": 0
-        }
+        "height": 42
     },
     "score_coupole": {
         "x": 0,
         "y": 210,
         "width": 124,
         "height": 42,
-        "sliceX": 1,
-        "sliceY": 1,
-        "anims": {
-            "idle": 0
-        }
     },
     "score_affiche": {
         "x": 0,
         "y": 252,
         "width": 124,
         "height": 42,
-        "sliceX": 1,
-        "sliceY": 1,
-        "anims": {
-            "idle": 0
-        }
     },
     "score_radio": {
         "x": 0,
         "y": 294,
         "width": 124,
-        "height": 42,
-        "sliceX": 1,
-        "sliceY": 1,
-        "anims": {
-            "idle": 0
-        }
+        "height": 42
     },
-})
+});
 
 loadSpriteAtlas("Images/Title.png", {
     "title": {
@@ -881,3 +846,5 @@ loadSpriteAtlas("Images/Title.png", {
         }
     }
 });
+
+loadSprite("ui_top", "Images/UI.png")
