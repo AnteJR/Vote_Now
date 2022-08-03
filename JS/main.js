@@ -855,6 +855,44 @@ loadSpriteAtlas("Images/Title.png", {
     }
 });
 
+loadSpriteAtlas("Images/Victory.png", {
+    "victory": {
+        "x": 0,
+        "y": 0,
+        "width": 1476,
+        "height": 37,
+        "sliceX": 12,
+        "anims": {
+            "animated_BG": {
+                "from": 0,
+                "to": 11,
+                "speed": 10,
+                "loop": true
+            },
+            "idle": 0
+        }
+    }
+});
+
+loadSpriteAtlas("Images/Failure.png", {
+    "failure": {
+        "x": 0,
+        "y": 0,
+        "width": 1488,
+        "height": 31,
+        "sliceX": 12,
+        "anims": {
+            "animated_BG": {
+                "from": 0,
+                "to": 11,
+                "speed": 10,
+                "loop": true
+            },
+            "idle": 0
+        }
+    }
+});
+
 loadSprite("ui_top", "Images/UI.png");
 loadSprite("ui_bottom", "Images/UI_2.png");
 loadSprite("ui_end", "Images/Background_end.png");
