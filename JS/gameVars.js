@@ -33,14 +33,14 @@ let spriteModifier = [                  // sprite modifiers; ie. variations to p
 ];
 
 let scores = [                                  // what each event does to the game stats. The structure is as follows:
-    ["score_train", 7, 750, 2, false, 0],           // 0. name
+    ["score_train", 7, 700, 2, false, 0],           // 0. name
     ["score_marche", 3, 300, 1, false, 1],          // 1. vote
     ["score_ag", 0, 1000, 0, true, 2],              // 2. money
     ["score_journal", 2, 250, 0, false, 3],         // 3. optics
     ["score_poste", 1, 250, 1, true, 4],            // 4. isGain (boolean)
     ["score_coupole", 10, 500, -10, false, 5],      // 5. id
     ["score_affiche", 5, 200, 0, false, 6],
-    ["score_radio", 3, 250, 1, false, 7]
+    ["score_radio", 3, 250, 2, false, 7]
 ];//scenarios stock les scénarios et les scènes correspondantes pour leur déroulement
 //scenarios contient : 0/name, 1/tour1, 2/tour2 ... 10/tour10, 11/votes_initial, 12/money_initial, 13/optics_initial, 14/date, 15/txt_victoire, 16/txt_défaite
 
@@ -124,7 +124,7 @@ let scenarios = [                                        // scenarios stores all
         "Popular initiative against the military service (1989)",
         [6, 2], [5, 7], [1, 3], [7, 4], [2, 6],
         [5, 7], [1, 2], [5, 0], [3, 6], [5, 1],
-        20, 500, 0.5,
+        20, 500, 0.7,
         "26th November 1989",
         "The bill passed! That's quite the achievement. In reality, the vote failed with only 35.6% of ballots in favor of the revocation of mandatory military service for men. It is a sticking tradition of which the Swiss people are proud of, and which rarely, if even changes. But it changed. And from now on men won't be required to serve in the military!",
         "Unsurprisingly, the bill failed. The Swiss people are too proud to the army to vote against it. Though there would be plenty of reasons why a mandatory military service would be frowned upon, it is not the case in Switzerland, at least for most of the population. The initiative failed, as it did in real life."

@@ -1,6 +1,8 @@
 /* Main JS file for the game */
 
 function testGame(top, bottom, scene, turn) {       /* Function that places the main game elements to interact with */
+    destroyAll("greySquare");                           // delete the grey squares if they exist
+
     if (elemTop && elemBottom) {                        // if some game element exist, delete them
         elemTop.destroy();
         elemBottom.destroy();
@@ -12,7 +14,8 @@ function testGame(top, bottom, scene, turn) {       /* Function that places the 
         sprite("event_" + eventNames[top] + "_" + spriteModifier[parseInt(rand(0, 6))], { anim: "animated_BG" }),
         area(),
         eventNames[top],
-        "event"
+        "event",
+        "event_top"
     ]);
 
     elemBottom = add([                                  // add the bottom element
@@ -21,15 +24,18 @@ function testGame(top, bottom, scene, turn) {       /* Function that places the 
         sprite("event_" + eventNames[bottom] + "_" + spriteModifier[parseInt(rand(0, 6))], { anim: "animated_BG" }),
         area(),
         eventNames[top],
-        "event"
+        "event",
+        "event_bottom"
     ]);
 
-    elemTop.onClick(() => {                             // onClicks and onHover to call functions
-        checkClick(top, scene, turn);
+    elemTop.onClick(() => {                             // onClicks and onHover to call functions (if the play can afford both option)
+        if ((moneyCount.value < scores[top][2] && scores[top][4] == false) && (moneyCount.value < scores[bottom][2] && scores[bottom][4] == false)) endScreen(scene, votesCount.value);
+        else checkClick(top, true, scene, turn);
     });
 
     elemBottom.onClick(() => {
-        checkClick(bottom, scene, turn);
+        if ((moneyCount.value < scores[top][2] && scores[top][4] == false) && (moneyCount.value < scores[bottom][2] && scores[bottom][4] == false)) endScreen(scene, votesCount.value);
+        else checkClick(bottom, false, scene, turn);
     });
 
     elemTop.onHover(() => {
@@ -41,26 +47,59 @@ function testGame(top, bottom, scene, turn) {       /* Function that places the 
     });
 }
 
-function checkClick(nbr, scn, currentTurn) {                                                                /* function for the onClick */
-    if (moneyCount.value < scores[nbr][2] && scores[nbr][4] == false) {                                         // if the player can't affort the event
-        alert("nope"); // needs a better way to signify it is impossible
+function checkClick(nbr, isTop, scn, currentTurn) {                             /* function for the onClick */
+    if (moneyCount.value < scores[nbr][2] && scores[nbr][4] == false) {             // if the player can't affort the event
+        if (isTop) {                                                                    // if the clicked event is on top
+            destroyAll("greySquare");                                                       // destroy all greySquare (this prevents stacking)
+
+            const greySquareTop = add([                                                     // add a grey square on top of the event clicked
+                rect(width(), 294),
+                pos(0, 49),
+                outline(4),
+                color(1, 1, 1),
+                area(),
+                opacity(0.5),
+                "greySquare"
+            ]);
+
+            greySquareTop.onHover(() => {                                                   // prevent the stats from appearing onHover
+                destroyAll("score");
+            })
+        }
+        else {                                                                          // if the clicked event is at bottom
+            destroyAll("greySquare");                                                       // destroy all greySquare (this prevents stacking)
+
+            const greySquareBottom = add([                                                  // add a grey square on top of the event clicked
+                rect(width(), 294),
+                pos(0, 343),
+                outline(4),
+                color(1, 1, 1),
+                area(),
+                opacity(0.5),
+                "greySquare"
+            ]);
+
+            greySquareBottom.onHover(() => {                                                // prevent the stats from appearing onHover
+                destroyAll("score");
+            })
+        }
     }
-    else {                                                                                                      // else
-        if (scores[nbr][4] == false) {                                                                              //if it is an event wherein you lose money
+    else {                                                                          // else
+        if (scores[nbr][4] == false) {                                                  //if it is an event wherein you lose money, lose money
             moneyCount.value = moneyCount.value - scores[nbr][2];
         }
-        else {                                                                                                      // else
+        else {                                                                          // else, gain money
             moneyCount.value = moneyCount.value + scores[nbr][2];
         }
 
         opticsCount.value = parseFloat((opticsCount.value + (scores[nbr][3] / 100)).toFixed(2));                //optics and votes changes
         votesCount.value = parseFloat((votesCount.value + (scores[nbr][1] * opticsCount.value)).toFixed(2));
 
-        votesCount.text = "Votes:" + votesCount.value + "%";                                                    //update texts
+        votesCount.text = "Votes:" + votesCount.value + "%";                                //update texts
         moneyCount.text = "Money:" + moneyCount.value + ".-";
         opticsCount.text = "Optics:" + opticsCount.value;
 
-        currentTurn++;                                                                                          //increment and relaunch the game function to start a new round
+        currentTurn++;                                                                      //increment and relaunch the game function to start a new round
         daysUntilVote.text = (11 - currentTurn) + " days left";
         if (currentTurn <= 10) testGame(scenarios[scn][currentTurn][0], scenarios[scn][currentTurn][1], scn, currentTurn);
         else endScreen(scn, votesCount.value);
