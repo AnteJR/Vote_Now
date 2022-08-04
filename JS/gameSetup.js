@@ -75,4 +75,4 @@ function gameSetup(scenario, initial_tour, initial_votes, initial_money, initial
     testGame(scenarios[scenario][initial_tour][0], scenarios[scenario][initial_tour][1], scenario, initial_tour);
 }
 
-gameSetup(scenar, tour, scenarios[scenar][11], scenarios[scenar][12], scenarios[scenar][13], scenarios[scenar][14]);
+//gameSetup(scenar, tour, scenarios[scenar][11], scenarios[scenar][12], scenarios[scenar][13], scenarios[scenar][14]);

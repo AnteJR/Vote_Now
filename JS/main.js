@@ -2,10 +2,9 @@
 
 /* Kaboom function */
 kaboom({
-    width: 124,
-    height: 98,
+    width: 868,
+    height: 686,
     clearColor: [0, 0, 0],
-    scale: 7,
     font: "sink"
 });
 
@@ -835,6 +834,25 @@ loadSpriteAtlas("Images/Effects_Sheet.png", {
     },
 });
 
+loadSpriteAtlas("Images/BG_Title.png", {
+    "BG_title": {
+        "x": 0,
+        "y": 0,
+        "width": 1488,
+        "height": 98,
+        "sliceX": 12,
+        "anims": {
+            "animated_BG": {
+                "from": 0,
+                "to": 11,
+                "loop": true
+            },
+            "idle": 0
+        }
+    }
+});
+
+// animated texts
 loadSpriteAtlas("Images/Title.png", {
     "title": {
         "x": 0,
@@ -893,8 +911,14 @@ loadSpriteAtlas("Images/Failure.png", {
     }
 });
 
+//UI and backgrounds
 loadSprite("ui_top", "Images/UI.png");
 loadSprite("ui_bottom", "Images/UI_2.png");
 loadSprite("ui_end", "Images/Background_end.png");
+
+//texts
 loadSprite("continue", "Images/Continue.png");
 loadSprite("to_menu", "Images/To_menu.png");
+loadSprite("play_now", "Images/Play_now.png");
+loadSprite("credits", "Images/Credits.png");
+loadSprite("back", "Images/Back.png");
