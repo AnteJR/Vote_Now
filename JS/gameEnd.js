@@ -1,6 +1,9 @@
 /* Function for the game's end to work */
 
 function endScreen(scenarioPlayed, votesTotal) {        /* Function to display the end screen with all the needed parameters */
+    music_game.pause();
+    music_menu.play();
+
     const endBG = add([                                     // add background image
         scale(7),
         pos(0, 0),

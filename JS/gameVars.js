@@ -11,6 +11,8 @@ let daysUntilVote;                          // counters for the games' stats
 let UI;                                     // basic UI
 let UI_bottom;
 let voteDate;
+let music_menu;
+let music_game;
 
 let eventNames = [                      // names of the events
     "train",

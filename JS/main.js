@@ -1,4 +1,4 @@
-/* MAIN.JS loads up Kaboom and sets the sprites to be used down the line*/
+/* MAIN.JS loads up Kaboom, the sounds, and sets the sprites to be used down the line*/
 
 kaboom({                                                /* Kaboom function */
     width: 868,
@@ -909,3 +909,6 @@ loadSprite("to_menu", "Images/To_menu.png");
 loadSprite("play_now", "Images/Play_now.png");
 loadSprite("credits", "Images/Credits.png");
 loadSprite("back", "Images/Back.png");
+
+loadSound("menu_music", "Audio/Menu music.mp3");        // Load sounds and musics
+loadSound("game_music", "Audio/game_song_complete.mp3");

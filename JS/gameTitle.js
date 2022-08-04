@@ -138,6 +138,10 @@ function findStartingLevel(lvlName) {       /* Function to launch the correct le
         if (e[0] == lvlName) scenarID = i;          // if the choice of the player corresponds to an entry in the Array, store the index
     });
 
+    music_menu.pause();                         // pause menu music
+    if(!music_game) playGameMusic();
+    else music_game.play();
+    
     gameSetup(                                  // calling the function gameSetup with the relevant information
         scenarID,
         startTurn,
@@ -148,4 +152,9 @@ function findStartingLevel(lvlName) {       /* Function to launch the correct le
     );
 }
 
-myTitleScreen();    // calling the title screen function to start the game
+function initFunction (){                   /* Function that is launched once at page load to launch the game the first time */
+    myTitleScreen();                            // calling the title screen function to start the game
+    playMenuMusic();
+}
+
+initFunction();    // calling the initial function to get things started
