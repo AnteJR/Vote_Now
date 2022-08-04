@@ -1,80 +1,89 @@
-function endScreen(scenarioPlayed, votesTotal) {
-    // add end screen UI
-    const endBG = add([
+/* Function for the game's end to work */
+
+function endScreen(scenarioPlayed, votesTotal) {        /* Function to display the end screen with all the needed parameters */
+    const endBG = add([                                     // add background image
+        scale(7),
         pos(0, 0),
         sprite("ui_end"),
-        area()
+        area(),
+        "end_BG"
     ]);
 
-    // add end screen text based on the scenario played
-    const endTxt = add([
-        origin("center"),
-        pos(width() / 2, (height() / 2) - 10),
-        text("", {
-            size: 4,
-            width: 110,
-            font: "sinko",
-        }),
-        "text_end"
-    ]);
-
-    let victoryFailure;
-    let isWin = false;
-
-    if (votesTotal > 50) isWin = true;
-
-    //display the correct animation
-    if (isWin) {
-        victoryFailure = add([
-            pos(width() / 2, (height() / 2) - 7),
-            origin("center"),
-            sprite("victory", { anim: "animated_BG" })
-        ]);
-    }
-    else {
-        victoryFailure = add([
-            pos(width() / 2, (height() / 2) - 10),
-            origin("center"),
-            sprite("failure", { anim: "animated_BG" })
-        ]);
-    }
-
-    // destroy everything
-    destroyAll("event");
+    destroyAll("event");                                    // destroy everything
     destroyAll("texts_game");
     destroyAll("UI");
     endBG.onHover(() => {
         destroyAll("score");
     });
 
-    // text to skip
-    const skipTxt = add([
-        scale(0.5),
-        pos(38, 75),
+    const endTxt = add([                                    // add end screen text based on the scenario played
+        origin("center"),                                   // currently empty; will be filled in once the player pressed continue
+        pos(width() / 2, (height() / 2) - 70),
+        text("", {
+            size: 26,
+            width: 800,
+            font: "sinko",
+        }),
+        "text_end"
+    ]);
+
+    let victoryFailure;                                     // useful variabless
+    let isWin = false;
+
+    if (votesTotal > 50) isWin = true;                      // if the player has more than 50% votes, it's a victory
+
+    if (isWin) {                                            // if the player won
+        victoryFailure = add([                                  // display the "Victory!" animation
+            scale(7),
+            pos(width() / 2, (height() / 2) - 49),
+            origin("center"),
+            sprite("victory", { anim: "animated_BG" })
+        ]);
+    }
+    else {                                                  // if the player lost
+        victoryFailure = add([                                  // display the "Failure!" animation
+            scale(7),
+            pos(width() / 2, (height() / 2) - 70),
+            origin("center"),
+            sprite("failure", { anim: "animated_BG" })
+        ]);
+    }
+
+    const skipTxt = add([                                   // button "continue"
+        scale(4),
+        origin("center"),
+        pos(width() / 2, (height() / 2) + 100),
         sprite("continue"),
         area(),
         "continue",
         "text_end"
     ]);
 
-    skipTxt.onClick(() => {
-        console.log("clicked")
-        victoryFailure.destroy();
+    skipTxt.onClick(() => {                                 // onClick for the "continue" button
+        victoryFailure.destroy();                           // destroy the other texts and the "continue" button
         skipTxt.destroy();
 
-        if (isWin) endTxt.text = scenarios[scenarioPlayed][15] + "\n \nYour score was: " + votesTotal + "%! Congrats!";
-        else endTxt.text = scenarios[scenarioPlayed][16] + "\n \nYour score was: " + votesTotal + "%! Better luck next time!";
-        let btnToMenu = add([
-            scale(0.5),
-            pos(41, 80),
+        if (isWin) {                                        // if the player won, show the correct text
+            endTxt.text = scenarios[scenarioPlayed][15] + "\n\nYour score was: " + votesTotal + "%! Congrats!";
+        }
+        else {                                              // if the player did not win, show the correct text
+            endTxt.text = scenarios[scenarioPlayed][16] + "\n\nYour score was: " + votesTotal + "%! Better luck next time!";
+        }
+
+        let btnToMenu = add([                               // add a button to go to the main menu
+            scale(4),
+            origin("center"),
+            pos(width() / 2, (height() / 2) + 250),
             sprite("to_menu"),
-            area()
+            area(),
+            "text_end"
         ]);
-        btnToMenu.onClick(() => {
-            alert("go to menu here !") //go to menu once it's done
+
+        btnToMenu.onClick(() => {                           // onClick the menu button
+            destroyAll("text_end");
+            destroyAll("end_BG");
+
+            myTitleScreen();                                // go to menu
         })
     });
-
-    // add button to go back to the main menu
-
 }

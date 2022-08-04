@@ -1,16 +1,14 @@
-/* MAIN.JS loads up Kaboom and sets the SpriteAtlas to be user down the line*/
+/* MAIN.JS loads up Kaboom and sets the sprites to be used down the line*/
 
-/* Kaboom function */
-kaboom({
+kaboom({                                                /* Kaboom function */
     width: 868,
     height: 686,
     clearColor: [0, 0, 0],
     font: "sink"
 });
 
-//sprite Atlas pour les affiches
-loadSpriteAtlas("Images/Affiches_mur_sheet.png", {
-    "event_affiche_day_nice": {
+loadSpriteAtlas("Images/Affiches_mur_sheet.png", {      // Sprit Atlas for the flyers on the street walls
+    "event_affiche_day_nice": {                             // option #1: "day_nice"
         "x": 0,
         "y": 0,
         "width": 1612,
@@ -25,7 +23,7 @@ loadSpriteAtlas("Images/Affiches_mur_sheet.png", {
             },
             "idle": 0
         }
-    }, "event_affiche_day_rain": {
+    }, "event_affiche_day_rain": {                          // option #2: "day_rain"
         "x": 0,
         "y": 42,
         "width": 1612,
@@ -40,7 +38,7 @@ loadSpriteAtlas("Images/Affiches_mur_sheet.png", {
             },
             "idle": 0
         }
-    }, "event_affiche_dawn_nice": {
+    }, "event_affiche_dawn_nice": {                          // option #3: "dawn_nice"
         "x": 0,
         "y": 84,
         "width": 1612,
@@ -55,7 +53,7 @@ loadSpriteAtlas("Images/Affiches_mur_sheet.png", {
             },
             "idle": 0
         }
-    }, "event_affiche_dawn_rain": {
+    }, "event_affiche_dawn_rain": {                          // option #4: "dawn_rain"
         "x": 0,
         "y": 126,
         "width": 1612,
@@ -70,7 +68,7 @@ loadSpriteAtlas("Images/Affiches_mur_sheet.png", {
             },
             "idle": 0
         }
-    }, "event_affiche_dusk_nice": {
+    }, "event_affiche_dusk_nice": {                         // option #5: "dusk_nice"
         "x": 0,
         "y": 168,
         "width": 1612,
@@ -85,7 +83,7 @@ loadSpriteAtlas("Images/Affiches_mur_sheet.png", {
             },
             "idle": 0
         }
-    }, "event_affiche_dusk_rain": {
+    }, "event_affiche_dusk_rain": {                         // option #6: "dusk_rain"
         "x": 0,
         "y": 210,
         "width": 1612,
@@ -103,9 +101,8 @@ loadSpriteAtlas("Images/Affiches_mur_sheet.png", {
     },
 });
 
-//sprite Atlas pour les marchés
-loadSpriteAtlas("Images/Marche_sheet.png", {
-    "event_marche_day_nice": {
+loadSpriteAtlas("Images/Marche_sheet.png", {            // Sprite Atlas for the markets
+    "event_marche_day_nice": {                              // option #1: "day_nice"
         "x": 0,
         "y": 0,
         "width": 1488,
@@ -120,7 +117,7 @@ loadSpriteAtlas("Images/Marche_sheet.png", {
             },
             "idle": 0
         }
-    }, "event_marche_day_rain": {
+    }, "event_marche_day_rain": {                           // option #2: "day_rain"
         "x": 0,
         "y": 42,
         "width": 1488,
@@ -135,7 +132,7 @@ loadSpriteAtlas("Images/Marche_sheet.png", {
             },
             "idle": 0
         }
-    }, "event_marche_dawn_nice": {
+    }, "event_marche_dawn_nice": {                            // option #3: "dawn_nice"
         "x": 0,
         "y": 84,
         "width": 1488,
@@ -150,7 +147,7 @@ loadSpriteAtlas("Images/Marche_sheet.png", {
             },
             "idle": 0
         }
-    }, "event_marche_dawn_rain": {
+    }, "event_marche_dawn_rain": {                            // option #4: "dawn_rain"
         "x": 0,
         "y": 126,
         "width": 1488,
@@ -165,7 +162,7 @@ loadSpriteAtlas("Images/Marche_sheet.png", {
             },
             "idle": 0
         }
-    }, "event_marche_dusk_nice": {
+    }, "event_marche_dusk_nice": {                            // option #5: "dusk_nice"
         "x": 0,
         "y": 168,
         "width": 1488,
@@ -180,7 +177,7 @@ loadSpriteAtlas("Images/Marche_sheet.png", {
             },
             "idle": 0
         }
-    }, "event_marche_dusk_rain": {
+    }, "event_marche_dusk_rain": {                            // option #6: "dusk_rain"
         "x": 0,
         "y": 210,
         "width": 1488,
@@ -198,9 +195,8 @@ loadSpriteAtlas("Images/Marche_sheet.png", {
     },
 });
 
-//sprite Atlas pour les manifestations
-loadSpriteAtlas("Images/Coupole_sheet.png", {
-    "event_coupole_day_nice": {
+loadSpriteAtlas("Images/Coupole_sheet.png", {           // Sprite Atlas for protests
+    "event_coupole_day_nice": {                             // option #1: "day_nice"
         "x": 0,
         "y": 0,
         "width": 992,
@@ -215,7 +211,7 @@ loadSpriteAtlas("Images/Coupole_sheet.png", {
             },
             "idle": 0
         }
-    }, "event_coupole_day_rain": {
+    }, "event_coupole_day_rain": {                          // option #2: "day_rain"
         "x": 0,
         "y": 42,
         "width": 992,
@@ -230,7 +226,7 @@ loadSpriteAtlas("Images/Coupole_sheet.png", {
             },
             "idle": 0
         }
-    }, "event_coupole_dawn_nice": {
+    }, "event_coupole_dawn_nice": {                           // option #3: "dawn_nice"
         "x": 0,
         "y": 84,
         "width": 992,
@@ -245,7 +241,7 @@ loadSpriteAtlas("Images/Coupole_sheet.png", {
             },
             "idle": 0
         }
-    }, "event_coupole_dawn_rain": {
+    }, "event_coupole_dawn_rain": {                           // option #4: "dawn_rain"
         "x": 0,
         "y": 126,
         "width": 992,
@@ -260,7 +256,7 @@ loadSpriteAtlas("Images/Coupole_sheet.png", {
             },
             "idle": 0
         }
-    }, "event_coupole_dusk_nice": {
+    }, "event_coupole_dusk_nice": {                           // option #5: "dusk_nice"
         "x": 0,
         "y": 168,
         "width": 992,
@@ -275,7 +271,7 @@ loadSpriteAtlas("Images/Coupole_sheet.png", {
             },
             "idle": 0
         }
-    }, "event_coupole_dusk_rain": {
+    }, "event_coupole_dusk_rain": {                           // option #6: "dusk_rain"
         "x": 0,
         "y": 210,
         "width": 992,
@@ -293,9 +289,8 @@ loadSpriteAtlas("Images/Coupole_sheet.png", {
     },
 });
 
-//sprite Atlas Poste
-loadSpriteAtlas("Images/Poste_sheet.png", {
-    "event_poste_day_nice": {
+loadSpriteAtlas("Images/Poste_sheet.png", {         // Sprite Atlas for the post office
+    "event_poste_day_nice": {                           // option #1: "day_nice"
         "x": 0,
         "y": 0,
         "width": 1488,
@@ -310,7 +305,7 @@ loadSpriteAtlas("Images/Poste_sheet.png", {
             },
             "idle": 0
         }
-    }, "event_poste_day_rain": {
+    }, "event_poste_day_rain": {                        // option #2: "day_rain"
         "x": 0,
         "y": 42,
         "width": 1488,
@@ -325,7 +320,7 @@ loadSpriteAtlas("Images/Poste_sheet.png", {
             },
             "idle": 0
         }
-    }, "event_poste_dawn_nice": {
+    }, "event_poste_dawn_nice": {                         // option #3: "dawn_nice"
         "x": 0,
         "y": 84,
         "width": 1488,
@@ -340,7 +335,7 @@ loadSpriteAtlas("Images/Poste_sheet.png", {
             },
             "idle": 0
         }
-    }, "event_poste_dawn_rain": {
+    }, "event_poste_dawn_rain": {                         // option #4: "dawn_rain"
         "x": 0,
         "y": 126,
         "width": 1488,
@@ -355,7 +350,7 @@ loadSpriteAtlas("Images/Poste_sheet.png", {
             },
             "idle": 0
         }
-    }, "event_poste_dusk_nice": {
+    }, "event_poste_dusk_nice": {                         // option #5: "dusk_nice"
         "x": 0,
         "y": 168,
         "width": 1488,
@@ -370,7 +365,7 @@ loadSpriteAtlas("Images/Poste_sheet.png", {
             },
             "idle": 0
         }
-    }, "event_poste_dusk_rain": {
+    }, "event_poste_dusk_rain": {                         // option #6: "dusk_rain"
         "x": 0,
         "y": 210,
         "width": 1488,
@@ -388,9 +383,8 @@ loadSpriteAtlas("Images/Poste_sheet.png", {
     },
 });
 
-//sprite Atlas journal
-loadSpriteAtlas("Images/Journal_sheet.png", {
-    "event_journal_day_nice": {
+loadSpriteAtlas("Images/Journal_sheet.png", {           // Sprite Atlas for the journal
+    "event_journal_day_nice": {                             // option #1: "day_nice"
         "x": 0,
         "y": 0,
         "width": 1488,
@@ -405,7 +399,7 @@ loadSpriteAtlas("Images/Journal_sheet.png", {
             },
             "idle": 0
         }
-    }, "event_journal_day_rain": {
+    }, "event_journal_day_rain": {                          // option #2: "day_rain"
         "x": 0,
         "y": 42,
         "width": 1488,
@@ -420,7 +414,7 @@ loadSpriteAtlas("Images/Journal_sheet.png", {
             },
             "idle": 0
         }
-    }, "event_journal_dawn_nice": {
+    }, "event_journal_dawn_nice": {                           // option #3: "dawn_nice"
         "x": 0,
         "y": 84,
         "width": 1488,
@@ -435,7 +429,7 @@ loadSpriteAtlas("Images/Journal_sheet.png", {
             },
             "idle": 0
         }
-    }, "event_journal_dawn_rain": {
+    }, "event_journal_dawn_rain": {                           // option #4: "dawn_rain"
         "x": 0,
         "y": 126,
         "width": 1488,
@@ -450,7 +444,7 @@ loadSpriteAtlas("Images/Journal_sheet.png", {
             },
             "idle": 0
         }
-    }, "event_journal_dusk_nice": {
+    }, "event_journal_dusk_nice": {                           // option #5: "dusk_nice"
         "x": 0,
         "y": 168,
         "width": 1488,
@@ -465,7 +459,7 @@ loadSpriteAtlas("Images/Journal_sheet.png", {
             },
             "idle": 0
         }
-    }, "event_journal_dusk_rain": {
+    }, "event_journal_dusk_rain": {                           // option #6: "dusk_rain"
         "x": 0,
         "y": 210,
         "width": 1488,
@@ -483,9 +477,8 @@ loadSpriteAtlas("Images/Journal_sheet.png", {
     },
 });
 
-//sprite Atlas train
-loadSpriteAtlas("Images/Train_sheet_day.png", {
-    "event_train_day_nice": {
+loadSpriteAtlas("Images/Train_sheet_day.png", {         // Sprite Atlas #1 for the train
+    "event_train_day_nice": {                               // option #1: "day_nice"
         "x": 0,
         "y": 0,
         "width": 1488,
@@ -501,7 +494,7 @@ loadSpriteAtlas("Images/Train_sheet_day.png", {
             },
             "idle": 0
         }
-    }, "event_train_day_rain": {
+    }, "event_train_day_rain": {                            // option #2: "day_rain"
         "x": 1488,
         "y": 0,
         "width": 1488,
@@ -520,8 +513,8 @@ loadSpriteAtlas("Images/Train_sheet_day.png", {
     }
 });
 
-loadSpriteAtlas("Images/Train_sheet_dawn.png", {
-    "event_train_dawn_nice": {
+loadSpriteAtlas("Images/Train_sheet_dawn.png", {        // Sprite Atlas #2 for the train
+    "event_train_dawn_nice": {                              // option #3: "dawn_nice"
         "x": 0,
         "y": 0,
         "width": 1488,
@@ -537,7 +530,7 @@ loadSpriteAtlas("Images/Train_sheet_dawn.png", {
             },
             "idle": 0
         }
-    }, "event_train_dawn_rain": {
+    }, "event_train_dawn_rain": {                           // option #4: "dawn_rain"
         "x": 1488,
         "y": 0,
         "width": 1488,
@@ -556,8 +549,8 @@ loadSpriteAtlas("Images/Train_sheet_dawn.png", {
     }
 });
 
-loadSpriteAtlas("Images/Train_sheet_dusk.png", {
-    "event_train_dusk_nice": {
+loadSpriteAtlas("Images/Train_sheet_dusk.png", {        // Sprite Atlas #3 for the train
+    "event_train_dusk_nice": {                              // option #5: "dusk_nice"
         "x": 0,
         "y": 0,
         "width": 1488,
@@ -573,7 +566,7 @@ loadSpriteAtlas("Images/Train_sheet_dusk.png", {
             },
             "idle": 0
         }
-    }, "event_train_dusk_rain": {
+    }, "event_train_dusk_rain": {                           // option #6: "dusk_rain"
         "x": 1488,
         "y": 0,
         "width": 1488,
@@ -592,9 +585,8 @@ loadSpriteAtlas("Images/Train_sheet_dusk.png", {
     }
 });
 
-//sprite Atlas radio
-loadSpriteAtlas("Images/Radio_sheet.png", {
-    "event_radio_day_nice": {
+loadSpriteAtlas("Images/Radio_sheet.png", {     // Sprite Atlas for the radio
+    "event_radio_day_nice": {                       // option #1: "day_nice"
         "x": 0,
         "y": 0,
         "width": 1612,
@@ -609,7 +601,7 @@ loadSpriteAtlas("Images/Radio_sheet.png", {
             },
             "idle": 0
         }
-    }, "event_radio_day_rain": {
+    }, "event_radio_day_rain": {                    // option #2: "day_rain"
         "x": 0,
         "y": 42,
         "width": 1612,
@@ -624,7 +616,7 @@ loadSpriteAtlas("Images/Radio_sheet.png", {
             },
             "idle": 0
         }
-    }, "event_radio_dawn_nice": {
+    }, "event_radio_dawn_nice": {                   // option #3: "dawn_nice"
         "x": 0,
         "y": 84,
         "width": 1612,
@@ -639,7 +631,7 @@ loadSpriteAtlas("Images/Radio_sheet.png", {
             },
             "idle": 0
         }
-    }, "event_radio_dawn_rain": {
+    }, "event_radio_dawn_rain": {                   // option #4: "dawn_rain"
         "x": 0,
         "y": 126,
         "width": 1612,
@@ -654,7 +646,7 @@ loadSpriteAtlas("Images/Radio_sheet.png", {
             },
             "idle": 0
         }
-    }, "event_radio_dusk_nice": {
+    }, "event_radio_dusk_nice": {                   // option #5: "dusk_nice"
         "x": 0,
         "y": 168,
         "width": 1612,
@@ -669,7 +661,7 @@ loadSpriteAtlas("Images/Radio_sheet.png", {
             },
             "idle": 0
         }
-    }, "event_radio_dusk_rain": {
+    }, "event_radio_dusk_rain": {                   // option #6: "dusk_rain"
         "x": 0,
         "y": 210,
         "width": 1612,
@@ -687,9 +679,8 @@ loadSpriteAtlas("Images/Radio_sheet.png", {
     },
 });
 
-//sprite Atlas AG
-loadSpriteAtlas("Images/AG_sheet.png", {
-    "event_ag_day_nice": {
+loadSpriteAtlas("Images/AG_sheet.png", {    // Sprite Atlas for sponsoring
+    "event_ag_day_nice": {                      // option #1: "day_nice"
         "x": 0,
         "y": 0,
         "width": 1488,
@@ -704,7 +695,7 @@ loadSpriteAtlas("Images/AG_sheet.png", {
             },
             "idle": 0
         }
-    }, "event_ag_day_rain": {
+    }, "event_ag_day_rain": {                   // option #2: "day_rain"
         "x": 0,
         "y": 42,
         "width": 1488,
@@ -719,7 +710,7 @@ loadSpriteAtlas("Images/AG_sheet.png", {
             },
             "idle": 0
         }
-    }, "event_ag_dawn_nice": {
+    }, "event_ag_dawn_nice": {                  // option #3: "dawn_nice"
         "x": 0,
         "y": 84,
         "width": 1488,
@@ -734,7 +725,7 @@ loadSpriteAtlas("Images/AG_sheet.png", {
             },
             "idle": 0
         }
-    }, "event_ag_dawn_rain": {
+    }, "event_ag_dawn_rain": {                  // option #4: "dawn_rain"
         "x": 0,
         "y": 126,
         "width": 1488,
@@ -749,7 +740,7 @@ loadSpriteAtlas("Images/AG_sheet.png", {
             },
             "idle": 0
         }
-    }, "event_ag_dusk_nice": {
+    }, "event_ag_dusk_nice": {                  // option #5: "dusk_nice"
         "x": 0,
         "y": 168,
         "width": 1488,
@@ -764,7 +755,7 @@ loadSpriteAtlas("Images/AG_sheet.png", {
             },
             "idle": 0
         }
-    }, "event_ag_dusk_rain": {
+    }, "event_ag_dusk_rain": {                  // option #6: "dusk_rain"
         "x": 0,
         "y": 210,
         "width": 1488,
@@ -782,59 +773,58 @@ loadSpriteAtlas("Images/AG_sheet.png", {
     },
 });
 
-//sprite Atlas Effects
-loadSpriteAtlas("Images/Effects_Sheet.png", {
-    "score_train": {
+loadSpriteAtlas("Images/Effects_Sheet.png", {       // Sprite Atlas for the events' effects
+    "score_train": {                                    // effect for the train
         "x": 0,
         "y": 0,
-        "width": 124,
-        "height": 42
+        "width": 434,
+        "height": 147
     },
-    "score_marche": {
+    "score_marche": {                                   // effect for the market
         "x": 0,
-        "y": 42,
-        "width": 124,
-        "height": 42
+        "y": 147,
+        "width": 434,
+        "height": 147
     },
-    "score_ag": {
+    "score_ag": {                                       // effect for the fundraising
         "x": 0,
-        "y": 84,
-        "width": 124,
-        "height": 42
+        "y": 147*2,
+        "width": 434,
+        "height": 147
     },
-    "score_journal": {
+    "score_journal": {                                  // effect for the journal
         "x": 0,
-        "y": 126,
-        "width": 124,
-        "height": 42
+        "y": 147*3,
+        "width": 434,
+        "height": 147
     },
-    "score_poste": {
+    "score_poste": {                                    // effect for the post office
         "x": 0,
-        "y": 168,
-        "width": 124,
-        "height": 42
+        "y": 147*4,
+        "width": 434,
+        "height": 147
     },
-    "score_coupole": {
+    "score_coupole": {                                  // effect for the protest
         "x": 0,
-        "y": 210,
-        "width": 124,
-        "height": 42,
+        "y": 147*5,
+        "width": 434,
+        "height": 147
     },
-    "score_affiche": {
+    "score_affiche": {                                  // effect for the flyers
         "x": 0,
-        "y": 252,
-        "width": 124,
-        "height": 42,
+        "y": 147*6,
+        "width": 434,
+        "height": 147
     },
-    "score_radio": {
+    "score_radio": {                                    // effect for the radio
         "x": 0,
-        "y": 294,
-        "width": 124,
-        "height": 42
+        "y": 147*7,
+        "width": 434,
+        "height": 147
     },
 });
 
-loadSpriteAtlas("Images/BG_Title.png", {
+loadSpriteAtlas("Images/BG_Title.png", {    // Sprite Atlas for the main menu's background
     "BG_title": {
         "x": 0,
         "y": 0,
@@ -851,9 +841,8 @@ loadSpriteAtlas("Images/BG_Title.png", {
         }
     }
 });
-
-// animated texts
-loadSpriteAtlas("Images/Title.png", {
+                                            // Sprite Atlas' for the animated texts
+loadSpriteAtlas("Images/Title.png", {           // Animated title
     "title": {
         "x": 0,
         "y": 0,
@@ -873,7 +862,7 @@ loadSpriteAtlas("Images/Title.png", {
     }
 });
 
-loadSpriteAtlas("Images/Victory.png", {
+loadSpriteAtlas("Images/Victory.png", {         // Animated Victory text
     "victory": {
         "x": 0,
         "y": 0,
@@ -892,7 +881,7 @@ loadSpriteAtlas("Images/Victory.png", {
     }
 });
 
-loadSpriteAtlas("Images/Failure.png", {
+loadSpriteAtlas("Images/Failure.png", {         // Animated Failure text
     "failure": {
         "x": 0,
         "y": 0,
@@ -911,13 +900,11 @@ loadSpriteAtlas("Images/Failure.png", {
     }
 });
 
-//UI and backgrounds
-loadSprite("ui_top", "Images/UI.png");
+loadSprite("ui_top", "Images/UI.png");                  // Sprites for the UI and backgrounds
 loadSprite("ui_bottom", "Images/UI_2.png");
 loadSprite("ui_end", "Images/Background_end.png");
 
-//texts
-loadSprite("continue", "Images/Continue.png");
+loadSprite("continue", "Images/Continue.png");          // Sprites for texts I use as buttons
 loadSprite("to_menu", "Images/To_menu.png");
 loadSprite("play_now", "Images/Play_now.png");
 loadSprite("credits", "Images/Credits.png");
