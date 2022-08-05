@@ -38,8 +38,8 @@ The main flow of the game is done: you start at a menu, select a level, and play
 * Finish the music and sounds
 * Have a better code optimization and modularity
 
-### 05.08 (about 5 hours)
-The code has been optimized to the best of my abilities, and the music/sounds have been fully implemented. As fas as I'm concerned, the project is finished.
+### 05.08 (about 3 hours)
+The code has been optimized to the best of my abilities, and the music/sounds have been fully implemented. As fas as I'm concerned, the project is finished. It has been uploaded on itch.io and is functionning there.
 
 ________________________
 I own all of the visual and audio assets except for the fonts [Old Newspaper Types](https://www.dafont.com/oldnewspapertypes.font) and [Kitchen Sink](https://polyducks.itch.io/kitchen-sink-textmode-font), both of which are free to use with attribution. All visuals were made using [Aseprite](https://www.aseprite.org/). All audio was made using [BeepBox](https://www.beepbox.co/).
