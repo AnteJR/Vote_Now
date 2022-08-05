@@ -18,8 +18,7 @@ function myTitleScreen() {                      /* Main function to display the 
 
     const creditsBtn = add([                        // adding a credits button
         scale(5),
-        origin("center"),
-        pos(width() / 2, 525),
+        pos(25, 425),
         sprite("credits"),
         area(),
         "title_page"
@@ -27,8 +26,7 @@ function myTitleScreen() {                      /* Main function to display the 
 
     const playBtn = add([                           // adding a play button
         scale(5),
-        origin("center"),
-        pos(width() / 2, 350),
+        pos(25, 300),
         sprite("play_now"),
         area(),
         "title_page"
@@ -37,11 +35,15 @@ function myTitleScreen() {                      /* Main function to display the 
     playBtn.onClick(() => {                         // onClick the play button
         destroyAll("title_page");                       // remove the title and buttons
 
+        play("on_click_1");                             // play onClick sound
+
         levelSelect();                                  // load level selection screen
     });
 
     creditsBtn.onClick(() => {                      // onClick the credits button
         destroyAll("title_page");                       // remove the title and buttons
+
+        play("on_click_1");                             // play onClick sound
 
         const creditsTitle = add([                      // add a title for the credits' text
             origin("center"),
@@ -77,6 +79,7 @@ function myTitleScreen() {                      /* Main function to display the 
         backBtnCredits.onClick(() => {                  // onClick the back button
             destroyAll("credits_page");                     // remove everything
             destroyAll("Title_BG");
+            play("on_click_2");                             // play onClick sound
 
             myTitleScreen();                                // reload the title screen
         });
@@ -103,9 +106,10 @@ function levelSelect() {                        /* Function to display the selec
             "lvl" + i
         ]);
 
-        dist += 50;                                     // increment the dist variable
+        dist += 50;                                     // increment the dist variable to set the distance between the texts
 
         onClick("lvl" + i, (x) => {                     // onClick each created text
+            play("on_click_1");                             // play onClick sound
             findStartingLevel(x.text);                      // launch a function to setup the game
         })
     }
@@ -122,6 +126,7 @@ function levelSelect() {                        /* Function to display the selec
     backBtnLvlSelect.onClick(() => {                // onClick the back button
         destroyAll("txt_lvl_select");                   // remove everything
         destroyAll("Title_BG");
+        play("on_click_2");                             // play onClick sound
 
         myTitleScreen();                                // reload the title screen
     });
@@ -139,20 +144,20 @@ function findStartingLevel(lvlName) {       /* Function to launch the correct le
     });
 
     music_menu.pause();                         // pause menu music
-    if(!music_game) playGameMusic();
+    if (!music_game) playGameMusic();
     else music_game.play();
-    
+
     gameSetup(                                  // calling the function gameSetup with the relevant information
         scenarID,
         startTurn,
         scenarios[scenarID][11],
-        scenarios[scenarID][12], 
+        scenarios[scenarID][12],
         scenarios[scenarID][13],
         scenarios[scenarID][14]
     );
 }
 
-function initFunction (){                   /* Function that is launched once at page load to launch the game the first time */
+function initFunction() {                   /* Function that is launched once at page load to launch the game the first time */
     myTitleScreen();                            // calling the title screen function to start the game
     playMenuMusic();
 }

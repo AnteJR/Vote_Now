@@ -28,7 +28,7 @@ function testGame(top, bottom, scene, turn) {       /* Function that places the 
         "event_bottom"
     ]);
 
-    elemTop.onClick(() => {                             // onClicks and onHover to call functions (if the play can afford both option)
+    elemTop.onClick(() => {                             // onClicks and onHover to call functions (if the play can play)
         if ((moneyCount.value < scores[top][2] && scores[top][4] == false) && (moneyCount.value < scores[bottom][2] && scores[bottom][4] == false)) endScreen(scene, votesCount.value);
         else checkClick(top, true, scene, turn);
     });
@@ -49,6 +49,7 @@ function testGame(top, bottom, scene, turn) {       /* Function that places the 
 
 function checkClick(nbr, isTop, scn, currentTurn) {                             /* function for the onClick */
     if (moneyCount.value < scores[nbr][2] && scores[nbr][4] == false) {             // if the player can't affort the event
+        play("on_click_4");                                                             // play onClick sound
         if (isTop) {                                                                    // if the clicked event is on top
             destroyAll("greySquare");                                                       // destroy all greySquare (this prevents stacking)
 
@@ -85,6 +86,7 @@ function checkClick(nbr, isTop, scn, currentTurn) {                             
         }
     }
     else {                                                                          // else
+        play("on_click_3");                                                             // play onClick sound
         if (scores[nbr][4] == false) {                                                  //if it is an event wherein you lose money, lose money
             moneyCount.value = moneyCount.value - scores[nbr][2];
         }

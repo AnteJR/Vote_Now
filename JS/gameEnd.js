@@ -63,6 +63,7 @@ function endScreen(scenarioPlayed, votesTotal) {        /* Function to display t
     ]);
 
     skipTxt.onClick(() => {                                 // onClick for the "continue" button
+        play("on_click_1");                                 // play onClick sound
         victoryFailure.destroy();                           // destroy the other texts and the "continue" button
         skipTxt.destroy();
 
@@ -85,6 +86,8 @@ function endScreen(scenarioPlayed, votesTotal) {        /* Function to display t
         btnToMenu.onClick(() => {                           // onClick the menu button
             destroyAll("text_end");
             destroyAll("end_BG");
+
+            play("on_click_2");                             // play onClick sound
 
             myTitleScreen();                                // go to menu
         })

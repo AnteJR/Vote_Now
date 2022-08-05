@@ -912,3 +912,8 @@ loadSprite("back", "Images/Back.png");
 
 loadSound("menu_music", "Audio/Menu music.mp3");        // Load sounds and musics
 loadSound("game_music", "Audio/game_song_complete.mp3");
+loadSound("on_hover", "Audio/Sound_onHover.mp3");
+loadSound("on_click_1", "Audio/Sound_onClick_1.mp3");
+loadSound("on_click_2", "Audio/Sound_onClick_2.mp3");
+loadSound("on_click_3", "Audio/on_Click_Sound_3.mp3");
+loadSound("on_click_4", "Audio/Sound_onClick_4.mp3");
