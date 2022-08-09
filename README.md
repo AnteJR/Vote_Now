@@ -13,3 +13,8 @@ The game is available on [itch.io](https://jrante.itch.io/vote-now)!
 ![Vote Now! Journal Event](README_Materials/Pub_Journal.gif)
 
 I own all of the visual and audio assets except for the fonts [Old Newspaper Types](https://www.dafont.com/oldnewspapertypes.font) and [Kitchen Sink](https://polyducks.itch.io/kitchen-sink-textmode-font), both of which are free to use with attribution. All visuals were made using [Aseprite](https://www.aseprite.org/). All audio was made using [BeepBox](https://www.beepbox.co/).
+
+## Credits
+Informations about voting results were found on the [chronological repertoire of votations of the Swiss Confederation](https://www.bk.admin.ch/ch/f/pore/va/vab_2_2_4_1.html?lang=fr).
+
+Some historical contexts for the endings were found using articles from the ___Gazette de Lausanne___ and the ___Journal de Genève___, available at the [Le Temps archives](https://www.letempsarchives.ch/), as well as the proposed law texts, that are available through each entry in the Confederation' repertoire.
