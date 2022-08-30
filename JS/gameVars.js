@@ -127,7 +127,7 @@ let scenarios = [                                        // scenarios stores all
         [4, 0], [1, 6], [7, 3], [2, 4], [7, 5],
         30, 1000, 0.85,
         "23.09.1990",
-        "The initiative passed! Following events such as Chernobyl, nuclear energy got an ever worsening reputation as an unsafe way to generate power. As such, this bill forcing the government to stop producing new nuclear centrals and start to transition its energy production is is a resounding victory for environmentalists. The bill did pass for real, garnering 54.5% of the votes.",
+        "The initiative passed! Following events such as Chernobyl, nuclear energy got an ever worsening reputation as an unsafe way to generate power. As such, this bill forcing the government to stop producing new nuclear centrals and start to transition its energy production is a resounding victory for environmentalists. The bill did pass for real, garnering 54.5% of the votes.",
         "Nuclear still has a prosperous life ahead! In reality the bill did not fail, but here, this means Switzerland can still create new centrals and keep its energy independance. Much to the detriment of fearmongerers about nuclear, the Swiss nuclear energy is safe and sound, for now."
     ]
 ];

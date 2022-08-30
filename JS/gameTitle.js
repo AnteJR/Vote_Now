@@ -29,7 +29,8 @@ scene("titleScreen", () => {
         layer("txt")
     ]).onClick(() => {
         play("on_click_1");
-        go("levelSelect");
+        //go("levelSelect");
+        go("introTxtGeneral");
     });
 
     add([
@@ -73,7 +74,7 @@ scene("levelSelect", () => {
             layer("txt"),
             "lvl" + i
         ])
-        
+
         onClick("lvl" + i, (x) => {
             play("on_click_1");
 
@@ -123,8 +124,8 @@ scene("creditsPage", () => {
         pos(0, 0),
         sprite("BG_title", { anim: "animated_BG" }),
         layer("bg")
-    ]); 
-    
+    ]);
+
     add([
         origin("center"),
         pos(width() / 2, 75),
@@ -166,3 +167,61 @@ function initFunction() {                   // Function that is launched once at
 }
 
 initFunction();    // calling the initial function to get things started
+
+scene("introTxtGeneral", () => {
+    layers([
+        "bg",
+        "txt",
+    ]);
+
+    add([
+        scale(7),
+        pos(0, 0),
+        sprite("BG_title", { anim: "animated_BG" }),
+        layer("bg")
+    ]);
+
+    add([
+        rect(width(), height()),
+        pos(0, 0),
+        color(1, 1, 1),
+        area(),
+        opacity(0.25),
+        layer("grey_squares"),
+        layer("bg")
+    ]);
+
+    add([
+        origin("center"),
+        pos(width() / 2, (height() / 2) - 75),
+        text("Vote Now! is a minimalist strategy game that plays kind of like Reigns, as in you have a choice of 2 actions that you can pick from at a time.\n\nYou will play as a non-specific, left-leaning political party aiming to pass bills in Switzerland by propagandizing to influence voters' opinions. You will have to manage your money, the opinions of the voter base on your campaign, and the votes you are predicted to get.", {
+            size: 30,
+            width: 800,
+            font: "sinko",
+        }),
+        layer("txt")
+    ]);
+
+    add([
+        scale(5),
+        origin("center"),
+        pos((width() / 40) * 27, height() - (height() / 7)),
+        sprite("play"),
+        area(),
+        layer("txt")
+    ]).onClick(() => {
+        go("levelSelect");
+    });
+
+    add([
+        scale(5),
+        origin("center"),
+        pos((width() / 30) * 9, height() - (height() / 7)),
+        sprite("back"),
+        area(),
+        layer("txt")
+    ]).onClick(() => {
+        play("on_click_2");
+        go("titleScreen");
+    });
+});

@@ -909,6 +909,7 @@ loadSprite("ui_end", "Background_end.png");
 loadSprite("continue", "Continue.png");          // Sprites for texts I use as buttons
 loadSprite("to_menu", "To_menu.png");
 loadSprite("play_now", "Play_now.png");
+loadSprite("play", "play_only.png");
 loadSprite("credits", "Credits.png");
 loadSprite("back", "Back.png");
 
