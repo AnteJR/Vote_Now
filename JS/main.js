@@ -7,7 +7,9 @@ kaboom({                                                /* Kaboom function */
     font: "sink"
 });
 
-loadSpriteAtlas("Images/Affiches_mur_sheet.png", {      // Sprit Atlas for the flyers on the street walls
+loadRoot("Images/")
+
+loadSpriteAtlas("Affiches_mur_sheet.png", {      // Sprit Atlas for the flyers on the street walls
     "event_affiche_day_nice": {                             // option #1: "day_nice"
         "x": 0,
         "y": 0,
@@ -101,7 +103,7 @@ loadSpriteAtlas("Images/Affiches_mur_sheet.png", {      // Sprit Atlas for the f
     },
 });
 
-loadSpriteAtlas("Images/Marche_sheet.png", {            // Sprite Atlas for the markets
+loadSpriteAtlas("Marche_sheet.png", {            // Sprite Atlas for the markets
     "event_marche_day_nice": {                              // option #1: "day_nice"
         "x": 0,
         "y": 0,
@@ -195,7 +197,7 @@ loadSpriteAtlas("Images/Marche_sheet.png", {            // Sprite Atlas for the 
     },
 });
 
-loadSpriteAtlas("Images/Coupole_sheet.png", {           // Sprite Atlas for protests
+loadSpriteAtlas("Coupole_sheet.png", {           // Sprite Atlas for protests
     "event_coupole_day_nice": {                             // option #1: "day_nice"
         "x": 0,
         "y": 0,
@@ -289,7 +291,7 @@ loadSpriteAtlas("Images/Coupole_sheet.png", {           // Sprite Atlas for prot
     },
 });
 
-loadSpriteAtlas("Images/Poste_sheet.png", {         // Sprite Atlas for the post office
+loadSpriteAtlas("Poste_sheet.png", {         // Sprite Atlas for the post office
     "event_poste_day_nice": {                           // option #1: "day_nice"
         "x": 0,
         "y": 0,
@@ -383,7 +385,7 @@ loadSpriteAtlas("Images/Poste_sheet.png", {         // Sprite Atlas for the post
     },
 });
 
-loadSpriteAtlas("Images/Journal_sheet.png", {           // Sprite Atlas for the journal
+loadSpriteAtlas("Journal_sheet.png", {           // Sprite Atlas for the journal
     "event_journal_day_nice": {                             // option #1: "day_nice"
         "x": 0,
         "y": 0,
@@ -477,7 +479,7 @@ loadSpriteAtlas("Images/Journal_sheet.png", {           // Sprite Atlas for the 
     },
 });
 
-loadSpriteAtlas("Images/Train_sheet_day.png", {         // Sprite Atlas #1 for the train
+loadSpriteAtlas("Train_sheet_day.png", {         // Sprite Atlas #1 for the train
     "event_train_day_nice": {                               // option #1: "day_nice"
         "x": 0,
         "y": 0,
@@ -513,7 +515,7 @@ loadSpriteAtlas("Images/Train_sheet_day.png", {         // Sprite Atlas #1 for t
     }
 });
 
-loadSpriteAtlas("Images/Train_sheet_dawn.png", {        // Sprite Atlas #2 for the train
+loadSpriteAtlas("Train_sheet_dawn.png", {        // Sprite Atlas #2 for the train
     "event_train_dawn_nice": {                              // option #3: "dawn_nice"
         "x": 0,
         "y": 0,
@@ -549,7 +551,7 @@ loadSpriteAtlas("Images/Train_sheet_dawn.png", {        // Sprite Atlas #2 for t
     }
 });
 
-loadSpriteAtlas("Images/Train_sheet_dusk.png", {        // Sprite Atlas #3 for the train
+loadSpriteAtlas("Train_sheet_dusk.png", {        // Sprite Atlas #3 for the train
     "event_train_dusk_nice": {                              // option #5: "dusk_nice"
         "x": 0,
         "y": 0,
@@ -585,7 +587,7 @@ loadSpriteAtlas("Images/Train_sheet_dusk.png", {        // Sprite Atlas #3 for t
     }
 });
 
-loadSpriteAtlas("Images/Radio_sheet.png", {     // Sprite Atlas for the radio
+loadSpriteAtlas("Radio_sheet.png", {     // Sprite Atlas for the radio
     "event_radio_day_nice": {                       // option #1: "day_nice"
         "x": 0,
         "y": 0,
@@ -679,7 +681,7 @@ loadSpriteAtlas("Images/Radio_sheet.png", {     // Sprite Atlas for the radio
     },
 });
 
-loadSpriteAtlas("Images/AG_sheet.png", {    // Sprite Atlas for sponsoring
+loadSpriteAtlas("AG_sheet.png", {    // Sprite Atlas for sponsoring
     "event_ag_day_nice": {                      // option #1: "day_nice"
         "x": 0,
         "y": 0,
@@ -773,7 +775,7 @@ loadSpriteAtlas("Images/AG_sheet.png", {    // Sprite Atlas for sponsoring
     },
 });
 
-loadSpriteAtlas("Images/Effects_Sheet.png", {       // Sprite Atlas for the events' effects
+loadSpriteAtlas("Effects_Sheet.png", {       // Sprite Atlas for the events' effects
     "score_train": {                                    // effect for the train
         "x": 0,
         "y": 0,
@@ -824,7 +826,7 @@ loadSpriteAtlas("Images/Effects_Sheet.png", {       // Sprite Atlas for the even
     },
 });
 
-loadSpriteAtlas("Images/BG_Title.png", {    // Sprite Atlas for the main menu's background
+loadSpriteAtlas("BG_Title.png", {    // Sprite Atlas for the main menu's background
     "BG_title": {
         "x": 0,
         "y": 0,
@@ -842,7 +844,7 @@ loadSpriteAtlas("Images/BG_Title.png", {    // Sprite Atlas for the main menu's 
     }
 });
                                             // Sprite Atlas' for the animated texts
-loadSpriteAtlas("Images/Title.png", {           // Animated title
+loadSpriteAtlas("Title.png", {           // Animated title
     "title": {
         "x": 0,
         "y": 0,
@@ -862,7 +864,7 @@ loadSpriteAtlas("Images/Title.png", {           // Animated title
     }
 });
 
-loadSpriteAtlas("Images/Victory.png", {         // Animated Victory text
+loadSpriteAtlas("Victory.png", {         // Animated Victory text
     "victory": {
         "x": 0,
         "y": 0,
@@ -881,7 +883,7 @@ loadSpriteAtlas("Images/Victory.png", {         // Animated Victory text
     }
 });
 
-loadSpriteAtlas("Images/Failure.png", {         // Animated Failure text
+loadSpriteAtlas("Failure.png", {         // Animated Failure text
     "failure": {
         "x": 0,
         "y": 0,
@@ -900,20 +902,21 @@ loadSpriteAtlas("Images/Failure.png", {         // Animated Failure text
     }
 });
 
-loadSprite("ui_top", "Images/UI.png");                  // Sprites for the UI and backgrounds
-loadSprite("ui_bottom", "Images/UI_2.png");
-loadSprite("ui_end", "Images/Background_end.png");
+loadSprite("ui_top", "UI.png");                  // Sprites for the UI and backgrounds
+loadSprite("ui_bottom", "UI_2.png");
+loadSprite("ui_end", "Background_end.png");
 
-loadSprite("continue", "Images/Continue.png");          // Sprites for texts I use as buttons
-loadSprite("to_menu", "Images/To_menu.png");
-loadSprite("play_now", "Images/Play_now.png");
-loadSprite("credits", "Images/Credits.png");
-loadSprite("back", "Images/Back.png");
+loadSprite("continue", "Continue.png");          // Sprites for texts I use as buttons
+loadSprite("to_menu", "To_menu.png");
+loadSprite("play_now", "Play_now.png");
+loadSprite("credits", "Credits.png");
+loadSprite("back", "Back.png");
 
-loadSound("menu_music", "Audio/Menu music.mp3");        // Load sounds and musics
-loadSound("game_music", "Audio/game_song_complete.mp3");
-loadSound("on_hover", "Audio/Sound_onHover.mp3");
-loadSound("on_click_1", "Audio/Sound_onClick_1.mp3");
-loadSound("on_click_2", "Audio/Sound_onClick_2.mp3");
-loadSound("on_click_3", "Audio/on_Click_Sound_3.mp3");
-loadSound("on_click_4", "Audio/Sound_onClick_4.mp3");
+loadRoot("Audio/")
+loadSound("menu_music", "Menu music.mp3");        // Load sounds and musics
+loadSound("game_music", "game_song_complete.mp3");
+loadSound("on_hover", "Sound_onHover.mp3");
+loadSound("on_click_1", "Sound_onClick_1.mp3");
+loadSound("on_click_2", "Sound_onClick_2.mp3");
+loadSound("on_click_3", "on_Click_Sound_3.mp3");
+loadSound("on_click_4", "Sound_onClick_4.mp3");
