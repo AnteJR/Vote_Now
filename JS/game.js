@@ -29,12 +29,14 @@ function testGame(top, bottom, scene, turn) {       /* Function that places the 
     ]);
 
     elemTop.onClick(() => {                             // onClicks and onHover to call functions (if the play can play)
-        if ((moneyCount.value < scores[top][2] && scores[top][4] == false) && (moneyCount.value < scores[bottom][2] && scores[bottom][4] == false)) endScreen(scene, votesCount.value);
+        if ((moneyCount.value < scores[top][2] && scores[top][4] == false) && (moneyCount.value < scores[bottom][2] && scores[bottom][4] == false) && votesCount.value < 50) go("victoryPage", ({ isWin: false, playedScene: scene, votes: votesCount.value }));
+        else if ((moneyCount.value < scores[top][2] && scores[top][4] == false) && (moneyCount.value < scores[bottom][2] && scores[bottom][4] == false) && votesCount.value > 50) go("victoryPage", ({ isWin: true, playedScene: scene, votes: votesCount.value }));
         else checkClick(top, true, scene, turn);
     });
 
     elemBottom.onClick(() => {
-        if ((moneyCount.value < scores[top][2] && scores[top][4] == false) && (moneyCount.value < scores[bottom][2] && scores[bottom][4] == false)) endScreen(scene, votesCount.value);
+        if ((moneyCount.value < scores[top][2] && scores[top][4] == false) && (moneyCount.value < scores[bottom][2] && scores[bottom][4] == false) && votesCount.value < 50) go("victoryPage", ({ isWin: false, playedScene: scene, votes: votesCount.value }));
+        else if ((moneyCount.value < scores[top][2] && scores[top][4] == false) && (moneyCount.value < scores[bottom][2] && scores[bottom][4] == false) && votesCount.value > 50) go("victoryPage", ({ isWin: true, playedScene: scene, votes: votesCount.value }));
         else checkClick(bottom, false, scene, turn);
     });
 
@@ -104,7 +106,10 @@ function checkClick(nbr, isTop, scn, currentTurn) {                             
         currentTurn++;                                                                      //increment and relaunch the game function to start a new round
         daysUntilVote.text = (11 - currentTurn) + " days left";
         if (currentTurn <= 10) testGame(scenarios[scn][currentTurn][0], scenarios[scn][currentTurn][1], scn, currentTurn);
-        else endScreen(scn, votesCount.value);
+        else {
+            if (votesCount.value > 50) go("victoryPage", ({ isWin: true, playedScene: scn, votes: votesCount.value }));
+            else go("victoryPage", ({ isWin: false, playedScene: scn, votes: votesCount.value }));
+        }
     }
 }
 
