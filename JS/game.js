@@ -1,139 +1,214 @@
-/* Main JS file for the game */
+/* Function to play the game */
 
-function testGame(top, bottom, scene, turn) {       /* Function that places the main game elements to interact with */
-    destroyAll("greySquare");                           // delete the grey squares if they exist
+scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics, dayOfVote }) => {
+    let topCanBeHovered = true,
+        bottomCanBeHovered = true;
 
-    if (elemTop && elemBottom) {                        // if some game element exist, delete them
-        elemTop.destroy();
-        elemBottom.destroy();
-    }
+    layers([
+        "ui",
+        "ui_txt",
+        "game_elements",
+        "hover_elements",
+        "grey_squares",
+    ]);
 
-    elemTop = add([                                     // add the top element
+    add([
+        scale(7),
+        pos(0, 0),
+        sprite("ui_top"),
+        area(),
+        layer("ui")
+    ]);
+
+    add([
+        scale(7),
+        pos(0, 637),
+        sprite("ui_bottom"),
+        area(),
+        layer("ui")
+    ]);
+
+    const votesCount = add([
+        pos(Math.floor(width() / 100), Math.floor(height() / 100)),
+        text("Votes:" + Math.round(((intialVotes) + Number.EPSILON) * 10) / 10 + "%", {
+            size: 30,
+            font: "sinko",
+        }),
+        { value: intialVotes },
+        layer("ui_txt")
+    ]);
+
+    const moneyCount = add([
+        pos(Math.floor(width() / 3), Math.floor(height() / 100)),
+        text("Money:" + initialMoney + ".-", {
+            size: 30,
+            font: "sinko",
+        }),
+        { value: initialMoney },
+        layer("ui_txt")
+    ]);
+
+    const opticsCount = add([
+        pos(Math.floor(width() / 120) * 85, Math.floor(height() / 100)),
+        text("Optics:" + initialOptics, {
+            size: 30,
+            font: "sinko",
+        }),
+        { value: initialOptics },
+        layer("ui_txt")
+    ]);
+
+    add([
+        pos(Math.floor(width() / 100), height() - Math.floor(height() / 17)),
+        text("Vote day: " + dayOfVote, {
+            size: 30,
+            font: "sinko",
+        }),
+        layer("ui_txt")
+    ]);
+
+    const daysUntilVote = add([
+        pos(Math.floor(width() / 120) * 77, height() - Math.floor(height() / 17)),
+        text((11 - startTurn) + " days left", {
+            size: 30,
+            font: "sinko",
+        }),
+        layer("ui_txt")
+    ]);
+
+    const top = scenarios[idScenario][startTurn][0];
+    const bottom = scenarios[idScenario][startTurn][1];
+
+    const elemTop = add([
         scale(7),
         pos(0, 49),
         sprite("event_" + eventNames[top] + "_" + spriteModifier[parseInt(rand(0, 6))], { anim: "animated_BG" }),
         area(),
+        layer("game_elements"),
         eventNames[top],
         "event",
         "event_top"
-    ]);
+    ])
 
-    elemBottom = add([                                  // add the bottom element
+    elemTop.onClick(() => {
+        if ((moneyCount.value < scores[top][2] && scores[top][4] == false) && (moneyCount.value < scores[bottom][2] && scores[bottom][4] == false) && votesCount.value < 50) go("victoryPage", ({ isWin: false, playedScene: idScenario, votes: votesCount.value }));
+        else if ((moneyCount.value < scores[top][2] && scores[top][4] == false) && (moneyCount.value < scores[bottom][2] && scores[bottom][4] == false) && votesCount.value > 50) go("victoryPage", ({ isWin: true, playedScene: idScenario, votes: votesCount.value }));
+        else checkClick(top, true, idScenario, startTurn);
+    });
+
+    elemTop.onHover(() => {
+        checkHover(top, true, startTurn);
+    });
+
+    const elemBottom = add([
         scale(7),
         pos(0, 343),
         sprite("event_" + eventNames[bottom] + "_" + spriteModifier[parseInt(rand(0, 6))], { anim: "animated_BG" }),
         area(),
+        layer("game_elements"),
         eventNames[top],
         "event",
         "event_bottom"
     ]);
 
-    elemTop.onClick(() => {                             // onClicks and onHover to call functions (if the play can play)
-        if ((moneyCount.value < scores[top][2] && scores[top][4] == false) && (moneyCount.value < scores[bottom][2] && scores[bottom][4] == false) && votesCount.value < 50) go("victoryPage", ({ isWin: false, playedScene: scene, votes: votesCount.value }));
-        else if ((moneyCount.value < scores[top][2] && scores[top][4] == false) && (moneyCount.value < scores[bottom][2] && scores[bottom][4] == false) && votesCount.value > 50) go("victoryPage", ({ isWin: true, playedScene: scene, votes: votesCount.value }));
-        else checkClick(top, true, scene, turn);
-    });
-
     elemBottom.onClick(() => {
-        if ((moneyCount.value < scores[top][2] && scores[top][4] == false) && (moneyCount.value < scores[bottom][2] && scores[bottom][4] == false) && votesCount.value < 50) go("victoryPage", ({ isWin: false, playedScene: scene, votes: votesCount.value }));
-        else if ((moneyCount.value < scores[top][2] && scores[top][4] == false) && (moneyCount.value < scores[bottom][2] && scores[bottom][4] == false) && votesCount.value > 50) go("victoryPage", ({ isWin: true, playedScene: scene, votes: votesCount.value }));
-        else checkClick(bottom, false, scene, turn);
-    });
-
-    elemTop.onHover(() => {
-        checkHover(top, true, turn);
+        if ((moneyCount.value < scores[top][2] && scores[top][4] == false) && (moneyCount.value < scores[bottom][2] && scores[bottom][4] == false) && votesCount.value < 50) go("victoryPage", ({ isWin: false, playedScene: idScenario, votes: votesCount.value }));
+        else if ((moneyCount.value < scores[top][2] && scores[top][4] == false) && (moneyCount.value < scores[bottom][2] && scores[bottom][4] == false) && votesCount.value > 50) go("victoryPage", ({ isWin: true, playedScene: idScenario, votes: votesCount.value }));
+        else checkClick(bottom, false, idScenario, startTurn);
     });
 
     elemBottom.onHover(() => {
-        checkHover(bottom, false, turn);
+        checkHover(bottom, false, startTurn);
     });
-}
 
-function checkClick(nbr, isTop, scn, currentTurn) {                             /* function for the onClick */
-    if (moneyCount.value < scores[nbr][2] && scores[nbr][4] == false) {             // if the player can't affort the event
-        play("on_click_4");                                                             // play onClick sound
-        if (isTop) {                                                                    // if the clicked event is on top
-            destroyAll("greySquare");                                                       // destroy all greySquare (this prevents stacking)
-
-            const greySquareTop = add([                                                     // add a grey square on top of the event clicked
-                rect(width(), 294),
-                pos(0, 49),
-                outline(4),
-                color(1, 1, 1),
-                area(),
-                opacity(0.5),
-                "greySquare"
-            ]);
-
-            greySquareTop.onHover(() => {                                                   // prevent the stats from appearing onHover
-                destroyAll("score");
-            })
+    function checkClick(nbr, isTop, scn, currentTurn) {
+        if (moneyCount.value < scores[nbr][2] && scores[nbr][4] == false) {
+            destroyAll("greySquare");
+            play("on_click_4");
+            if (isTop) {
+                add([
+                    rect(width(), 294),
+                    pos(0, 49),
+                    outline(4),
+                    color(1, 1, 1),
+                    area(),
+                    opacity(0.5),
+                    layer("grey_squares"),
+                    "greySquare"
+                ]).onHover(() => {
+                    topCanBeHovered = false;
+                })
+            }
+            else {
+                add([
+                    rect(width(), 294),
+                    pos(0, 343),
+                    outline(4),
+                    color(1, 1, 1),
+                    area(),
+                    opacity(0.5),
+                    layer("grey_squares"),
+                    "greySquare"
+                ]).onHover(() => {
+                    bottomCanBeHovered = false;
+                });
+            }
         }
-        else {                                                                          // if the clicked event is at bottom
-            destroyAll("greySquare");                                                       // destroy all greySquare (this prevents stacking)
-
-            const greySquareBottom = add([                                                  // add a grey square on top of the event clicked
-                rect(width(), 294),
-                pos(0, 343),
-                outline(4),
-                color(1, 1, 1),
-                area(),
-                opacity(0.5),
-                "greySquare"
-            ]);
-
-            greySquareBottom.onHover(() => {                                                // prevent the stats from appearing onHover
-                destroyAll("score");
-            })
-        }
-    }
-    else {                                                                          // else
-        play("on_click_3");                                                             // play onClick sound
-        if (scores[nbr][4] == false) {                                                  //if it is an event wherein you lose money, lose money
-            moneyCount.value = moneyCount.value - scores[nbr][2];
-        }
-        else {                                                                          // else, gain money
-            moneyCount.value = moneyCount.value + scores[nbr][2];
-        }
-
-        opticsCount.value = parseFloat((opticsCount.value + (scores[nbr][3] / 100)).toFixed(2));                //optics and votes changes
-        votesCount.value = parseFloat((votesCount.value + (scores[nbr][1] * opticsCount.value)).toFixed(2));
-
-        votesCount.text = "Votes:" + votesCount.value + "%";                                //update texts
-        moneyCount.text = "Money:" + moneyCount.value + ".-";
-        opticsCount.text = "Optics:" + opticsCount.value;
-
-        currentTurn++;                                                                      //increment and relaunch the game function to start a new round
-        daysUntilVote.text = (11 - currentTurn) + " days left";
-        if (currentTurn <= 10) testGame(scenarios[scn][currentTurn][0], scenarios[scn][currentTurn][1], scn, currentTurn);
         else {
-            if (votesCount.value > 50) go("victoryPage", ({ isWin: true, playedScene: scn, votes: votesCount.value }));
-            else go("victoryPage", ({ isWin: false, playedScene: scn, votes: votesCount.value }));
-        }
-    }
-}
+            play("on_click_3");
+            if (scores[nbr][4] == false) {
+                moneyCount.value = moneyCount.value - scores[nbr][2];
+            }
+            else {
+                moneyCount.value = moneyCount.value + scores[nbr][2];
+            }
 
-function checkHover(x, isTop, currentTurn) {                /* function for the onHover */
-    if (elemTopStats) elemTopStats.destroy();                   // if stats already exist, delete them
-    if (elemBottomStats) elemBottomStats.destroy();
-    if (currentTurn <= 10) {                                    // if the turn count is between 1-10
-        if (isTop) {                                                // add the stats for the top element
-            elemTopStats = add([
-                scale(2),
-                pos(0, 49),
-                sprite("score_" + eventNames[x]),
-                area(),
-                "score"
-            ]);
-        }
-        else {                                                      // add the stats for the bottom element
-            elemBottomStats = add([
-                scale(2),
-                pos(0, 343),
-                sprite("score_" + eventNames[x]),
-                area(),
-                "score"
-            ]);
+            votesCount.value = parseFloat((votesCount.value + (scores[nbr][1] * opticsCount.value)).toFixed(2));
+            opticsCount.value = parseFloat((opticsCount.value + (scores[nbr][3] / 100)).toFixed(2));
+
+            currentTurn++;
+
+            if (currentTurn <= 10) {
+                go("game", ({
+                    idScenario: idScenario,
+                    startTurn: currentTurn,
+                    intialVotes: votesCount.value,
+                    initialMoney: moneyCount.value,
+                    initialOptics: opticsCount.value,
+                    dayOfVote: dayOfVote
+                }));
+            }
+            else {
+                if (votesCount.value > 50) go("victoryPage", ({ isWin: true, playedScene: scn, votes: votesCount.value }));
+                else go("victoryPage", ({ isWin: false, playedScene: scn, votes: votesCount.value }));
+            }
         }
     }
-}
+
+    function checkHover(x, isTop, currentTurn) {
+        if (elemTopStats) elemTopStats.destroy();
+        if (elemBottomStats) elemBottomStats.destroy();
+        if (currentTurn <= 10) {
+            if (isTop && topCanBeHovered) {
+                elemTopStats = add([
+                    scale(2),
+                    pos(0, 49),
+                    sprite("score_" + eventNames[x]),
+                    area(),
+                    layer("hover_elements"),
+                    "score"
+                ]);
+            }
+            else if (!isTop && bottomCanBeHovered) {
+                elemBottomStats = add([
+                    scale(2),
+                    pos(0, 343),
+                    sprite("score_" + eventNames[x]),
+                    area(),
+                    layer("hover_elements"),
+                    "score"
+                ]);
+            }
+        }
+    }
+});

@@ -37,7 +37,7 @@ scene("victoryPage", ({ isWin, playedScene, votes }) => {
 
     skipTxt.onClick(() => {
         play("on_click_1");
-        go("endExplaination", ({ isVictory: isWin, sceneTxtToShow: playedScene, votesTotal: votesCount.value }));
+        go("endExplaination", ({ isVictory: isWin, sceneTxtToShow: playedScene, votesTotal: votes }));
     })
 });
 
