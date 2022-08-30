@@ -87,6 +87,7 @@ scene("introTxtGeneral", () => {
         area(),
         layer("txt")
     ]).onClick(() => {
+        play("on_click_1");
         go("levelSelect");
     });
 
@@ -143,14 +144,7 @@ scene("levelSelect", () => {
             scenarios.forEach((e, i) => {
                 if (e[0] == x.text) {
                     scenarID = i;
-                    go("game", ({
-                        idScenario: scenarID,
-                        startTurn: 1,
-                        intialVotes: scenarios[scenarID][11],
-                        initialMoney: scenarios[scenarID][12],
-                        initialOptics: scenarios[scenarID][13],
-                        dayOfVote: scenarios[scenarID][14]
-                    }));
+                    go("introTxtScenario", ({ idVote: scenarID }));
                 }
             });
         });
@@ -218,6 +212,72 @@ scene("creditsPage", () => {
         go("titleScreen");
     });
 });
+
+scene("introTxtScenario", ({ idVote }) => {
+    layers([
+        "bg",
+        "txt",
+    ]);
+
+    add([
+        scale(7),
+        pos(0, 0),
+        sprite("BG_title", { anim: "animated_BG" }),
+        layer("bg")
+    ]);
+
+    add([
+        rect(width(), height()),
+        pos(0, 0),
+        color(1, 1, 1),
+        area(),
+        opacity(0.25),
+        layer("grey_squares"),
+        layer("bg")
+    ]);
+
+    add([
+        origin("center"),
+        pos(width() / 2, (height() / 2) - 75),
+        text(scenarios[idVote][17], {
+            size: 30,
+            width: 800,
+            font: "sinko",
+        }),
+        layer("txt")
+    ]);
+
+    add([
+        scale(5),
+        origin("center"),
+        pos((width() / 40) * 27, height() - (height() / 7)),
+        sprite("play"),
+        area(),
+        layer("txt")
+    ]).onClick(() => {
+        play("on_click_1");
+        go("game", ({
+            idScenario: idVote,
+            startTurn: 1,
+            intialVotes: scenarios[idVote][11],
+            initialMoney: scenarios[idVote][12],
+            initialOptics: scenarios[idVote][13],
+            dayOfVote: scenarios[idVote][14]
+        }));
+    });
+
+    add([
+        scale(5),
+        origin("center"),
+        pos((width() / 30) * 9, height() - (height() / 7)),
+        sprite("back"),
+        area(),
+        layer("txt")
+    ]).onClick(() => {
+        play("on_click_2");
+        go("levelSelect");
+    });
+})
 
 function initFunction() {
     playMenuMusic();
