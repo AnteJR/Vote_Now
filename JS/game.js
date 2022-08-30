@@ -92,7 +92,7 @@ scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics
 
     elemTop.onClick(() => {
         if ((moneyCount.value < scores[top][2] && scores[top][4] == false) && (moneyCount.value < scores[bottom][2] && scores[bottom][4] == false) && votesCount.value < 50) go("victoryPage", ({ isWin: false, playedScene: idScenario, votes: votesCount.value }));
-        else if ((moneyCount.value < scores[top][2] && scores[top][4] == false) && (moneyCount.value < scores[bottom][2] && scores[bottom][4] == false) && votesCount.value > 50) go("victoryPage", ({ isWin: true, playedScene: idScenario, votes: votesCount.value }));
+        else if ((moneyCount.value < scores[top][2] && scores[top][4] == false) && (moneyCount.value < scores[bottom][2] && scores[bottom][4] == false) && votesCount.value >= 50) go("victoryPage", ({ isWin: true, playedScene: idScenario, votes: votesCount.value }));
         else checkClick(top, true, idScenario, startTurn);
     });
 
@@ -113,7 +113,7 @@ scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics
 
     elemBottom.onClick(() => {
         if ((moneyCount.value < scores[top][2] && scores[top][4] == false) && (moneyCount.value < scores[bottom][2] && scores[bottom][4] == false) && votesCount.value < 50) go("victoryPage", ({ isWin: false, playedScene: idScenario, votes: votesCount.value }));
-        else if ((moneyCount.value < scores[top][2] && scores[top][4] == false) && (moneyCount.value < scores[bottom][2] && scores[bottom][4] == false) && votesCount.value > 50) go("victoryPage", ({ isWin: true, playedScene: idScenario, votes: votesCount.value }));
+        else if ((moneyCount.value < scores[top][2] && scores[top][4] == false) && (moneyCount.value < scores[bottom][2] && scores[bottom][4] == false) && votesCount.value >= 50) go("victoryPage", ({ isWin: true, playedScene: idScenario, votes: votesCount.value }));
         else checkClick(bottom, false, idScenario, startTurn);
     });
 
@@ -179,7 +179,7 @@ scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics
                 }));
             }
             else {
-                if (votesCount.value > 50) go("victoryPage", ({ isWin: true, playedScene: scn, votes: votesCount.value }));
+                if (votesCount.value >= 50) go("victoryPage", ({ isWin: true, playedScene: scn, votes: votesCount.value }));
                 else go("victoryPage", ({ isWin: false, playedScene: scn, votes: votesCount.value }));
             }
         }

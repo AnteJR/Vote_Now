@@ -53,7 +53,7 @@ let scenarios = [                                        // scenarios stores all
         "Sickness and accident insurance bill (1912)",
         [4, 3], [6, 1], [2, 0], [0, 3], [4, 5],
         [1, 3], [6, 4], [3, 2], [0, 4], [5, 3], 
-        20, 1500, 0.7, 
+        25, 1500, 0.7, 
         "04.02.1912", 
         "The bill passed! The campaign was tough: parties from the right were vehemently against it, and campaigned under classist slogans decrying spending public money to help poorer people. This is barely the case with this law, but it lays the foundation for the current insurance system, put in place in 1994! In 1912, the bill passed with 54.4% of all the votes.",
         "The bill failed; the opposing parties were more aggressive than you. The insurance won't be available to anyone except the richer portion of the population. Even if it passed, it still wouldn't have been perfect; the current insurance law was passed only in 1994! It would have been good to have a foundation to build better laws on, but that will be for another vote, though insurances always are difficult to pass in Switzerland."
@@ -71,7 +71,7 @@ let scenarios = [                                        // scenarios stores all
         "Popular initiative to help relieve the economic crisis of 1929 (1935)",
         [2, 3], [1, 4], [1, 0], [4, 3], [2, 6],
         [7, 0], [5, 2], [5, 0], [1, 4], [0, 5],
-        20, 500, 0.7,
+        20, 500, 0.73,
         "02.06.1935",
         "The bill passed... somehow? The opposing campaign used ruthless tactics, some experts even call this the Swiss redscare, since the initiative's far-left defendant were portrayed as communists! But it passed, and will probably help relieve the Swiss population from the economic crash of 1929, which still affected Switzerland in 1935. In reality, it failed, garnering only 42.8% of the votes.",
         "The bill is rejected, despite your best efforts. Don't be too sadened: it didn't pass either in our reality. The opposing centre and right parties used redscare tactics to portray the proponants of the initiative as dangerous communist, and it worked. The economic crisis of the 1930s will thus hit the poorer populations most, as always, but they will survive."
