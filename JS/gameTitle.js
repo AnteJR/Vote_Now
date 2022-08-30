@@ -29,7 +29,6 @@ scene("titleScreen", () => {
         layer("txt")
     ]).onClick(() => {
         play("on_click_1");
-        //go("levelSelect");
         go("introTxtGeneral");
     });
 
@@ -136,10 +135,6 @@ scene("levelSelect", () => {
 
         onClick("lvl" + i, (x) => {
             play("on_click_1");
-
-            music_menu.pause();
-            if (!music_game) playGameMusic();
-            else music_game.play();
 
             scenarios.forEach((e, i) => {
                 if (e[0] == x.text) {
@@ -255,6 +250,10 @@ scene("introTxtScenario", ({ idVote }) => {
         area(),
         layer("txt")
     ]).onClick(() => {
+        music_menu.pause();
+        if (!music_game) playGameMusic();
+        else music_game.play();
+        
         play("on_click_1");
         go("game", ({
             idScenario: idVote,
