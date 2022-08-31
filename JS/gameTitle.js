@@ -87,12 +87,105 @@ scene("introTxtGeneral", () => {
         layer("txt")
     ]).onClick(() => {
         play("on_click_1");
-        go("levelSelect");
+        go("levelSelect", { scenarioNumber: 0 });
     });
 });
 
-scene("levelSelect", () => {
+scene("levelSelect", ({ scenarioNumber }) => {
+    let currentScenarioDisplayed = scenarioNumber;
+
     layers([
+        "bg",
+        "txt",
+        "btns"
+    ]);
+
+    add([
+        scale(7),
+        pos(0, 0),
+        sprite("BG_title", { anim: "animated_BG" }),
+        layer("bg")
+    ]);
+
+    const scenarioName = add([
+        origin("bot"),
+        pos(Math.floor(width() / 2), Math.floor(height() / 2 + height() / 16)),
+        text(scenarios[currentScenarioDisplayed][0], {
+            font: "sinko",
+            size: 50,
+            width: Math.floor(width() / 10 * 7)
+        }),
+        area(),
+        layer("txt")
+    ]);
+
+    const scenarioYear = add([
+        origin("top"),
+        pos(Math.floor(width() / 2), Math.floor(height() / 2 + height() / 14)),
+        text(scenarios[currentScenarioDisplayed][14].split(".").pop(), {
+            font: "sinko",
+            size: 40,
+        }),
+        area(),
+        layer("txt")
+    ]);
+
+    add([
+        pos(Math.floor(width() / 20), Math.floor(height() / 2 - height() / 10)),
+        text("<", {
+        size: 90,
+        font: "sinko",
+    }),
+    layer("btns"),
+    area()
+    ]).onClick(() => {
+        play("on_click_3");
+        if(currentScenarioDisplayed == 0) currentScenarioDisplayed = 9;
+        else currentScenarioDisplayed--;
+
+        scenarioName.text = scenarios[currentScenarioDisplayed][0];
+        scenarioYear.text = scenarios[currentScenarioDisplayed][14].split(".").pop();
+    });
+
+    add([
+        origin("topright"),
+        pos(Math.floor(width() - width() / 20), Math.floor(height() / 2 - height() / 10)),
+        text(">", {
+            size: 90,
+            font: "sinko",
+        }),
+        layer("btns"),
+        area()
+    ]).onClick(() => {
+        play("on_click_3");
+        if(currentScenarioDisplayed == 9) currentScenarioDisplayed = 0;
+        else currentScenarioDisplayed++;
+
+        scenarioName.text = scenarios[currentScenarioDisplayed][0];
+        scenarioYear.text = scenarios[currentScenarioDisplayed][14].split(".").pop();
+    });
+
+    add([
+        scale(5),
+        origin("center"),
+        pos(width() / 2, height() - (height() / 7)),
+        sprite("play"),
+        area(),
+        layer("btns")
+    ]).onClick(() => {
+        play("on_click_1");
+
+        scenarios.forEach((e, i) => {
+            if (e[0] == scenarioName.text) {
+                scenarID = i;
+                go("introTxtScenario", ({ idVote: scenarID }));
+            }
+        });
+    });
+
+    // old level selection menu
+
+    /*layers([
         "bg",
         "txt"
     ]);
@@ -168,7 +261,7 @@ scene("levelSelect", () => {
     ]).onClick(() => {
         play("on_click_2");
         go("titleScreen");
-    });
+    });*/
 });
 
 scene("creditsPage", () => {
@@ -285,7 +378,7 @@ scene("introTxtScenario", ({ idVote }) => {
         layer("txt")
     ]).onClick(() => {
         play("on_click_2");
-        go("levelSelect");
+        go("levelSelect", { scenarioNumber: idVote });
     });
 })
 

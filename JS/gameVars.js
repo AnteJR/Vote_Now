@@ -40,7 +40,7 @@ let scores = [                                  // what each event does to the g
 
 let scenarios = [                                        // scenarios stores all useful data for each votation you can play
     [                                                    // scenarios is structured as follos:
-        "Government's buyout of Swiss railways (1898)",     // 0. name
+        "Government's buyout of Swiss railways",            // 0. name
         [6, 4], [3, 1], [0, 6], [2, 1], [3, 4],             // 1-10. turn 1-10 (ie. what two events will be displayed each turn)
         [1, 6], [2, 3], [3, 0], [6, 4], [1, 0],             // 11. intial vote percentage
         30,                                                 // 12. initial money the player has
@@ -52,7 +52,7 @@ let scenarios = [                                        // scenarios stores all
         "Government's buyout of Swiss railways (1898)\n\nThis bill aims for the federal government to buy the many private railway companies throughout Switzerland to offer a uniform, centralized, nationalized railway system.\n\nIf you manage to make the bill pass, the CFF (Chemin de fer federaux; Federal Railways) will soon be created to manage the Swiss railways thoughout the country for decades to come."
     ],
     [
-        "Sickness and accident insurance bill (1912)",
+        "Sickness and accident insurance bill",
         [4, 3], [6, 1], [2, 0], [0, 3], [4, 5],
         [1, 3], [6, 4], [3, 2], [0, 4], [5, 3], 
         25, 1500, 0.7, 
@@ -62,7 +62,7 @@ let scenarios = [                                        // scenarios stores all
         "Sickness and accident insurance bill (1912)\n\nWhat if you get sick or into an accident and can't go to work? For now, it's 1912, and if you do, you have to pay all of the necessary medical interventions and medicine out of your own pocket.\n\nThis bill aims to get citizen insured, though the insurances will in any case stay private entities, by forcing those to take people as client."
     ],
     [
-        "Veterans, elderly and disabled insurance bill (1925)", 
+        "Veterans, elderly and disabled insurance bill", 
         [6, 3], [3, 4], [1, 3], [4, 1], [2, 6],
         [7, 1], [1, 4], [0, 6], [4, 3], [1, 6],
         30, 1500, 0.95,
@@ -72,7 +72,7 @@ let scenarios = [                                        // scenarios stores all
         "Veterans, elderly and disabled insurance bill (1925)\n\nCurrently, war veterans and disabled people get by either through charity, or their relatives taking car of them. In the case of the elderly, their only real option is the latter.\n\nAs such, and after Worl War 1, the Swiss government proposes this bill to insure those people by paying them a (somewhat) living wage for their conditions."
     ],
     [
-        "Popular initiative to help relieve the economic crisis of 1929 (1935)",
+        "Popular initiative to help relieve the economic crisis of 1929",
         [2, 3], [1, 4], [1, 0], [4, 3], [2, 6],
         [7, 0], [5, 2], [5, 0], [1, 4], [0, 5],
         20, 500, 0.73,
@@ -82,7 +82,7 @@ let scenarios = [                                        // scenarios stores all
         "The crisis initiative (1935)\n\n1929 and the subsequent decade are dark years for the world over. As the economic crash ravages Switzerland in the early 1930s, a left-leaning comittee wants the government to help out the population who is most suffering: poorer, working-class individuals and small businesses, that can barely, if at all, afford to live. See if you can help them win over a staunchly anti-communist country."
     ],
     [
-        "Romansch as a new national language bill (1938)",
+        "Romansch as a new national language bill",
         [4, 3], [2, 7], [6, 4], [3, 2], [4, 7],
         [7, 2], [0, 4], [2, 6], [7, 4], [2, 3],
         45, 2000, 1,
@@ -92,7 +92,7 @@ let scenarios = [                                        // scenarios stores all
         "Romansch as a new national language bill (1938)\n\nRomansch is an elaborate mix of German, Italian and native Celtic languages, spoken by 44'000 people out of the 4 million residents of Switzerland in 1938, and it is slowly disappearing. Recognizing it as a national language, what this bill proposes, would make it so official communications are translated in Romansch, and the language promoted, which would help preserve it."
     ],
     [
-        "Fight against unfair competition bill (1944)",
+        "Fight against unfair competition bill",
         [3, 1], [0, 2], [4, 6], [3, 7], [7, 0],
         [1, 2], [6, 1], [4, 1], [7, 4], [3, 5],
         30, 1000, 0.9,
@@ -102,7 +102,7 @@ let scenarios = [                                        // scenarios stores all
         "Fight against unfair competition bill (1944)\n\nUnfair competition is generally described as an economical advantage between two competing brands or producers.\n\nSwitzerland is a small country and is afraid others may interfere with it's local economy: as such, this bill aims to prevent unfair dispositions competing economic forces may have against Swiss companies and products."
     ],
     [
-        "New Civil Protection militia bill (1959)",
+        "New Civil Protection militia bill",
         [7, 3], [1, 2], [0, 6], [7, 2], [4, 1],
         [0, 3], [4, 2], [7, 1], [0, 3], [3, 1],
         35, 750, 0.8,
@@ -112,7 +112,7 @@ let scenarios = [                                        // scenarios stores all
         "New Civil Protection militia bill (1959)\n\nWorld Wars and international nuclear threats take a toll on Switzerland's morale, and the government is thinking of creating a new militia, parallel to the army, to ensure nuclear protections are working and in the norms, as well as more generally aid the population if there ever were to be a natural catastrophe."
     ],
     [
-        "Women's suffrage bill (1971)",
+        "Women's suffrage bill",
         [1, 6], [4, 3], [5, 7], [1, 4], [2, 5],
         [3, 7], [0, 4], [7, 1], [5, 3], [6, 0],
         35, 1000, 0.9,
@@ -122,7 +122,7 @@ let scenarios = [                                        // scenarios stores all
         "Women's suffrage bill (1971)\n\nFirst tried and rejected by the population in 1959, women's suffrage isn't finding a place in Switzerland. Now that almost all European countries have adopted it, the federal government insists on pushing this bill to give women the right to vote. They hope the international context might push the nay-sayers in the right direction this time..."
     ],
     [
-        "Popular initiative against the military service (1989)",
+        "Popular initiative against the military service",
         [6, 2], [5, 7], [1, 3], [7, 4], [2, 6],
         [5, 7], [1, 2], [5, 0], [3, 6], [5, 1],
         25, 500, 0.7,
@@ -132,7 +132,7 @@ let scenarios = [                                        // scenarios stores all
         "Popular initiative against the military service (1989)\n\nWar are never fun, and the fact that Switzerland, a small and internationally neutral country, has a mandatory military service doesn't please the GSSA (Groupe pour une Suisse sans armee; Group for a military-free Switzerland). This year, they got enough signature to try and ban the practice in Switzerland. Will they do it?"
     ],
     [
-        "Popular initiative against nuclear power (1990)",
+        "Popular initiative against nuclear power",
         [5, 2], [3, 6], [4, 1], [0, 2], [5, 3],
         [4, 0], [1, 6], [7, 3], [2, 4], [7, 5],
         30, 1000, 0.85,
