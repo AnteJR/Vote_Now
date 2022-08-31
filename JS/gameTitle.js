@@ -130,6 +130,7 @@ scene("levelSelect", () => {
             }),
             area(),
             layer("txt"),
+            "txtLvl",
             "lvl" + i
         ])
 
@@ -142,6 +143,22 @@ scene("levelSelect", () => {
                     go("introTxtScenario", ({ idVote: scenarID }));
                 }
             });
+        });
+
+        onHover("lvl" + i, (x) => {
+            /*play("test_hover", {
+                volume: 0.5,
+                loop: false,
+                seek: 0
+            });*/
+
+            let tLvl = get("txtLvl")
+
+            tLvl.forEach((elem, ind) => {
+                elem.opacity = 0.5;
+            });
+
+            x.opacity = 1;
         });
 
         dist += 50;
