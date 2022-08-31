@@ -81,25 +81,13 @@ scene("introTxtGeneral", () => {
     add([
         scale(5),
         origin("center"),
-        pos((width() / 40) * 27, height() - (height() / 7)),
+        pos(width() / 2, height() - (height() / 7)),
         sprite("play"),
         area(),
         layer("txt")
     ]).onClick(() => {
         play("on_click_1");
         go("levelSelect");
-    });
-
-    add([
-        scale(5),
-        origin("center"),
-        pos((width() / 30) * 9, height() - (height() / 7)),
-        sprite("back"),
-        area(),
-        layer("txt")
-    ]).onClick(() => {
-        play("on_click_2");
-        go("titleScreen");
     });
 });
 
@@ -128,6 +116,7 @@ scene("levelSelect", () => {
                 width: 800,
                 font: "sinko",
             }),
+            { value: 0 },
             area(),
             layer("txt"),
             "txtLvl",
@@ -146,18 +135,23 @@ scene("levelSelect", () => {
         });
 
         onHover("lvl" + i, (x) => {
-            /*play("test_hover", {
-                volume: 0.5,
-                loop: false,
-                seek: 0
-            });*/
-
+            if (x.value == 0) {
+                play("test_hover", {
+                    loop: false,
+                    volume: 0.5
+                })
+            }
+            
             let tLvl = get("txtLvl")
 
             tLvl.forEach((elem, ind) => {
-                elem.opacity = 0.5;
+                if( ind != i) {
+                    elem.opacity = 0.5;
+                    elem.value = 0
+                }
             });
 
+            x.value = 1;
             x.opacity = 1;
         });
 

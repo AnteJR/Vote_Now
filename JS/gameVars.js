@@ -1,8 +1,9 @@
 /* Main JS file for the game's variables */
-let elemTopStats;
-let elemBottomStats;
-let music_menu;
-let music_game;
+let elemTopStats,
+    elemBottomStats,
+    music_menu,
+    music_game,
+    hover_sound;
 
 let eventNames = [                      // names of the events
     "train",
