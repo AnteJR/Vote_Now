@@ -93,6 +93,7 @@ scene("introTxtGeneral", () => {
 
 scene("levelSelect", ({ scenarioNumber }) => {
     let currentScenarioDisplayed = scenarioNumber;
+    console.log(localStorage.getItem("scenario_" + currentScenarioDisplayed + "_played"))
 
     layers([
         "bg",
@@ -130,21 +131,57 @@ scene("levelSelect", ({ scenarioNumber }) => {
         layer("txt")
     ]);
 
+    const isNew = add([
+        origin("center"),
+        pos(Math.floor(width() / 2), Math.floor(height() - height() / 3)),
+        text("", {
+            font: "sinko",
+            size: 40,
+        }),
+        color(222, 192, 58),
+        layer("txt")
+    ]);
+
+    if (localStorage.getItem("scenario_" + currentScenarioDisplayed + "_played") != "true") isNew.text = "new!";
+    else isNew.text = "";
+
+    const scorePlayed = add([
+        origin("center"),
+        pos(Math.floor(width() / 2), Math.floor(height() - height() / 3)),
+        text("", {
+            font: "sinko",
+            size: 40,
+        }),
+        layer("txt")
+    ]);
+
+    if (localStorage.getItem("scenario_" + currentScenarioDisplayed + "_score") != null) scorePlayed.text = localStorage.getItem("scenario_" + currentScenarioDisplayed + "_score") + "%";
+    else scorePlayed.text = ""
+    if (parseFloat(localStorage.getItem("scenario_" + currentScenarioDisplayed + "_score")) >= 50) scorePlayed.color = rgb(74, 222, 58);
+    else if (parseFloat(localStorage.getItem("scenario_" + currentScenarioDisplayed + "_score")) < 50) scorePlayed.color = rgb(199, 20, 20);
+
     add([
         pos(Math.floor(width() / 20), Math.floor(height() / 2 - height() / 10)),
         text("<", {
-        size: 90,
-        font: "sinko",
-    }),
-    layer("btns"),
-    area()
+            size: 90,
+            font: "sinko",
+        }),
+        layer("btns"),
+        area()
     ]).onClick(() => {
         play("on_click_3");
-        if(currentScenarioDisplayed == 0) currentScenarioDisplayed = 9;
+        if (currentScenarioDisplayed == 0) currentScenarioDisplayed = 9;
         else currentScenarioDisplayed--;
 
         scenarioName.text = scenarios[currentScenarioDisplayed][0];
         scenarioYear.text = scenarios[currentScenarioDisplayed][14].split(".").pop();
+        if (localStorage.getItem("scenario_" + currentScenarioDisplayed + "_played") != "true") isNew.text = "new!"
+        else isNew.text = "";
+
+        if (localStorage.getItem("scenario_" + currentScenarioDisplayed + "_score") != null) scorePlayed.text = localStorage.getItem("scenario_" + currentScenarioDisplayed + "_score") + "%";
+        else scorePlayed.text = ""
+        if (parseFloat(localStorage.getItem("scenario_" + currentScenarioDisplayed + "_score")) >= 50) scorePlayed.color = rgb(74, 222, 58);
+        else if (parseFloat(localStorage.getItem("scenario_" + currentScenarioDisplayed + "_score")) < 50) scorePlayed.color = rgb(199, 20, 20);
     });
 
     add([
@@ -158,11 +195,18 @@ scene("levelSelect", ({ scenarioNumber }) => {
         area()
     ]).onClick(() => {
         play("on_click_3");
-        if(currentScenarioDisplayed == 9) currentScenarioDisplayed = 0;
+        if (currentScenarioDisplayed == 9) currentScenarioDisplayed = 0;
         else currentScenarioDisplayed++;
 
         scenarioName.text = scenarios[currentScenarioDisplayed][0];
         scenarioYear.text = scenarios[currentScenarioDisplayed][14].split(".").pop();
+        if (localStorage.getItem("scenario_" + currentScenarioDisplayed + "_played") != "true") isNew.text = "new!"
+        else isNew.text = "";
+
+        if (localStorage.getItem("scenario_" + currentScenarioDisplayed + "_score") != null) scorePlayed.text = localStorage.getItem("scenario_" + currentScenarioDisplayed + "_score") + "%";
+        else scorePlayed.text = ""
+        if (parseFloat(localStorage.getItem("scenario_" + currentScenarioDisplayed + "_score")) >= 50) scorePlayed.color = rgb(74, 222, 58);
+        else if (parseFloat(localStorage.getItem("scenario_" + currentScenarioDisplayed + "_score")) < 50) scorePlayed.color = rgb(199, 20, 20);
     });
 
     add([
@@ -182,89 +226,11 @@ scene("levelSelect", ({ scenarioNumber }) => {
             }
         });
     });
-
-    // old level selection menu
-
-    /*layers([
-        "bg",
-        "txt"
-    ]);
-
-    add([
-        scale(7),
-        pos(0, 0),
-        sprite("BG_title", { anim: "animated_BG" }),
-        layer("bg")
-    ]);
-
-    let dist = 0;
-
-    for (let i = 0; i < scenarios.length; i++) {
-        add([
-            color(255, 255, 255, 1),
-            origin("center"),
-            pos(width() / 2, 50 + dist),
-            text(scenarios[i][0], {
-                size: 20,
-                width: 800,
-                font: "sinko",
-            }),
-            { value: 0 },
-            area(),
-            layer("txt"),
-            "txtLvl",
-            "lvl" + i
-        ])
-
-        onClick("lvl" + i, (x) => {
-            play("on_click_1");
-
-            scenarios.forEach((e, i) => {
-                if (e[0] == x.text) {
-                    scenarID = i;
-                    go("introTxtScenario", ({ idVote: scenarID }));
-                }
-            });
-        });
-
-        onHover("lvl" + i, (x) => {
-            if (x.value == 0) {
-                play("test_hover", {
-                    loop: false,
-                    volume: 0.5
-                })
-            }
-            
-            let tLvl = get("txtLvl")
-
-            tLvl.forEach((elem, ind) => {
-                if( ind != i) {
-                    elem.opacity = 0.5;
-                    elem.value = 0
-                }
-            });
-
-            x.value = 1;
-            x.opacity = 1;
-        });
-
-        dist += 50;
-    }
-
-    add([
-        scale(5),
-        origin("center"),
-        pos(width() / 2, 600),
-        sprite("back"),
-        area(),
-        layer("txt"),
-    ]).onClick(() => {
-        play("on_click_2");
-        go("titleScreen");
-    });*/
 });
 
 scene("creditsPage", () => {
+    localStorage.clear(); // for now localStorage is cleared when looking at the credits
+
     layers([
         "bg",
         "txt"
@@ -357,7 +323,7 @@ scene("introTxtScenario", ({ idVote }) => {
         music_menu.pause();
         if (!music_game) playGameMusic();
         else music_game.play();
-        
+
         play("on_click_1");
         go("game", ({
             idScenario: idVote,

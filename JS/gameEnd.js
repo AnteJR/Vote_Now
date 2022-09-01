@@ -4,6 +4,9 @@ scene("victoryPage", ({ isWin, playedScene, votes }) => {
     music_game.pause();
     music_menu.play();
 
+    localStorage.setItem("scenario_" + playedScene + "_played", true);
+    localStorage.setItem("scenario_" + playedScene + "_score", votes);
+
     layers([
         "bg",
         "victoryState"
