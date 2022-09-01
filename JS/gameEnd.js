@@ -5,7 +5,11 @@ scene("victoryPage", ({ isWin, playedScene, votes }) => {
     music_menu.play();
 
     localStorage.setItem("scenario_" + playedScene + "_played", true);
-    localStorage.setItem("scenario_" + playedScene + "_score", votes);
+    if (localStorage.getItem("scenario_" + playedScene + "_score") != null) {
+        console.log(parseFloat(localStorage.getItem("scenario_" + playedScene + "_score")))
+        if (parseFloat(localStorage.getItem("scenario_" + playedScene + "_score")) < votes) localStorage.setItem("scenario_" + playedScene + "_score", votes);
+    }
+    else localStorage.setItem("scenario_" + playedScene + "_score", votes);
 
     layers([
         "bg",
@@ -81,6 +85,6 @@ scene("endExplaination", ({ isVictory, sceneTxtToShow, votesTotal }) => {
 
     btnToMenu.onClick(() => {
         play("on_click_2");
-        go("titleScreen");
+        go("levelSelect", { scenarioNumber: sceneTxtToShow });
     })
 });

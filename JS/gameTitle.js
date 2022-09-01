@@ -29,7 +29,10 @@ scene("titleScreen", () => {
         layer("txt")
     ]).onClick(() => {
         play("on_click_1");
-        go("introTxtGeneral");
+        console.log(localStorage.getItem("hasReadIntro"))
+
+        if (localStorage.getItem("hasReadIntro") == "true") go("levelSelect", { scenarioNumber: 0 });
+        else go("introTxtGeneral");
     });
 
     add([
@@ -87,6 +90,8 @@ scene("introTxtGeneral", () => {
         layer("txt")
     ]).onClick(() => {
         play("on_click_1");
+        localStorage.setItem("hasReadIntro", true);
+        console.log(localStorage.getItem("hasReadIntro"))
         go("levelSelect", { scenarioNumber: 0 });
     });
 });
