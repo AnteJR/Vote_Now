@@ -93,7 +93,6 @@ scene("introTxtGeneral", () => {
 
 scene("levelSelect", ({ scenarioNumber }) => {
     let currentScenarioDisplayed = scenarioNumber;
-    console.log(localStorage.getItem("scenario_" + currentScenarioDisplayed + "_played"))
 
     layers([
         "bg",
@@ -101,10 +100,20 @@ scene("levelSelect", ({ scenarioNumber }) => {
         "btns"
     ]);
 
-    add([
+    const backGroundMissionPic = add([
         scale(7),
         pos(0, 0),
-        sprite("BG_title", { anim: "animated_BG" }),
+        sprite("BG_Mission_" + currentScenarioDisplayed),
+        layer("bg")
+    ]);
+
+    add([
+        rect(width(), height()),
+        pos(0, 0),
+        color(1, 1, 1),
+        area(),
+        opacity(0.25),
+        layer("grey_squares"),
         layer("bg")
     ]);
 
@@ -182,6 +191,8 @@ scene("levelSelect", ({ scenarioNumber }) => {
         else scorePlayed.text = ""
         if (parseFloat(localStorage.getItem("scenario_" + currentScenarioDisplayed + "_score")) >= 50) scorePlayed.color = rgb(74, 222, 58);
         else if (parseFloat(localStorage.getItem("scenario_" + currentScenarioDisplayed + "_score")) < 50) scorePlayed.color = rgb(199, 20, 20);
+
+        backGroundMissionPic.use(sprite("BG_Mission_" + currentScenarioDisplayed));
     });
 
     add([
@@ -207,6 +218,8 @@ scene("levelSelect", ({ scenarioNumber }) => {
         else scorePlayed.text = ""
         if (parseFloat(localStorage.getItem("scenario_" + currentScenarioDisplayed + "_score")) >= 50) scorePlayed.color = rgb(74, 222, 58);
         else if (parseFloat(localStorage.getItem("scenario_" + currentScenarioDisplayed + "_score")) < 50) scorePlayed.color = rgb(199, 20, 20);
+
+        backGroundMissionPic.use(sprite("BG_Mission_" + currentScenarioDisplayed));
     });
 
     add([
@@ -284,10 +297,10 @@ scene("introTxtScenario", ({ idVote }) => {
         "txt",
     ]);
 
-    add([
+    const backGroundMissionPic = add([
         scale(7),
         pos(0, 0),
-        sprite("BG_title", { anim: "animated_BG" }),
+        sprite("BG_Mission_" + idVote),
         layer("bg")
     ]);
 
