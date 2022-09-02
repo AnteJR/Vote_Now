@@ -156,8 +156,7 @@ scene("levelSelect", ({ scenarioNumber }) => {
         layer("txt")
     ]);
 
-    if (localStorage.getItem("scenario_" + currentScenarioDisplayed + "_played") != "true") isNew.text = "new!";
-    else isNew.text = "";
+    isNew.text = localStorage.getItem("scenario_" + currentScenarioDisplayed + "_played") != "true" ? "new!" : "";
 
     const scorePlayed = add([
         origin("center"),
@@ -169,10 +168,8 @@ scene("levelSelect", ({ scenarioNumber }) => {
         layer("txt")
     ]);
 
-    if (localStorage.getItem("scenario_" + currentScenarioDisplayed + "_score") != null) scorePlayed.text = localStorage.getItem("scenario_" + currentScenarioDisplayed + "_score") + "%";
-    else scorePlayed.text = ""
-    if (parseFloat(localStorage.getItem("scenario_" + currentScenarioDisplayed + "_score")) >= 50) scorePlayed.color = rgb(74, 222, 58);
-    else if (parseFloat(localStorage.getItem("scenario_" + currentScenarioDisplayed + "_score")) < 50) scorePlayed.color = rgb(199, 20, 20);
+    scorePlayed.text = localStorage.getItem("scenario_" + currentScenarioDisplayed + "_score") != null ? localStorage.getItem("scenario_" + currentScenarioDisplayed + "_score") + "%" : "";
+    scorePlayed.color = parseFloat(localStorage.getItem("scenario_" + currentScenarioDisplayed + "_score")) >= 50 ? rgb(74, 222, 58) : rgb(199, 20, 20);
 
     add([
         pos(Math.floor(width() / 20), Math.floor(height() / 2 - height() / 10)),
@@ -189,13 +186,11 @@ scene("levelSelect", ({ scenarioNumber }) => {
 
         scenarioName.text = scenarios[currentScenarioDisplayed][0];
         scenarioYear.text = scenarios[currentScenarioDisplayed][14].split(".").pop();
-        if (localStorage.getItem("scenario_" + currentScenarioDisplayed + "_played") != "true") isNew.text = "new!"
-        else isNew.text = "";
 
-        if (localStorage.getItem("scenario_" + currentScenarioDisplayed + "_score") != null) scorePlayed.text = localStorage.getItem("scenario_" + currentScenarioDisplayed + "_score") + "%";
-        else scorePlayed.text = ""
-        if (parseFloat(localStorage.getItem("scenario_" + currentScenarioDisplayed + "_score")) >= 50) scorePlayed.color = rgb(74, 222, 58);
-        else if (parseFloat(localStorage.getItem("scenario_" + currentScenarioDisplayed + "_score")) < 50) scorePlayed.color = rgb(199, 20, 20);
+        isNew.text = localStorage.getItem("scenario_" + currentScenarioDisplayed + "_played") != "true" ? "new!" : "";
+
+        scorePlayed.text = localStorage.getItem("scenario_" + currentScenarioDisplayed + "_score") != null ? localStorage.getItem("scenario_" + currentScenarioDisplayed + "_score") + "%" : "";
+        scorePlayed.color = parseFloat(localStorage.getItem("scenario_" + currentScenarioDisplayed + "_score")) >= 50 ? rgb(74, 222, 58) : rgb(199, 20, 20);
 
         backGroundMissionPic.use(sprite("BG_Mission_" + currentScenarioDisplayed));
     });
@@ -216,13 +211,11 @@ scene("levelSelect", ({ scenarioNumber }) => {
 
         scenarioName.text = scenarios[currentScenarioDisplayed][0];
         scenarioYear.text = scenarios[currentScenarioDisplayed][14].split(".").pop();
-        if (localStorage.getItem("scenario_" + currentScenarioDisplayed + "_played") != "true") isNew.text = "new!"
-        else isNew.text = "";
 
-        if (localStorage.getItem("scenario_" + currentScenarioDisplayed + "_score") != null) scorePlayed.text = localStorage.getItem("scenario_" + currentScenarioDisplayed + "_score") + "%";
-        else scorePlayed.text = ""
-        if (parseFloat(localStorage.getItem("scenario_" + currentScenarioDisplayed + "_score")) >= 50) scorePlayed.color = rgb(74, 222, 58);
-        else if (parseFloat(localStorage.getItem("scenario_" + currentScenarioDisplayed + "_score")) < 50) scorePlayed.color = rgb(199, 20, 20);
+        isNew.text = localStorage.getItem("scenario_" + currentScenarioDisplayed + "_played") != "true" ? "new!" : "";
+
+        scorePlayed.text = localStorage.getItem("scenario_" + currentScenarioDisplayed + "_score") != null ? localStorage.getItem("scenario_" + currentScenarioDisplayed + "_score") + "%" : "";
+        scorePlayed.color = parseFloat(localStorage.getItem("scenario_" + currentScenarioDisplayed + "_score")) >= 50 ? rgb(74, 222, 58) : rgb(199, 20, 20);
 
         backGroundMissionPic.use(sprite("BG_Mission_" + currentScenarioDisplayed));
     });

@@ -195,9 +195,39 @@ scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics
                     pos(0, 49),
                     sprite("score_" + eventNames[x]),
                     area(),
-                    layer("hover_elements"),
-                    "score"
+                    layer("hover_elements")
                 ]);
+
+                if (scores[x][4] == true) {
+                    readd(moneyCount);
+                    moneyCount.color = rgb(121, 207, 118);
+                }
+                else {
+                    readd(moneyCount);
+                    moneyCount.color = rgb(219, 118, 118);
+                }
+
+                if (scores[x][1] >= 1) {
+                    readd(votesCount);
+                    votesCount.color = rgb(121, 207, 118);
+                }
+                else {
+                    readd(votesCount);
+                    votesCount.color = rgb(255, 255, 255);
+                }
+
+                if (scores[x][3] >= 1) {
+                    readd(opticsCount);
+                    opticsCount.color = rgb(121, 207, 118);
+                }
+                else if (scores[x][3] == 0) {
+                    readd(opticsCount);
+                    opticsCount.color = rgb(255, 255, 255);
+                }
+                else {
+                    readd(opticsCount);
+                    opticsCount.color = rgb(219, 118, 118);
+                }
             }
             else if (!isTop && bottomCanBeHovered) {
                 elemBottomStats = add([
@@ -205,9 +235,39 @@ scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics
                     pos(0, 343),
                     sprite("score_" + eventNames[x]),
                     area(),
-                    layer("hover_elements"),
-                    "score"
+                    layer("hover_elements")
                 ]);
+
+                if (scores[x][4] == true) {
+                    readd(moneyCount);
+                    moneyCount.color = rgb(121, 207, 118);
+                }
+                else {
+                    readd(moneyCount);
+                    moneyCount.color = rgb(219, 118, 118);
+                }
+
+                if (scores[x][1] >= 1) {
+                    readd(votesCount);
+                    votesCount.color = rgb(121, 207, 118);
+                }
+                else {
+                    readd(votesCount);
+                    votesCount.color = rgb(255, 255, 255);
+                }
+
+                if (scores[x][3] >= 1) {
+                    readd(opticsCount);
+                    opticsCount.color = rgb(121, 207, 118);
+                }
+                else if (scores[x][3] == 0) {
+                    readd(opticsCount);
+                    opticsCount.color = rgb(255, 255, 255);
+                }
+                else {
+                    readd(opticsCount);
+                    opticsCount.color = rgb(219, 118, 118);
+                }
             }
         }
     }
