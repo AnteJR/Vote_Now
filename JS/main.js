@@ -914,6 +914,7 @@ loadSprite("BG_Mission_5", "unfair_competition.png");
 loadSprite("BG_Mission_6", "PCi.png");
 loadSprite("BG_Mission_7", "vote_femmes.png");
 loadSprite("BG_Mission_8", "Military.png");
+loadSprite("BG_Mission_9", "nuclear.png");
 
 loadSprite("continue", "Continue.png");          // Sprites for texts I use as buttons
 loadSprite("to_menu", "To_menu.png");
