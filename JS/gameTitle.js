@@ -184,7 +184,7 @@ scene("levelSelect", ({ scenarioNumber }) => {
         area()
     ]).onClick(() => {
         play("on_click_3");
-        if (currentScenarioDisplayed == 0) currentScenarioDisplayed = 9;
+        if (currentScenarioDisplayed == 0) currentScenarioDisplayed = scenarios.length - 1;
         else currentScenarioDisplayed--;
 
         scenarioName.text = scenarios[currentScenarioDisplayed][0];
@@ -211,7 +211,7 @@ scene("levelSelect", ({ scenarioNumber }) => {
         area()
     ]).onClick(() => {
         play("on_click_3");
-        if (currentScenarioDisplayed == 9) currentScenarioDisplayed = 0;
+        if (currentScenarioDisplayed == scenarios.length - 1) currentScenarioDisplayed = 0;
         else currentScenarioDisplayed++;
 
         scenarioName.text = scenarios[currentScenarioDisplayed][0];
