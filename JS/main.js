@@ -908,6 +908,7 @@ loadSprite("ui_end", "Background_end.png");
 loadSprite("BG_Mission_0", "train_vote_BG.png");
 loadSprite("BG_Mission_1", "insurance.png");
 loadSprite("BG_Mission_2", "AVS.png");
+loadSprite("BG_Mission_3", "crash.png");
 
 loadSprite("continue", "Continue.png");          // Sprites for texts I use as buttons
 loadSprite("to_menu", "To_menu.png");
