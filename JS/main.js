@@ -932,3 +932,5 @@ loadSound("on_click_2", "Sound_onClick_2.mp3");
 loadSound("on_click_3", "on_Click_Sound_3.mp3");
 loadSound("on_click_4", "Sound_onClick_4.mp3");
 loadSound("test_hover", "test.mp3");
+loadSound("tick", "tick.mp3");
+loadSound("tock", "tock.mp3");

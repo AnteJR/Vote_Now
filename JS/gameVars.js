@@ -3,7 +3,9 @@ let elemTopStats,
     elemBottomStats,
     music_menu,
     music_game,
-    hover_sound;
+    hover_sound,
+    monInterval1,
+    monInterval2;
 
 let eventNames = [                      // names of the events
     "train",

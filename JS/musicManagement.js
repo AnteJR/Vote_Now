@@ -13,3 +13,19 @@ function playGameMusic() {
         seek: 0
     });
 }
+
+function playTick(turn) {
+    play("tick", {
+        volume: (0.05 * turn),
+        loop: false,
+        seek: 0
+    });
+}
+
+function playTock(turn) {
+    play("tock", {
+        volume: (0.05 * turn),
+        loop: false,
+        seek: 0
+    });
+}

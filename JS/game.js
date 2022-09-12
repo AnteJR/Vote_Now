@@ -1,8 +1,19 @@
 /* Function to play the game */
 
 scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics, dayOfVote }) => {
+
+    console.log(startTurn)
     let topCanBeHovered = true,
-        bottomCanBeHovered = true;
+        bottomCanBeHovered = true,
+        timer = 10000 / startTurn;
+
+    playTick(startTurn);
+    monInterval1 = setInterval(() => { playTick(startTurn) }, timer);
+
+    setTimeout(() => {
+        playTock(startTurn);
+        monInterval2 = setInterval(() => { playTock(startTurn) }, timer);
+    }, timer / 2)
 
     layers([
         "ui",
@@ -67,8 +78,11 @@ scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics
         layer("ui_txt")
     ]);
 
+    let txtColor = 255 / (startTurn / (10 / startTurn))
+
     const daysUntilVote = add([
         pos(Math.floor(width() / 120) * 77, height() - Math.floor(height() / 17)),
+        color(255, txtColor, txtColor),
         text((11 - startTurn) + " days left", {
             size: 30,
             font: "sinko",
@@ -91,8 +105,8 @@ scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics
     ])
 
     elemTop.onClick(() => {
-        if ((moneyCount.value < scores[top][2] && scores[top][4] == false) && (moneyCount.value < scores[bottom][2] && scores[bottom][4] == false) && votesCount.value < 50) go("victoryPage", ({ isWin: false, playedScene: idScenario, votes: votesCount.value }));
-        else if ((moneyCount.value < scores[top][2] && scores[top][4] == false) && (moneyCount.value < scores[bottom][2] && scores[bottom][4] == false) && votesCount.value >= 50) go("victoryPage", ({ isWin: true, playedScene: idScenario, votes: votesCount.value }));
+        if ((moneyCount.value < scores[top][2] && scores[top][4] == false) && (moneyCount.value < scores[bottom][2] && scores[bottom][4] == false) && votesCount.value < 50) goToEndScene(false, idScenario, votesCount.value);
+        else if ((moneyCount.value < scores[top][2] && scores[top][4] == false) && (moneyCount.value < scores[bottom][2] && scores[bottom][4] == false) && votesCount.value >= 50) goToEndScene(true, idScenario, votesCount.value);
         else checkClick(top, true, idScenario, startTurn);
     });
 
@@ -112,8 +126,8 @@ scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics
     ]);
 
     elemBottom.onClick(() => {
-        if ((moneyCount.value < scores[top][2] && scores[top][4] == false) && (moneyCount.value < scores[bottom][2] && scores[bottom][4] == false) && votesCount.value < 50) go("victoryPage", ({ isWin: false, playedScene: idScenario, votes: votesCount.value }));
-        else if ((moneyCount.value < scores[top][2] && scores[top][4] == false) && (moneyCount.value < scores[bottom][2] && scores[bottom][4] == false) && votesCount.value >= 50) go("victoryPage", ({ isWin: true, playedScene: idScenario, votes: votesCount.value }));
+        if ((moneyCount.value < scores[top][2] && scores[top][4] == false) && (moneyCount.value < scores[bottom][2] && scores[bottom][4] == false) && votesCount.value < 50) goToEndScene(false, idScenario, votesCount.value);
+        else if ((moneyCount.value < scores[top][2] && scores[top][4] == false) && (moneyCount.value < scores[bottom][2] && scores[bottom][4] == false) && votesCount.value >= 50) goToEndScene(true, idScenario, votesCount.value);
         else checkClick(bottom, false, idScenario, startTurn);
     });
 
@@ -177,10 +191,13 @@ scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics
                     initialOptics: opticsCount.value,
                     dayOfVote: dayOfVote
                 }));
+
+                clearInterval(monInterval1);
+                clearInterval(monInterval2);
             }
             else {
-                if (votesCount.value >= 50) go("victoryPage", ({ isWin: true, playedScene: scn, votes: votesCount.value }));
-                else go("victoryPage", ({ isWin: false, playedScene: scn, votes: votesCount.value }));
+                if (votesCount.value >= 50) goToEndScene(true, scn, votesCount.value);
+                else goToEndScene(false, scn, votesCount.value);
             }
         }
     }
@@ -272,3 +289,14 @@ scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics
         }
     }
 });
+
+function goToEndScene(has50Plus, scn, myVotes) {
+    clearInterval(monInterval1);
+    clearInterval(monInterval2);
+
+    go("victoryPage", ({
+        isWin: has50Plus,
+        playedScene: scn,
+        votes: myVotes
+    }));
+}
