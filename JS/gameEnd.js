@@ -6,7 +6,6 @@ scene("victoryPage", ({ isWin, playedScene, votes }) => {
 
     localStorage.setItem("scenario_" + playedScene + "_played", true);
     if (localStorage.getItem("scenario_" + playedScene + "_score") != null) {
-        console.log(parseFloat(localStorage.getItem("scenario_" + playedScene + "_score")))
         if (parseFloat(localStorage.getItem("scenario_" + playedScene + "_score")) < votes) localStorage.setItem("scenario_" + playedScene + "_score", votes);
     }
     else localStorage.setItem("scenario_" + playedScene + "_score", votes);
@@ -18,7 +17,7 @@ scene("victoryPage", ({ isWin, playedScene, votes }) => {
 
     const endBG = add([
         sprite("ui_end"),
-        scale(7),
+        scale(multiplyer),
         pos(0, 0),
         layer("bg")
     ]);
@@ -26,17 +25,17 @@ scene("victoryPage", ({ isWin, playedScene, votes }) => {
     const victoryOrFailure = isWin == true ? "victory" : "failure";
 
     const victoryFailure = add([
-        scale(7),
-        pos(width() / 2, (height() / 2) - 70),
+        scale(multiplyer),
+        pos(Math.floor(width() / 2), Math.floor((height() / 2) - (height() / (multiplyer + 3)))),
         origin("center"),
         layer("victoryState"),
         sprite(victoryOrFailure, { anim: "animated_BG" })
     ]);
 
     const skipTxt = add([
-        scale(4),
+        scale(Math.floor(multiplyer * 1.5)),
         origin("center"),
-        pos(width() / 2, (height() / 2) + 100),
+        pos(Math.floor(width() / 2), Math.floor((height() / 2) + (height() / multiplyer))),
         sprite("continue"),
         area(),
         layer("victoryState")
@@ -56,7 +55,7 @@ scene("endExplaination", ({ isVictory, sceneTxtToShow, votesTotal }) => {
 
     const endBG = add([
         sprite("ui_end"),
-        scale(7),
+        scale(multiplyer),
         pos(0, 0),
         layer("bg")
     ]);
@@ -67,17 +66,17 @@ scene("endExplaination", ({ isVictory, sceneTxtToShow, votesTotal }) => {
         origin("center"),
         pos(width() / 2, (height() / 2) - 70),
         text(scenarios[sceneTxtToShow][victFail] + "\n\nYour score was: " + votesTotal + "%", {
-            size: 30,
-            width: 800,
+            size: Math.floor(5 * (multiplyer - 1)),
+            width: Math.floor(width() - (width() / multiplyer)),
             font: "sinko",
         }),
         layer("txt")
     ]);
 
     const btnToMenu = add([
-        scale(4),
+        scale(Math.floor(multiplyer * 1.5)),
         origin("center"),
-        pos(width() / 2, (height() / 2) + 250),
+        pos(Math.floor(width() / 2), Math.floor((height() / 2) + (height() / 2.8))),
         sprite("to_menu"),
         area(),
         layer("txt")

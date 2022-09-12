@@ -1,8 +1,16 @@
 /* Function to play the game */
 
 scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics, dayOfVote }) => {
+    layers([
+        "ui",
+        "ui_txt",
+        "game_elements",
+        "hover_elements",
+        "grey_squares",
+    ]);
 
-    console.log(startTurn)
+    /* SOUND */
+
     let topCanBeHovered = true,
         bottomCanBeHovered = true,
         timer = 10000 / startTurn;
@@ -13,28 +21,14 @@ scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics
     setTimeout(() => {
         playTock(startTurn);
         monInterval2 = setInterval(() => { playTock(startTurn) }, timer);
-    }, timer / 2)
+    }, timer / 2);
 
-    layers([
-        "ui",
-        "ui_txt",
-        "game_elements",
-        "hover_elements",
-        "grey_squares",
-    ]);
+    /* TOP UI */
 
-    add([
-        scale(7),
+    const ui_top = add([
+        scale(multiplyer),
         pos(0, 0),
         sprite("ui_top"),
-        area(),
-        layer("ui")
-    ]);
-
-    add([
-        scale(7),
-        pos(0, 637),
-        sprite("ui_bottom"),
         area(),
         layer("ui")
     ]);
@@ -42,7 +36,7 @@ scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics
     const votesCount = add([
         pos(Math.floor(width() / 100), Math.floor(height() / 100)),
         text("Votes:" + Math.round(((intialVotes) + Number.EPSILON) * 10) / 10 + "%", {
-            size: 30,
+            size: Math.floor(5 * (multiplyer - 1)),
             font: "sinko",
         }),
         { value: intialVotes },
@@ -52,7 +46,7 @@ scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics
     const moneyCount = add([
         pos(Math.floor(width() / 3), Math.floor(height() / 100)),
         text("Money:" + initialMoney + ".-", {
-            size: 30,
+            size: Math.floor(5 * (multiplyer - 1)),
             font: "sinko",
         }),
         { value: initialMoney },
@@ -60,42 +54,23 @@ scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics
     ]);
 
     const opticsCount = add([
-        pos(Math.floor(width() / 120) * 85, Math.floor(height() / 100)),
+        pos(Math.floor((width() / 120) * 85), Math.floor(height() / 100)),
         text("Optics:" + initialOptics, {
-            size: 30,
+            size: Math.floor(5 * (multiplyer - 1)),
             font: "sinko",
         }),
         { value: initialOptics },
         layer("ui_txt")
     ]);
 
-    add([
-        pos(Math.floor(width() / 100), height() - Math.floor(height() / 17)),
-        text("Vote day: " + dayOfVote, {
-            size: 30,
-            font: "sinko",
-        }),
-        layer("ui_txt")
-    ]);
-
-    let txtColor = 255 / (startTurn / (10 / startTurn))
-
-    const daysUntilVote = add([
-        pos(Math.floor(width() / 120) * 77, height() - Math.floor(height() / 17)),
-        color(255, txtColor, txtColor),
-        text((11 - startTurn) + " days left", {
-            size: 30,
-            font: "sinko",
-        }),
-        layer("ui_txt")
-    ]);
+    /* EVENTS CHOICE */
 
     const top = scenarios[idScenario][startTurn][0];
     const bottom = scenarios[idScenario][startTurn][1];
 
     const elemTop = add([
-        scale(7),
-        pos(0, 49),
+        scale(multiplyer),
+        pos(0, (ui_top.height * multiplyer)),
         sprite("event_" + eventNames[top] + "_" + spriteModifier[parseInt(rand(0, 6))], { anim: "animated_BG" }),
         area(),
         layer("game_elements"),
@@ -115,8 +90,8 @@ scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics
     });
 
     const elemBottom = add([
-        scale(7),
-        pos(0, 343),
+        scale(multiplyer),
+        pos(0, ((ui_top.height * multiplyer) + (elemTop.height * multiplyer))),
         sprite("event_" + eventNames[bottom] + "_" + spriteModifier[parseInt(rand(0, 6))], { anim: "animated_BG" }),
         area(),
         layer("game_elements"),
@@ -135,14 +110,47 @@ scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics
         checkHover(bottom, false, startTurn);
     });
 
+    /* BOTTOM UI */
+
+    const ui_bottom = add([
+        scale(multiplyer),
+        pos(0, ((ui_top.height * multiplyer) + (elemTop.height * multiplyer) + (elemBottom.height * multiplyer))),
+        sprite("ui_bottom"),
+        area(),
+        layer("ui")
+    ]);
+
+    add([
+        pos(Math.floor(width() / 100), height() - Math.floor(height() / 17)),
+        text("Vote day: " + dayOfVote, {
+            size: Math.floor(5 * (multiplyer - 1)),
+            font: "sinko",
+        }),
+        layer("ui_txt")
+    ]);
+
+    let txtColor = 255 / (startTurn / (10 / startTurn))
+
+    const daysUntilVote = add([
+        pos(Math.floor(width() / 120) * 77, height() - Math.floor(height() / 17)),
+        color(255, txtColor, txtColor),
+        text((11 - startTurn) + " days left", {
+            size: Math.floor(5 * (multiplyer - 1)),
+            font: "sinko",
+        }),
+        layer("ui_txt")
+    ]);
+
+    /* CLICK FUNCTION */
+
     function checkClick(nbr, isTop, scn, currentTurn) {
         if (moneyCount.value < scores[nbr][2] && scores[nbr][4] == false) {
             destroyAll("greySquare");
             play("on_click_4");
             if (isTop) {
                 add([
-                    rect(width(), 294),
-                    pos(0, 49),
+                    rect(width(), (elemTop.height * multiplyer)),
+                    pos(0, (ui_top.height * multiplyer)),
                     outline(4),
                     color(1, 1, 1),
                     area(),
@@ -155,8 +163,8 @@ scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics
             }
             else {
                 add([
-                    rect(width(), 294),
-                    pos(0, 343),
+                    rect(width(), (elemBottom.height * multiplyer)),
+                    pos(0, ((ui_top.height * multiplyer) + (elemTop.height * multiplyer))),
                     outline(4),
                     color(1, 1, 1),
                     area(),
@@ -202,14 +210,16 @@ scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics
         }
     }
 
+    /* HOVER FUNCTION */
+
     function checkHover(x, isTop, currentTurn) {
         if (elemTopStats) elemTopStats.destroy();
         if (elemBottomStats) elemBottomStats.destroy();
         if (currentTurn <= 10) {
             if (isTop && topCanBeHovered) {
                 elemTopStats = add([
-                    scale(2),
-                    pos(0, 49),
+                    scale(multiplyer),
+                    pos(0, (ui_top.height * multiplyer)),
                     sprite("score_" + eventNames[x]),
                     area(),
                     layer("hover_elements")
@@ -248,8 +258,8 @@ scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics
             }
             else if (!isTop && bottomCanBeHovered) {
                 elemBottomStats = add([
-                    scale(2),
-                    pos(0, 343),
+                    scale(multiplyer),
+                    pos(0, (ui_top.height * multiplyer) + (elemTop.height * multiplyer)),
                     sprite("score_" + eventNames[x]),
                     area(),
                     layer("hover_elements")

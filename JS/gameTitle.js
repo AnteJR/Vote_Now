@@ -7,23 +7,23 @@ scene("titleScreen", () => {
     ]);
 
     add([
-        scale(7),
+        scale(multiplyer),
         pos(0, 0),
         sprite("BG_title", { anim: "animated_BG" }),
         layer("bg")
     ]);
 
     add([
-        scale(7),
+        scale(multiplyer),
         origin("center"),
-        pos(width() / 2, 98),
+        pos(Math.floor(width() / 2), Math.floor(height() / multiplyer)),
         sprite("title", { anim: "animated_BG" }),
         layer("txt")
     ]);
 
     add([
-        scale(5),
-        pos(width() / 35, 300),
+        scale(Math.floor(multiplyer * 1.5)),
+        pos(Math.floor(width() / 35), Math.floor(height() / 2)),
         sprite("play_now"),
         area(),
         layer("txt")
@@ -35,8 +35,8 @@ scene("titleScreen", () => {
     });
 
     add([
-        scale(5),
-        pos(width() / 35, 425),
+        scale(Math.floor(multiplyer * 1.5)),
+        pos(Math.floor(width() / 35), Math.floor(height() - (height() / 3))),
         sprite("credits"),
         area(),
         layer("txt")
@@ -53,7 +53,7 @@ scene("introTxtGeneral", () => {
     ]);
 
     add([
-        scale(7),
+        scale(multiplyer),
         pos(0, 0),
         sprite("BG_title", { anim: "animated_BG" }),
         layer("bg")
@@ -71,19 +71,19 @@ scene("introTxtGeneral", () => {
 
     add([
         origin("center"),
-        pos(width() / 2, (height() / 2) - 75),
+        pos(Math.floor(width() / 2), Math.floor(((height() / 2) - (height() / 10)))),
         text("Vote Now! is a minimalist strategy game that plays kind of like Reigns, as in you have a choice of 2 actions that you can pick from at a time.\n\nYou will play as a non-specific, left-leaning political party aiming to pass bills in Switzerland by propagandizing to influence voters' opinions. You will have to manage your money, the opinions of the voter base on your campaign, and the votes you are predicted to get.", {
-            size: 30,
-            width: 800,
+            size: Math.floor(5 * (multiplyer - 1)),
+            width: Math.floor(width() - (width() / (multiplyer + 1))),
             font: "sinko",
         }),
         layer("txt")
     ]);
 
     add([
-        scale(5),
+        scale(Math.floor(multiplyer * 1.5)),
         origin("center"),
-        pos(width() / 2, height() - (height() / 7)),
+        pos(Math.floor(width() / 2), Math.floor(height() - (height() / 7))),
         sprite("play"),
         area(),
         layer("txt")
@@ -105,7 +105,7 @@ scene("levelSelect", ({ scenarioNumber }) => {
     ]);
 
     const backGroundMissionPic = add([
-        scale(7),
+        scale(multiplyer),
         pos(0, 0),
         sprite("BG_Mission_" + currentScenarioDisplayed),
         layer("bg")
@@ -126,7 +126,7 @@ scene("levelSelect", ({ scenarioNumber }) => {
         pos(Math.floor(width() / 2), Math.floor(height() / 2 + height() / 16)),
         text(scenarios[currentScenarioDisplayed][0], {
             font: "sinko",
-            size: 50,
+            size: Math.floor(7.2 * multiplyer),
             width: Math.floor(width() / 10 * 7)
         }),
         area(),
@@ -138,7 +138,7 @@ scene("levelSelect", ({ scenarioNumber }) => {
         pos(Math.floor(width() / 2), Math.floor(height() / 2 + height() / 14)),
         text(scenarios[currentScenarioDisplayed][14].split(".").pop(), {
             font: "sinko",
-            size: 40,
+            size: Math.floor((6 * multiplyer) - 2),
         }),
         area(),
         layer("txt")
@@ -149,7 +149,7 @@ scene("levelSelect", ({ scenarioNumber }) => {
         pos(Math.floor(width() / 2), Math.floor(height() - height() / 3)),
         text("", {
             font: "sinko",
-            size: 40,
+            size: Math.floor((6 * multiplyer) - 2),
         }),
         color(222, 192, 58),
         layer("txt")
@@ -162,7 +162,7 @@ scene("levelSelect", ({ scenarioNumber }) => {
         pos(Math.floor(width() / 2), Math.floor(height() - height() / 3)),
         text("", {
             font: "sinko",
-            size: 40,
+            size: Math.floor((6 * multiplyer) - 2),
         }),
         layer("txt")
     ]);
@@ -173,7 +173,7 @@ scene("levelSelect", ({ scenarioNumber }) => {
     add([
         pos(Math.floor(width() / 20), Math.floor(height() / 2 - height() / 10)),
         text("<", {
-            size: 90,
+            size: Math.floor(12 * multiplyer),
             font: "sinko",
         }),
         layer("btns"),
@@ -198,7 +198,7 @@ scene("levelSelect", ({ scenarioNumber }) => {
         origin("topright"),
         pos(Math.floor(width() - width() / 20), Math.floor(height() / 2 - height() / 10)),
         text(">", {
-            size: 90,
+            size: Math.floor(12 * multiplyer),
             font: "sinko",
         }),
         layer("btns"),
@@ -220,9 +220,9 @@ scene("levelSelect", ({ scenarioNumber }) => {
     });
 
     add([
-        scale(5),
+        scale(Math.floor(multiplyer * 1.5)),
         origin("center"),
-        pos(width() / 2, height() - (height() / 7)),
+        pos(Math.floor(width() / 2), Math.floor(height() - (height() / 7))),
         sprite("play"),
         area(),
         layer("btns")
@@ -247,7 +247,7 @@ scene("creditsPage", () => {
     ]);
 
     add([
-        scale(7),
+        scale(multiplyer),
         pos(0, 0),
         sprite("BG_title", { anim: "animated_BG" }),
         layer("bg")
@@ -255,10 +255,9 @@ scene("creditsPage", () => {
 
     add([
         origin("center"),
-        pos(width() / 2, 75),
+        pos(Math.floor(width() / 2), Math.floor(height() / (multiplyer + 1))),
         text(`Vote Now!`, {
-            size: 80,
-            width: 800,
+            size: Math.floor(10 * (multiplyer + 1)),
             font: "sinko",
         }),
         layer("txt")
@@ -266,19 +265,19 @@ scene("creditsPage", () => {
 
     add([
         origin("center"),
-        pos(width() / 2, 320),
+        pos(Math.floor(width() / 2), Math.floor(height() / 2)),
         text(`A game thought, designed, and developped by Joel Rimaz\n\nUnder the supervision of Isaac Pante\n\nFor the spring 2022 course "2D Video Games"\n\nUniversity of Lausanne\n\nAugust 2022`, {
-            size: 30,
-            width: 800,
+            size: Math.floor(5 * (multiplyer - 1)),
+            width: Math.floor(width() - width() / 10),
             font: "sinko",
         }),
         layer("txt")
     ]);
 
     add([
-        scale(5),
+        scale(Math.floor(multiplyer * 1.5)),
         origin("center"),
-        pos(width() / 2, 600),
+        pos(Math.floor(width() / 2), Math.floor(height() / 1.15)),
         sprite("back"),
         area(),
         layer("txt")
@@ -295,7 +294,7 @@ scene("introTxtScenario", ({ idVote }) => {
     ]);
 
     const backGroundMissionPic = add([
-        scale(7),
+        scale(multiplyer),
         pos(0, 0),
         sprite("BG_Mission_" + idVote),
         layer("bg")
@@ -313,19 +312,19 @@ scene("introTxtScenario", ({ idVote }) => {
 
     add([
         origin("center"),
-        pos(width() / 2, (height() / 2) - 75),
+        pos(Math.floor(width() / 2), Math.floor((height() / 2) - (height() / (multiplyer + 3)))),
         text(scenarios[idVote][17], {
-            size: 30,
-            width: 800,
+            size: Math.floor(5 * (multiplyer - 1)),
+            width: Math.floor(width() - (width() / multiplyer)),
             font: "sinko",
         }),
         layer("txt")
     ]);
 
     add([
-        scale(5),
+        scale(Math.floor(multiplyer * 1.5)),
         origin("center"),
-        pos((width() / 40) * 27, height() - (height() / 7)),
+        pos(Math.floor((width() / 40) * 27), Math.floor(height() - (height() / 7))),
         sprite("play"),
         area(),
         layer("txt")
@@ -346,9 +345,9 @@ scene("introTxtScenario", ({ idVote }) => {
     });
 
     add([
-        scale(5),
+        scale(Math.floor(multiplyer * 1.5)),
         origin("center"),
-        pos((width() / 30) * 9, height() - (height() / 7)),
+        pos(Math.floor((width() / 30) * 9), Math.floor(height() - (height() / 7))),
         sprite("back"),
         area(),
         layer("txt")

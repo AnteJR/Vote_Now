@@ -1,8 +1,11 @@
 /* MAIN.JS loads up Kaboom, the sounds, and sets the sprites to be used down the line*/
 
+let heightWindow = window.innerHeight;
+let multiplyer = Math.floor(heightWindow / 98);
+
 kaboom({                                                /* Kaboom function */
-    width: 868,
-    height: 686,
+    width: 124 * multiplyer,
+    height: 98 * multiplyer,
     clearColor: [0, 0, 0],
     font: "sink"
 });
@@ -779,50 +782,50 @@ loadSpriteAtlas("Effects_Sheet.png", {       // Sprite Atlas for the events' eff
     "score_train": {                                    // effect for the train
         "x": 0,
         "y": 0,
-        "width": 434,
-        "height": 147
+        "width": 124,
+        "height": 42
     },
     "score_marche": {                                   // effect for the market
         "x": 0,
-        "y": 147,
-        "width": 434,
-        "height": 147
+        "y": 42,
+        "width": 124,
+        "height": 42
     },
     "score_ag": {                                       // effect for the fundraising
         "x": 0,
-        "y": 147*2,
-        "width": 434,
-        "height": 147
+        "y": 42 * 2,
+        "width": 124,
+        "height": 42
     },
     "score_journal": {                                  // effect for the journal
         "x": 0,
-        "y": 147*3,
-        "width": 434,
-        "height": 147
+        "y": 42 * 3,
+        "width": 124,
+        "height": 42
     },
     "score_poste": {                                    // effect for the post office
         "x": 0,
-        "y": 147*4,
-        "width": 434,
-        "height": 147
+        "y": 42 * 4,
+        "width": 124,
+        "height": 42
     },
     "score_coupole": {                                  // effect for the protest
         "x": 0,
-        "y": 147*5,
-        "width": 434,
-        "height": 147
+        "y": 42 * 5,
+        "width": 124,
+        "height": 42
     },
     "score_affiche": {                                  // effect for the flyers
         "x": 0,
-        "y": 147*6,
-        "width": 434,
-        "height": 147
+        "y": 42 * 6,
+        "width": 124,
+        "height": 42
     },
     "score_radio": {                                    // effect for the radio
         "x": 0,
-        "y": 147*7,
-        "width": 434,
-        "height": 147
+        "y": 42 * 7,
+        "width": 124,
+        "height": 42
     },
 });
 
@@ -843,7 +846,7 @@ loadSpriteAtlas("BG_Title.png", {    // Sprite Atlas for the main menu's backgro
         }
     }
 });
-                                            // Sprite Atlas' for the animated texts
+// Sprite Atlas' for the animated texts
 loadSpriteAtlas("Title.png", {           // Animated title
     "title": {
         "x": 0,
@@ -916,12 +919,12 @@ loadSprite("BG_Mission_7", "vote_femmes.png");
 loadSprite("BG_Mission_8", "Military.png");
 loadSprite("BG_Mission_9", "nuclear.png");
 
-loadSprite("continue", "Continue.png");          // Sprites for texts I use as buttons
-loadSprite("to_menu", "To_menu.png");
-loadSprite("play_now", "Play_now.png");
+loadSprite("continue", "continue.png");          // Sprites for texts I use as buttons
+loadSprite("to_menu", "to_menu.png");
+loadSprite("play_now", "play_now.png");
 loadSprite("play", "play_only.png");
-loadSprite("credits", "Credits.png");
-loadSprite("back", "Back.png");
+loadSprite("credits", "credits.png");
+loadSprite("back", "back.png");
 
 loadRoot("Audio/")
 loadSound("menu_music", "Menu music.mp3");        // Load sounds and musics
