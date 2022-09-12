@@ -58,7 +58,7 @@ let scenarios = [                                        // scenarios stores all
         "Sickness and accident insurance bill",
         [4, 3], [6, 1], [2, 0], [0, 3], [4, 5],
         [1, 3], [6, 4], [3, 2], [0, 4], [5, 3], 
-        25, 1500, 0.7, 
+        25, 1500, 0.71, 
         "04.02.1912", 
         "The bill passed! In the meantime, the government will do some light price-fixing and put some slight regulations on insurances. A small win now, but still a win in the long-term: this bill lays the foundation for the current insurance system, put in place in 1994! In 1912, the bill passed with 54.4% of all the votes.",
         "The bill failed; the opposing parties were more aggressive than you. The insurance won't be available to anyone except the richer portion of the population. Indeed, insurances laws always are difficult to pass in Switzerland against the insurer's lobby...",
@@ -77,7 +77,7 @@ let scenarios = [                                        // scenarios stores all
         65.4
     ],
     [
-        "Popular initiative to relieve the economic crisis of 1929",
+        "Popular initiative to fight the economic crisis",
         [2, 3], [1, 4], [1, 0], [4, 3], [2, 6],
         [7, 0], [5, 2], [5, 0], [1, 4], [0, 5],
         20, 500, 0.73,

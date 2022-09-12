@@ -10,6 +10,11 @@ scene("victoryPage", ({ isWin, playedScene, votes }) => {
     }
     else localStorage.setItem("scenario_" + playedScene + "_score", votes);
 
+    if (votes >= scenarios[playedScene][18]) localStorage.setItem("scenario_" + playedScene + "_perfected", true);
+    console.log(scenarios[playedScene][18])
+    console.log(votes)
+    console.log(localStorage.getItem("scenario_" + playedScene + "_perfected"))
+
     layers([
         "bg",
         "victoryState"

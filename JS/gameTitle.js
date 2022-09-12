@@ -46,7 +46,7 @@ scene("titleScreen", () => {
     });
 });
 
-scene("introTxtGeneral", () => {
+scene("introTxtGeneral", ({ idScenar }) => {
     layers([
         "bg",
         "txt",
@@ -122,8 +122,8 @@ scene("levelSelect", ({ scenarioNumber }) => {
     ]);
 
     const scenarioName = add([
-        origin("bot"),
-        pos(Math.floor(width() / 2), Math.floor(height() / 2 + height() / 16)),
+        origin("top"),
+        pos(Math.floor(width() / 2), Math.floor(height() / 2 - height() / 6)),
         text(scenarios[currentScenarioDisplayed][0], {
             font: "sinko",
             size: Math.floor(7.2 * multiplyer),
@@ -135,7 +135,7 @@ scene("levelSelect", ({ scenarioNumber }) => {
 
     const scenarioYear = add([
         origin("top"),
-        pos(Math.floor(width() / 2), Math.floor(height() / 2 + height() / 14)),
+        pos(Math.floor(width() / 2), Math.floor(height() / 2 - height() / 6.5 + scenarioName.height)),
         text(scenarios[currentScenarioDisplayed][14].split(".").pop(), {
             font: "sinko",
             size: Math.floor((6 * multiplyer) - 2),
@@ -144,22 +144,31 @@ scene("levelSelect", ({ scenarioNumber }) => {
         layer("txt")
     ]);
 
-    const isNew = add([
+    let logoName = "";
+
+    if (localStorage.getItem("scenario_" + currentScenarioDisplayed + "_played") == "true") {
+        if (localStorage.getItem("scenario_" + currentScenarioDisplayed + "_perfected") == "true") logoName = "perfect";
+        else {
+            if (parseFloat(localStorage.getItem("scenario_" + currentScenarioDisplayed + "_score")) < 50) logoName = "fail";
+            else if (parseFloat(localStorage.getItem("scenario_" + currentScenarioDisplayed + "_score")) >= 50) logoName = "bravo";
+        }
+    }
+    else logoName = "new";
+
+    const logoStamps = add([
         origin("center"),
-        pos(Math.floor(width() / 2), Math.floor(height() - height() / 3)),
-        text("", {
-            font: "sinko",
-            size: Math.floor((6 * multiplyer) - 2),
-        }),
-        color(222, 192, 58),
-        layer("txt")
+        scale(Math.floor(multiplyer / 2)),
+        pos(Math.floor(width() / 2 - width() / 7), Math.floor(height() / 2 - height() / 4.5)),
+        sprite(logoName + "_logo"),
+        rotate(-45),
+        layer("bg")
     ]);
 
-    isNew.text = localStorage.getItem("scenario_" + currentScenarioDisplayed + "_played") != "true" ? "new!" : "";
+    if (localStorage.getItem("scenario_" + currentScenarioDisplayed + "_played") == null) logoStamps.pos = [Math.floor(width() / 6), Math.floor(height() / 2 - height() / 6)];
 
     const scorePlayed = add([
         origin("center"),
-        pos(Math.floor(width() / 2), Math.floor(height() - height() / 3)),
+        pos(Math.floor(width() / 2), Math.floor(height() / 2 - height() / 5)),
         text("", {
             font: "sinko",
             size: Math.floor((6 * multiplyer) - 2),
@@ -168,7 +177,14 @@ scene("levelSelect", ({ scenarioNumber }) => {
     ]);
 
     scorePlayed.text = localStorage.getItem("scenario_" + currentScenarioDisplayed + "_score") != null ? localStorage.getItem("scenario_" + currentScenarioDisplayed + "_score") + "%" : "";
-    scorePlayed.color = parseFloat(localStorage.getItem("scenario_" + currentScenarioDisplayed + "_score")) >= 50 ? rgb(74, 222, 58) : rgb(199, 20, 20);
+
+    if (localStorage.getItem("scenario_" + currentScenarioDisplayed + "_perfected") != null) {
+        scorePlayed.color = rgb(245, 196, 34);
+    }
+    else {
+        if (parseFloat(localStorage.getItem("scenario_" + currentScenarioDisplayed + "_score")) >= 50) scorePlayed.color = rgb(74, 222, 58);
+        else scorePlayed.color = rgb(199, 20, 20)
+    }
 
     add([
         pos(Math.floor(width() / 20), Math.floor(height() / 2 - height() / 10)),
@@ -180,18 +196,11 @@ scene("levelSelect", ({ scenarioNumber }) => {
         area()
     ]).onClick(() => {
         play("on_click_3");
+
         if (currentScenarioDisplayed == 0) currentScenarioDisplayed = scenarios.length - 1;
         else currentScenarioDisplayed--;
 
-        scenarioName.text = scenarios[currentScenarioDisplayed][0];
-        scenarioYear.text = scenarios[currentScenarioDisplayed][14].split(".").pop();
-
-        isNew.text = localStorage.getItem("scenario_" + currentScenarioDisplayed + "_played") != "true" ? "new!" : "";
-
-        scorePlayed.text = localStorage.getItem("scenario_" + currentScenarioDisplayed + "_score") != null ? localStorage.getItem("scenario_" + currentScenarioDisplayed + "_score") + "%" : "";
-        scorePlayed.color = parseFloat(localStorage.getItem("scenario_" + currentScenarioDisplayed + "_score")) >= 50 ? rgb(74, 222, 58) : rgb(199, 20, 20);
-
-        backGroundMissionPic.use(sprite("BG_Mission_" + currentScenarioDisplayed));
+        go("levelSelect", ({ scenarioNumber: currentScenarioDisplayed }));
     });
 
     add([
@@ -205,18 +214,11 @@ scene("levelSelect", ({ scenarioNumber }) => {
         area()
     ]).onClick(() => {
         play("on_click_3");
+
         if (currentScenarioDisplayed == scenarios.length - 1) currentScenarioDisplayed = 0;
         else currentScenarioDisplayed++;
 
-        scenarioName.text = scenarios[currentScenarioDisplayed][0];
-        scenarioYear.text = scenarios[currentScenarioDisplayed][14].split(".").pop();
-
-        isNew.text = localStorage.getItem("scenario_" + currentScenarioDisplayed + "_played") != "true" ? "new!" : "";
-
-        scorePlayed.text = localStorage.getItem("scenario_" + currentScenarioDisplayed + "_score") != null ? localStorage.getItem("scenario_" + currentScenarioDisplayed + "_score") + "%" : "";
-        scorePlayed.color = parseFloat(localStorage.getItem("scenario_" + currentScenarioDisplayed + "_score")) >= 50 ? rgb(74, 222, 58) : rgb(199, 20, 20);
-
-        backGroundMissionPic.use(sprite("BG_Mission_" + currentScenarioDisplayed));
+        go("levelSelect", ({ scenarioNumber: currentScenarioDisplayed }));
     });
 
     add([

@@ -54,7 +54,7 @@ scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics
     ]);
 
     const opticsCount = add([
-        pos(Math.floor((width() / 120) * 85), Math.floor(height() / 100)),
+        pos(Math.floor((width() / 60) * 41), Math.floor(height() / 100)),
         text("Optics:" + initialOptics, {
             size: Math.floor(5 * (multiplyer - 1)),
             font: "sinko",

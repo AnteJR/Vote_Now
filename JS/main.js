@@ -908,6 +908,10 @@ loadSpriteAtlas("Failure.png", {         // Animated Failure text
 loadSprite("ui_top", "UI.png");                  // Sprites for the UI and backgrounds
 loadSprite("ui_bottom", "UI_2.png");
 loadSprite("ui_end", "Background_end.png");
+loadSprite("new_logo", "new_logo.png");
+loadSprite("fail_logo", "fail_logo.png");
+loadSprite("bravo_logo", "bravo_logo.png");
+loadSprite("perfect_logo", "perfect_logo.png");
 loadSprite("BG_Mission_0", "train_vote_BG.png");
 loadSprite("BG_Mission_1", "insurance.png");
 loadSprite("BG_Mission_2", "AVS.png");
