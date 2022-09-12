@@ -9,20 +9,6 @@ scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics
         "grey_squares",
     ]);
 
-    /* SOUND */
-
-    let topCanBeHovered = true,
-        bottomCanBeHovered = true,
-        timer = 10000 / startTurn;
-
-    playTick(startTurn);
-    monInterval1 = setInterval(() => { playTick(startTurn) }, timer);
-
-    setTimeout(() => {
-        playTock(startTurn);
-        monInterval2 = setInterval(() => { playTock(startTurn) }, timer);
-    }, timer / 2);
-
     /* TOP UI */
 
     const ui_top = add([
@@ -199,9 +185,6 @@ scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics
                     initialOptics: opticsCount.value,
                     dayOfVote: dayOfVote
                 }));
-
-                clearInterval(monInterval1);
-                clearInterval(monInterval2);
             }
             else {
                 if (votesCount.value >= 50) goToEndScene(true, scn, votesCount.value);
@@ -301,9 +284,6 @@ scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics
 });
 
 function goToEndScene(has50Plus, scn, myVotes) {
-    clearInterval(monInterval1);
-    clearInterval(monInterval2);
-
     go("victoryPage", ({
         isWin: has50Plus,
         playedScene: scn,
