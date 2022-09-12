@@ -16,7 +16,7 @@ function playGameMusic() {
 
 function playTick(turn) {
     play("tick", {
-        volume: (0.05 * turn),
+        volume: (0.05 * (turn - 5)),
         loop: false,
         seek: 0
     });
@@ -24,7 +24,7 @@ function playTick(turn) {
 
 function playTock(turn) {
     play("tock", {
-        volume: (0.05 * turn),
+        volume: (0.05 * (turn - 5)),
         loop: false,
         seek: 0
     });
