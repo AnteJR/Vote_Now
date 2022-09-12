@@ -10,8 +10,6 @@ kaboom({                                                /* Kaboom function */
     font: "sink"
 });
 
-console.log("hello")
-
 loadRoot("Images/")
 
 loadSpriteAtlas("Affiches_mur_sheet.png", {      // Sprit Atlas for the flyers on the street walls
