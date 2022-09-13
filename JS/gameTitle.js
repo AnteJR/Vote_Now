@@ -16,7 +16,7 @@ scene("titleScreen", () => {
     add([
         scale(multiplyer),
         origin("center"),
-        pos(Math.floor(width() / 2), Math.floor(height() / multiplyer)),
+        pos(Math.floor(width() / 2), Math.floor(height() / 2 - height() / 2.8)),
         sprite("title", { anim: "animated_BG" }),
         layer("txt")
     ]);
