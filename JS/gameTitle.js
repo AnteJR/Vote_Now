@@ -46,7 +46,7 @@ scene("titleScreen", () => {
     });
 });
 
-scene("introTxtGeneral", ({ idScenar }) => {
+scene("introTxtGeneral", () => {
     layers([
         "bg",
         "txt",
