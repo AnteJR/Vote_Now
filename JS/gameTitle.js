@@ -44,6 +44,17 @@ scene("titleScreen", () => {
         play("on_click_1");
         go("creditsPage");
     });
+
+    add([
+        scale(Math.floor(multiplyer * 1.5)),
+        pos(Math.floor(width() / 35), Math.floor(height() - (height() / 6))),
+        sprite("achievements"),
+        area(),
+        layer("txt")
+    ]).onClick(() => {
+        play("on_click_1");
+        go("achievements_scene");
+    });
 });
 
 scene("introTxtGeneral", () => {
@@ -357,7 +368,34 @@ scene("introTxtScenario", ({ idVote }) => {
         play("on_click_2");
         go("levelSelect", { scenarioNumber: idVote });
     });
-})
+});
+
+scene("achievements_scene", () => {
+    layers([
+        "bg",
+        "txt",
+        "img"
+    ]);
+
+    add([
+        scale(multiplyer),
+        pos(0, 0),
+        sprite("BG_title", { anim: "animated_BG" }),
+        layer("bg")
+    ]);
+
+    add([
+        scale(Math.floor(multiplyer * 1.5)),
+        origin("center"),
+        pos(Math.floor(width() / 2), Math.floor(height() / 1.15)),
+        sprite("back"),
+        area(),
+        layer("txt")
+    ]).onClick(() => {
+        play("on_click_2");
+        go("titleScreen");
+    });
+});
 
 function initFunction() {
     playMenuMusic();

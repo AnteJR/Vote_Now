@@ -9,6 +9,9 @@ scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics
         "grey_squares",
     ]);
 
+    let topCanBeHovered = true,
+        bottomCanBeHovered = true;
+
     /* TOP UI */
 
     const ui_top = add([

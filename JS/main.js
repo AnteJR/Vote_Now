@@ -929,6 +929,7 @@ loadSprite("play_now", "play_now.png");
 loadSprite("play", "play_only.png");
 loadSprite("credits", "credits.png");
 loadSprite("back", "back.png");
+loadSprite("achievements", "achievements.png");
 
 loadRoot("Audio/")
 loadSound("menu_music", "Menu music.mp3");        // Load sounds and musics
