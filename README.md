@@ -16,13 +16,16 @@ I own all of the visual and audio assets except for the fonts [Old Newspaper Typ
 
 ## Credits
 
-Voting results found on the [___Chronological Repertoire of Votations___](https://www.bk.admin.ch/ch/f/pore/va/vab_2_2_4_1.html?lang=fr) on the Swiss Confederation's website.
+Voting Data:
 
-Historical contexts from the ___Gazette de Lausanne___ and the ___Journal de Genève___, which are available at the [___Le Temps___](https://www.letempsarchives.ch/)' archives.
+* [Chronological Repertoire of Votations](https://www.bk.admin.ch/ch/f/pore/va/vab_2_2_4_1.html?lang=fr) on the Swiss Confederation's website
+* [SwissVotes](https://swissvotes.ch/page/home)
 
-Historical commentary was found using the [___Historical Dictionary of Switzerland___](https://hls-dhs-dss.ch/fr/).
+Historical Context & Commentary
 
-Social commentary on the votations were found on the website [___History of Switzerland's Social Security___](https://www.histoiredelasecuritesociale.ch/synthese).
+* [Le Temps](https://www.letempsarchives.ch/)' archives (The ___Gazette de Lausanne___ and the ___Journal de Genève___)
+* [Historical Dictionary of Switzerland](https://hls-dhs-dss.ch/fr/)
+* [History of Switzerland's Social Security](https://www.histoiredelasecuritesociale.ch/synthese)
 
 Posters:
 
