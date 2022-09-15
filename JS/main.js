@@ -931,6 +931,18 @@ loadSprite("credits", "credits.png");
 loadSprite("back", "back.png");
 loadSprite("achievements", "achievements.png");
 
+loadSprite("Affiche_UKN", "Unknown_poster.png");
+loadSprite("Affiche0", "Affiche_1.png");
+loadSprite("Affiche1", "Affiche_2.png");
+loadSprite("Affiche2", "Affiche_3.png");
+loadSprite("Affiche3", "Affiche_4.png");
+loadSprite("Affiche4", "Affiche_5.png");
+loadSprite("Affiche5", "Affiche_6.png");
+loadSprite("Affiche6", "Affiche_7.png");
+loadSprite("Affiche7", "Affiche_8.png");
+loadSprite("Affiche8", "Affiche_9.png");
+loadSprite("Affiche9", "Affiche_10.png");
+
 loadRoot("Audio/")
 loadSound("menu_music", "Menu music.mp3");        // Load sounds and musics
 loadSound("game_music", "game_song_complete.mp3");

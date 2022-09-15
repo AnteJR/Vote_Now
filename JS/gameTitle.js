@@ -53,7 +53,7 @@ scene("titleScreen", () => {
         layer("txt")
     ]).onClick(() => {
         play("on_click_1");
-        go("achievements_scene");
+        go("achievements_scene", { idVote: 0 });
     });
 });
 
@@ -370,30 +370,133 @@ scene("introTxtScenario", ({ idVote }) => {
     });
 });
 
-scene("achievements_scene", () => {
+scene("achievements_scene", ({ idVote }) => {
     layers([
         "bg",
         "txt",
         "img"
     ]);
 
+    let voteNbr = idVote,
+        canGoBack = true;
+
     add([
         scale(multiplyer),
         pos(0, 0),
-        sprite("BG_title", { anim: "animated_BG" }),
+        sprite("BG_title", { anim: "idle" }),
         layer("bg")
     ]);
+
+    const greyS = add([
+        rect(width(), height()),
+        pos(0, 0),
+        color(1, 1, 1),
+        area(),
+        opacity(0.25),
+        layer("grey_squares"),
+        layer("bg")
+    ]);
+
+    const txtVote = add([
+        origin("top"),
+        pos(Math.floor(width() / 2), Math.floor(height() / 10)),
+        text(scenarios[idVote][0], {
+            font: "sinko",
+            size: Math.floor(5 * (multiplyer - 1)),
+            width: Math.floor(width() / 10 * 8)
+        }),
+        area(),
+        layer("txt")
+    ]);
+
+    const poster = add([
+        scale(Math.floor(multiplyer / 1.5)),
+        origin("center"),
+        pos(width() / 2, height() / 2),
+        sprite("Affiche_UKN"),
+        area(),
+        layer("img")
+    ]);
+
+    const nxtIMG = add([
+        pos(Math.floor(width() / 20), Math.floor(height() / 2 - height() / 10)),
+        text("<", {
+            size: Math.floor(10 * multiplyer),
+            font: "sinko",
+        }),
+        layer("txt"),
+        area()
+    ]);
+    
+    nxtIMG.onClick(() => {
+        play("on_click_3");
+
+        if (voteNbr == 0) voteNbr = scenarios.length - 1;
+        else voteNbr--;
+
+        go("achievements_scene", ({ idVote: voteNbr }));
+    });
+
+    const prevIMG = add([
+        origin("topright"),
+        pos(Math.floor(width() - width() / 20), Math.floor(height() / 2 - height() / 10)),
+        text(">", {
+            size: Math.floor(10 * multiplyer),
+            font: "sinko",
+        }),
+        layer("txt"),
+        area()
+    ]);
+    
+    prevIMG.onClick(() => {
+        play("on_click_3");
+
+        if (voteNbr == scenarios.length - 1) voteNbr = 0;
+        else voteNbr++;
+
+        go("achievements_scene", ({ idVote: voteNbr }));
+    });
+
+    if (localStorage.getItem("scenario_" + voteNbr + "_perfected")) {
+        poster.use(sprite("Affiche" + voteNbr));
+        poster.scale = Math.floor(multiplyer / 2.5);
+
+        let counter = 0;
+
+        poster.onClick(() => {
+            if (counter == 0) {
+                poster.scale = multiplyer / 2.05;
+                greyS.opacity = 0.75;
+                nxtIMG.opacity = 0;
+                prevIMG.opacity = 0;
+                txtVote.opacity = 0;
+                canGoBack = false;
+                counter++;
+            }
+            else {
+                poster.scale = Math.floor(multiplyer / 2.5);
+                greyS.opacity = 0.25;
+                nxtIMG.opacity = 1;
+                prevIMG.opacity = 1;
+                txtVote.opacity = 1;
+                setTimeout(() => { canGoBack = true; }, 100)
+                counter--;
+            }
+        });
+    }
 
     add([
         scale(Math.floor(multiplyer * 1.5)),
         origin("center"),
-        pos(Math.floor(width() / 2), Math.floor(height() / 1.15)),
+        pos(Math.floor(width() / 2), Math.floor(height() - height() / 15)),
         sprite("back"),
         area(),
         layer("txt")
     ]).onClick(() => {
-        play("on_click_2");
-        go("titleScreen");
+        if (canGoBack == true) {
+            play("on_click_2");
+            go("titleScreen");
+        }
     });
 });
 
