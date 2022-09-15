@@ -15,6 +15,24 @@ The game is available on [itch.io](https://jrante.itch.io/vote-now)and [GitHub P
 I own all of the visual and audio assets except for the fonts [Old Newspaper Types](https://www.dafont.com/oldnewspapertypes.font) and [Kitchen Sink](https://polyducks.itch.io/kitchen-sink-textmode-font), both of which are free to use with attribution. All visuals were made using [Aseprite](https://www.aseprite.org/). All audio was made using [BeepBox](https://www.beepbox.co/).
 
 ## Credits
-Informations about voting results were found on the [chronological repertoire of votations of the Swiss Confederation](https://www.bk.admin.ch/ch/f/pore/va/vab_2_2_4_1.html?lang=fr).
 
-Some historical contexts for the endings were found using articles from the ___Gazette de Lausanne___ and the ___Journal de Genève___, available at the [Le Temps archives](https://www.letempsarchives.ch/), as well as the proposed law texts, that are available through each entry in the Confederation' repertoire.
+Voting results found on the [___Chronological Repertoire of Votations___](https://www.bk.admin.ch/ch/f/pore/va/vab_2_2_4_1.html?lang=fr) on the Swiss Confederation's website.
+
+Historical contexts from the ___Gazette de Lausanne___ and the ___Journal de Genève___, which are available at the [___Le Temps___](https://www.letempsarchives.ch/)' archives.
+
+Historical commentary was found using the [___Historical Dictionary of Switzerland___](https://hls-dhs-dss.ch/fr/).
+
+Social commentary on the votations were found on the website [___History of Switzerland's Social Security___](https://www.histoiredelasecuritesociale.ch/synthese).
+
+Posters:
+
+* [Against the Swiss Railways' Buyout](https://hls-dhs-dss.ch/fr/articles/042003/2012-11-27/) (Flyer)
+* [For the Sickness and Accident Insurance Bill](https://www.histoiredelasecuritesociale.ch/synthese#c63) (Commemorative Poster)
+* [For the Elderly, Invalids and Veterans Insurance Bill](https://www.histoiredelasecuritesociale.ch/synthese#c69) (Poster)
+* [For the Crisis Initiative](https://www.posters.nb.admin.ch/discovery/fulldisplay?docid=alma991000511849703978&context=L&vid=41SNL_53_INST:posters&lang=fr&search_scope=MyInstitution&adaptor=Local%20Search%20Engine&tab=LibraryCatalog&query=any,contains,initiative%20de%20crise&offset=0) (Poster)
+* [For Romansch as a National Language](https://hls-dhs-dss.ch/fr/articles/024594/2012-06-19/) (Magazine Cover)
+* [For the Unfair Competition Bill](https://www.swissinfo.ch/fre/un-si%C3%A8cle-d-affiches-politiques--muscl%C3%A9es-/257884) (Poster)
+* [For the Civil Protection Militia](https://www.posters.nb.admin.ch/discovery/fulldisplay?docid=alma991000140679703978&context=L&vid=41SNL_53_INST:posters&lang=fr&search_scope=MyInstitution&adaptor=Local%20Search%20Engine&tab=LibraryCatalog&query=any,contains,zivilschutz&offset=0) (Flyer)
+* [For Women's Suffrage](https://www.posters.nb.admin.ch/discovery/fulldisplay?docid=alma991000208909703978&context=L&vid=41SNL_53_INST:posters&lang=fr&search_scope=MyInstitution&adaptor=Local%20Search%20Engine&tab=LibraryCatalog&query=any,contains,Mitspracherecht%20der%20Frauen%20auch%20im%20Bund&offset=0) (Poster)
+* [For the Removal of Mandatory Military Service for Men](https://swissvotes.ch/vote/357.00) (Poster)
+* [For the Prohibition of New Nuclear Power Plants' Construction](https://www.posters.nb.admin.ch/discovery/fulldisplay?docid=alma991000400309703978&context=L&vid=41SNL_53_INST:posters&lang=fr&search_scope=MyInstitution&adaptor=Local%20Search%20Engine&tab=LibraryCatalog&query=any,contains,nucl%C3%A9aire&offset=0) (Poster)
