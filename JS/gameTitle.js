@@ -160,7 +160,9 @@ scene("levelSelect", ({ scenarioNumber }) => {
     if (localStorage.getItem("scenario_" + currentScenarioDisplayed + "_played") == "true") {
         if (localStorage.getItem("scenario_" + currentScenarioDisplayed + "_perfected") == "true") logoName = "perfect";
         else {
-            if (parseFloat(localStorage.getItem("scenario_" + currentScenarioDisplayed + "_score")) < 50) logoName = "fail";
+            if (parseFloat(localStorage.getItem("scenario_" + currentScenarioDisplayed + "_score")) < 50 && scenarios[currentScenarioDisplayed][18] > 50) logoName = "fail";
+            else if (parseFloat(localStorage.getItem("scenario_" + currentScenarioDisplayed + "_score")) < 50 && scenarios[currentScenarioDisplayed][18] < 50 && parseFloat(localStorage.getItem("scenario_" + currentScenarioDisplayed + "_score")) < scenarios[currentScenarioDisplayed][18]) logoName = "fail";
+            else if (parseFloat(localStorage.getItem("scenario_" + currentScenarioDisplayed + "_score")) < 50 && scenarios[currentScenarioDisplayed][18] < 50 && parseFloat(localStorage.getItem("scenario_" + currentScenarioDisplayed + "_score")) > scenarios[currentScenarioDisplayed][18]) logoName = "bravo";
             else if (parseFloat(localStorage.getItem("scenario_" + currentScenarioDisplayed + "_score")) >= 50) logoName = "bravo";
         }
     }
@@ -193,7 +195,7 @@ scene("levelSelect", ({ scenarioNumber }) => {
         scorePlayed.color = rgb(245, 196, 34);
     }
     else {
-        if (parseFloat(localStorage.getItem("scenario_" + currentScenarioDisplayed + "_score")) >= 50) scorePlayed.color = rgb(74, 222, 58);
+        if (parseFloat(localStorage.getItem("scenario_" + currentScenarioDisplayed + "_score")) >= 50 || (parseFloat(localStorage.getItem("scenario_" + currentScenarioDisplayed + "_score")) < 50 && scenarios[currentScenarioDisplayed][18] < 50 && parseFloat(localStorage.getItem("scenario_" + currentScenarioDisplayed + "_score")) > scenarios[currentScenarioDisplayed][18])) scorePlayed.color = rgb(74, 222, 58);
         else scorePlayed.color = rgb(199, 20, 20)
     }
 
@@ -234,8 +236,8 @@ scene("levelSelect", ({ scenarioNumber }) => {
 
     add([
         scale(Math.floor(multiplyer * 1.5)),
-        origin("center"),
-        pos(Math.floor(width() / 2), Math.floor(height() - (height() / 7))),
+        origin("right"),
+        pos(Math.floor(width() - width() / 5), Math.floor(height() - (height() / 7))),
         sprite("play"),
         area(),
         layer("btns")
@@ -248,6 +250,18 @@ scene("levelSelect", ({ scenarioNumber }) => {
                 go("introTxtScenario", ({ idVote: scenarID }));
             }
         });
+    });
+
+    add([
+        scale(Math.floor(multiplyer * 1.5)),
+        origin("left"),
+        pos(Math.floor(width() / 5), Math.floor(height() - (height() / 7))),
+        sprite("back"),
+        area(),
+        layer("txt")
+    ]).onClick(() => {
+        play("on_click_2");
+        go("titleScreen");
     });
 });
 
@@ -447,6 +461,22 @@ scene("achievements_scene", ({ idVote }) => {
         layer("txt"),
         area()
     ]);
+
+    const backBtn = add([
+        scale(Math.floor(multiplyer * 1.5)),
+        origin("center"),
+        pos(Math.floor(width() / 2), Math.floor(height() - height() / 15)),
+        sprite("back"),
+        area(),
+        layer("txt")
+    ]);
+
+    backBtn.onClick(() => {
+        if (canGoBack == true) {
+            play("on_click_2");
+            go("titleScreen");
+        }
+    });
     
     prevIMG.onClick(() => {
         play("on_click_3");
@@ -470,6 +500,7 @@ scene("achievements_scene", ({ idVote }) => {
                 nxtIMG.opacity = 0;
                 prevIMG.opacity = 0;
                 txtVote.opacity = 0;
+                backBtn.opacity = 0;
                 canGoBack = false;
                 counter++;
             }
@@ -479,25 +510,12 @@ scene("achievements_scene", ({ idVote }) => {
                 nxtIMG.opacity = 1;
                 prevIMG.opacity = 1;
                 txtVote.opacity = 1;
+                backBtn.opacity = 1;
                 setTimeout(() => { canGoBack = true; }, 100)
                 counter--;
             }
         });
     }
-
-    add([
-        scale(Math.floor(multiplyer * 1.5)),
-        origin("center"),
-        pos(Math.floor(width() / 2), Math.floor(height() - height() / 15)),
-        sprite("back"),
-        area(),
-        layer("txt")
-    ]).onClick(() => {
-        if (canGoBack == true) {
-            play("on_click_2");
-            go("titleScreen");
-        }
-    });
 });
 
 function initFunction() {

@@ -846,6 +846,7 @@ loadSpriteAtlas("BG_Title.png", {    // Sprite Atlas for the main menu's backgro
         }
     }
 });
+
 // Sprite Atlas' for the animated texts
 loadSpriteAtlas("Title.png", {           // Animated title
     "title": {
