@@ -350,8 +350,8 @@ scene("introTxtScenario", ({ idVote }) => {
 
     add([
         scale(Math.floor(multiplyer * 1.5)),
-        origin("center"),
-        pos(Math.floor((width() / 40) * 27), Math.floor(height() - (height() / 7))),
+        origin("right"),
+        pos(Math.floor(width() - width() / 5), Math.floor(height() - (height() / 7))),
         sprite("play"),
         area(),
         layer("txt")
@@ -373,8 +373,8 @@ scene("introTxtScenario", ({ idVote }) => {
 
     add([
         scale(Math.floor(multiplyer * 1.5)),
-        origin("center"),
-        pos(Math.floor((width() / 30) * 9), Math.floor(height() - (height() / 7))),
+        origin("left"),
+        pos(Math.floor(width() / 5), Math.floor(height() - (height() / 7))),
         sprite("back"),
         area(),
         layer("txt")
