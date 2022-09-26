@@ -216,7 +216,7 @@ let scenarios = [                                        // scenarios stores all
     [
         "Reform of the insurance for the elderly",
         [1, 2], [0, 6], [8, 4], [3, 5], [4, 2],
-        [8, 0], [1, 6], [6, 2], [5, 0], [8, 5],
+        [8, 0], [1, 6], [6, 2], [5, 0], [0, 8],
         85, 1000, 0.71,
         "25.09.2022",
         "The initiative failed! This means women can still retire at 64 without reprecussion on their retirement fund. This also means there won't be a flexible limit to retirement (where the later you take it, the better it gets) to incetivize people to retire at 70. This is a social victory for the Swiss people, which unfortunately passed in our reality with a measly 50.5% of the votes.",
