@@ -15,7 +15,8 @@ let eventNames = [                      // names of the events
     "poste",
     "coupole",
     "affiche",
-    "radio"
+    "radio",
+    "socials"
 ];
 
 let spriteModifier = [                  // sprite modifiers; ie. variations to pick from when drawing a sprite
@@ -35,7 +36,8 @@ let scores = [                                  // what each event does to the g
     ["score_poste", 1, 250, 1, true, 4],            // 4. isGain (boolean)
     ["score_coupole", 10, 500, -10, false, 5],      // 5. id
     ["score_affiche", 5, 200, 0, false, 6],
-    ["score_radio", 3, 250, 2, false, 7]
+    ["score_radio", 3, 250, 2, false, 7],
+    ["score_socials", 5, 400, 4, false, 8]
 ];//scenarios stock les scénarios et les scènes correspondantes pour leur déroulement
 //scenarios contient : 0/name, 1/tour1, 2/tour2 ... 10/tour10, 11/votes_initial, 12/money_initial, 13/optics_initial, 14/date, 15/txt_victoire, 16/txt_défaite
 

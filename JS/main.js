@@ -694,7 +694,7 @@ loadSpriteAtlas("AG_sheet.png", {    // Sprite Atlas for sponsoring
         "anims": {
             "animated_BG": {
                 "from": 0,
-                "to": 10,
+                "to": 11,
                 "speed": 10,
                 "loop": true
             },
@@ -709,7 +709,7 @@ loadSpriteAtlas("AG_sheet.png", {    // Sprite Atlas for sponsoring
         "anims": {
             "animated_BG": {
                 "from": 0,
-                "to": 10,
+                "to": 11,
                 "speed": 10,
                 "loop": true
             },
@@ -724,7 +724,7 @@ loadSpriteAtlas("AG_sheet.png", {    // Sprite Atlas for sponsoring
         "anims": {
             "animated_BG": {
                 "from": 0,
-                "to": 10,
+                "to": 11,
                 "speed": 10,
                 "loop": true
             },
@@ -739,7 +739,7 @@ loadSpriteAtlas("AG_sheet.png", {    // Sprite Atlas for sponsoring
         "anims": {
             "animated_BG": {
                 "from": 0,
-                "to": 10,
+                "to": 11,
                 "speed": 10,
                 "loop": true
             },
@@ -769,7 +769,101 @@ loadSpriteAtlas("AG_sheet.png", {    // Sprite Atlas for sponsoring
         "anims": {
             "animated_BG": {
                 "from": 0,
-                "to": 10,
+                "to": 11,
+                "speed": 10,
+                "loop": true
+            },
+            "idle": 0
+        }
+    },
+});
+
+loadSpriteAtlas("computer_sprite_sheet.png", {    // Sprite Atlas for sponsoring
+    "event_socials_day_nice": {                      // option #1: "day_nice"
+        "x": 0,
+        "y": 0,
+        "width": 1736,
+        "height": 42,
+        "sliceX": 14,
+        "anims": {
+            "animated_BG": {
+                "from": 0,
+                "to": 13,
+                "speed": 10,
+                "loop": true
+            },
+            "idle": 0
+        }
+    }, "event_socials_day_rain": {                   // option #2: "day_rain"
+        "x": 0,
+        "y": 42,
+        "width": 1736,
+        "height": 42,
+        "sliceX": 14,
+        "anims": {
+            "animated_BG": {
+                "from": 0,
+                "to": 13,
+                "speed": 10,
+                "loop": true
+            },
+            "idle": 0
+        }
+    }, "event_socials_dawn_nice": {                  // option #3: "dawn_nice"
+        "x": 0,
+        "y": 84,
+        "width": 1736,
+        "height": 42,
+        "sliceX": 14,
+        "anims": {
+            "animated_BG": {
+                "from": 0,
+                "to": 13,
+                "speed": 10,
+                "loop": true
+            },
+            "idle": 0
+        }
+    }, "event_socials_dawn_rain": {                  // option #4: "dawn_rain"
+        "x": 0,
+        "y": 126,
+        "width": 1736,
+        "height": 42,
+        "sliceX": 14,
+        "anims": {
+            "animated_BG": {
+                "from": 0,
+                "to": 13,
+                "speed": 10,
+                "loop": true
+            },
+            "idle": 0
+        }
+    }, "event_socials_dusk_nice": {                  // option #5: "dusk_nice"
+        "x": 0,
+        "y": 168,
+        "width": 1736,
+        "height": 42,
+        "sliceX": 14,
+        "anims": {
+            "animated_BG": {
+                "from": 0,
+                "to": 13,
+                "speed": 10,
+                "loop": true
+            },
+            "idle": 0
+        }
+    }, "event_socials_dusk_rain": {                  // option #6: "dusk_rain"
+        "x": 0,
+        "y": 210,
+        "width": 1736,
+        "height": 42,
+        "sliceX": 14,
+        "anims": {
+            "animated_BG": {
+                "from": 0,
+                "to": 13,
                 "speed": 10,
                 "loop": true
             },
@@ -824,6 +918,12 @@ loadSpriteAtlas("Effects_Sheet.png", {       // Sprite Atlas for the events' eff
     "score_radio": {                                    // effect for the radio
         "x": 0,
         "y": 42 * 7,
+        "width": 124,
+        "height": 42
+    },
+    "score_socials": {                                    // effect for the social media
+        "x": 0,
+        "y": 42 * 8,
         "width": 124,
         "height": 42
     },
