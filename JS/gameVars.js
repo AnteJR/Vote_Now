@@ -165,7 +165,7 @@ let scenarios = [                                        // scenarios stores all
         54.5,
         true
     ],
-    [
+    [ // TO DO: THE SCENARIOS' EVENTS
         "Popular initiative to join the UN",
         [5, 2], [3, 6], [4, 1], [0, 2], [5, 3],
         [4, 0], [1, 6], [7, 3], [2, 4], [7, 5],

@@ -1024,6 +1024,10 @@ loadSprite("BG_Mission_7", "vote_femmes.png");
 loadSprite("BG_Mission_8", "Military.png");
 loadSprite("BG_Mission_9", "nuclear.png");
 loadSprite("BG_Mission_10", "ONU_BG.png");
+loadSprite("BG_Mission_11", "Secondary_homes.png");
+loadSprite("BG_Mission_12", "Same-sex_protection.png");
+loadSprite("BG_Mission_13", "Same-sex_marriage.png");
+loadSprite("BG_Mission_14", "AVS_reform.png");
 
 loadSprite("continue", "continue.png");          // Sprites for texts I use as buttons
 loadSprite("to_menu", "to_menu.png");
