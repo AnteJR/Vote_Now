@@ -694,7 +694,7 @@ loadSpriteAtlas("AG_sheet.png", {    // Sprite Atlas for sponsoring
         "anims": {
             "animated_BG": {
                 "from": 0,
-                "to": 11,
+                "to": 10,
                 "speed": 10,
                 "loop": true
             },
@@ -709,7 +709,7 @@ loadSpriteAtlas("AG_sheet.png", {    // Sprite Atlas for sponsoring
         "anims": {
             "animated_BG": {
                 "from": 0,
-                "to": 11,
+                "to": 10,
                 "speed": 10,
                 "loop": true
             },
@@ -724,7 +724,7 @@ loadSpriteAtlas("AG_sheet.png", {    // Sprite Atlas for sponsoring
         "anims": {
             "animated_BG": {
                 "from": 0,
-                "to": 11,
+                "to": 10,
                 "speed": 10,
                 "loop": true
             },
@@ -739,7 +739,7 @@ loadSpriteAtlas("AG_sheet.png", {    // Sprite Atlas for sponsoring
         "anims": {
             "animated_BG": {
                 "from": 0,
-                "to": 11,
+                "to": 10,
                 "speed": 10,
                 "loop": true
             },
@@ -769,7 +769,7 @@ loadSpriteAtlas("AG_sheet.png", {    // Sprite Atlas for sponsoring
         "anims": {
             "animated_BG": {
                 "from": 0,
-                "to": 11,
+                "to": 10,
                 "speed": 10,
                 "loop": true
             },
@@ -929,6 +929,63 @@ loadSpriteAtlas("Effects_Sheet.png", {       // Sprite Atlas for the events' eff
     },
 });
 
+loadSpriteAtlas("Effects_Sheet_REVERSE.png", {       // Sprite Atlas for the reversed events' effects
+    "score_train_reverse": {                                    // effect for the train
+        "x": 0,
+        "y": 0,
+        "width": 124,
+        "height": 42
+    },
+    "score_marche_reverse": {                                   // effect for the market
+        "x": 0,
+        "y": 42,
+        "width": 124,
+        "height": 42
+    },
+    "score_ag_reverse": {                                       // effect for the fundraising
+        "x": 0,
+        "y": 42 * 2,
+        "width": 124,
+        "height": 42
+    },
+    "score_journal_reverse": {                                  // effect for the journal
+        "x": 0,
+        "y": 42 * 3,
+        "width": 124,
+        "height": 42
+    },
+    "score_poste_reverse": {                                    // effect for the post office
+        "x": 0,
+        "y": 42 * 4,
+        "width": 124,
+        "height": 42
+    },
+    "score_coupole_reverse": {                                  // effect for the protest
+        "x": 0,
+        "y": 42 * 5,
+        "width": 124,
+        "height": 42
+    },
+    "score_affiche_reverse": {                                  // effect for the flyers
+        "x": 0,
+        "y": 42 * 6,
+        "width": 124,
+        "height": 42
+    },
+    "score_radio_reverse": {                                    // effect for the radio
+        "x": 0,
+        "y": 42 * 7,
+        "width": 124,
+        "height": 42
+    },
+    "score_socials_reverse": {                                    // effect for the social media
+        "x": 0,
+        "y": 42 * 8,
+        "width": 124,
+        "height": 42
+    },
+});
+
 loadSpriteAtlas("BG_Title.png", {    // Sprite Atlas for the main menu's background
     "BG_title": {
         "x": 0,
@@ -1036,6 +1093,7 @@ loadSprite("play", "play_only.png");
 loadSprite("credits", "credits.png");
 loadSprite("back", "back.png");
 loadSprite("achievements", "achievements.png");
+loadSprite("delete_game", "delete_progress.png");
 
 loadSprite("Affiche_UKN", "Unknown_poster.png");
 loadSprite("Affiche0", "Affiche_1.png");

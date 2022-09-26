@@ -1,6 +1,6 @@
 /* Function to play the game */
 
-scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics, dayOfVote }) => {
+scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics, dayOfVote, mustGain }) => {
     layers([
         "ui",
         "ui_txt",
@@ -69,8 +69,8 @@ scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics
     ])
 
     elemTop.onClick(() => {
-        if ((moneyCount.value < scores[top][2] && scores[top][4] == false) && (moneyCount.value < scores[bottom][2] && scores[bottom][4] == false) && votesCount.value < 50) goToEndScene(false, idScenario, votesCount.value);
-        else if ((moneyCount.value < scores[top][2] && scores[top][4] == false) && (moneyCount.value < scores[bottom][2] && scores[bottom][4] == false) && votesCount.value >= 50) goToEndScene(true, idScenario, votesCount.value);
+        if ((moneyCount.value < scores[top][2] && scores[top][4] == false) && (moneyCount.value < scores[bottom][2] && scores[bottom][4] == false) && ((votesCount.value < 50 && mustGain == true) || (votesCount.value >= 50 && mustGain == false))) goToEndScene(false, idScenario, votesCount.value, mustGain);
+        else if ((moneyCount.value < scores[top][2] && scores[top][4] == false) && (moneyCount.value < scores[bottom][2] && scores[bottom][4] == false) && ((votesCount.value >= 50 && mustGain == true) || (votesCount.value < 50 && mustGain == false))) goToEndScene(true, idScenario, votesCount.value, mustGain);
         else checkClick(top, true, idScenario, startTurn);
     });
 
@@ -90,8 +90,8 @@ scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics
     ]);
 
     elemBottom.onClick(() => {
-        if ((moneyCount.value < scores[top][2] && scores[top][4] == false) && (moneyCount.value < scores[bottom][2] && scores[bottom][4] == false) && votesCount.value < 50) goToEndScene(false, idScenario, votesCount.value);
-        else if ((moneyCount.value < scores[top][2] && scores[top][4] == false) && (moneyCount.value < scores[bottom][2] && scores[bottom][4] == false) && votesCount.value >= 50) goToEndScene(true, idScenario, votesCount.value);
+        if ((moneyCount.value < scores[top][2] && scores[top][4] == false) && (moneyCount.value < scores[bottom][2] && scores[bottom][4] == false) && ((votesCount.value < 50 && mustGain == true) || (votesCount.value >= 50 && mustGain == false))) goToEndScene(false, idScenario, votesCount.value, mustGain);
+        else if ((moneyCount.value < scores[top][2] && scores[top][4] == false) && (moneyCount.value < scores[bottom][2] && scores[bottom][4] == false) && ((votesCount.value >= 50 && mustGain == true) || (votesCount.value < 50 && mustGain == false))) goToEndScene(true, idScenario, votesCount.value, mustGain);
         else checkClick(bottom, false, idScenario, startTurn);
     });
 
@@ -174,7 +174,8 @@ scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics
                 moneyCount.value = moneyCount.value + scores[nbr][2];
             }
 
-            votesCount.value = parseFloat((votesCount.value + (scores[nbr][1] * opticsCount.value)).toFixed(2));
+            if (mustGain == true) votesCount.value = parseFloat((votesCount.value + (scores[nbr][1] * opticsCount.value)).toFixed(2));
+            else votesCount.value = parseFloat((votesCount.value - (scores[nbr][1] * opticsCount.value)).toFixed(2));
             opticsCount.value = parseFloat((opticsCount.value + (scores[nbr][3] / 100)).toFixed(2));
 
             currentTurn++;
@@ -186,12 +187,19 @@ scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics
                     intialVotes: votesCount.value,
                     initialMoney: moneyCount.value,
                     initialOptics: opticsCount.value,
-                    dayOfVote: dayOfVote
+                    dayOfVote: dayOfVote,
+                    mustGain: mustGain
                 }));
             }
             else {
-                if (votesCount.value >= 50) goToEndScene(true, scn, votesCount.value);
-                else goToEndScene(false, scn, votesCount.value);
+                if(mustGain) {
+                    if ((scenarios[idScenario][18] >= 50 && votesCount.value >= 50) || ((scenarios[idScenario][18] < 50 && votesCount.value > scenarios[idScenario][18]))) goToEndScene(true, scn, votesCount.value, mustGain);
+                    else goToEndScene(false, scn, votesCount.value, mustGain);
+                }
+                else {
+                    if ((scenarios[idScenario][18] >= 50 && votesCount.value < scenarios[idScenario][18]) || ((scenarios[idScenario][18] < 50 && votesCount.value < 50))) goToEndScene(true, scn, votesCount.value, mustGain);
+                    else goToEndScene(false, scn, votesCount.value, mustGain);
+                }
             }
         }
     }
@@ -206,7 +214,7 @@ scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics
                 elemTopStats = add([
                     scale(multiplyer),
                     pos(0, (ui_top.height * multiplyer)),
-                    sprite("score_" + eventNames[x]),
+                    sprite(mustGain ? "score_" + eventNames[x] : "score_" + eventNames[x] + "_reverse"),
                     area(),
                     layer("hover_elements")
                 ]);
@@ -246,7 +254,7 @@ scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics
                 elemBottomStats = add([
                     scale(multiplyer),
                     pos(0, (ui_top.height * multiplyer) + (elemTop.height * multiplyer)),
-                    sprite("score_" + eventNames[x]),
+                    sprite(mustGain ? "score_" + eventNames[x] : "score_" + eventNames[x] + "_reverse"),
                     area(),
                     layer("hover_elements")
                 ]);
@@ -286,10 +294,11 @@ scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics
     }
 });
 
-function goToEndScene(has50Plus, scn, myVotes) {
+function goToEndScene(has50Plus, scn, myVotes, gainTrue) {
     go("victoryPage", ({
         isWin: has50Plus,
         playedScene: scn,
-        votes: myVotes
+        votes: myVotes,
+        winIfMoreThan50: gainTrue
     }));
 }

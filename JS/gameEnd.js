@@ -1,38 +1,45 @@
 /* Function for the game's end to work */
 
-scene("victoryPage", ({ isWin, playedScene, votes }) => {
+scene("victoryPage", ({ isWin, playedScene, votes, winIfMoreThan50 }) => {
     music_game.pause();
     music_menu.play();
 
     localStorage.setItem("scenario_" + playedScene + "_played", true);
-    if (localStorage.getItem("scenario_" + playedScene + "_score") != null) {
-        if (parseFloat(localStorage.getItem("scenario_" + playedScene + "_score")) < votes) localStorage.setItem("scenario_" + playedScene + "_score", votes);
-    }
-    else localStorage.setItem("scenario_" + playedScene + "_score", votes);
 
-    if (scenarios[playedScene][18] > 50 && votes >= scenarios[playedScene][18]) localStorage.setItem("scenario_" + playedScene + "_perfected", true);
-    else if (scenarios[playedScene][18] < 50 && votes > 50) localStorage.setItem("scenario_" + playedScene + "_perfected", true);
+    let monScore = parseFloat(localStorage.getItem("scenario_" + playedScene + "_score")),
+        realResults = scenarios[playedScene][18];
+
+    if (winIfMoreThan50) {
+        if (isNaN(monScore)) localStorage.setItem("scenario_" + playedScene + "_score", votes);
+        else if (monScore < votes) localStorage.setItem("scenario_" + playedScene + "_score", votes);
+
+        if ((realResults > 50 && votes >= realResults) && (realResults < 50 && votes > 50)) localStorage.setItem("scenario_" + playedScene + "_perfected", true);
+    }
+    else {
+        if (isNaN(monScore)) localStorage.setItem("scenario_" + playedScene + "_score", votes);
+        else if (monScore > votes) localStorage.setItem("scenario_" + playedScene + "_score", votes);
+
+        if ((realResults >= 50 && votes < 50) || (realResults < 50 && votes <= realResults)) localStorage.setItem("scenario_" + playedScene + "_perfected", true);
+    }
 
     layers([
         "bg",
         "victoryState"
     ]);
 
-    const endBG = add([
+    add([
         sprite("ui_end"),
         scale(multiplyer),
         pos(0, 0),
         layer("bg")
     ]);
 
-    const victoryOrFailure = isWin == true ? "victory" : "failure";
-
-    const victoryFailure = add([
+    add([
         scale(multiplyer),
         pos(Math.floor(width() / 2), Math.floor((height() / 2) - (height() / (multiplyer + 3)))),
         origin("center"),
         layer("victoryState"),
-        sprite(victoryOrFailure, { anim: "animated_BG" })
+        sprite(isWin ? "victory" : "failure", { anim: "animated_BG" })
     ]);
 
     const skipTxt = add([
@@ -63,12 +70,14 @@ scene("endExplaination", ({ isVictory, sceneTxtToShow, votesTotal }) => {
         layer("bg")
     ]);
 
-    const victFail = isVictory == true ? 15 : 16;
+    let explainationText = isVictory ? scenarios[sceneTxtToShow][15] : scenarios[sceneTxtToShow][16];
 
-    const endTxt = add([
+    if ((isVictory && scenarios[sceneTxtToShow][18] < 50 && votesTotal < 50 && scenarios[sceneTxtToShow][19] == true) || (isVictory && scenarios[sceneTxtToShow][18] >= 50 && votesTotal >= 50 && votesTotal < scenarios[sceneTxtToShow][18] && scenarios[sceneTxtToShow][19] == false)) explainationText = scenarios[sceneTxtToShow][16] + " You still managed to do better than what really happend, and for that, we congratulate you!"
+
+    add([
         origin("center"),
         pos(width() / 2, (height() / 2) - 70),
-        text(scenarios[sceneTxtToShow][victFail] + "\n\nYour score was: " + votesTotal + "%", {
+        text(explainationText + "\n\nYour score was: " + votesTotal + "%", {
             size: Math.floor(5 * (multiplyer - 1)),
             width: Math.floor(width() - (width() / multiplyer)),
             font: "sinko",
