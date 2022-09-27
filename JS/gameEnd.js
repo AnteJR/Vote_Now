@@ -13,7 +13,7 @@ scene("victoryPage", ({ isWin, playedScene, votes, winIfMoreThan50 }) => {
         if (isNaN(monScore)) localStorage.setItem("scenario_" + playedScene + "_score", votes);
         else if (monScore < votes) localStorage.setItem("scenario_" + playedScene + "_score", votes);
 
-        if ((realResults > 50 && votes >= realResults) && (realResults < 50 && votes > 50)) localStorage.setItem("scenario_" + playedScene + "_perfected", true);
+        if ((realResults > 50 && votes >= realResults) || (realResults < 50 && votes > 50)) localStorage.setItem("scenario_" + playedScene + "_perfected", true);
     }
     else {
         if (isNaN(monScore)) localStorage.setItem("scenario_" + playedScene + "_score", votes);
