@@ -219,9 +219,9 @@ let scenarios = [                                        // scenarios stores all
         [8, 0], [1, 6], [6, 2], [5, 0], [0, 8],
         85, 1000, 0.71,
         "25.09.2022",
-        "The initiative failed! This means women can still retire at 64 without reprecussion on their retirement fund. This also means there won't be a flexible limit to retirement (where the later you take it, the better it gets) to incetivize people to retire at 70. This is a social victory for the Swiss people, which unfortunately passed in our reality with a measly 50.5% of the votes.",
+        "The initiative failed! This is a victory! It means women can still retire at 64 without reprecussion on their retirement fund. This also means there won't be a flexible limit to retirement to incetivize people to retire at 70. This is a social victory for the Swiss people, which unfortunately passed in our reality with a measly 50.5% of the votes.",
         "The bill passed; this is a clear step backwards. Now, women will have to retire at 65, and there will an incentivization for poorer people to work for up to 70 years old. The bill also passed for real, with a mere 50.5% favorable votes, which is frustrating to say the least.",
-        "Elderly's insurance reform (2020)\n\nThe insurance doesn't have the fund to function! (Or so does the government say)... Despite record profits, the government fears there won't be enough to provide for all the elderly in the near future. Their solution? Increase women's retirement age from 64 to 65, and implement a system where the later you retire (up to 70), the better you fund will be, incentivizing the working class to retire later.",
+        "Elderly's insurance reform (2020)\n\nDespite record profits, the government fears there may not be enough to provide for all the elderly in the near future. The solution? Increase women's retirement age from 64 to 65, and implement a system where the later you retire (up to 70), the better you fund will be, incentivizing people to retire later.",
         50.5,
         false
     ]
