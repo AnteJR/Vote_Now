@@ -463,7 +463,7 @@ scene("achievements_scene", ({ idVote }) => {
     ]);
 
     const poster = add([
-        scale(Math.floor(multiplyer / 1.5)),
+        scale(Math.floor(multiplyer / 2)),
         origin("center"),
         pos(width() / 2, height() / 2),
         sprite("Affiche_UKN"),
