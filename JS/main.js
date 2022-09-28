@@ -1106,6 +1106,10 @@ loadSprite("Affiche6", "Affiche_7.png");
 loadSprite("Affiche7", "Affiche_8.png");
 loadSprite("Affiche8", "Affiche_9.png");
 loadSprite("Affiche9", "Affiche_10.png");
+loadSprite("Affiche11", "Affiche_12.png");
+loadSprite("Affiche12", "Affiche_13.png");
+loadSprite("Affiche13", "Affiche_14.png");
+loadSprite("Affiche14", "Affiche_15.png");
 
 loadRoot("Audio/")
 loadSound("menu_music", "Menu music.mp3");        // Load sounds and musics
