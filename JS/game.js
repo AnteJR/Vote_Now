@@ -1,6 +1,12 @@
 /* Function to play the game */
 
 scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics, dayOfVote, mustGain }) => {
+    let topCanBeHovered = true,
+        bottomCanBeHovered = true,
+        top = scenarios[idScenario][startTurn][0],
+        bottom = scenarios[idScenario][startTurn][1],
+        txtColor = 255 / (startTurn / (10 / startTurn));
+    
     layers([
         "ui",
         "ui_txt",
@@ -9,11 +15,7 @@ scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics
         "grey_squares",
     ]);
 
-    let topCanBeHovered = true,
-        bottomCanBeHovered = true;
-
     /* TOP UI */
-
     const ui_top = add([
         scale(multiplyer),
         pos(0, 0),
@@ -25,8 +27,7 @@ scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics
     const votesCount = add([
         pos(Math.floor(width() / 100), Math.floor(height() / 100)),
         text("Votes:" + Math.round(((intialVotes) + Number.EPSILON) * 10) / 10 + "%", {
-            size: Math.floor(5 * (multiplyer - 1)),
-            font: "sinko",
+            size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 10) : Math.floor(5 * (multiplyer - 1))
         }),
         { value: intialVotes },
         layer("ui_txt")
@@ -35,8 +36,7 @@ scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics
     const moneyCount = add([
         pos(Math.floor(width() / 3), Math.floor(height() / 100)),
         text("Money:" + initialMoney + ".-", {
-            size: Math.floor(5 * (multiplyer - 1)),
-            font: "sinko",
+            size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 10) : Math.floor(5 * (multiplyer - 1))
         }),
         { value: initialMoney },
         layer("ui_txt")
@@ -45,18 +45,13 @@ scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics
     const opticsCount = add([
         pos(Math.floor((width() / 60) * 41), Math.floor(height() / 100)),
         text("Optics:" + initialOptics, {
-            size: Math.floor(5 * (multiplyer - 1)),
-            font: "sinko",
+            size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 10) : Math.floor(5 * (multiplyer - 1))
         }),
         { value: initialOptics },
         layer("ui_txt")
     ]);
 
     /* EVENTS CHOICE */
-
-    const top = scenarios[idScenario][startTurn][0];
-    const bottom = scenarios[idScenario][startTurn][1];
-
     const elemTop = add([
         scale(multiplyer),
         pos(0, (ui_top.height * multiplyer)),
@@ -66,14 +61,12 @@ scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics
         eventNames[top],
         "event",
         "event_top"
-    ])
-
+    ]);
     elemTop.onClick(() => {
         if ((moneyCount.value < scores[top][2] && scores[top][4] == false) && (moneyCount.value < scores[bottom][2] && scores[bottom][4] == false) && ((votesCount.value < 50 && mustGain == true) || (votesCount.value >= 50 && mustGain == false))) goToEndScene(false, idScenario, votesCount.value, mustGain);
         else if ((moneyCount.value < scores[top][2] && scores[top][4] == false) && (moneyCount.value < scores[bottom][2] && scores[bottom][4] == false) && ((votesCount.value >= 50 && mustGain == true) || (votesCount.value < 50 && mustGain == false))) goToEndScene(true, idScenario, votesCount.value, mustGain);
         else checkClick(top, true, idScenario, startTurn);
     });
-
     elemTop.onHover(() => {
         checkHover(top, true, startTurn);
     });
@@ -88,13 +81,11 @@ scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics
         "event",
         "event_bottom"
     ]);
-
     elemBottom.onClick(() => {
         if ((moneyCount.value < scores[top][2] && scores[top][4] == false) && (moneyCount.value < scores[bottom][2] && scores[bottom][4] == false) && ((votesCount.value < 50 && mustGain == true) || (votesCount.value >= 50 && mustGain == false))) goToEndScene(false, idScenario, votesCount.value, mustGain);
         else if ((moneyCount.value < scores[top][2] && scores[top][4] == false) && (moneyCount.value < scores[bottom][2] && scores[bottom][4] == false) && ((votesCount.value >= 50 && mustGain == true) || (votesCount.value < 50 && mustGain == false))) goToEndScene(true, idScenario, votesCount.value, mustGain);
         else checkClick(bottom, false, idScenario, startTurn);
     });
-
     elemBottom.onHover(() => {
         checkHover(bottom, false, startTurn);
     });
@@ -109,23 +100,19 @@ scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics
         layer("ui")
     ]);
 
-    add([
+    const dateOfTheVote = add([
         pos(Math.floor(width() / 100), height() - Math.floor(height() / 17)),
         text("Vote day: " + dayOfVote, {
-            size: Math.floor(5 * (multiplyer - 1)),
-            font: "sinko",
+            size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 10) : Math.floor(5 * (multiplyer - 1))
         }),
         layer("ui_txt")
     ]);
-
-    let txtColor = 255 / (startTurn / (10 / startTurn))
 
     const daysUntilVote = add([
         pos(Math.floor(width() / 120) * 77, height() - Math.floor(height() / 17)),
         color(255, txtColor, txtColor),
         text((11 - startTurn) + " days left", {
-            size: Math.floor(5 * (multiplyer - 1)),
-            font: "sinko",
+            size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 10) : Math.floor(5 * (multiplyer - 1))
         }),
         layer("ui_txt")
     ]);
@@ -167,15 +154,9 @@ scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics
         }
         else {
             play("on_click_3");
-            if (scores[nbr][4] == false) {
-                moneyCount.value = moneyCount.value - scores[nbr][2];
-            }
-            else {
-                moneyCount.value = moneyCount.value + scores[nbr][2];
-            }
-
-            if (mustGain == true) votesCount.value = parseFloat((votesCount.value + (scores[nbr][1] * opticsCount.value)).toFixed(2));
-            else votesCount.value = parseFloat((votesCount.value - (scores[nbr][1] * opticsCount.value)).toFixed(2));
+            
+            moneyCount.value = scores[nbr][4] == false ? moneyCount.value - scores[nbr][2] : moneyCount.value + scores[nbr][2];
+            votesCount.value = mustGain == true ? parseFloat((votesCount.value + (scores[nbr][1] * opticsCount.value)).toFixed(2)) : parseFloat((votesCount.value - (scores[nbr][1] * opticsCount.value)).toFixed(2));
             opticsCount.value = parseFloat((opticsCount.value + (scores[nbr][3] / 100)).toFixed(2));
 
             currentTurn++;
@@ -193,12 +174,10 @@ scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics
             }
             else {
                 if(mustGain) {
-                    if ((scenarios[idScenario][18] >= 50 && votesCount.value >= 50) || ((scenarios[idScenario][18] < 50 && votesCount.value > scenarios[idScenario][18]))) goToEndScene(true, scn, votesCount.value, mustGain);
-                    else goToEndScene(false, scn, votesCount.value, mustGain);
+                    (scenarios[idScenario][18] >= 50 && votesCount.value >= 50) || (scenarios[idScenario][18] < 50 && votesCount.value > scenarios[idScenario][18]) ? goToEndScene(true, scn, votesCount.value, mustGain) : goToEndScene(false, scn, votesCount.value, mustGain);
                 }
                 else {
-                    if ((scenarios[idScenario][18] >= 50 && votesCount.value < scenarios[idScenario][18]) || ((scenarios[idScenario][18] < 50 && votesCount.value < 50))) goToEndScene(true, scn, votesCount.value, mustGain);
-                    else goToEndScene(false, scn, votesCount.value, mustGain);
+                    (scenarios[idScenario][18] >= 50 && votesCount.value < scenarios[idScenario][18]) || (scenarios[idScenario][18] < 50 && votesCount.value < 50) ? goToEndScene(true, scn, votesCount.value, mustGain) : goToEndScene(false, scn, votesCount.value, mustGain);
                 }
             }
         }
