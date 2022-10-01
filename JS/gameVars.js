@@ -38,9 +38,7 @@ let scores = [                                  // what each event does to the g
     ["score_affiche", 5, 200, 0, false, 6],
     ["score_radio", 3, 250, 2, false, 7],
     ["score_socials", 5, 400, 4, false, 8]
-];//scenarios stock les scénarios et les scènes correspondantes pour leur déroulement
-//scenarios contient : 0/name, 1/tour1, 2/tour2 ... 10/tour10, 11/votes_initial, 12/money_initial, 13/optics_initial, 14/date, 15/txt_victoire, 16/txt_défaite
-
+];
 
 let scenarios = [                                        // scenarios stores all useful data for each votation you can play
     [                                                    // scenarios is structured as follos:
@@ -48,9 +46,9 @@ let scenarios = [                                        // scenarios stores all
         [6, 4], [3, 1], [0, 6], [2, 1], [3, 4],             // 1-10. turn 1-10 (ie. what two events will be displayed each turn)
         [1, 6], [2, 3], [3, 0], [6, 4], [1, 0],             // 11 - 13. intial vote percentage, money and optics
         40,                                                 // 14. the exact date the vote took place
-        1500,                                               // 15-16. texts explaining what happens depending if the player wins or fails
-        0.8,                                                // 17. the introductory text
-        "20.02.1898",                                       // 18. the actual result of the vote
+        1500,                                               // 15-17. texts explaining what happens depending if the player wins or fails & the introductory text
+        0.8,                                                // 18. the actual result of the vote
+        "20.02.1898",                                       // 19. if the bills has to be passed (>50 ; true) or not (<50 ; false)
         "The bill is accepted! Thanks to your efforts, railway will be bought by the government, and the CFF will soon be created and operated by the Confederation. This means cheaper, more efficient, and uniform railways throughout the country. In 1898, the project had cumulated 67.9% of all the votes.",
         "The bill is rejected by the population. The Confederation is thus not allowed to buy the Central Swiss Railways to manage them at the state level. Without the creation of the CFF, railways stay in private hands. This is not the first time the government is blocked by vote for that specific buyout: it was already rejected in 1891 by 68.9% of the population!",
         "Government's buyout of Swiss railways (1898)\n\nThis bill aims for the federal government to buy the many private railway companies throughout Switzerland to offer a uniform, centralized, nationalized railway system.\n\nIf you manage to make the bill pass, the CFF (Chemin de fer federaux; Federal Railways) will be created in 1902 to manage the railways thoughout the country.",
@@ -185,7 +183,7 @@ let scenarios = [                                        // scenarios stores all
         "11.03.2012",
         "The initiative passed! With that, constructing a new secondary residence, espcially in the more rural parts of the country, will be much more complicated: either you live there, or don't construct anything. The bill did pass by a hair for real, garnering a mere 50.6% of the votes!",
         "The bill failed; for now, legislation on construction in the countryside won't change, and there won't be restrictions put in place if you want to build a secondary place of residence in Switzerland. This is to the detriment of the local population and the Swiss landscape, but investors and construction companies can keep making money.",
-        "Initiative to stop construction new secondary homes (2012)\n\nMany rich Swiss residents, as well as wealthy foreigners, take advantage of Switzerland's relatively lax laws to build secondary residence in the most beautiful parts of the country, even if they come there only 2 weeks every year. This intiative wants to change that, and prevent new secondary homes to be built in the countryside.",
+        "Initiative to prevent new secondary homes (2012)\n\nMany rich Swiss residents, as well as wealthy foreigners, take advantage of Switzerland's relatively lax laws to build secondary residence in the most beautiful parts of the country, even if they come there only 2 weeks every year. This intiative wants to change that, and prevent new secondary homes to be built in the countryside.",
         50.6,
         true
     ],
@@ -209,7 +207,7 @@ let scenarios = [                                        // scenarios stores all
         "26.09.2021",
         "The initiative passed! Same-sex couples will now be able to marry with the same legal status as heterosexual couples; this also gives them access to adoption and artificial insemination, which allows them to have children, and for those children to be recognized under the law. This is a resounding victory for progress, and one which garnered 64.1% of positive votes in our reality.",
         "The bill failed; this is heart-breaking. Same-sex couples will not be able to marry, nor adopt or have children recognized, like is the case for heterosexual couples. Because this referendum was victorious and the law failed, the government won't be able to make a new law for same-sex couples for at least 5 years to a decade! This really is a shame...",
-        "Same-sex marriage and adoption (2021)\n\nSwitzerland still doesn't allow for same-sex couple to marry and have children. Currently, a union is possible, but really only change your status to 'someone in a same-sex relationship', and only helps for succession rights. This bill not only proposes to make marriage fully legal for same-sex couple, but also allows them to have children, whether by adoption or artificial insemination.",
+        "Same-sex marriage and adoption (2021)\n\nSwitzerland still doesn't allow for same-sex couple to marry and have children. Currently, a union is possible, but really only helps for succession rights. This bill not only proposes to make marriage fully legal for same-sex couples, but also allows them to have children, and for those children to be recognized under the law.",
         64.1,
         true
     ],

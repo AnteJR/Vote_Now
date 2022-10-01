@@ -7,10 +7,10 @@ kaboom({                                                /* Kaboom function */
     width: 124 * multiplyer,
     height: 98 * multiplyer,
     clearColor: [0, 0, 0],
-    font: "sink"
+    font: "sinko"
 });
 
-loadRoot("Images/")
+loadRoot("Images/");
 
 loadSpriteAtlas("Affiches_mur_sheet.png", {      // Sprit Atlas for the flyers on the street walls
     "event_affiche_day_nice": {                             // option #1: "day_nice"
@@ -878,50 +878,42 @@ loadSpriteAtlas("Effects_Sheet.png", {       // Sprite Atlas for the events' eff
         "y": 0,
         "width": 124,
         "height": 42
-    },
-    "score_marche": {                                   // effect for the market
+    }, "score_marche": {                                   // effect for the market
         "x": 0,
         "y": 42,
         "width": 124,
         "height": 42
-    },
-    "score_ag": {                                       // effect for the fundraising
+    }, "score_ag": {                                       // effect for the fundraising
         "x": 0,
         "y": 42 * 2,
         "width": 124,
         "height": 42
-    },
-    "score_journal": {                                  // effect for the journal
+    }, "score_journal": {                                  // effect for the journal
         "x": 0,
         "y": 42 * 3,
         "width": 124,
         "height": 42
-    },
-    "score_poste": {                                    // effect for the post office
+    }, "score_poste": {                                    // effect for the post office
         "x": 0,
         "y": 42 * 4,
         "width": 124,
         "height": 42
-    },
-    "score_coupole": {                                  // effect for the protest
+    }, "score_coupole": {                                  // effect for the protest
         "x": 0,
         "y": 42 * 5,
         "width": 124,
         "height": 42
-    },
-    "score_affiche": {                                  // effect for the flyers
+    }, "score_affiche": {                                  // effect for the flyers
         "x": 0,
         "y": 42 * 6,
         "width": 124,
         "height": 42
-    },
-    "score_radio": {                                    // effect for the radio
+    }, "score_radio": {                                    // effect for the radio
         "x": 0,
         "y": 42 * 7,
         "width": 124,
         "height": 42
-    },
-    "score_socials": {                                    // effect for the social media
+    }, "score_socials": {                                    // effect for the social media
         "x": 0,
         "y": 42 * 8,
         "width": 124,
@@ -935,50 +927,42 @@ loadSpriteAtlas("Effects_Sheet_REVERSE.png", {       // Sprite Atlas for the rev
         "y": 0,
         "width": 124,
         "height": 42
-    },
-    "score_marche_reverse": {                                   // effect for the market
+    }, "score_marche_reverse": {                                   // effect for the market
         "x": 0,
         "y": 42,
         "width": 124,
         "height": 42
-    },
-    "score_ag_reverse": {                                       // effect for the fundraising
+    }, "score_ag_reverse": {                                       // effect for the fundraising
         "x": 0,
         "y": 42 * 2,
         "width": 124,
         "height": 42
-    },
-    "score_journal_reverse": {                                  // effect for the journal
+    }, "score_journal_reverse": {                                  // effect for the journal
         "x": 0,
         "y": 42 * 3,
         "width": 124,
         "height": 42
-    },
-    "score_poste_reverse": {                                    // effect for the post office
+    }, "score_poste_reverse": {                                    // effect for the post office
         "x": 0,
         "y": 42 * 4,
         "width": 124,
         "height": 42
-    },
-    "score_coupole_reverse": {                                  // effect for the protest
+    }, "score_coupole_reverse": {                                  // effect for the protest
         "x": 0,
         "y": 42 * 5,
         "width": 124,
         "height": 42
-    },
-    "score_affiche_reverse": {                                  // effect for the flyers
+    }, "score_affiche_reverse": {                                  // effect for the flyers
         "x": 0,
         "y": 42 * 6,
         "width": 124,
         "height": 42
-    },
-    "score_radio_reverse": {                                    // effect for the radio
+    }, "score_radio_reverse": {                                    // effect for the radio
         "x": 0,
         "y": 42 * 7,
         "width": 124,
         "height": 42
-    },
-    "score_socials_reverse": {                                    // effect for the social media
+    }, "score_socials_reverse": {                                    // effect for the social media
         "x": 0,
         "y": 42 * 8,
         "width": 124,
@@ -1106,6 +1090,7 @@ loadSprite("Affiche6", "Affiche_7.png");
 loadSprite("Affiche7", "Affiche_8.png");
 loadSprite("Affiche8", "Affiche_9.png");
 loadSprite("Affiche9", "Affiche_10.png");
+loadSprite("Affiche10", "Affiche_11.png");
 loadSprite("Affiche11", "Affiche_12.png");
 loadSprite("Affiche12", "Affiche_13.png");
 loadSprite("Affiche13", "Affiche_14.png");

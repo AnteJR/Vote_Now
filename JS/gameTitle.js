@@ -1,4 +1,4 @@
-/* All the function necessary to make the title screen work */
+/* All the scenes necessary to make the title screen work */
 
 scene("titleScreen", () => {
     layers([
@@ -6,14 +6,14 @@ scene("titleScreen", () => {
         "txt"
     ]);
 
-    add([
+    const menu_BG = add([
         scale(multiplyer),
         pos(0, 0),
         sprite("BG_title", { anim: "animated_BG" }),
         layer("bg")
     ]);
 
-    add([
+    const menu_Title = add([
         scale(multiplyer),
         origin("center"),
         pos(Math.floor(width() / 2), Math.floor(height() / 2 - height() / 2.8)),
@@ -21,7 +21,7 @@ scene("titleScreen", () => {
         layer("txt")
     ]);
 
-    add([
+    const menu_PlayNowButton = add([
         scale(Math.floor(multiplyer * 1.5)),
         pos(Math.floor(width() / 35), Math.floor(height() / 2)),
         sprite("play_now"),
@@ -32,7 +32,7 @@ scene("titleScreen", () => {
         localStorage.getItem("hasReadIntro") == "true" ? go("levelSelect", { scenarioNumber: 0 }) : go("introTxtGeneral");
     });
 
-    add([
+    const menu_CreditsPageButton = add([
         scale(Math.floor(multiplyer * 1.5)),
         pos(Math.floor(width() / 35), Math.floor(height() - (height() / 3))),
         sprite("credits"),
@@ -43,7 +43,7 @@ scene("titleScreen", () => {
         go("creditsPage");
     });
 
-    add([
+    const menu_AchievementsButton = add([
         scale(Math.floor(multiplyer * 1.5)),
         pos(Math.floor(width() / 35), Math.floor(height() - (height() / 6))),
         sprite("achievements"),
@@ -61,14 +61,14 @@ scene("introTxtGeneral", () => {
         "txt",
     ]);
 
-    add([
+    const intro_BG = add([
         scale(multiplyer),
         pos(0, 0),
         sprite("BG_title", { anim: "animated_BG" }),
         layer("bg")
     ]);
 
-    add([
+    const intro_GreyOutSquare = add([
         rect(width(), height()),
         pos(0, 0),
         color(1, 1, 1),
@@ -78,21 +78,20 @@ scene("introTxtGeneral", () => {
         layer("bg")
     ]);
 
-    add([
+    const intro_Text = add([
         origin("center"),
         pos(Math.floor(width() / 2), Math.floor(((height() / 2) - (height() / 10)))),
         text("Vote Now! is a minimalist strategy game that plays kind of like Reigns, as in you have a choice of 2 actions that you can pick from at a time.\n\nYou will play as a non-specific, left-leaning political party aiming to pass bills in Switzerland by propagandizing to influence voters' opinions. You will have to manage your money, the opinions of the voter base on your campaign, and the votes you are predicted to get.", {
-            size: Math.floor(5 * (multiplyer - 1)),
-            width: Math.floor(width() - (width() / (multiplyer + 1))),
-            font: "sinko",
+            size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 10) : Math.floor(5 * (multiplyer - 1)),
+            width: Math.floor(width() - (width() / (multiplyer + 1)))
         }),
         layer("txt")
     ]);
 
-    add([
+    const intro_PlayButton = add([
         scale(Math.floor(multiplyer * 1.5)),
         origin("center"),
-        pos(Math.floor(width() / 2), Math.floor(height() - (height() / 7))),
+        pos(Math.floor(width() / 2), Math.floor(height() - (height() / 10))),
         sprite("play"),
         area(),
         layer("txt")
@@ -118,14 +117,14 @@ scene("levelSelect", ({ scenarioNumber }) => {
         "btns"
     ]);
 
-    add([
+    const levelSelect_BG = add([
         scale(multiplyer),
         pos(0, 0),
         sprite("BG_Mission_" + currentScenarioDisplayed),
         layer("bg")
     ]);
 
-    add([
+    const levelSelect_GreyOutSquare = add([
         rect(width(), height()),
         pos(0, 0),
         color(1, 1, 1),
@@ -135,30 +134,28 @@ scene("levelSelect", ({ scenarioNumber }) => {
         layer("bg")
     ]);
 
-    const scenarioName = add([
+    const levelSelect_ScenarioName = add([
         origin("top"),
         pos(Math.floor(width() / 2), Math.floor(height() / 2 - height() / 6)),
         text(scenarios[currentScenarioDisplayed][0], {
-            font: "sinko",
-            size: Math.floor(7.2 * multiplyer),
+            size: multiplyer % 2 == 0 ? Math.floor(10 * (multiplyer) - (5 * (multiplyer / 2))) : Math.floor(10 * (multiplyer - 1) - (5 * ((multiplyer - 1) / 2))),
             width: Math.floor(width() / 10 * 7)
         }),
         area(),
         layer("txt")
     ]);
 
-    const scenarioYear = add([
+    const levelSelect_ScenarioYear = add([
         origin("top"),
-        pos(Math.floor(width() / 2), Math.floor(height() / 2 - height() / 6.5 + scenarioName.height)),
+        pos(Math.floor(width() / 2), Math.floor(height() / 2 - height() / 6.5 + levelSelect_ScenarioName.height)),
         text(scenarios[currentScenarioDisplayed][14].split(".").pop(), {
-            font: "sinko",
-            size: Math.floor((6 * multiplyer) - 2),
+            size: multiplyer % 2 == 0 ? 5 * multiplyer : 5 * (multiplyer - 1) + 10
         }),
         area(),
         layer("txt")
     ]);
 
-    const logoStamps = add([
+    const levelSelect_LogoStamps = add([
         origin("center"),
         scale(Math.floor(multiplyer / 2)),
         pos(hasNotBeenPlayed == true ? [Math.floor(width() / 6), Math.floor(height() / 2 - height() / 6)] : [Math.floor(width() / 2 - width() / 7), Math.floor(height() / 2 - height() / 4.5)]),
@@ -167,22 +164,20 @@ scene("levelSelect", ({ scenarioNumber }) => {
         layer("bg")
     ]);
 
-    const scorePlayed = add([
+    const levelSelect_ScorePlayed = add([
         origin("center"),
         pos(Math.floor(width() / 2), Math.floor(height() / 2 - height() / 5)),
         text(isNaN(monScore) ? "" : monScore + "%", {
-            font: "sinko",
-            size: Math.floor((6 * multiplyer) - 2),
+            size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer)) : Math.floor(5 * (multiplyer - 1) + 10),
         }),
         color(logoName == "perfect" ? rgb(245, 196, 34) : (logoName == "bravo" ? rgb(74, 222, 58) : rgb(199, 20, 20))),
         layer("txt")
     ]);
 
-    add([
+    const levelSelect_PreviousButton = add([
         pos(Math.floor(width() / 20), Math.floor(height() / 2 - height() / 10)),
         text("<", {
-            size: Math.floor(12 * multiplyer),
-            font: "sinko",
+            size: Math.floor(10 * multiplyer)
         }),
         layer("btns"),
         area()
@@ -192,12 +187,11 @@ scene("levelSelect", ({ scenarioNumber }) => {
         go("levelSelect", ({ scenarioNumber: currentScenarioDisplayed }));
     });
 
-    add([
+    const levelSelect_NextButton = add([
         origin("topright"),
         pos(Math.floor(width() - width() / 20), Math.floor(height() / 2 - height() / 10)),
         text(">", {
-            size: Math.floor(12 * multiplyer),
-            font: "sinko",
+            size: Math.floor(10 * multiplyer)
         }),
         layer("btns"),
         area()
@@ -207,10 +201,10 @@ scene("levelSelect", ({ scenarioNumber }) => {
         go("levelSelect", ({ scenarioNumber: currentScenarioDisplayed }));
     });
 
-    add([
+    const levelSelect_PlayButton = add([
         scale(Math.floor(multiplyer * 1.5)),
         origin("right"),
-        pos(Math.floor(width() - width() / 5), Math.floor(height() - (height() / 7))),
+        pos(Math.floor(width() - width() / 5), Math.floor(height() - (height() / 10))),
         sprite("play"),
         area(),
         layer("btns")
@@ -219,10 +213,10 @@ scene("levelSelect", ({ scenarioNumber }) => {
         go("introTxtScenario", ({ idVote: currentScenarioDisplayed }));
     });
 
-    add([
+    const levelSelect_BackButton = add([
         scale(Math.floor(multiplyer * 1.5)),
         origin("left"),
-        pos(Math.floor(width() / 5), Math.floor(height() - (height() / 7))),
+        pos(Math.floor(width() / 5), Math.floor(height() - (height() / 10))),
         sprite("back"),
         area(),
         layer("txt")
@@ -238,14 +232,14 @@ scene("introTxtScenario", ({ idVote }) => {
         "txt",
     ]);
 
-    add([
+    const introMission_BG = add([
         scale(multiplyer),
         pos(0, 0),
         sprite("BG_Mission_" + idVote),
         layer("bg")
     ]);
 
-    add([
+    const introMission_GreyOutSquare = add([
         rect(width(), height()),
         pos(0, 0),
         color(1, 1, 1),
@@ -255,34 +249,32 @@ scene("introTxtScenario", ({ idVote }) => {
         layer("bg")
     ]);
 
-    add([
+    const introMission_Text = add([
         origin("center"),
         pos(Math.floor(width() / 2), Math.floor((height() / 2) - (height() / (multiplyer + 3)))),
         text(scenarios[idVote][17], {
-            size: Math.floor(5 * (multiplyer - 1)),
-            width: Math.floor(width() - (width() / multiplyer)),
-            font: "sinko",
+            size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 10) : Math.floor(5 * (multiplyer - 1)),
+            width: Math.floor(width() - (width() / multiplyer))
         }),
         layer("txt")
     ]);
 
-    add([
+    const introMission_PlayButton = add([
         scale(Math.floor(multiplyer * 1.5)),
         origin("right"),
-        pos(Math.floor(width() - width() / 5), Math.floor(height() - (height() / 7))),
+        pos(Math.floor(width() - width() / 5), Math.floor(height() - (height() / 10))),
         sprite("play"),
         area(),
         layer("txt")
     ]).onClick(() => {
         play("on_click_1");
-        if (scenarios[idVote][19] == true) goToGame(idVote, true)
-        else go("showDisclaimer", ({ monScenario: idVote }))
+        scenarios[idVote][19] == true ? goToGame(idVote, true) : go("showDisclaimer", ({ monScenario: idVote }));
     });
 
-    add([
+    const introMission_BackButton = add([
         scale(Math.floor(multiplyer * 1.5)),
         origin("left"),
-        pos(Math.floor(width() / 5), Math.floor(height() - (height() / 7))),
+        pos(Math.floor(width() / 5), Math.floor(height() - (height() / 10))),
         sprite("back"),
         area(),
         layer("txt")
@@ -298,14 +290,14 @@ scene("showDisclaimer", ({ monScenario }) => {
         "txt",
     ]);
 
-    add([
+    const disclaimer_BG = add([
         scale(multiplyer),
         pos(0, 0),
         sprite("BG_Mission_" + monScenario),
         layer("bg")
     ]);
 
-    add([
+    const disclaimer_GreyOutSquare = add([
         rect(width(), height()),
         pos(0, 0),
         color(1, 1, 1),
@@ -315,30 +307,28 @@ scene("showDisclaimer", ({ monScenario }) => {
         layer("bg")
     ]);
 
-    add([
+    const disclaimer_Title = add([
         origin("center"),
         pos(Math.floor(width() / 2), Math.floor(height() / 10)),
         text("This scenario is different from the rest!", {
-            size: Math.floor(5 * (multiplyer - 1)),
-            width: Math.floor(width() - (width() / multiplyer)),
-            font: "sinko",
+            size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 10) : Math.floor(5 * (multiplyer - 1)),
+            width: Math.floor(width() - (width() / multiplyer))
         }),
         color(rgb(255, 0, 0)),
         layer("txt")
     ]);
 
-    add([
+    const disclaimer_Text = add([
         origin("top"),
         pos(Math.floor(width() / 2), Math.floor(height() / 5)),
         text("Here, the goal is not to make the law pass; it's to make it fail. Thus, you will start at an above 50% approval ratings, and must campaign to make that number diminish.\n\nDon't worry if the votes are in the negative, then: it's normal!", {
-            size: Math.floor(5 * (multiplyer - 1)),
-            width: Math.floor(width() - (width() / multiplyer)),
-            font: "sinko",
+            size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 10) : Math.floor(5 * (multiplyer - 1)),
+            width: Math.floor(width() - (width() / multiplyer))
         }),
         layer("txt")
     ])
 
-    add([
+    const disclaimer_PlayButton = add([
         scale(Math.floor(multiplyer * 1.5)),
         origin("right"),
         pos(Math.floor(width() - width() / 5), Math.floor(height() - (height() / 7))),
@@ -350,7 +340,7 @@ scene("showDisclaimer", ({ monScenario }) => {
         goToGame(monScenario, false)
     });
 
-    add([
+    const disclaimer_BackButton = add([
         scale(Math.floor(multiplyer * 1.5)),
         origin("left"),
         pos(Math.floor(width() / 5), Math.floor(height() - (height() / 7))),
@@ -369,35 +359,33 @@ scene("creditsPage", () => {
         "txt"
     ]);
 
-    add([
+    const credits_BG = add([
         scale(multiplyer),
         pos(0, 0),
         sprite("BG_title", { anim: "animated_BG" }),
         layer("bg")
     ]);
 
-    add([
+    const credits_Title = add([
         origin("top"),
         pos(Math.floor(width() / 2), Math.floor(height() / 10)),
         text(`Vote Now!`, {
-            size: Math.floor(10 * (multiplyer + 1)),
-            font: "sinko",
+            size: Math.floor(10 * (multiplyer + 1))
         }),
         layer("txt")
     ]);
 
-    add([
+    const credits_Text = add([
         origin("top"),
         pos(Math.floor(width() / 2), Math.floor(height() / 10 * 3)),
-        text(`A game thought, designed, and developped by Joel Rimaz\n\nUnder the supervision of Isaac Pante\n\nAugust 2022`, {
+        text(`A game created, written, designed, and developped by Joel Rimaz\n\nUnder the supervision of Isaac Pante\n\nAugust 2022`, {
             size: Math.floor(5 * (multiplyer - 1)),
-            width: Math.floor(width() - width() / 10),
-            font: "sinko",
+            width: Math.floor(width() - width() / 10)
         }),
         layer("txt")
     ]);
 
-    add([
+    const credits_BackButton = add([
         scale(Math.floor(multiplyer * 1.5)),
         origin("top"),
         pos(Math.floor(width() / 2), Math.floor(height() / 10 * 7)),
@@ -409,7 +397,7 @@ scene("creditsPage", () => {
         go("titleScreen");
     });
 
-    add([
+    const credits_DeleteCache = add([
         scale(Math.floor(multiplyer)),
         origin("center"),
         pos(Math.floor(width() / 2), Math.floor(height() / 10 * 9)),
@@ -418,43 +406,41 @@ scene("creditsPage", () => {
         layer("txt")
     ]).onClick(() => {
         play("on_click_1");
-        localStorage.clear(); // for now localStorage is cleared when looking at the credits
+        localStorage.clear();
         go("titleScreen");
     });
 });
 
 scene("achievements_scene", ({ idVote }) => {
+    let voteNbr = idVote,
+        canGoBack = true;
+    
     layers([
         "bg",
         "txt",
         "img"
     ]);
 
-    let voteNbr = idVote,
-        canGoBack = true;
-
-    add([
+    const achievements_BG = add([
         scale(multiplyer),
         pos(0, 0),
         sprite("BG_title", { anim: "idle" }),
         layer("bg")
     ]);
 
-    const greyS = add([
+    const achievements_GreyOutSquare = add([
         rect(width(), height()),
         pos(0, 0),
         color(1, 1, 1),
         area(),
         opacity(0.25),
-        layer("grey_squares"),
         layer("bg")
     ]);
 
-    const txtVote = add([
+    const achievements_Title = add([
         origin("top"),
         pos(Math.floor(width() / 2), Math.floor(height() / 10)),
         text(scenarios[idVote][0], {
-            font: "sinko",
             size: Math.floor(5 * (multiplyer - 1)),
             width: Math.floor(width() / 10 * 8)
         }),
@@ -462,7 +448,7 @@ scene("achievements_scene", ({ idVote }) => {
         layer("txt")
     ]);
 
-    const poster = add([
+    const achievements_Poster = add([
         scale(Math.floor(multiplyer / 2)),
         origin("center"),
         pos(width() / 2, height() / 2),
@@ -471,37 +457,36 @@ scene("achievements_scene", ({ idVote }) => {
         layer("img")
     ]);
 
-    const nxtIMG = add([
+    const achievements_PreviousButton = add([
         pos(Math.floor(width() / 20), Math.floor(height() / 2 - height() / 10)),
         text("<", {
-            size: Math.floor(10 * multiplyer),
-            font: "sinko",
+            size: Math.floor(10 * multiplyer)
         }),
         layer("txt"),
         area()
     ]);
-
-    nxtIMG.onClick(() => {
+    achievements_PreviousButton.onClick(() => {
         play("on_click_3");
-
-        if (voteNbr == 0) voteNbr = scenarios.length - 1;
-        else voteNbr--;
-
+        voteNbr == 0 ? voteNbr = scenarios.length - 1 : voteNbr--;
         go("achievements_scene", ({ idVote: voteNbr }));
     });
 
-    const prevIMG = add([
+    const achievements_NextButton = add([
         origin("topright"),
         pos(Math.floor(width() - width() / 20), Math.floor(height() / 2 - height() / 10)),
         text(">", {
-            size: Math.floor(10 * multiplyer),
-            font: "sinko",
+            size: Math.floor(10 * multiplyer)
         }),
         layer("txt"),
         area()
     ]);
+    achievements_NextButton.onClick(() => {
+        play("on_click_3");
+        voteNbr == scenarios.length - 1 ? voteNbr = 0 : voteNbr++;
+        go("achievements_scene", ({ idVote: voteNbr }));
+    });
 
-    const backBtn = add([
+    const achievements_BackButton = add([
         scale(Math.floor(multiplyer * 1.5)),
         origin("center"),
         pos(Math.floor(width() / 2), Math.floor(height() - height() / 15)),
@@ -509,47 +494,36 @@ scene("achievements_scene", ({ idVote }) => {
         area(),
         layer("txt")
     ]);
-
-    backBtn.onClick(() => {
+    achievements_BackButton.onClick(() => {
         if (canGoBack == true) {
             play("on_click_2");
             go("titleScreen");
         }
     });
 
-    prevIMG.onClick(() => {
-        play("on_click_3");
-
-        if (voteNbr == scenarios.length - 1) voteNbr = 0;
-        else voteNbr++;
-
-        go("achievements_scene", ({ idVote: voteNbr }));
-    });
-
-    if (localStorage.getItem("scenario_" + voteNbr + "_perfected")) {
-        poster.use(sprite("Affiche" + voteNbr));
-        poster.scale = Math.floor(multiplyer / 2.5);
+    if (localStorage.getItem("scenario_" + voteNbr + "_perfected") == "true") {
+        achievements_Poster.use(sprite("Affiche" + voteNbr));
+        achievements_Poster.scale = Math.floor(multiplyer / 4);
 
         let counter = 0;
 
-        poster.onClick(() => {
+        achievements_Poster.onClick(() => {
             if (counter == 0) {
-                poster.scale = multiplyer / 2.05;
-                greyS.opacity = 0.75;
-                nxtIMG.opacity = 0;
-                prevIMG.opacity = 0;
-                txtVote.opacity = 0;
-                backBtn.opacity = 0;
+                achievements_Poster.scale = multiplyer / 2.05;
+                achievements_GreyOutSquare.opacity = 0.75;
+                achievements_PreviousButton.opacity = 0;
+                achievements_NextButton.opacity = 0;
+                achievements_Title.opacity = 0;
+                achievements_BackButton.opacity = 0;
                 canGoBack = false;
                 counter++;
-            }
-            else {
-                poster.scale = Math.floor(multiplyer / 2.5);
-                greyS.opacity = 0.25;
-                nxtIMG.opacity = 1;
-                prevIMG.opacity = 1;
-                txtVote.opacity = 1;
-                backBtn.opacity = 1;
+            } else {
+                achievements_Poster.scale = Math.floor(multiplyer / 4);
+                achievements_GreyOutSquare.opacity = 0.25;
+                achievements_PreviousButton.opacity = 1;
+                achievements_NextButton.opacity = 1;
+                achievements_Title.opacity = 1;
+                achievements_BackButton.opacity = 1;
                 setTimeout(() => { canGoBack = true; }, 100)
                 counter--;
             }
