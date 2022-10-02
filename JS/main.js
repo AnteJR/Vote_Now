@@ -1078,6 +1078,12 @@ loadSprite("credits", "credits.png");
 loadSprite("back", "back.png");
 loadSprite("achievements", "achievements.png");
 loadSprite("delete_game", "delete_progress.png");
+loadSprite("next", "next.png");
+loadSprite("previous", "previous.png");
+loadSprite("tutorial", "tutorial.png");
+
+loadSprite("bot_ui_tuto", "bottom_ui_tuto.png");
+loadSprite("top_ui_tuto", "top_ui_tuto.png");
 
 loadSprite("Affiche_UKN", "Unknown_poster.png");
 loadSprite("Affiche0", "Affiche_1.png");

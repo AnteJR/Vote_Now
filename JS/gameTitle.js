@@ -23,7 +23,7 @@ scene("titleScreen", () => {
 
     const menu_PlayNowButton = add([
         scale(Math.floor(multiplyer * 1.5)),
-        pos(Math.floor(width() / 35), Math.floor(height() / 2)),
+        pos(Math.floor(width() / 35), Math.floor((height() / 10) * 4.5)),
         sprite("play_now"),
         area(),
         layer("txt")
@@ -32,9 +32,20 @@ scene("titleScreen", () => {
         localStorage.getItem("hasReadIntro") == "true" ? go("levelSelect", { scenarioNumber: 0 }) : go("introTxtGeneral");
     });
 
+    const menu_TutorialButton = add([
+        scale(Math.floor(multiplyer * 1.25)),
+        pos(Math.floor(width() / 35), Math.floor((height() / 10) * 6.25)),
+        sprite("tutorial"),
+        area(),
+        layer("txt")
+    ]).onClick(() => {
+        play("on_click_1");
+        go("tutorial", { fromMenu: true, i:0 });
+    });
+
     const menu_CreditsPageButton = add([
-        scale(Math.floor(multiplyer * 1.5)),
-        pos(Math.floor(width() / 35), Math.floor(height() - (height() / 3))),
+        scale(Math.floor(multiplyer * 1.25)),
+        pos(Math.floor(width() / 35), Math.floor(height() / 10 * 7.5)),
         sprite("credits"),
         area(),
         layer("txt")
@@ -44,8 +55,8 @@ scene("titleScreen", () => {
     });
 
     const menu_AchievementsButton = add([
-        scale(Math.floor(multiplyer * 1.5)),
-        pos(Math.floor(width() / 35), Math.floor(height() - (height() / 6))),
+        scale(Math.floor(multiplyer * 1.25)),
+        pos(Math.floor(width() / 35), Math.floor(height() / 10 * 8.75)),
         sprite("achievements"),
         area(),
         layer("txt")
@@ -98,7 +109,7 @@ scene("introTxtGeneral", () => {
     ]).onClick(() => {
         play("on_click_1");
         localStorage.setItem("hasReadIntro", true);
-        go("levelSelect", { scenarioNumber: 0 });
+        go("tutorial", { fromMenu: false, i:0 });
     });
 });
 
@@ -529,6 +540,247 @@ scene("achievements_scene", ({ idVote }) => {
             }
         });
     }
+});
+
+scene("tutorial", ( { fromMenu, i } ) => {
+    let slideNumber = i;
+    let mesTxt = [
+        "In Vote Now!, you will have to choose between two options at a time. You will have 10 turns to obtain more than 50% of the votes.",
+        "There are 3 variables to take into consideration. You can follow your progress for each on the top of the screen. You can also check how many turns are left at the bottom.",
+        "Votes: the percentages of votes in favor of the bill\n\nMoney: the money you have, which is used to buy ads, or organize events\n\nOptics: optics are how favorably the people see your campaign. It's a multiplier for the votes you get. IE. if your optics are at 0.8 and you select an event who earns you 10% votes, you will actually gain 10x0.8 = 8%.",
+        "Balance those 3 variables to maximize your score! Depending on how well you succeed, you will have a varying degree of victory, going from failure (the bill didn't pass) to perfect (you reached or went beyond the original score of the vote)."
+    ]
+
+    layers([
+        "bg",
+        "txt"
+    ]);
+
+    const tutorial_BG = add([
+        scale(multiplyer),
+        pos(0, 0),
+        sprite("BG_title", { anim: "idle" }),
+        layer("bg")
+    ]);
+
+    const tutorial_GreyOutSquare = add([
+        rect(width(), height()),
+        pos(0, 0),
+        color(1, 1, 1),
+        area(),
+        opacity(0.9),
+        layer("grey_squares"),
+        layer("bg")
+    ]);
+
+    const tutorial_Text = add([
+        origin("top"),
+        pos(Math.floor(width() / 2), Math.floor((height() / 10) * 0.5)),
+        text(mesTxt[slideNumber], {
+            size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 10) : Math.floor(5 * (multiplyer - 1)),
+            width: Math.floor(width() - (width() / (multiplyer + 1)))
+        }),
+        layer("txt")
+    ]);
+
+    if (slideNumber == 0) {
+        // example event
+        add([
+            scale(multiplyer / 1.5),
+            origin("top"),
+            pos(Math.floor(width() / 2), Math.floor((height() / 10) * 3.25)),
+            sprite("event_journal_dawn_nice", { anim: "animated_BG" }),
+            layer("txt")
+        ]);
+
+        add([
+            scale(multiplyer / 1.5),
+            origin("top"),
+            pos(Math.floor(width() / 2), Math.floor((height() / 10) * 3.25)),
+            sprite("score_journal"),
+            layer("txt")
+        ]);
+
+        // text description
+        add([
+            origin("top"),
+            pos(Math.floor(width() / 2), Math.floor((height() / 10) * 6.25)),
+            text("^ a typical event with what it costs/earns you ^", {
+                size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 20) : Math.floor(5 * (multiplyer - 1) - 15),
+                width: Math.floor(width() - (width() / (multiplyer + 1)))
+            }),
+            layer("txt")
+        ]);
+    }
+    else if (slideNumber == 1) {
+        // ui_top's text description
+        add([
+            origin("top"),
+            pos(Math.floor(width() / 2), Math.floor((height() / 10) * 5)),
+            text("^ top UI ^", {
+                size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 10) : Math.floor(5 * (multiplyer - 1)),
+                width: Math.floor(width() - (width() / (multiplyer + 1)))
+            }),
+            layer("txt")
+        ]);
+
+        add ([
+            scale(Math.floor(multiplyer / 2) - 0.5),
+            origin("top"),
+            pos(Math.floor(width() / 2), Math.floor((height() / 10) * 4)),
+            sprite("top_ui_tuto"),
+            layer("txt")
+        ]);
+
+        // ui_bottom's text description
+        add([
+            origin("top"),
+            pos(Math.floor(width() / 2), Math.floor((height() / 10) * 7)),
+            text("^ bottom UI ^", {
+                size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 10) : Math.floor(5 * (multiplyer - 1)),
+                width: Math.floor(width() - (width() / (multiplyer + 1)))
+            }),
+            layer("txt")
+        ]);
+
+        add ([
+            scale(Math.floor(multiplyer / 2) - 0.5),
+            origin("top"),
+            pos(Math.floor(width() / 2), Math.floor((height() / 10) * 6)),
+            sprite("bot_ui_tuto"),
+            layer("txt")
+        ]);
+    }
+    else if (slideNumber == 3) {
+        //failure badge + text
+        add([
+            origin("top"),
+            pos(Math.floor((width() / 10) * 1.25), Math.floor((height() / 10) * 7)),
+            text("failure", {
+                size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 10) : Math.floor(5 * (multiplyer - 1)),
+                width: Math.floor(width() - (width() / (multiplyer + 1)))
+            }),
+            color(rgb(199, 20, 20)),
+            layer("txt")
+        ]);
+
+        add([
+            origin("center"),
+            scale(Math.floor(multiplyer / 2)),
+            pos(Math.floor((width() / 10) * 1.25), Math.floor((height() / 10) * 6)),
+            sprite("fail_logo"),
+            layer("bg")
+        ]);
+
+        //victory badge + text
+        add([
+            origin("top"),
+            pos(Math.floor((width() / 10) * 5), Math.floor((height() / 10) * 7)),
+            text("victory", {
+                size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 10) : Math.floor(5 * (multiplyer - 1)),
+                width: Math.floor(width() - (width() / (multiplyer + 1)))
+            }),
+            color(rgb(74, 222, 58)),
+            layer("txt")
+        ]);
+
+        add([
+            origin("center"),
+            scale(Math.floor(multiplyer / 2)),
+            pos(Math.floor((width() / 10) * 5), Math.floor((height() / 10) * 6)),
+            sprite("bravo_logo"),
+            layer("bg")
+        ]);
+
+        //perfect badge + text
+        add([
+            origin("top"),
+            pos(Math.floor((width() / 10) * 8.75), Math.floor((height() / 10) * 7)),
+            text("perfect", {
+                size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 10) : Math.floor(5 * (multiplyer - 1)),
+                width: Math.floor(width() - (width() / (multiplyer + 1)))
+            }),
+            color(rgb(245, 196, 34)),
+            layer("txt")
+        ]);
+
+        add([
+            origin("center"),
+            scale(Math.floor(multiplyer / 2)),
+            pos(Math.floor((width() / 10) * 8.75), Math.floor((height() / 10) * 6)),
+            sprite("perfect_logo"),
+            layer("bg")
+        ]);
+    }
+    
+    const tutorial_NextButton = slideNumber < 3 ? 
+            add([
+                scale(Math.floor(multiplyer * 1.5)),
+                origin("right"),
+                pos(Math.floor((width() / 10) * 9.5), Math.floor(height() - (height() / 10))),
+                sprite("next"),
+                area(),
+                layer("txt")
+            ]).onClick(() => {
+                play("on_click_1");
+                slideNumber++;
+                go("tutorial", { fromMenu: fromMenu, i: slideNumber });
+            })
+        :
+            add([
+                scale(Math.floor(multiplyer * 1.5)),
+                origin("right"),
+                pos(Math.floor((width() / 10) * 9.5), Math.floor(height() - (height() / 10))),
+                sprite("play"),
+                area(),
+                layer("txt")
+            ]).onClick(() => {
+                play("on_click_1");
+                go("levelSelect", { scenarioNumber: 0 });
+            });
+
+    const tutorial_BackButton = fromMenu == true ? 
+        (slideNumber == 0 ? 
+            add([
+                scale(Math.floor(multiplyer * 1.125)),
+                origin("center"),
+                pos(Math.floor(width() / 2), Math.floor((height() / 10) * 9)),
+                sprite("back"),
+                area(),
+                layer("txt")
+            ]).onClick(() => {
+                play("on_click_2");
+                go("titleScreen");
+            }) 
+            : 
+            add([
+                scale(Math.floor(multiplyer * 1.5)),
+                origin("left"),
+                pos(Math.floor(width() / 10 * 0.5), Math.floor(height() - (height() / 10))),
+                sprite("previous"),
+                area(),
+                layer("txt")
+            ]).onClick(() => {
+                play("on_click_2");
+                slideNumber--
+                go("tutorial", { fromMenu: fromMenu, i: slideNumber});
+            })) 
+        : 
+        (slideNumber == 0 ? 
+            null 
+        : 
+            add([
+                scale(Math.floor(multiplyer * 1.5)),
+                origin("left"),
+                pos(Math.floor(width() / 10 * 0.5), Math.floor(height() - (height() / 10))),
+                sprite("previous"),
+                area(),
+                layer("txt")
+            ]).onClick(() => {
+                play("on_click_2");
+                slideNumber--
+                go("tutorial", { fromMenu: fromMenu, i: slideNumber});
+            }));
 });
 
 function goToGame(i, b) {
