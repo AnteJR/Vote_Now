@@ -174,10 +174,10 @@ scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics
             }
             else {
                 if(mustGain) {
-                    (scenarios[idScenario][18] >= 50 && votesCount.value >= 50) || (scenarios[idScenario][18] < 50 && votesCount.value > scenarios[idScenario][18]) ? goToEndScene(true, scn, votesCount.value, mustGain) : goToEndScene(false, scn, votesCount.value, mustGain);
+                    votesCount.value >= 50 ? goToEndScene(true, scn, votesCount.value, mustGain) : goToEndScene(false, scn, votesCount.value, mustGain);
                 }
                 else {
-                    (scenarios[idScenario][18] >= 50 && votesCount.value < scenarios[idScenario][18]) || (scenarios[idScenario][18] < 50 && votesCount.value < 50) ? goToEndScene(true, scn, votesCount.value, mustGain) : goToEndScene(false, scn, votesCount.value, mustGain);
+                     votesCount.value < 50 ? goToEndScene(true, scn, votesCount.value, mustGain) : goToEndScene(false, scn, votesCount.value, mustGain);
                 }
             }
         }
