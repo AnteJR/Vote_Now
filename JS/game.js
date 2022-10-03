@@ -35,7 +35,7 @@ scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics
 
     const moneyCount = add([
         pos(Math.floor(width() / 3), Math.floor(height() / 100)),
-        text("Money:" + initialMoney + ".-", {
+        text("Money:" + initialMoney, {
             size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 10) : Math.floor(5 * (multiplyer - 1))
         }),
         { value: initialMoney },

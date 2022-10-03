@@ -10,8 +10,7 @@ kaboom({                                                /* Kaboom function */
     font: "sinko"
 });
 
-loadRoot("Images/");
-
+loadRoot("Images/Animated_BG/");
 loadSpriteAtlas("Affiches_mur_sheet.png", {      // Sprit Atlas for the flyers on the street walls
     "event_affiche_day_nice": {                             // option #1: "day_nice"
         "x": 0,
@@ -872,6 +871,25 @@ loadSpriteAtlas("computer_sprite_sheet.png", {    // Sprite Atlas for sponsoring
     },
 });
 
+loadSpriteAtlas("BG_Title.png", {    // Sprite Atlas for the main menu's background
+    "BG_title": {
+        "x": 0,
+        "y": 0,
+        "width": 1488,
+        "height": 98,
+        "sliceX": 12,
+        "anims": {
+            "animated_BG": {
+                "from": 0,
+                "to": 11,
+                "loop": true
+            },
+            "idle": 0
+        }
+    }
+});
+
+loadRoot("Images/Effects_Texts/");
 loadSpriteAtlas("Effects_Sheet.png", {       // Sprite Atlas for the events' effects
     "score_train": {                                    // effect for the train
         "x": 0,
@@ -970,25 +988,8 @@ loadSpriteAtlas("Effects_Sheet_REVERSE.png", {       // Sprite Atlas for the rev
     },
 });
 
-loadSpriteAtlas("BG_Title.png", {    // Sprite Atlas for the main menu's background
-    "BG_title": {
-        "x": 0,
-        "y": 0,
-        "width": 1488,
-        "height": 98,
-        "sliceX": 12,
-        "anims": {
-            "animated_BG": {
-                "from": 0,
-                "to": 11,
-                "loop": true
-            },
-            "idle": 0
-        }
-    }
-});
-
 // Sprite Atlas' for the animated texts
+loadRoot("Images/Animated_Texts/");
 loadSpriteAtlas("Title.png", {           // Animated title
     "title": {
         "x": 0,
@@ -1047,13 +1048,20 @@ loadSpriteAtlas("Failure.png", {         // Animated Failure text
     }
 });
 
+loadRoot("Images/UI/");
 loadSprite("ui_top", "UI.png");                  // Sprites for the UI and backgrounds
 loadSprite("ui_bottom", "UI_2.png");
 loadSprite("ui_end", "Background_end.png");
+loadSprite("bot_ui_tuto", "bottom_ui_tuto.png");
+loadSprite("top_ui_tuto", "top_ui_tuto.png");
+
+loadRoot("Images/Logos/");
 loadSprite("new_logo", "new_logo.png");
 loadSprite("fail_logo", "fail_logo.png");
 loadSprite("bravo_logo", "bravo_logo.png");
 loadSprite("perfect_logo", "perfect_logo.png");
+
+loadRoot("Images/Backgrounds/");
 loadSprite("BG_Mission_0", "train_vote_BG.png");
 loadSprite("BG_Mission_1", "insurance.png");
 loadSprite("BG_Mission_2", "AVS.png");
@@ -1070,6 +1078,7 @@ loadSprite("BG_Mission_12", "Same-sex_protection.png");
 loadSprite("BG_Mission_13", "Same-sex_marriage.png");
 loadSprite("BG_Mission_14", "AVS_reform.png");
 
+loadRoot("Images/Texts/");
 loadSprite("continue", "continue.png");          // Sprites for texts I use as buttons
 loadSprite("to_menu", "to_menu.png");
 loadSprite("play_now", "play_now.png");
@@ -1082,9 +1091,7 @@ loadSprite("next", "next.png");
 loadSprite("previous", "previous.png");
 loadSprite("tutorial", "tutorial.png");
 
-loadSprite("bot_ui_tuto", "bottom_ui_tuto.png");
-loadSprite("top_ui_tuto", "top_ui_tuto.png");
-
+loadRoot("Images/Posters/");
 loadSprite("Affiche_UKN", "Unknown_poster.png");
 loadSprite("Affiche0", "Affiche_1.png");
 loadSprite("Affiche1", "Affiche_2.png");
@@ -1102,7 +1109,7 @@ loadSprite("Affiche12", "Affiche_13.png");
 loadSprite("Affiche13", "Affiche_14.png");
 loadSprite("Affiche14", "Affiche_15.png");
 
-loadRoot("Audio/")
+loadRoot("Audio/");
 loadSound("menu_music", "Menu music.mp3");        // Load sounds and musics
 loadSound("game_music", "game_song_complete.mp3");
 loadSound("on_hover", "Sound_onHover.mp3");

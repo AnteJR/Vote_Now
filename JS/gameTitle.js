@@ -22,8 +22,9 @@ scene("titleScreen", () => {
     ]);
 
     const menu_PlayNowButton = add([
+        origin("botleft"),
         scale(Math.floor(multiplyer * 1.5)),
-        pos(Math.floor(width() / 35), Math.floor((height() / 10) * 4.5)),
+        pos(Math.floor(width() / 10 * 0.25), Math.floor((height() / 10) * 6)),
         sprite("play_now"),
         area(),
         layer("txt")
@@ -33,8 +34,9 @@ scene("titleScreen", () => {
     });
 
     const menu_TutorialButton = add([
-        scale(Math.floor(multiplyer * 1.25)),
-        pos(Math.floor(width() / 35), Math.floor((height() / 10) * 6.25)),
+        origin("botleft"),
+        scale(Math.floor(multiplyer * 1.15)),
+        pos(Math.floor(width() / 10 * 0.25), Math.floor((height() / 10) * 7.65)),
         sprite("tutorial"),
         area(),
         layer("txt")
@@ -44,8 +46,9 @@ scene("titleScreen", () => {
     });
 
     const menu_CreditsPageButton = add([
-        scale(Math.floor(multiplyer * 1.25)),
-        pos(Math.floor(width() / 35), Math.floor(height() / 10 * 7.5)),
+        origin("botleft"),
+        scale(Math.floor(multiplyer * 1.15)),
+        pos(Math.floor(width() / 10 * 0.25), Math.floor((height() / 10) * 8.7)),
         sprite("credits"),
         area(),
         layer("txt")
@@ -55,8 +58,9 @@ scene("titleScreen", () => {
     });
 
     const menu_AchievementsButton = add([
-        scale(Math.floor(multiplyer * 1.25)),
-        pos(Math.floor(width() / 35), Math.floor(height() / 10 * 8.75)),
+        origin("botleft"),
+        scale(Math.floor(multiplyer * 1.15)),
+        pos(Math.floor(width() / 10 * 0.25), Math.floor((height() / 10) * 9.75)),
         sprite("achievements"),
         area(),
         layer("txt")
@@ -398,8 +402,8 @@ scene("creditsPage", () => {
 
     const credits_BackButton = add([
         scale(Math.floor(multiplyer * 1.5)),
-        origin("top"),
-        pos(Math.floor(width() / 2), Math.floor(height() / 10 * 7)),
+        origin("bot"),
+        pos(Math.floor(width() / 2), Math.floor(height() / 10 * 8.5)),
         sprite("back"),
         area(),
         layer("txt")
@@ -410,8 +414,8 @@ scene("creditsPage", () => {
 
     const credits_DeleteCache = add([
         scale(Math.floor(multiplyer)),
-        origin("center"),
-        pos(Math.floor(width() / 2), Math.floor(height() / 10 * 9)),
+        origin("top"),
+        pos(Math.floor(width() / 2), Math.floor(height() / 10 * 8.75)),
         sprite("delete_game"),
         area(),
         layer("txt")
@@ -716,9 +720,9 @@ scene("tutorial", ( { fromMenu, i } ) => {
     
     const tutorial_NextButton = slideNumber < mesTxt.length - 1 ? 
             add([
-                scale(Math.floor(multiplyer * 1.5)),
+                scale(Math.floor(multiplyer * 1.25)),
                 origin("right"),
-                pos(Math.floor((width() / 10) * 9.5), Math.floor(height() - (height() / 10))),
+                pos(Math.floor((width() / 10) * 9.75), Math.floor(height() - (height() / 10))),
                 sprite("next"),
                 area(),
                 layer("txt")
@@ -744,8 +748,8 @@ scene("tutorial", ( { fromMenu, i } ) => {
         (slideNumber == 0 ? 
             add([
                 scale(Math.floor(multiplyer * 1.125)),
-                origin("center"),
-                pos(Math.floor(width() / 2), Math.floor((height() / 10) * 9)),
+                origin("bot"),
+                pos(Math.floor(width() / 2), Math.floor((height() / 10) * 9.75)),
                 sprite("back"),
                 area(),
                 layer("txt")
@@ -755,9 +759,9 @@ scene("tutorial", ( { fromMenu, i } ) => {
             }) 
             : 
             add([
-                scale(Math.floor(multiplyer * 1.5)),
+                scale(Math.floor(multiplyer * 1.25)),
                 origin("left"),
-                pos(Math.floor(width() / 10 * 0.5), Math.floor(height() - (height() / 10))),
+                pos(Math.floor(width() / 10 * 0.25), Math.floor(height() - (height() / 10))),
                 sprite("previous"),
                 area(),
                 layer("txt")
@@ -771,9 +775,9 @@ scene("tutorial", ( { fromMenu, i } ) => {
             null 
         : 
             add([
-                scale(Math.floor(multiplyer * 1.5)),
+                scale(Math.floor(multiplyer * 1.25)),
                 origin("left"),
-                pos(Math.floor(width() / 10 * 0.5), Math.floor(height() - (height() / 10))),
+                pos(Math.floor(width() / 10 * 0.25), Math.floor(height() - (height() / 10))),
                 sprite("previous"),
                 area(),
                 layer("txt")
