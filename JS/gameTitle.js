@@ -548,7 +548,8 @@ scene("tutorial", ( { fromMenu, i } ) => {
         "In Vote Now!, you will have to choose between two options at a time. You will have 10 turns to obtain more than 50% of the votes.",
         "There are 3 variables to take into consideration. You can follow your progress for each on the top of the screen. You can also check how many turns are left at the bottom.",
         "Votes: the percentages of votes in favor of the bill\n\nMoney: the money you have, which is used to buy ads, or organize events\n\nOptics: optics are how favorably the people see your campaign. It's a multiplier for the votes you get. IE. if your optics are at 0.8 and you select an event who earns you 10% votes, you will actually gain 10x0.8 = 8%.",
-        "Balance those 3 variables to maximize your score! Depending on how well you succeed, you will have a varying degree of victory, going from failure (the bill didn't pass) to perfect (you reached or went beyond the original score of the vote)."
+        "Balance those 3 variables to maximize your score! Depending on how well you succeed, you will have a varying degree of victory, going from failure (the bill didn't pass) to perfect (you reached or went beyond the original score of the vote).",
+        "If you manage to get a perfect victory, you will unlock special contents in the achievements section. Go to the main menu to check them out!\n\nOnce you get all the achivements, the game is pretty much finished. You can still reset your saved data at the credits page to start anew."
     ]
 
     layers([
@@ -713,7 +714,7 @@ scene("tutorial", ( { fromMenu, i } ) => {
         ]);
     }
     
-    const tutorial_NextButton = slideNumber < 3 ? 
+    const tutorial_NextButton = slideNumber < mesTxt.length - 1 ? 
             add([
                 scale(Math.floor(multiplyer * 1.5)),
                 origin("right"),
