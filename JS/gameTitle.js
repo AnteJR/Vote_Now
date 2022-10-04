@@ -550,10 +550,12 @@ scene("tutorial", ( { fromMenu, i } ) => {
     let slideNumber = i;
     let mesTxt = [
         "In Vote Now!, you will have to choose between two options at a time. You will have 10 turns to obtain more than 50% of the votes.",
+        "The events you can choose from:",
+        "",
         "There are 3 variables to take into consideration. You can follow your progress for each on the top of the screen. You can also check how many turns are left at the bottom.",
         "Votes: the percentages of votes in favor of the bill\n\nMoney: the money you have, which is used to buy ads, or organize events\n\nOptics: optics are how favorably the people see your campaign. It's a multiplier for the votes you get. IE. if your optics are at 0.8 and you select an event who earns you 10% votes, you will actually gain 10x0.8 = 8%.",
         "Balance those 3 variables to maximize your score! Depending on how well you succeed, you will have a varying degree of victory, going from failure (the bill didn't pass) to perfect (you reached or went beyond the original score of the vote).",
-        "If you manage to get a perfect victory, you will unlock special contents in the achievements section. Go to the main menu to check them out!\n\nOnce you get all the achivements, the game is pretty much finished. You can still reset your saved data at the credits page to start anew."
+        "If you manage to get a perfect victory, you will unlock a pixel art reproduction of one piece of propaganda material of the time in the achievements section. Go to the main menu to check them out!\n\nOnce you get all the achievements, the game is pretty much finished. You can still reset your saved data at the credits page to start anew."
     ]
 
     layers([
@@ -618,6 +620,170 @@ scene("tutorial", ( { fromMenu, i } ) => {
         ]);
     }
     else if (slideNumber == 1) {
+        // train ad
+        add([
+            scale(multiplyer / 2.25),
+            origin("top"),
+            pos(Math.floor(width() / 4), Math.floor((height() / 10) * 2)),
+            sprite("event_train_dawn_nice", { anim: "animated_BG" }),
+            layer("txt")
+        ]);
+
+        add([
+            origin("top"),
+            pos(Math.floor(width() / 4), Math.floor((height() / 10) * 4)),
+            text("^ train station ads ^", {
+                size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 20) : Math.floor(5 * (multiplyer - 1) - 20)
+            }),
+            layer("txt")
+        ]);
+
+        // market ads
+        add([
+            scale(multiplyer / 2.25),
+            origin("top"),
+            pos(Math.floor((width() / 4) * 3), Math.floor((height() / 10) * 2)),
+            sprite("event_marche_dawn_nice", { anim: "animated_BG" }),
+            layer("txt")
+        ]);
+
+        add([
+            origin("top"),
+            pos(Math.floor((width() / 4) * 3), Math.floor((height() / 10) * 4)),
+            text("^ market flyer distribution ^", {
+                size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 20) : Math.floor(5 * (multiplyer - 1) - 20)
+            }),
+            layer("txt")
+        ]);
+        
+        // AG ad
+        add([
+            scale(multiplyer / 2.25),
+            origin("top"),
+            pos(Math.floor(width() / 4), Math.floor((height() / 10) * 5)),
+            sprite("event_ag_dawn_nice", { anim: "animated_BG" }),
+            layer("txt")
+        ]);
+
+        add([
+            origin("top"),
+            pos(Math.floor(width() / 4), Math.floor((height() / 10) * 7)),
+            text("^ ask sponsors for funds ^", {
+                size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 20) : Math.floor(5 * (multiplyer - 1) - 20)
+            }),
+            layer("txt")
+        ]);
+
+        // journal ads
+        add([
+            scale(multiplyer / 2.25),
+            origin("top"),
+            pos(Math.floor((width() / 4) * 3), Math.floor((height() / 10) * 5)),
+            sprite("event_journal_dawn_nice", { anim: "animated_BG" }),
+            layer("txt")
+        ]);
+
+        add([
+            origin("top"),
+            pos(Math.floor((width() / 4) * 3), Math.floor((height() / 10) * 7)),
+            text("^ newspaper ads ^", {
+                size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 20) : Math.floor(5 * (multiplyer - 1) - 20)
+            }),
+            layer("txt")
+        ]);
+    }
+    else if (slideNumber == 2) {
+        // poste
+        add([
+            scale(multiplyer / 2.25),
+            origin("top"),
+            pos(Math.floor(width() / 4), Math.floor((height() / 10) * 0.5)),
+            sprite("event_poste_dawn_nice", { anim: "animated_BG" }),
+            layer("txt")
+        ]);
+
+        add([
+            origin("top"),
+            pos(Math.floor(width() / 4), Math.floor((height() / 10) * 2.5)),
+            text("^ ask donors for funds ^", {
+                size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 20) : Math.floor(5 * (multiplyer - 1) - 20)
+            }),
+            layer("txt")
+        ]);
+
+        // coupole
+        add([
+            scale(multiplyer / 2.25),
+            origin("top"),
+            pos(Math.floor((width() / 4) * 3), Math.floor((height() / 10) * 0.5)),
+            sprite("event_coupole_dawn_nice", { anim: "animated_BG" }),
+            layer("txt")
+        ]);
+
+        add([
+            origin("top"),
+            pos(Math.floor((width() / 4) * 3), Math.floor((height() / 10) * 2.5)),
+            text("^ protest in Bern ^", {
+                size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 20) : Math.floor(5 * (multiplyer - 1) - 20)
+            }),
+            layer("txt")
+        ]);
+
+        // affiche
+        add([
+            scale(multiplyer / 2.25),
+            origin("top"),
+            pos(Math.floor(width() / 4), Math.floor((height() / 10) * 3.25)),
+            sprite("event_affiche_dawn_nice", { anim: "animated_BG" }),
+            layer("txt")
+        ]);
+
+        add([
+            origin("top"),
+            pos(Math.floor(width() / 4), Math.floor((height() / 10) * 5.25)),
+            text("^ poster campaign ^", {
+                size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 20) : Math.floor(5 * (multiplyer - 1) - 20)
+            }),
+            layer("txt")
+        ]);
+
+        // radio
+        add([
+            scale(multiplyer / 2.25),
+            origin("top"),
+            pos(Math.floor((width() / 4) * 3), Math.floor((height() / 10) * 3.25)),
+            sprite("event_radio_dawn_nice", { anim: "animated_BG" }),
+            layer("txt")
+        ]);
+
+        add([
+            origin("top"),
+            pos(Math.floor((width() / 4) * 3), Math.floor((height() / 10) * 5.25)),
+            text("^ radio ads (from 1922) ^", {
+                size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 20) : Math.floor(5 * (multiplyer - 1) - 20)
+            }),
+            layer("txt")
+        ]);
+
+        // socials
+        add([
+            scale(multiplyer / 2.25),
+            origin("top"),
+            pos(Math.floor((width() / 4) * 2), Math.floor((height() / 10) * 6)),
+            sprite("event_socials_dawn_nice", { anim: "animated_BG" }),
+            layer("txt")
+        ]);
+
+        add([
+            origin("top"),
+            pos(Math.floor((width() / 4) * 2), Math.floor((height() / 10) * 8)),
+            text("^ social media ads (from 2008) ^", {
+                size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 20) : Math.floor(5 * (multiplyer - 1) - 20)
+            }),
+            layer("txt")
+        ]);
+    }
+    else if (slideNumber == 3) {
         // ui_top's text description
         add([
             origin("top"),
@@ -656,7 +822,7 @@ scene("tutorial", ( { fromMenu, i } ) => {
             layer("txt")
         ]);
     }
-    else if (slideNumber == 3) {
+    else if (slideNumber == 5) {
         //failure badge + text
         add([
             origin("top"),
