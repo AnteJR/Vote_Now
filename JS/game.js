@@ -111,7 +111,7 @@ scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics
     const daysUntilVote = add([
         pos(Math.floor(width() / 120) * 77, height() - Math.floor(height() / 17)),
         color(255, txtColor, txtColor),
-        text((11 - startTurn) + " days left", {
+        text(startTurn < 10 ? (11 - startTurn) + " days left" : (11 - startTurn) + " day left", {
             size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 10) : Math.floor(5 * (multiplyer - 1))
         }),
         layer("ui_txt")
