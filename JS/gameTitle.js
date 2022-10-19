@@ -518,7 +518,7 @@ scene("achievements_scene", ({ idVote }) => {
 
     if (localStorage.getItem("scenario_" + voteNbr + "_perfected") == "true") {
         achievements_Poster.use(sprite("Affiche" + voteNbr));
-        achievements_Poster.scale = Math.floor(multiplyer / 4);
+        achievements_Poster.scale = Math.floor(multiplyer / 3);
 
         let counter = 0;
 
@@ -549,6 +549,7 @@ scene("achievements_scene", ({ idVote }) => {
 scene("tutorial", ( { fromMenu, i } ) => {
     let slideNumber = i;
     let mesTxt = [
+        "Welcome to Vote Now! In this game, your aim is to pass bill and have your vote score reach the historical results of the bill.\n\nSome bills didn't pass in our reality, so for those, you will need to make them pass for a perfect victory.",
         "In Vote Now!, you will have to choose between two options at a time. You will have 10 turns to obtain more than 50% of the votes.",
         "The events you can choose from:",
         "",
@@ -591,6 +592,16 @@ scene("tutorial", ( { fromMenu, i } ) => {
     ]);
 
     if (slideNumber == 0) {
+        add([
+            scale(multiplyer / 1.5),
+            origin("top"),
+            pos(Math.floor(width() / 2), Math.floor((height() / 10) * 5)),
+            sprite("title", { anim: "animated_BG" }),
+            layer("txt")
+        ]);
+    
+    }
+    else if (slideNumber == 1) {
         // example event
         add([
             scale(multiplyer / 1.5),
@@ -604,7 +615,7 @@ scene("tutorial", ( { fromMenu, i } ) => {
             scale(multiplyer / 1.5),
             origin("top"),
             pos(Math.floor(width() / 2), Math.floor((height() / 10) * 3.25)),
-            sprite("score_journal"),
+            sprite("score_journal_ok"),
             layer("txt")
         ]);
 
@@ -619,7 +630,7 @@ scene("tutorial", ( { fromMenu, i } ) => {
             layer("txt")
         ]);
     }
-    else if (slideNumber == 1) {
+    else if (slideNumber == 2) {
         // train ad
         add([
             scale(multiplyer / 2.25),
@@ -692,7 +703,7 @@ scene("tutorial", ( { fromMenu, i } ) => {
             layer("txt")
         ]);
     }
-    else if (slideNumber == 2) {
+    else if (slideNumber == 3) {
         // poste
         add([
             scale(multiplyer / 2.25),
@@ -783,7 +794,7 @@ scene("tutorial", ( { fromMenu, i } ) => {
             layer("txt")
         ]);
     }
-    else if (slideNumber == 3) {
+    else if (slideNumber == 4) {
         // ui_top's text description
         add([
             origin("top"),
@@ -822,7 +833,7 @@ scene("tutorial", ( { fromMenu, i } ) => {
             layer("txt")
         ]);
     }
-    else if (slideNumber == 5) {
+    else if (slideNumber == 6) {
         //failure badge + text
         add([
             origin("top"),

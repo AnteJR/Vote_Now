@@ -28,16 +28,78 @@ let spriteModifier = [                  // sprite modifiers; ie. variations to p
     "dusk_rain",
 ];
 
-let scores = [                                  // what each event does to the game stats. The structure is as follows:
-    ["score_train", 7, 700, 2, false, 0],           // 0. name
-    ["score_marche", 3, 300, 1, false, 1],          // 1. vote
-    ["score_ag", 0, 1000, 0, true, 2],              // 2. money
-    ["score_journal", 2, 250, 0, false, 3],         // 3. optics
-    ["score_poste", 1, 250, 1, true, 4],            // 4. isGain (boolean)
-    ["score_coupole", 10, 500, -10, false, 5],      // 5. id
-    ["score_affiche", 5, 200, 0, false, 6],
-    ["score_radio", 3, 250, 2, false, 7],
-    ["score_socials", 5, 400, 4, false, 8]
+let scoreModifier = [
+    "terrible",
+    "not_so_great",
+    "ok",
+    "great",
+    "incredible"
+]
+
+let scores = [                                  // what each event does to the game stats
+    [
+        ["score_train_terrible", 5, 700, 0, false],
+        ["score_train_not_so_great", 6, 600, 3, false],
+        ["score_train_ok", 7, 700, 2, false],
+        ["score_train_great", 8, 700, 0, false],
+        ["score_train_incredible", 7.5, 700, 3, false]
+    ],
+    [
+        ["score_marche_terrible", 2, 300, 1, false],
+        ["score_marche_not_so_great", 2, 200, 2, false],
+        ["score_marche_ok", 3, 300, 2, false],
+        ["score_marche_great", 5, 300, 0, false],
+        ["score_marche_incredible", 4, 300, 3, false]
+    ],
+    [
+        ["score_ag_terrible", 0, 750, -1, true],
+        ["score_ag_not_so_great", 0, 1100, -1, true],
+        ["score_ag_ok", 0, 1000, 0, true],
+        ["score_ag_great", 1, 1000, 0, true],
+        ["score_ag_incredible", 0, 1250, 0, true]
+    ],
+    [
+        ["score_journal_terrible", 1, 200, 0, false],
+        ["score_journal_not_so_great", 1.5, 150, 0, false],
+        ["score_journal_ok", 2, 200, 0, false],
+        ["score_journal_great", 3, 200, 0, false],
+        ["score_journal_incredible", 3, 150, 0, false]
+    ],
+    [
+        ["score_poste_terrible", 0, 200, 0, true],
+        ["score_poste_not_so_great", 0, 200, 5, true],
+        ["score_poste_ok", 1, 250, 1, true],
+        ["score_poste_great", 2, 300, 0, true],
+        ["score_poste_incredible", 2, 250, 2, true]
+    ],
+    [
+        ["score_coupole_terrible", 5, 500, -5, false],
+        ["score_coupole_not_so_great", 9, 450, -9, false],
+        ["score_coupole_ok", 10, 500, -10, false],
+        ["score_coupole_great", 11, 550, -10, false],
+        ["score_coupole_incredible", 15, 500, -10, false]
+    ],
+    [
+        ["score_affiche_terrible", 3, 300, 0, false],
+        ["score_affiche_not_so_great", 3, 200, 0, false],
+        ["score_affiche_ok", 5, 300, 0, false],
+        ["score_affiche_great", 6, 300, 0, false],
+        ["score_affiche_incredible", 6, 250, 0, false]
+    ],
+    [
+        ["score_radio_terrible", 2, 250, 0, false],
+        ["score_radio_not_so_great", 2, 200, 2, false],
+        ["score_radio_ok", 3, 250, 2, false],
+        ["score_radio_great", 5, 250, 1, false],
+        ["score_radio_incredible", 4, 250, 4, false]
+    ],
+    [
+        ["score_socials_terrible", 4, 400, 2, false],
+        ["score_socials_not_so_great", 4, 350, 5, false],
+        ["score_socials_ok", 5, 400, 4, false],
+        ["score_socials_great", 6, 400, 3, false],
+        ["score_socials_incredible", 6, 400, 6, false]
+    ]
 ];
 
 let scenarios = [                                        // scenarios stores all useful data for each votation you can play

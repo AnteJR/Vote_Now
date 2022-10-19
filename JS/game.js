@@ -5,8 +5,47 @@ scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics
         bottomCanBeHovered = true,
         top = scenarios[idScenario][startTurn][0],
         bottom = scenarios[idScenario][startTurn][1],
-        txtColor = 255 / (startTurn / (10 / startTurn));
+        txtColor = 255 / (startTurn / (10 / startTurn)),
+        eventNbrTopFinder = Math.random(),
+        eventNbrBottomFinder = Math.random(),
+        eventNbrTop = 2,
+        eventNbrBottom = 2;
     
+    if (eventNbrTopFinder < 0.015) {
+        eventNbrTop = 0; // 1.5 %
+    }
+    else if (eventNbrTopFinder < 0.15) {
+        eventNbrTop = 1; // 13.5 %
+    }
+    else if (eventNbrTopFinder < 0.83) {
+        eventNbrTop = 2; // 68 %
+    }
+    else if (eventNbrTopFinder < 0.98) {
+        eventNbrTop = 3; // 15 %
+    }
+    else {
+        eventNbrTop = 4; // 2 %
+    }
+
+    if (eventNbrBottomFinder < 0.015) {
+        eventNbrBottom = 0; // 1.5 %
+    }
+    else if (eventNbrBottomFinder < 0.15) {
+        eventNbrBottom = 1; // 13.5 %
+    }
+    else if (eventNbrBottomFinder < 0.83) {
+        eventNbrBottom = 2; // 68 %
+    }
+    else if (eventNbrBottomFinder < 0.98) {
+        eventNbrBottom = 3; // 15 %
+    }
+    else {
+        eventNbrBottom = 4; // 2 %
+    }
+
+    console.log(scoreModifier[eventNbrTop]);
+    console.log(scoreModifier[eventNbrBottom]);
+
     layers([
         "ui",
         "ui_txt",
@@ -63,8 +102,8 @@ scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics
         "event_top"
     ]);
     elemTop.onClick(() => {
-        if ((moneyCount.value < scores[top][2] && scores[top][4] == false) && (moneyCount.value < scores[bottom][2] && scores[bottom][4] == false) && ((votesCount.value < 50 && mustGain == true) || (votesCount.value >= 50 && mustGain == false))) goToEndScene(false, idScenario, votesCount.value, mustGain);
-        else if ((moneyCount.value < scores[top][2] && scores[top][4] == false) && (moneyCount.value < scores[bottom][2] && scores[bottom][4] == false) && ((votesCount.value >= 50 && mustGain == true) || (votesCount.value < 50 && mustGain == false))) goToEndScene(true, idScenario, votesCount.value, mustGain);
+        if ((moneyCount.value < scores[top][eventNbrTop][2] && scores[top][eventNbrTop][4] == false) && (moneyCount.value < scores[bottom][eventNbrTop][2] && scores[bottom][eventNbrTop][4] == false) && ((votesCount.value < 50 && mustGain == true) || (votesCount.value >= 50 && mustGain == false))) goToEndScene(false, idScenario, votesCount.value, mustGain);
+        else if ((moneyCount.value < scores[top][eventNbrTop][2] && scores[top][eventNbrTop][4] == false) && (moneyCount.value < scores[bottom][eventNbrTop][2] && scores[bottom][eventNbrTop][4] == false) && ((votesCount.value >= 50 && mustGain == true) || (votesCount.value < 50 && mustGain == false))) goToEndScene(true, idScenario, votesCount.value, mustGain);
         else checkClick(top, true, idScenario, startTurn);
     });
     elemTop.onHover(() => {
@@ -82,8 +121,8 @@ scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics
         "event_bottom"
     ]);
     elemBottom.onClick(() => {
-        if ((moneyCount.value < scores[top][2] && scores[top][4] == false) && (moneyCount.value < scores[bottom][2] && scores[bottom][4] == false) && ((votesCount.value < 50 && mustGain == true) || (votesCount.value >= 50 && mustGain == false))) goToEndScene(false, idScenario, votesCount.value, mustGain);
-        else if ((moneyCount.value < scores[top][2] && scores[top][4] == false) && (moneyCount.value < scores[bottom][2] && scores[bottom][4] == false) && ((votesCount.value >= 50 && mustGain == true) || (votesCount.value < 50 && mustGain == false))) goToEndScene(true, idScenario, votesCount.value, mustGain);
+        if ((moneyCount.value < scores[top][eventNbrBottom][2] && scores[top][eventNbrBottom][4] == false) && (moneyCount.value < scores[bottom][eventNbrBottom][2] && scores[bottom][eventNbrBottom][4] == false) && ((votesCount.value < 50 && mustGain == true) || (votesCount.value >= 50 && mustGain == false))) goToEndScene(false, idScenario, votesCount.value, mustGain);
+        else if ((moneyCount.value < scores[top][eventNbrBottom][2] && scores[top][eventNbrBottom][4] == false) && (moneyCount.value < scores[bottom][eventNbrBottom][2] && scores[bottom][eventNbrBottom][4] == false) && ((votesCount.value >= 50 && mustGain == true) || (votesCount.value < 50 && mustGain == false))) goToEndScene(true, idScenario, votesCount.value, mustGain);
         else checkClick(bottom, false, idScenario, startTurn);
     });
     elemBottom.onHover(() => {
@@ -120,7 +159,7 @@ scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics
     /* CLICK FUNCTION */
 
     function checkClick(nbr, isTop, scn, currentTurn) {
-        if (moneyCount.value < scores[nbr][2] && scores[nbr][4] == false) {
+        if ((isTop && moneyCount.value < scores[nbr][eventNbrTop][2] && scores[nbr][eventNbrTop][4] == false) || (!isTop && moneyCount.value < scores[nbr][eventNbrBottom][2] && scores[nbr][eventNbrBottom][4] == false)) {
             destroyAll("greySquare");
             play("on_click_4");
             if (isTop) {
@@ -155,9 +194,16 @@ scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics
         else {
             play("on_click_3");
             
-            moneyCount.value = scores[nbr][4] == false ? moneyCount.value - scores[nbr][2] : moneyCount.value + scores[nbr][2];
-            votesCount.value = mustGain == true ? parseFloat((votesCount.value + (scores[nbr][1] * opticsCount.value)).toFixed(2)) : parseFloat((votesCount.value - (scores[nbr][1] * opticsCount.value)).toFixed(2));
-            opticsCount.value = parseFloat((opticsCount.value + (scores[nbr][3] / 100)).toFixed(2));
+            if (isTop) {
+                moneyCount.value = scores[nbr][eventNbrTop][4] == false ? moneyCount.value - scores[nbr][eventNbrTop][2] : moneyCount.value + scores[nbr][eventNbrTop][2];
+                votesCount.value = mustGain == true ? parseFloat((votesCount.value + (scores[nbr][eventNbrTop][1] * opticsCount.value)).toFixed(2)) : parseFloat((votesCount.value - (scores[nbr][eventNbrTop][1] * opticsCount.value)).toFixed(2));
+                opticsCount.value = parseFloat((opticsCount.value + (scores[nbr][eventNbrTop][3] / 100)).toFixed(2));
+            }
+            else {
+                moneyCount.value = scores[nbr][eventNbrBottom][4] == false ? moneyCount.value - scores[nbr][eventNbrBottom][2] : moneyCount.value + scores[nbr][eventNbrBottom][2];
+                votesCount.value = mustGain == true ? parseFloat((votesCount.value + (scores[nbr][eventNbrBottom][1] * opticsCount.value)).toFixed(2)) : parseFloat((votesCount.value - (scores[nbr][eventNbrBottom][1] * opticsCount.value)).toFixed(2));
+                opticsCount.value = parseFloat((opticsCount.value + (scores[nbr][eventNbrBottom][3] / 100)).toFixed(2));
+            }
 
             currentTurn++;
 
@@ -193,12 +239,12 @@ scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics
                 elemTopStats = add([
                     scale(multiplyer),
                     pos(0, (ui_top.height * multiplyer)),
-                    sprite(mustGain ? "score_" + eventNames[x] : "score_" + eventNames[x] + "_reverse"),
+                    sprite(mustGain ? "score_" + eventNames[x] + "_" + scoreModifier[eventNbrTop] : "score_" + eventNames[x] + "_reverse"),
                     area(),
                     layer("hover_elements")
                 ]);
 
-                if (scores[x][4] == true) {
+                if (scores[x][eventNbrTop][4] == true) {
                     readd(moneyCount);
                     moneyCount.color = rgb(121, 207, 118);
                 }
@@ -207,7 +253,7 @@ scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics
                     moneyCount.color = rgb(219, 118, 118);
                 }
 
-                if (scores[x][1] >= 1) {
+                if (scores[x][eventNbrTop][1] >= 1) {
                     readd(votesCount);
                     votesCount.color = rgb(121, 207, 118);
                 }
@@ -216,11 +262,11 @@ scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics
                     votesCount.color = rgb(255, 255, 255);
                 }
 
-                if (scores[x][3] >= 1) {
+                if (scores[x][eventNbrTop][3] >= 1) {
                     readd(opticsCount);
                     opticsCount.color = rgb(121, 207, 118);
                 }
-                else if (scores[x][3] == 0) {
+                else if (scores[x][eventNbrTop][3] == 0) {
                     readd(opticsCount);
                     opticsCount.color = rgb(255, 255, 255);
                 }
@@ -233,12 +279,12 @@ scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics
                 elemBottomStats = add([
                     scale(multiplyer),
                     pos(0, (ui_top.height * multiplyer) + (elemTop.height * multiplyer)),
-                    sprite(mustGain ? "score_" + eventNames[x] : "score_" + eventNames[x] + "_reverse"),
+                    sprite(mustGain ? "score_" + eventNames[x] + "_" + scoreModifier[eventNbrBottom] : "score_" + eventNames[x] + "_reverse"),
                     area(),
                     layer("hover_elements")
                 ]);
 
-                if (scores[x][4] == true) {
+                if (scores[x][eventNbrBottom][4] == true) {
                     readd(moneyCount);
                     moneyCount.color = rgb(121, 207, 118);
                 }
@@ -247,7 +293,7 @@ scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics
                     moneyCount.color = rgb(219, 118, 118);
                 }
 
-                if (scores[x][1] >= 1) {
+                if (scores[x][eventNbrBottom][1] >= 1) {
                     readd(votesCount);
                     votesCount.color = rgb(121, 207, 118);
                 }
@@ -256,11 +302,11 @@ scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics
                     votesCount.color = rgb(255, 255, 255);
                 }
 
-                if (scores[x][3] >= 1) {
+                if (scores[x][eventNbrBottom][3] >= 1) {
                     readd(opticsCount);
                     opticsCount.color = rgb(121, 207, 118);
                 }
-                else if (scores[x][3] == 0) {
+                else if (scores[x][eventNbrBottom][3] == 0) {
                     readd(opticsCount);
                     opticsCount.color = rgb(255, 255, 255);
                 }
