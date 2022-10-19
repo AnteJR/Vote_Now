@@ -11,40 +11,17 @@ scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics
         eventNbrTop = 2,
         eventNbrBottom = 2;
     
-    if (eventNbrTopFinder < 0.015) {
-        eventNbrTop = 0; // 1.5 %
-    }
-    else if (eventNbrTopFinder < 0.15) {
-        eventNbrTop = 1; // 13.5 %
-    }
-    else if (eventNbrTopFinder < 0.83) {
-        eventNbrTop = 2; // 68 %
-    }
-    else if (eventNbrTopFinder < 0.98) {
-        eventNbrTop = 3; // 15 %
-    }
-    else {
-        eventNbrTop = 4; // 2 %
-    }
+    if (eventNbrTopFinder < 0.015) eventNbrTop = 0; // 1.5 %
+    else if (eventNbrTopFinder < 0.15) eventNbrTop = 1; // 13.5 %
+    else if (eventNbrTopFinder < 0.83) eventNbrTop = 2; // 68 %
+    else if (eventNbrTopFinder < 0.98) eventNbrTop = 3; // 15 %
+    else eventNbrTop = 4; // 2 %
 
-    if (eventNbrBottomFinder < 0.015) {
-        eventNbrBottom = 0; // 1.5 %
-    }
-    else if (eventNbrBottomFinder < 0.15) {
-        eventNbrBottom = 1; // 13.5 %
-    }
-    else if (eventNbrBottomFinder < 0.83) {
-        eventNbrBottom = 2; // 68 %
-    }
-    else if (eventNbrBottomFinder < 0.98) {
-        eventNbrBottom = 3; // 15 %
-    }
-    else {
-        eventNbrBottom = 4; // 2 %
-    }
-
-    console.log(scoreModifier[eventNbrTop]);
-    console.log(scoreModifier[eventNbrBottom]);
+    if (eventNbrBottomFinder < 0.015) eventNbrBottom = 0; // 1.5 %
+    else if (eventNbrBottomFinder < 0.15) eventNbrBottom = 1; // 13.5 %
+    else if (eventNbrBottomFinder < 0.83) eventNbrBottom = 2; // 68 %
+    else if (eventNbrBottomFinder < 0.98) eventNbrBottom = 3; // 15 %
+    else eventNbrBottom = 4; // 2 %
 
     layers([
         "ui",
