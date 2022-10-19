@@ -1136,47 +1136,243 @@ loadSpriteAtlas("Effects_Sheet_I.png", {
 });
 
 loadSpriteAtlas("Effects_Sheet_REVERSE.png", {       // Sprite Atlas for the reversed events' effects
-    "score_train_reverse": {                                    // effect for the train
+    "score_train_reverse_ok": {                                    // effect for the train
         "x": 0,
         "y": 0,
         "width": 124,
         "height": 42
-    }, "score_marche_reverse": {                                   // effect for the market
+    }, "score_marche_reverse_ok": {                                   // effect for the market
         "x": 0,
         "y": 42,
         "width": 124,
         "height": 42
-    }, "score_ag_reverse": {                                       // effect for the fundraising
+    }, "score_ag_reverse_ok": {                                       // effect for the fundraising
         "x": 0,
         "y": 42 * 2,
         "width": 124,
         "height": 42
-    }, "score_journal_reverse": {                                  // effect for the journal
+    }, "score_journal_reverse_ok": {                                  // effect for the journal
         "x": 0,
         "y": 42 * 3,
         "width": 124,
         "height": 42
-    }, "score_poste_reverse": {                                    // effect for the post office
+    }, "score_poste_reverse_ok": {                                    // effect for the post office
         "x": 0,
         "y": 42 * 4,
         "width": 124,
         "height": 42
-    }, "score_coupole_reverse": {                                  // effect for the protest
+    }, "score_coupole_reverse_ok": {                                  // effect for the protest
         "x": 0,
         "y": 42 * 5,
         "width": 124,
         "height": 42
-    }, "score_affiche_reverse": {                                  // effect for the flyers
+    }, "score_affiche_reverse_ok": {                                  // effect for the flyers
         "x": 0,
         "y": 42 * 6,
         "width": 124,
         "height": 42
-    }, "score_radio_reverse": {                                    // effect for the radio
+    }, "score_radio_reverse_ok": {                                    // effect for the radio
         "x": 0,
         "y": 42 * 7,
         "width": 124,
         "height": 42
-    }, "score_socials_reverse": {                                    // effect for the social media
+    }, "score_socials_reverse_ok": {                                    // effect for the social media
+        "x": 0,
+        "y": 42 * 8,
+        "width": 124,
+        "height": 42
+    },
+});
+
+loadSpriteAtlas("Effects_Sheet_REVERSE_NG.png", {
+    "score_train_reverse_not_so_great": {                                    // effect for the train
+        "x": 0,
+        "y": 0,
+        "width": 124,
+        "height": 42
+    }, "score_marche_reverse_not_so_great": {                                   // effect for the market
+        "x": 0,
+        "y": 42,
+        "width": 124,
+        "height": 42
+    }, "score_ag_reverse_not_so_great": {                                       // effect for the fundraising
+        "x": 0,
+        "y": 42 * 2,
+        "width": 124,
+        "height": 42
+    }, "score_journal_reverse_not_so_great": {                                  // effect for the journal
+        "x": 0,
+        "y": 42 * 3,
+        "width": 124,
+        "height": 42
+    }, "score_poste_reverse_not_so_great": {                                    // effect for the post office
+        "x": 0,
+        "y": 42 * 4,
+        "width": 124,
+        "height": 42
+    }, "score_coupole_reverse_not_so_great": {                                  // effect for the protest
+        "x": 0,
+        "y": 42 * 5,
+        "width": 124,
+        "height": 42
+    }, "score_affiche_reverse_not_so_great": {                                  // effect for the flyers
+        "x": 0,
+        "y": 42 * 6,
+        "width": 124,
+        "height": 42
+    }, "score_radio_reverse_not_so_great": {                                    // effect for the radio
+        "x": 0,
+        "y": 42 * 7,
+        "width": 124,
+        "height": 42
+    }, "score_socials_reverse_not_so_great": {                                    // effect for the social media
+        "x": 0,
+        "y": 42 * 8,
+        "width": 124,
+        "height": 42
+    },
+});
+
+loadSpriteAtlas("Effects_Sheet_REVERSE_G.png", {
+    "score_train_reverse_great": {                                    // effect for the train
+        "x": 0,
+        "y": 0,
+        "width": 124,
+        "height": 42
+    }, "score_marche_reverse_great": {                                   // effect for the market
+        "x": 0,
+        "y": 42,
+        "width": 124,
+        "height": 42
+    }, "score_ag_reverse_great": {                                       // effect for the fundraising
+        "x": 0,
+        "y": 42 * 2,
+        "width": 124,
+        "height": 42
+    }, "score_journal_reverse_great": {                                  // effect for the journal
+        "x": 0,
+        "y": 42 * 3,
+        "width": 124,
+        "height": 42
+    }, "score_poste_reverse_great": {                                    // effect for the post office
+        "x": 0,
+        "y": 42 * 4,
+        "width": 124,
+        "height": 42
+    }, "score_coupole_reverse_great": {                                  // effect for the protest
+        "x": 0,
+        "y": 42 * 5,
+        "width": 124,
+        "height": 42
+    }, "score_affiche_reverse_great": {                                  // effect for the flyers
+        "x": 0,
+        "y": 42 * 6,
+        "width": 124,
+        "height": 42
+    }, "score_radio_reverse_great": {                                    // effect for the radio
+        "x": 0,
+        "y": 42 * 7,
+        "width": 124,
+        "height": 42
+    }, "score_socials_reverse_great": {                                    // effect for the social media
+        "x": 0,
+        "y": 42 * 8,
+        "width": 124,
+        "height": 42
+    },
+});
+
+loadSpriteAtlas("Effects_Sheet_REVERSE_T.png", {
+    "score_train_reverse_terrible": {                                    // effect for the train
+        "x": 0,
+        "y": 0,
+        "width": 124,
+        "height": 42
+    }, "score_marche_reverse_terrible": {                                   // effect for the market
+        "x": 0,
+        "y": 42,
+        "width": 124,
+        "height": 42
+    }, "score_ag_terrible": {                                       // effect for the fundraising
+        "x": 0,
+        "y": 42 * 2,
+        "width": 124,
+        "height": 42
+    }, "score_journal_reverse_terrible": {                                  // effect for the journal
+        "x": 0,
+        "y": 42 * 3,
+        "width": 124,
+        "height": 42
+    }, "score_poste_reverse_terrible": {                                    // effect for the post office
+        "x": 0,
+        "y": 42 * 4,
+        "width": 124,
+        "height": 42
+    }, "score_coupole_reverse_terrible": {                                  // effect for the protest
+        "x": 0,
+        "y": 42 * 5,
+        "width": 124,
+        "height": 42
+    }, "score_affiche_reverse_terrible": {                                  // effect for the flyers
+        "x": 0,
+        "y": 42 * 6,
+        "width": 124,
+        "height": 42
+    }, "score_radio_reverse_terrible": {                                    // effect for the radio
+        "x": 0,
+        "y": 42 * 7,
+        "width": 124,
+        "height": 42
+    }, "score_socials_reverse_terrible": {                                    // effect for the social media
+        "x": 0,
+        "y": 42 * 8,
+        "width": 124,
+        "height": 42
+    },
+});
+
+loadSpriteAtlas("Effects_Sheet_REVERSE_I.png", {
+    "score_train_reverse_incredible": {                                    // effect for the train
+        "x": 0,
+        "y": 0,
+        "width": 124,
+        "height": 42
+    }, "score_marche_reverse_incredible": {                                   // effect for the market
+        "x": 0,
+        "y": 42,
+        "width": 124,
+        "height": 42
+    }, "score_ag_reverse_incredible": {                                       // effect for the fundraising
+        "x": 0,
+        "y": 42 * 2,
+        "width": 124,
+        "height": 42
+    }, "score_journal_reverse_incredible": {                                  // effect for the journal
+        "x": 0,
+        "y": 42 * 3,
+        "width": 124,
+        "height": 42
+    }, "score_poste_reverse_incredible": {                                    // effect for the post office
+        "x": 0,
+        "y": 42 * 4,
+        "width": 124,
+        "height": 42
+    }, "score_coupole_reverse_incredible": {                                  // effect for the protest
+        "x": 0,
+        "y": 42 * 5,
+        "width": 124,
+        "height": 42
+    }, "score_affiche_reverse_incredible": {                                  // effect for the flyers
+        "x": 0,
+        "y": 42 * 6,
+        "width": 124,
+        "height": 42
+    }, "score_radio_reverse_incredible": {                                    // effect for the radio
+        "x": 0,
+        "y": 42 * 7,
+        "width": 124,
+        "height": 42
+    }, "score_socials_reverse_incredible": {                                    // effect for the social media
         "x": 0,
         "y": 42 * 8,
         "width": 124,

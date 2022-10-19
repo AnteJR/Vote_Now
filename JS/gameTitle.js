@@ -550,7 +550,7 @@ scene("tutorial", ( { fromMenu, i } ) => {
     let slideNumber = i;
     let mesTxt = [
         "Welcome to Vote Now! In this game, your aim is to pass bill and have your vote score reach the historical results of the bill.\n\nSome bills didn't pass in our reality, so for those, you will need to make them pass for a perfect victory.",
-        "In Vote Now!, you will have to choose between two options at a time. You will have 10 turns to obtain more than 50% of the votes.",
+        "In Vote Now!, you will have to choose between two options at a time. You will have 10 turns to reach the historical score of the vote (or at least 50%).",
         "The events you can choose from:",
         "",
         "There are 3 variables to take into consideration. You can follow your progress for each on the top of the screen. You can also check how many turns are left at the bottom.",
