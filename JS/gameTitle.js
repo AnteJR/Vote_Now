@@ -533,7 +533,7 @@ scene("achievements_scene", ({ idVote }) => {
                 canGoBack = false;
                 counter++;
             } else {
-                achievements_Poster.scale = Math.floor(multiplyer / 4);
+                achievements_Poster.scale = Math.floor(multiplyer / 3);
                 achievements_GreyOutSquare.opacity = 0.25;
                 achievements_PreviousButton.opacity = 1;
                 achievements_NextButton.opacity = 1;
@@ -556,6 +556,7 @@ scene("tutorial", ( { fromMenu, i } ) => {
         "There are 3 variables to take into consideration. You can follow your progress for each on the top of the screen. You can also check how many turns are left at the bottom.",
         "Votes: the percentages of votes in favor of the bill\n\nMoney: the money you have, which is used to buy ads, or organize events\n\nOptics: optics are how favorably the people see your campaign. It's a multiplier for the votes you get. IE. if your optics are at 0.8 and you select an event who earns you 10% votes, you will actually gain 10x0.8 = 8%.",
         "Balance those 3 variables to maximize your score! Depending on how well you succeed, you will have a varying degree of victory, going from failure (the bill didn't pass) to perfect (you reached or went beyond the original score of the vote).",
+        "",
         "If you manage to get a perfect victory, you will unlock a pixel art reproduction of one piece of propaganda material of the time in the achievements section. Go to the main menu to check them out!\n\nOnce you get all the achievements, the game is pretty much finished. You can still reset your saved data at the credits page to start anew."
     ]
 
@@ -644,7 +645,7 @@ scene("tutorial", ( { fromMenu, i } ) => {
             origin("top"),
             pos(Math.floor(width() / 4), Math.floor((height() / 10) * 4)),
             text("^ train station ads ^", {
-                size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 20) : Math.floor(5 * (multiplyer - 1) - 20)
+                size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 20) : Math.floor(5 * (multiplyer - 1) - 10)
             }),
             layer("txt")
         ]);
@@ -662,7 +663,7 @@ scene("tutorial", ( { fromMenu, i } ) => {
             origin("top"),
             pos(Math.floor((width() / 4) * 3), Math.floor((height() / 10) * 4)),
             text("^ market flyer distribution ^", {
-                size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 20) : Math.floor(5 * (multiplyer - 1) - 20)
+                size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 20) : Math.floor(5 * (multiplyer - 1) - 10)
             }),
             layer("txt")
         ]);
@@ -680,7 +681,7 @@ scene("tutorial", ( { fromMenu, i } ) => {
             origin("top"),
             pos(Math.floor(width() / 4), Math.floor((height() / 10) * 7)),
             text("^ ask sponsors for funds ^", {
-                size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 20) : Math.floor(5 * (multiplyer - 1) - 20)
+                size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 20) : Math.floor(5 * (multiplyer - 1) - 10)
             }),
             layer("txt")
         ]);
@@ -698,7 +699,7 @@ scene("tutorial", ( { fromMenu, i } ) => {
             origin("top"),
             pos(Math.floor((width() / 4) * 3), Math.floor((height() / 10) * 7)),
             text("^ newspaper ads ^", {
-                size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 20) : Math.floor(5 * (multiplyer - 1) - 20)
+                size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 20) : Math.floor(5 * (multiplyer - 1) - 10)
             }),
             layer("txt")
         ]);
@@ -717,7 +718,7 @@ scene("tutorial", ( { fromMenu, i } ) => {
             origin("top"),
             pos(Math.floor(width() / 4), Math.floor((height() / 10) * 2.5)),
             text("^ ask donors for funds ^", {
-                size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 20) : Math.floor(5 * (multiplyer - 1) - 20)
+                size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 20) : Math.floor(5 * (multiplyer - 1) - 10)
             }),
             layer("txt")
         ]);
@@ -735,7 +736,7 @@ scene("tutorial", ( { fromMenu, i } ) => {
             origin("top"),
             pos(Math.floor((width() / 4) * 3), Math.floor((height() / 10) * 2.5)),
             text("^ protest in Bern ^", {
-                size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 20) : Math.floor(5 * (multiplyer - 1) - 20)
+                size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 20) : Math.floor(5 * (multiplyer - 1) - 10)
             }),
             layer("txt")
         ]);
@@ -753,7 +754,7 @@ scene("tutorial", ( { fromMenu, i } ) => {
             origin("top"),
             pos(Math.floor(width() / 4), Math.floor((height() / 10) * 5.25)),
             text("^ poster campaign ^", {
-                size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 20) : Math.floor(5 * (multiplyer - 1) - 20)
+                size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 20) : Math.floor(5 * (multiplyer - 1) - 10)
             }),
             layer("txt")
         ]);
@@ -771,7 +772,7 @@ scene("tutorial", ( { fromMenu, i } ) => {
             origin("top"),
             pos(Math.floor((width() / 4) * 3), Math.floor((height() / 10) * 5.25)),
             text("^ radio ads (from 1922) ^", {
-                size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 20) : Math.floor(5 * (multiplyer - 1) - 20)
+                size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 20) : Math.floor(5 * (multiplyer - 1) - 10)
             }),
             layer("txt")
         ]);
@@ -789,7 +790,7 @@ scene("tutorial", ( { fromMenu, i } ) => {
             origin("top"),
             pos(Math.floor((width() / 4) * 2), Math.floor((height() / 10) * 8)),
             text("^ social media ads (from 2008) ^", {
-                size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 20) : Math.floor(5 * (multiplyer - 1) - 20)
+                size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 20) : Math.floor(5 * (multiplyer - 1) - 10)
             }),
             layer("txt")
         ]);
@@ -891,6 +892,83 @@ scene("tutorial", ( { fromMenu, i } ) => {
             scale(Math.floor(multiplyer / 2)),
             pos(Math.floor((width() / 10) * 8.75), Math.floor((height() / 10) * 6)),
             sprite("perfect_logo"),
+            layer("bg")
+        ]);
+    }
+    else if (slideNumber == 7) {
+        // failure
+        add([
+            origin("top"),
+            pos(Math.floor(width() / 2), Math.floor((height() / 10) * 1.8)),
+            text("^ failure (less than 50%) ^", {
+                size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer - 2)) : Math.floor(5 * (multiplyer - 3)),
+                width: Math.floor(width() - (width() / (multiplyer + 1)))
+            }),
+            layer("txt")
+        ]);
+
+        add([
+            origin("bot"),
+            scale(Math.floor(multiplyer / 2)),
+            pos(Math.floor(width() / 2), Math.floor((height() / 10) * 1.75)),
+            sprite("failure", { anim: "animated_BG" }),
+            layer("bg")
+        ]);
+
+        //stopped
+        add([
+            origin("top"),
+            pos(Math.floor(width() / 2), Math.floor((height() / 10) * 3.8)),
+            text("^ stopped (more than the historical score but less than 50%) ^", {
+                size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer - 2)) : Math.floor(5 * (multiplyer - 3)),
+                width: Math.floor(width() - (width() / (multiplyer + 1)))
+            }),
+            layer("txt")
+        ]);
+
+        add([
+            origin("bot"),
+            scale(Math.floor(multiplyer / 2)),
+            pos(Math.floor(width() / 2), Math.floor((height() / 10) * 3.75)),
+            sprite("not_passed", { anim: "animated_BG" }),
+            layer("bg")
+        ]);
+
+        //passed
+        add([
+            origin("top"),
+            pos(Math.floor(width() / 2), Math.floor((height() / 10) * 5.85)),
+            text("^ passed (more than 50%) ^", {
+                size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer - 2)) : Math.floor(5 * (multiplyer - 3)),
+                width: Math.floor(width() - (width() / (multiplyer + 1)))
+            }),
+            layer("txt")
+        ]);
+
+        add([
+            origin("bot"),
+            scale(Math.floor(multiplyer / 2)),
+            pos(Math.floor(width() / 2), Math.floor((height() / 10) * 5.8)),
+            sprite("passed", { anim: "animated_BG" }),
+            layer("bg")
+        ]);
+
+        //victory
+        add([
+            origin("top"),
+            pos(Math.floor(width() / 2), Math.floor((height() / 10) * 7.8)),
+            text("^ perfect victory (more than the historical score OR more than 50% if the historical score is less than 50%) ^", {
+                size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer - 2)) : Math.floor(5 * (multiplyer - 3)),
+                width: Math.floor(width() - (width() / (multiplyer + 1)))
+            }),
+            layer("txt")
+        ]);
+
+        add([
+            origin("bot"),
+            scale(Math.floor(multiplyer / 2)),
+            pos(Math.floor(width() / 2), Math.floor((height() / 10) * 7.8)),
+            sprite("victory", { anim: "animated_BG" }),
             layer("bg")
         ]);
     }

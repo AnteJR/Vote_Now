@@ -33,7 +33,7 @@ scene("victoryPage", ({ isWin, playedScene, votes, winIfMoreThan50 }) => {
         pos(Math.floor(width() / 2), Math.floor((height() / 2) - (height() / (multiplyer + 3)))),
         origin("center"),
         layer("victoryState"),
-        sprite(isWin ? "victory" : "failure", { anim: "animated_BG" })
+        sprite(winIfMoreThan50 ? (isWin ? (realResults > 50 ? (votes < realResults ? "passed" : "victory") : "victory") : (realResults < 50 ? (votes > realResults ? "not_passed" : "failure") : "failure")) : (isWin ? (votes < 50 ? "victory" : "passed") : "failure"), { anim: "animated_BG" })
     ]);
 
     const victoryScreen_NextButton = add([
@@ -45,11 +45,11 @@ scene("victoryPage", ({ isWin, playedScene, votes, winIfMoreThan50 }) => {
         layer("victoryState")
     ]).onClick(() => {
         play("on_click_1");
-        go("endExplaination", ({ isVictory: isWin, sceneTxtToShow: playedScene, votesTotal: votes, isNewPerf: isNewlyPerfect }));
+        go("endExplaination", ({ isVictory: isWin, sceneTxtToShow: playedScene, votesTotal: votes, isNewPerf: isNewlyPerfect, realVote: realResults, gainWin: winIfMoreThan50 }));
     })
 });
 
-scene("endExplaination", ({ isVictory, sceneTxtToShow, votesTotal, isNewPerf }) => {
+scene("endExplaination", ({ isVictory, sceneTxtToShow, votesTotal, isNewPerf, realVote, gainWin }) => {
     layers([
         "bg",
         "txt"
@@ -62,7 +62,7 @@ scene("endExplaination", ({ isVictory, sceneTxtToShow, votesTotal, isNewPerf }) 
         layer("bg")
     ]);
 
-    let explainationText = isVictory ? ((scenarios[sceneTxtToShow][18] < 50 && votesTotal < 50 && scenarios[sceneTxtToShow][19] == true) || (scenarios[sceneTxtToShow][18] >= 50 && votesTotal >= 50 && votesTotal < scenarios[sceneTxtToShow][18] && scenarios[sceneTxtToShow][19] == false) ? scenarios[sceneTxtToShow][16] + " You still managed to do better than what really happend, and for that, we congratulate you!" : scenarios[sceneTxtToShow][15]) : scenarios[sceneTxtToShow][16];
+    let explainationText = (realVote < 50 && votesTotal < 50 && gainWin) || (realVote >= 50 && votesTotal >= 50 && votesTotal < realVote && !gainWin) ? scenarios[sceneTxtToShow][16] + " You still managed to do better than what really happend, and for that, we congratulate you!" : (isVictory ? scenarios[sceneTxtToShow][15] : scenarios[sceneTxtToShow][16]);
 
     const finalScreen_Text = add([
         origin("center"),
@@ -124,7 +124,7 @@ scene("new_achievement", ({ scenarioToDisplay }) => {
         sprite("Affiche" + scenarioToDisplay),
         scale(scenarioToDisplay == 0 ? multiplyer / 3.25 : multiplyer / 3.75),
         origin("top"),
-        pos(Math.floor(width() / 2), Math.floor((height() / 10) * 3)),
+        pos(Math.floor(width() / 2), Math.floor((height() / 10) * 2.5)),
         layer("bg"),
     ]);
 

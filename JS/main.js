@@ -1421,6 +1421,44 @@ loadSpriteAtlas("Victory.png", {         // Animated Victory text
     }
 });
 
+loadSpriteAtlas("Passed.png", {         // Animated Passed text
+    "passed": {
+        "x": 0,
+        "y": 0,
+        "width": 124*13,
+        "height": 33,
+        "sliceX": 13,
+        "anims": {
+            "animated_BG": {
+                "from": 0,
+                "to": 12,
+                "speed": 10,
+                "loop": true
+            },
+            "idle": 0
+        }
+    }
+});
+
+loadSpriteAtlas("Stopped.png", {         // Animated Not Passed text
+    "not_passed": {
+        "x": 0,
+        "y": 0,
+        "width": 124*15,
+        "height": 36,
+        "sliceX": 15,
+        "anims": {
+            "animated_BG": {
+                "from": 0,
+                "to": 14,
+                "speed": 10,
+                "loop": true
+            },
+            "idle": 0
+        }
+    }
+});
+
 loadSpriteAtlas("Failure.png", {         // Animated Failure text
     "failure": {
         "x": 0,
