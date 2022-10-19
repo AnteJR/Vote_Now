@@ -1440,7 +1440,7 @@ loadSpriteAtlas("Passed.png", {         // Animated Passed text
     }
 });
 
-loadSpriteAtlas("Stopped.png", {         // Animated Not Passed text
+loadSpriteAtlas("stopped.png", {         // Animated Not Passed text
     "not_passed": {
         "x": 0,
         "y": 0,
