@@ -182,6 +182,9 @@ scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics
                 opticsCount.value = parseFloat((opticsCount.value + (scores[nbr][eventNbrBottom][3] / 100)).toFixed(2));
             }
 
+            votesCount.value >= 100 ? votesCount.value = 100 : votesCount.value = votesCount.value;
+
+
             currentTurn++;
 
             if (currentTurn <= 10) {
