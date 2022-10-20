@@ -157,7 +157,7 @@ let scenarios = [                                        // scenarios stores all
         "Romansch as a new national language bill",
         [2, 6], [4, 7], [6, 2], [3, 6], [7, 4],
         [0, 2], [2, 5], [7, 6], [0, 4], [6, 0],
-        45, 2000, 1.2,
+        36, 2000, 1.2,
         "20.02.1938",
         "The bill passed! It's really not a surprise, as Romansch is a quite unique language to Switzerland, and somewhat of a national pride. Accepting it as a national language means official documents, communications and state presses publish everything in Romansch, preserving the language. In 1938, it got a whopping 91.6% of votes, making it one of the most accepted bill in Switzerland's history.",
         "The bill failed... somehow? It is really a wonder how it happened. Everyone from the far left to the far right were in favor of this bill. As such, Romansch will not get support from the state, and will slowly erode as German becomes dominant in the Grisons...",
