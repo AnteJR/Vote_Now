@@ -30,10 +30,20 @@ scene("victoryPage", ({ isWin, playedScene, votes, winIfMoreThan50 }) => {
 
     const victoryScreen_VictoryState = add([
         scale(multiplyer),
-        pos(Math.floor(width() / 2), Math.floor((height() / 2) - (height() / (multiplyer + 3)))),
-        origin("center"),
+        pos(Math.floor(width() / 2), Math.floor((height() / 10) * 1.5)),
+        origin("top"),
         layer("victoryState"),
         sprite(winIfMoreThan50 ? (isWin ? (realResults > 50 ? (votes < realResults ? "passed" : "victory") : "victory") : (realResults < 50 ? (votes > realResults ? "not_passed" : "failure") : "failure")) : (isWin ? (votes < 50 ? "victory" : "passed") : "failure"), { anim: "animated_BG" })
+    ]);
+
+    const victoryScreen_Text = add([
+        origin("top"),
+        pos(Math.floor(width() / 2), Math.floor((height() / 10) * 5.25)),
+        text(winIfMoreThan50 ? (isWin ? (realResults > 50 ? (votes < realResults ? "the bill passed, but you didn't reach the historical score" : "you reached and went beyond the historical score!") : "the bill passed despite failed in real life!") : (realResults < 50 ? (votes > realResults ? "you did better than the historical score, but the bill still failed" : "you didn't reach the historical score") : "the bill was blocked by the vote")) : (isWin ? (votes < 50 ? "the bill failed! congratulations!" : "you did better than the historical vote, but the bill still passed") : "the bill passed with more vote than in real life..."), {
+            size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 10) : Math.floor(5 * (multiplyer - 1)),
+            width: Math.floor(width() - (width() / 10))
+        }),
+        layer("victoryState")
     ]);
 
     const victoryScreen_NextButton = add([

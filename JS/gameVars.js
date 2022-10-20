@@ -106,7 +106,7 @@ let scenarios = [                                        // scenarios stores all
     [                                                    // scenarios is structured as follos:
         "Government's buyout of Swiss railways",            // 0. name
         [6, 4], [3, 1], [0, 6], [2, 1], [3, 4],             // 1-10. turn 1-10 (ie. what two events will be displayed each turn)
-        [1, 6], [2, 3], [3, 0], [6, 4], [1, 0],             // 11 - 13. intial vote percentage, money and optics
+        [1, 6], [2, 3], [3, 1], [6, 4], [1, 0],             // 11 - 13. intial vote percentage, money and optics
         40,                                                 // 14. the exact date the vote took place
         1500,                                               // 15-17. texts explaining what happens depending if the player wins or fails & the introductory text
         0.8,                                                // 18. the actual result of the vote
@@ -119,8 +119,8 @@ let scenarios = [                                        // scenarios stores all
     ],
     [
         "Sickness and accident insurance bill",
-        [4, 3], [6, 1], [2, 0], [0, 3], [4, 5],
-        [1, 3], [6, 4], [3, 2], [0, 4], [5, 3], 
+        [2, 3], [6, 1], [2, 0], [1, 3], [4, 5],
+        [0, 3], [2, 4], [3, 1], [6, 4], [3, 6], 
         25, 1500, 0.71, 
         "04.02.1912", 
         "The bill passed! In the meantime, the government will do some light price-fixing and put some slight regulations on insurances. A small win now, but still a win in the long-term: this bill lays the foundation for the current insurance system, put in place in 1994! In 1912, the bill passed with 54.4% of all the votes.",
@@ -144,19 +144,19 @@ let scenarios = [                                        // scenarios stores all
     [
         "Popular initiative to fight the economic crisis",
         [2, 3], [1, 4], [1, 0], [4, 3], [2, 6],
-        [7, 0], [5, 2], [5, 0], [1, 4], [0, 5],
+        [7, 5], [0, 2], [5, 1], [0, 4], [5, 0],
         20, 500, 0.73,
         "02.06.1935",
         `The bill passed... somehow? The opposing campaign used ruthless tactics, some experts even call this "the Swiss redscare", since the initiative's far-left defendant were portrayed as communists! But it passed, and will probably help relieve the Swiss population from the economic crash of 1929, which still affected Switzerland in 1935. In reality, it failed, garnering only 42.8% of the votes.`,
         "The bill is rejected, despite your best efforts. It didn't pass in our reality either, with only 42.8% of voters in favor of it. The economic crisis of the 1930s will thus hit the poorer populations most, as always, but they will survive.",
-        "The crisis initiative (1935)\n\n1929 and the subsequent decade are dark years for the world over. As the economic crash ravages Switzerland in the early 1930s, a left-leaning comittee wants the government to help out the population who is most suffering: poorer, working-class individuals and small businesses, that can barely, if at all, afford to live. See if you can help them win over a staunchly anti-communist country.",
+        "The crisis initiative (1935)\n\nAs the 1929 economic crash ravages Switzerland in the early 1930s, a left-leaning comittee wants the government to help out the population who is most suffering: poorer, working-class individuals and small businesses, that can barely, if at all, afford to live. The bill did not pass in real life, but maybe you can make the impossible happen.",
         42.8,
         true
     ],
     [
         "Romansch as a new national language bill",
-        [2, 6], [4, 7], [6, 2], [3, 6], [4, 7],
-        [0, 2], [5, 0], [2, 6], [7, 4], [6, 0],
+        [2, 6], [4, 7], [6, 2], [3, 6], [7, 4],
+        [0, 2], [2, 5], [7, 6], [0, 4], [6, 0],
         45, 2000, 1.2,
         "20.02.1938",
         "The bill passed! It's really not a surprise, as Romansch is a quite unique language to Switzerland, and somewhat of a national pride. Accepting it as a national language means official documents, communications and state presses publish everything in Romansch, preserving the language. In 1938, it got a whopping 91.6% of votes, making it one of the most accepted bill in Switzerland's history.",
@@ -179,7 +179,7 @@ let scenarios = [                                        // scenarios stores all
     ],
     [
         "New Civil Protection militia bill",
-        [7, 3], [1, 2], [0, 6], [7, 2], [4, 1],
+        [1, 2], [7, 3], [0, 6], [7, 2], [4, 1],
         [0, 3], [4, 2], [7, 1], [0, 3], [3, 1],
         35, 750, 0.83,
         "24.05.1959",
@@ -204,12 +204,12 @@ let scenarios = [                                        // scenarios stores all
     [
         "Popular initiative against the military service",
         [6, 2], [5, 7], [1, 3], [7, 4], [2, 6],
-        [5, 7], [1, 2], [5, 0], [3, 6], [5, 1],
+        [5, 2], [1, 7], [0, 5], [3, 6], [5, 1],
         25, 500, 0.7,
         "26.11.1989",
         "The bill passed! That's quite the achievement. In reality, the vote failed with only 35.6% of ballots in favor of the revocation of mandatory military service for men. It is a sticking tradition of which the Swiss people are proud of, and which rarely, if even changes. But it changed. And from now on men won't be required to serve in the military!",
         "Unsurprisingly, the bill failed. The Swiss people are too proud to their army to vote against it. The initiative failed, as it did in real life with only 35.6% of votes.",
-        "Initiative against mandatory military service (1989)\n\nWar are never fun, and the fact that Switzerland, a small and internationally neutral country, has a mandatory military service doesn't please the GSSA (Groupe pour une Suisse sans armee; Group for a military-free Switzerland). This year, they got enough signature to try and ban the practice in Switzerland. Will they do it?",
+        "Initiative against mandatory military service (1989)\n\nWar are never fun, and the fact that Switzerland has a mandatory military service doesn't please the GSSA (Groupe pour une Suisse sans armee; Group for a military-free Switzerland). This year, they got enough signature to try and ban the practice in Switzerland. This bill did not pass in real life, but maybe you can make the impossible happen.",
         35.6,
         true
     ],
@@ -225,9 +225,9 @@ let scenarios = [                                        // scenarios stores all
         54.5,
         true
     ],
-    [ // TO DO: THE SCENARIOS' EVENTS
+    [
         "Popular initiative to join the UN",
-        [3, 7], [4, 6], [1, 5], [3, 0], [7, 2],
+        [3, 7], [4, 6], [1, 5], [2, 0], [7, 3],
         [0, 1], [6, 4], [3, 7], [0, 4], [1, 3],
         29, 2000, 0.65,
         "03.03.2002",
@@ -240,7 +240,7 @@ let scenarios = [                                        // scenarios stores all
     [
         "Popular initiative against more secondary residences",
         [0, 8], [3, 2], [6, 4], [1, 0], [8, 2],
-        [7, 1], [3, 4], [8, 1], [1, 2], [3, 5],
+        [7, 1], [3, 4], [2, 1], [1, 8], [3, 5],
         16, 1000, 0.8,
         "11.03.2012",
         "The initiative passed! With that, constructing a new secondary residence, espcially in the more rural parts of the country, will be much more complicated: either you live there, or don't construct anything. The bill did pass by a hair for real, garnering a mere 50.6% of the votes!",
@@ -251,8 +251,8 @@ let scenarios = [                                        // scenarios stores all
     ],
     [
         "Stop discrimination against sexual orientation bill",
-        [8, 2], [2, 3], [0, 4], [2, 8], [0, 7],
-        [3, 5], [8, 1], [4, 3], [2, 4], [8, 6],
+        [8, 2], [2, 3], [0, 4], [4, 8], [0, 7],
+        [3, 5], [8, 1], [4, 3], [1, 4], [8, 6],
         25, 1500, 0.91,
         "09.02.2020",
         "The initiative passed! Same-sex couples and people experience same-sex attraction will now be protected under the law against discrimination of all kinds. This is a important step towards a more equal society, and a clear victory for progressives. The law also passed in reality, with 63.1% of votes in favor.",
@@ -275,8 +275,8 @@ let scenarios = [                                        // scenarios stores all
     ],
     [
         "Reform of the insurance for the elderly",
-        [1, 2], [0, 6], [8, 4], [3, 5], [4, 2],
-        [8, 0], [1, 6], [6, 2], [5, 0], [0, 8],
+        [1, 2], [4, 6], [8, 0], [3, 5], [4, 2],
+        [8, 1], [0, 6], [0, 2], [5, 6], [0, 8],
         85, 1000, 0.71,
         "25.09.2022",
         "The initiative failed! This is a victory! It means women can still retire at 64 without reprecussion on their retirement fund. This also means there won't be a flexible limit to retirement to incetivize people to retire at 70. This is a social victory for the Swiss people, which unfortunately passed in our reality with a measly 50.5% of the votes.",

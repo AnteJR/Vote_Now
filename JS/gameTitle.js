@@ -549,14 +549,13 @@ scene("achievements_scene", ({ idVote }) => {
 scene("tutorial", ( { fromMenu, i } ) => {
     let slideNumber = i;
     let mesTxt = [
-        "Welcome to Vote Now! In this game, your aim is to pass bill and have your vote score reach the historical results of the bill.\n\nSome bills didn't pass in our reality, so for those, you will need to make them pass for a perfect victory.",
+        "Welcome to Vote Now! In this game, your aim is to pass bills and have your vote score reach the historical results of the votes.",
         "In Vote Now!, you will have to choose between two options at a time. You will have 10 turns to reach the historical score of the vote (or at least 50%).",
         "The events you can choose from:",
         "",
         "There are 3 variables to take into consideration. You can follow your progress for each on the top of the screen. You can also check how many turns are left at the bottom.",
         "Votes: the percentages of votes in favor of the bill\n\nMoney: the money you have, which is used to buy ads, or organize events\n\nOptics: optics are how favorably the people see your campaign. It's a multiplier for the votes you get. IE. if your optics are at 0.8 and you select an event who earns you 10% votes, you will actually gain 10x0.8 = 8%.",
         "Balance those 3 variables to maximize your score! Depending on how well you succeed, you will have a varying degree of victory, going from failure (the bill didn't pass) to perfect (you reached or went beyond the original score of the vote).",
-        "",
         "If you manage to get a perfect victory, you will unlock a pixel art reproduction of one piece of propaganda material of the time in the achievements section. Go to the main menu to check them out!\n\nOnce you get all the achievements, the game is pretty much finished. You can still reset your saved data at the credits page to start anew."
     ]
 
@@ -594,9 +593,9 @@ scene("tutorial", ( { fromMenu, i } ) => {
 
     if (slideNumber == 0) {
         add([
-            scale(multiplyer / 1.5),
+            scale(multiplyer),
             origin("top"),
-            pos(Math.floor(width() / 2), Math.floor((height() / 10) * 5)),
+            pos(Math.floor(width() / 2), Math.floor((height() / 10) * 3)),
             sprite("title", { anim: "animated_BG" }),
             layer("txt")
         ]);
@@ -895,83 +894,6 @@ scene("tutorial", ( { fromMenu, i } ) => {
             layer("bg")
         ]);
     }
-    else if (slideNumber == 7) {
-        // failure
-        add([
-            origin("top"),
-            pos(Math.floor(width() / 2), Math.floor((height() / 10) * 1.8)),
-            text("^ failure (less than 50%) ^", {
-                size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer - 2)) : Math.floor(5 * (multiplyer - 3)),
-                width: Math.floor(width() - (width() / (multiplyer + 1)))
-            }),
-            layer("txt")
-        ]);
-
-        add([
-            origin("bot"),
-            scale(Math.floor(multiplyer / 2)),
-            pos(Math.floor(width() / 2), Math.floor((height() / 10) * 1.75)),
-            sprite("failure", { anim: "animated_BG" }),
-            layer("bg")
-        ]);
-
-        //stopped
-        add([
-            origin("top"),
-            pos(Math.floor(width() / 2), Math.floor((height() / 10) * 3.8)),
-            text("^ stopped (more than the historical score but less than 50%) ^", {
-                size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer - 2)) : Math.floor(5 * (multiplyer - 3)),
-                width: Math.floor(width() - (width() / (multiplyer + 1)))
-            }),
-            layer("txt")
-        ]);
-
-        add([
-            origin("bot"),
-            scale(Math.floor(multiplyer / 2)),
-            pos(Math.floor(width() / 2), Math.floor((height() / 10) * 3.75)),
-            sprite("not_passed", { anim: "animated_BG" }),
-            layer("bg")
-        ]);
-
-        //passed
-        add([
-            origin("top"),
-            pos(Math.floor(width() / 2), Math.floor((height() / 10) * 5.85)),
-            text("^ passed (more than 50%) ^", {
-                size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer - 2)) : Math.floor(5 * (multiplyer - 3)),
-                width: Math.floor(width() - (width() / (multiplyer + 1)))
-            }),
-            layer("txt")
-        ]);
-
-        add([
-            origin("bot"),
-            scale(Math.floor(multiplyer / 2)),
-            pos(Math.floor(width() / 2), Math.floor((height() / 10) * 5.8)),
-            sprite("passed", { anim: "animated_BG" }),
-            layer("bg")
-        ]);
-
-        //victory
-        add([
-            origin("top"),
-            pos(Math.floor(width() / 2), Math.floor((height() / 10) * 7.8)),
-            text("^ perfect victory (more than the historical score OR more than 50% if the historical score is less than 50%) ^", {
-                size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer - 2)) : Math.floor(5 * (multiplyer - 3)),
-                width: Math.floor(width() - (width() / (multiplyer + 1)))
-            }),
-            layer("txt")
-        ]);
-
-        add([
-            origin("bot"),
-            scale(Math.floor(multiplyer / 2)),
-            pos(Math.floor(width() / 2), Math.floor((height() / 10) * 7.8)),
-            sprite("victory", { anim: "animated_BG" }),
-            layer("bg")
-        ]);
-    }
     
     const tutorial_NextButton = slideNumber < mesTxt.length - 1 ? 
             add([
@@ -1043,6 +965,38 @@ scene("tutorial", ( { fromMenu, i } ) => {
             }));
 });
 
+scene("errorLocalStorage", () => {
+    layers([
+        "bg",
+        "txt"
+    ]);
+
+    const error_BG = add([
+        scale(multiplyer),
+        pos(0, 0),
+        sprite("BG_title", { anim: "animated_BG" }),
+        layer("bg")
+    ]);
+
+    const error_Title = add([
+        scale(multiplyer),
+        origin("center"),
+        pos(Math.floor(width() / 2), Math.floor(height() / 2 - height() / 2.8)),
+        sprite("title", { anim: "animated_BG" }),
+        layer("txt")
+    ]);
+
+    const error_Text = add([
+        origin("top"),
+        pos(Math.floor(width() / 2), Math.floor((height() / 10) * 3.5)),
+        text("Vote Now requires the use of the local storage of your web browser. For reasons outside of my control, your browser doesn't allow the game access the local storage.\n\nTo fix this problem, please try using a different browser. I know that things should be fine using Firefox. Sorry for the inconvenience.", {
+            size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 10) : Math.floor(5 * (multiplyer - 1)),
+            width: Math.floor(width() - (width() / (multiplyer + 1)))
+        }),
+        layer("txt")
+    ]);
+});
+
 function goToGame(i, b) {
     music_menu.pause();
     !music_game ? playGameMusic() : music_game.play();
@@ -1063,4 +1017,19 @@ function initFunction() {
     go("titleScreen");
 }
 
-initFunction();
+function isLocalStorageAvailable(){
+    var test = 'test';
+    try {
+        localStorage.setItem("testLS", test);
+        localStorage.removeItem("testLS");
+        return true;
+    } catch(e) {
+        return false;
+    }
+}
+
+if(isLocalStorageAvailable()){
+    initFunction();
+}else{
+    go("errorLocalStorage")
+}
