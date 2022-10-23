@@ -365,8 +365,8 @@ let scenarios = [                                        // scenarios stores all
         [0, 3], [4, 2], [7, 1], [0, 3], [3, 1],
         35, 750, 0.83,
         "24.05.1959",
-        "La loi est passée!\n\nCongratulations! There will now be a division of the population, men deemed unfit for the army, that will actively work as part of a mandatory service to help the population in case of an emergency. This is a good thing, which was first refused in a vote in 1952, but which passed in 1959 with 62.3% of the votes!",
-        "La loi est rejetée.\n\nLike in 1952, the population did not see fit to put an alternative for the mandatory military service. At this point in time, the army stays the main helping hand for other first responders in case of an emergency or disaster. Here's to hoping a special service just for that won't be required in the near future.",
+        "La loi est passée!\n\nUne alternative au service militaire est crée, mettant au service de la population les jeunes hommes inaptes à l'armée. Si le projet a d'abord été rejeté en 1952, il est effectivement passé en 1959 avec 62.3% des suffrages!",
+        "La loi est rejetée.\n\nComme en 1952, la population n'a pas jugé utile cette alternative au service militaire obligatoire. L'armée reste pour le moment le seul groupe appelé pour soutenir l'aide à la population fournie par la police, les pompiers et le services sanitaires en cas de catastrophe.",
         "New Civil Protection militia (1959)\n\nWorld Wars and international nuclear threats take a toll on Switzerland's morale, and the government is thinking of creating a new militia, parallel to the army, to ensure nuclear protections are working and in the norms, as well as more generally aid the population if there ever were to be a natural catastrophe.",
         62.3,
         true
