@@ -151,7 +151,7 @@ scene("levelSelect", ({ scenarioNumber }) => {
 
     const levelSelect_ScenarioName = add([
         origin("top"),
-        pos(Math.floor(width() / 2), Math.floor(height() / 2 - height() / 6)),
+        pos(Math.floor(width() / 2), Math.floor((height() / 10) * 3)),
         text(scenarios[currentScenarioDisplayed][0], {
             size: multiplyer % 2 == 0 ? Math.floor(10 * (multiplyer) - (5 * (multiplyer / 2))) : Math.floor(10 * (multiplyer - 1) - (5 * ((multiplyer - 1) / 2))),
             width: Math.floor(width() / 10 * 7)
@@ -162,7 +162,7 @@ scene("levelSelect", ({ scenarioNumber }) => {
 
     const levelSelect_ScenarioYear = add([
         origin("top"),
-        pos(Math.floor(width() / 2), Math.floor(height() / 2 - height() / 6.5 + levelSelect_ScenarioName.height)),
+        pos(Math.floor(width() / 2), Math.floor((height() / 10) * 3.05 + levelSelect_ScenarioName.height)),
         text(scenarios[currentScenarioDisplayed][14].split(".").pop(), {
             size: multiplyer % 2 == 0 ? 5 * multiplyer : 5 * (multiplyer - 1) + 10
         }),
@@ -171,17 +171,17 @@ scene("levelSelect", ({ scenarioNumber }) => {
     ]);
 
     const levelSelect_LogoStamps = add([
-        origin("center"),
+        origin("top"),
         scale(Math.floor(multiplyer / 2)),
-        pos(hasNotBeenPlayed == true ? [Math.floor(width() / 6), Math.floor(height() / 2 - height() / 6)] : [Math.floor(width() / 2 - width() / 7), Math.floor(height() / 2 - height() / 4.5)]),
+        pos(hasNotBeenPlayed == true ? [Math.floor(width() / 6), Math.floor(height() / 10 * 2)] : [Math.floor(width() / 10 * 3), Math.floor(height() / 10 * 1.75)]),
         sprite(logoName + "_logo"),
         rotate(-45),
         layer("bg")
     ]);
 
     const levelSelect_ScorePlayed = add([
-        origin("center"),
-        pos(Math.floor(width() / 2), Math.floor(height() / 2 - height() / 5)),
+        origin("bot"),
+        pos(Math.floor(width() / 2), Math.floor((height() / 10) * 2.95)),
         text(isNaN(monScore) ? "" : monScore + "%", {
             size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer)) : Math.floor(5 * (multiplyer - 1) + 10),
         }),
@@ -518,7 +518,7 @@ scene("achievements_scene", ({ idVote }) => {
 
     if (localStorage.getItem("scenario_" + voteNbr + "_perfected") == "true") {
         achievements_Poster.use(sprite("Affiche" + voteNbr));
-        achievements_Poster.scale = Math.floor(multiplyer / 3);
+        achievements_Poster.scale = Math.floor(multiplyer / 3.5);
 
         let counter = 0;
 
@@ -533,7 +533,7 @@ scene("achievements_scene", ({ idVote }) => {
                 canGoBack = false;
                 counter++;
             } else {
-                achievements_Poster.scale = Math.floor(multiplyer / 3);
+                achievements_Poster.scale = Math.floor(multiplyer / 3.5);
                 achievements_GreyOutSquare.opacity = 0.25;
                 achievements_PreviousButton.opacity = 1;
                 achievements_NextButton.opacity = 1;

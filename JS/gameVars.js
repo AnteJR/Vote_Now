@@ -137,7 +137,7 @@ let scenarios = [                                        // scenarios stores all
         "6.12.1925",
         "The bill is accepted! With your coordination, the campaign was successful, and there will now be an insurance in place for handicaped people, veterans and the elderly! This will go on as becoming the main source for retirement benefits as well as the only source of income for disabled people. In 1925, the bill is accepted by 65.4% of the population.",
         "The bill is rejected. As of yet, there is still to be a fund for disabled people, veterans and the elderly. Outside of charity, that is, though this will hardly allows people affected to get by. And maybe most disheartening of all: this is already the second time the population voted no on this matter, 6 months prior to this vote.",
-        "Veterans, elderly and disabled insurance (1925)\n\nCurrently, war veterans and disabled people get by either through charity, or their relatives taking care of them. In the case of the elderly, their only real option is the latter.\n\nAs such, and after Worl War 1, the Swiss government proposes this bill to insure those people by paying them a (somewhat) living wage for their conditions.",
+        "Veterans, elderly and disabled insurance (1925)\n\nCurrently, war veterans and disabled people get by either through charity, or their relatives taking care of them. In the case of the elderly, their only real option is the latter.\n\nAs such, and after World War 1, the Swiss government proposes this bill to insure those people by paying them a (somewhat) living wage for their conditions.",
         65.4,
         true
     ],
@@ -190,7 +190,7 @@ let scenarios = [                                        // scenarios stores all
         true
     ],
     [
-        "Women's suffrage bill",
+        "Give women's the right to vote bill",
         [1, 6], [2, 3], [5, 7], [1, 4], [2, 5],
         [3, 7], [0, 5], [7, 1], [5, 3], [6, 0],
         35, 1000, 0.9,
@@ -245,7 +245,7 @@ let scenarios = [                                        // scenarios stores all
         "11.03.2012",
         "The initiative passed! With that, constructing a new secondary residence, espcially in the more rural parts of the country, will be much more complicated: either you live there, or don't construct anything. The bill did pass by a hair for real, garnering a mere 50.6% of the votes!",
         "The bill failed; for now, legislation on construction in the countryside won't change, and there won't be restrictions put in place if you want to build a secondary place of residence in Switzerland. This is to the detriment of the local population and the Swiss landscape, but investors and construction companies can keep making money.",
-        "Initiative to prevent new secondary homes (2012)\n\nMany rich Swiss residents, as well as wealthy foreigners, take advantage of Switzerland's relatively lax laws to build secondary residence in the most beautiful parts of the country, even if they come there only 2 weeks every year. This intiative wants to change that, and prevent new secondary homes to be built in the countryside.",
+        "Initiative to prevent new secondary homes (2012)\n\nMany rich Swiss residents, as well as wealthy foreigners, take advantage of Switzerland's relatively lax laws to build secondary residence in the most beautiful parts of the country, even if they come there only 2 weeks every year. This initiative wants to change that, and prevent new secondary homes to be built in the countryside.",
         50.6,
         true
     ],
@@ -281,7 +281,7 @@ let scenarios = [                                        // scenarios stores all
         "25.09.2022",
         "The initiative failed! This is a victory! It means women can still retire at 64 without reprecussion on their retirement fund. This also means there won't be a flexible limit to retirement to incetivize people to retire at 70. This is a social victory for the Swiss people, which unfortunately passed in our reality with a measly 50.5% of the votes.",
         "The bill passed; this is a clear step backwards. Now, women will have to retire at 65, and there will an incentivization for poorer people to work for up to 70 years old. The bill also passed for real, with a mere 50.5% favorable votes, which is frustrating to say the least.",
-        "Elderly's insurance reform (2020)\n\nDespite record profits, the government fears there may not be enough to provide for all the elderly in the near future. The solution? Increase women's retirement age from 64 to 65, and implement a system where the later you retire (up to 70), the better you fund will be, incentivizing people to retire later.",
+        "Elderly's insurance reform (2022)\n\nDespite record profits, the government fears there may not be enough to provide for all the elderly in the near future. The solution? Increase women's retirement age from 64 to 65, and implement a system where the later you retire (up to 70), the better you fund will be, incentivizing people to retire later.",
         50.5,
         false
     ]
