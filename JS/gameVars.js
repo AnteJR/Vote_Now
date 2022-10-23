@@ -209,7 +209,7 @@ let scenarios = [                                        // scenarios stores all
         "26.11.1989",
         "The bill passed! That's quite the achievement. In reality, the vote failed with only 35.6% of ballots in favor of the revocation of mandatory military service for men. It is a sticking tradition of which the Swiss people are proud of, and which rarely, if even changes. But it changed. And from now on men won't be required to serve in the military!",
         "Unsurprisingly, the bill failed. The Swiss people are too proud to their army to vote against it. The initiative failed, as it did in real life with only 35.6% of votes.",
-        "Initiative against mandatory military service (1989)\n\nWar are never fun, and the fact that Switzerland has a mandatory military service doesn't please the GSSA (Groupe pour une Suisse sans armee; Group for a military-free Switzerland). This year, they got enough signature to try and ban the practice in Switzerland. This bill did not pass in real life, but maybe you can make the impossible happen.",
+        "Initiative against mandatory military service (1989)\n\nWars are never fun, and the fact that Switzerland has a mandatory military service doesn't please the GSSA (Groupe pour une Suisse sans armee; Group for a military-free Switzerland). This year, they got enough signature to try and ban the practice in Switzerland. This bill did not pass in real life, but maybe you can make the impossible happen.",
         35.6,
         true
     ],
@@ -245,7 +245,7 @@ let scenarios = [                                        // scenarios stores all
         "11.03.2012",
         "The initiative passed! With that, constructing a new secondary residence, espcially in the more rural parts of the country, will be much more complicated: either you live there, or don't construct anything. The bill did pass by a hair for real, garnering a mere 50.6% of the votes!",
         "The bill failed; for now, legislation on construction in the countryside won't change, and there won't be restrictions put in place if you want to build a secondary place of residence in Switzerland. This is to the detriment of the local population and the Swiss landscape, but investors and construction companies can keep making money.",
-        "Initiative to prevent new secondary homes (2012)\n\nMany rich Swiss residents, as well as wealthy foreigners, take advantage of Switzerland's relatively lax laws to build secondary residence in the most beautiful parts of the country, even if they come there only 2 weeks every year. This initiative wants to change that, and prevent new secondary homes to be built in the countryside.",
+        "Initiative to prevent new secondary homes (2012)\n\nMany rich Swiss residents, as well as wealthy foreigners, take advantage of Switzerland's relatively lax laws to build secondary residences in the most beautiful parts of the country, even if they come there only 2 weeks every year. This initiative wants to change that, and prevent new secondary homes to be built in the countryside.",
         50.6,
         true
     ],
@@ -269,7 +269,7 @@ let scenarios = [                                        // scenarios stores all
         "26.09.2021",
         "The initiative passed! Same-sex couples will now be able to marry with the same legal status as heterosexual couples; this also gives them access to adoption and artificial insemination, which allows them to have children, and for those children to be recognized under the law. This is a resounding victory for progress, and one which garnered 64.1% of positive votes in our reality.",
         "The bill failed; this is heart-breaking. Same-sex couples will not be able to marry, nor adopt or have children recognized, like is the case for heterosexual couples. Because this referendum was victorious and the law failed, the government won't be able to make a new law for same-sex couples for at least 5 years to a decade! This really is a shame...",
-        "Same-sex marriage and adoption (2021)\n\nSwitzerland still doesn't allow for same-sex couple to marry and have children. Currently, a union is possible, but really only helps for succession rights. This bill not only proposes to make marriage fully legal for same-sex couples, but also allows them to have children, and for those children to be recognized under the law.",
+        "Same-sex marriage and adoption (2021)\n\nSwitzerland still doesn't allow for same-sex couples to marry and have children. Currently, a union is possible, but really only helps for succession rights. This bill not only proposes to make marriage fully legal for same-sex couples, but also allows them to have children, and for those children to be recognized under the law.",
         64.1,
         true
     ],
@@ -281,7 +281,7 @@ let scenarios = [                                        // scenarios stores all
         "25.09.2022",
         "The initiative failed! This is a victory! It means women can still retire at 64 without reprecussion on their retirement fund. This also means there won't be a flexible limit to retirement to incetivize people to retire at 70. This is a social victory for the Swiss people, which unfortunately passed in our reality with a measly 50.5% of the votes.",
         "The bill passed; this is a clear step backwards. Now, women will have to retire at 65, and there will an incentivization for poorer people to work for up to 70 years old. The bill also passed for real, with a mere 50.5% favorable votes, which is frustrating to say the least.",
-        "Elderly's insurance reform (2022)\n\nDespite record profits, the government fears there may not be enough to provide for all the elderly in the near future. The solution? Increase women's retirement age from 64 to 65, and implement a system where the later you retire (up to 70), the better you fund will be, incentivizing people to retire later.",
+        "Elderly's insurance reform (2022)\n\nDespite record profits, the government fears there may not be enough to provide for all the elderly in the near future. The solution? Increase women's retirement age from 64 to 65, and implement a system where the later you retire (up to 70), the better your fund will be, incentivizing people to retire later.",
         50.5,
         false
     ]

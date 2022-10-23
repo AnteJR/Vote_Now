@@ -1293,7 +1293,7 @@ loadSpriteAtlas("Effects_Sheet_REVERSE_T.png", {
         "y": 42,
         "width": 124,
         "height": 42
-    }, "score_ag_terrible": {                                       // effect for the fundraising
+    }, "score_ag_reverse_terrible": {                                       // effect for the fundraising
         "x": 0,
         "y": 42 * 2,
         "width": 124,
