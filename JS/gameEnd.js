@@ -134,7 +134,7 @@ scene("new_achievement", ({ scenarioToDisplay }) => {
         sprite("Affiche" + scenarioToDisplay),
         scale(scenarioToDisplay == 0 ? multiplyer / 3.25 : multiplyer / 3.75),
         origin("top"),
-        pos(Math.floor(width() / 2), Math.floor((height() / 10) * 2.5)),
+        pos(Math.floor(width() / 2), Math.floor((height() / 10) * 1.35) + newAchivement_Text.height),
         layer("bg"),
     ]);
 
