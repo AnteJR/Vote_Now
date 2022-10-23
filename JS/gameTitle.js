@@ -644,7 +644,7 @@ scene("tutorial", ( { fromMenu, i } ) => {
             origin("top"),
             pos(Math.floor(width() / 4), Math.floor((height() / 10) * 4)),
             text("^ train station ads ^", {
-                size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 20) : Math.floor(5 * (multiplyer - 1) - 10)
+                size: multiplyer < 10 ? (multiplyer < 8 ? (multiplyer < 6 ? 10 : 17) : 20) : 30
             }),
             layer("txt")
         ]);
@@ -662,7 +662,7 @@ scene("tutorial", ( { fromMenu, i } ) => {
             origin("top"),
             pos(Math.floor((width() / 4) * 3), Math.floor((height() / 10) * 4)),
             text("^ market flyer distribution ^", {
-                size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 20) : Math.floor(5 * (multiplyer - 1) - 10)
+                size: multiplyer < 10 ? (multiplyer < 8 ? (multiplyer < 6 ? 10 : 17) : 20) : 30
             }),
             layer("txt")
         ]);
@@ -680,7 +680,7 @@ scene("tutorial", ( { fromMenu, i } ) => {
             origin("top"),
             pos(Math.floor(width() / 4), Math.floor((height() / 10) * 7)),
             text("^ ask sponsors for funds ^", {
-                size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 20) : Math.floor(5 * (multiplyer - 1) - 10)
+                size: multiplyer < 10 ? (multiplyer < 8 ? (multiplyer < 6 ? 10 : 17) : 20) : 30
             }),
             layer("txt")
         ]);
@@ -698,7 +698,7 @@ scene("tutorial", ( { fromMenu, i } ) => {
             origin("top"),
             pos(Math.floor((width() / 4) * 3), Math.floor((height() / 10) * 7)),
             text("^ newspaper ads ^", {
-                size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 20) : Math.floor(5 * (multiplyer - 1) - 10)
+                size: multiplyer < 10 ? (multiplyer < 8 ? (multiplyer < 6 ? 10 : 17) : 20) : 30
             }),
             layer("txt")
         ]);
@@ -717,7 +717,7 @@ scene("tutorial", ( { fromMenu, i } ) => {
             origin("top"),
             pos(Math.floor(width() / 4), Math.floor((height() / 10) * 2.5)),
             text("^ ask donors for funds ^", {
-                size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 20) : Math.floor(5 * (multiplyer - 1) - 10)
+                size: multiplyer < 10 ? (multiplyer < 8 ? (multiplyer < 6 ? 10 : 17) : 20) : 30
             }),
             layer("txt")
         ]);
@@ -735,7 +735,7 @@ scene("tutorial", ( { fromMenu, i } ) => {
             origin("top"),
             pos(Math.floor((width() / 4) * 3), Math.floor((height() / 10) * 2.5)),
             text("^ protest in Bern ^", {
-                size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 20) : Math.floor(5 * (multiplyer - 1) - 10)
+                size: multiplyer < 10 ? (multiplyer < 8 ? (multiplyer < 6 ? 10 : 17) : 20) : 30
             }),
             layer("txt")
         ]);
@@ -753,7 +753,7 @@ scene("tutorial", ( { fromMenu, i } ) => {
             origin("top"),
             pos(Math.floor(width() / 4), Math.floor((height() / 10) * 5.25)),
             text("^ poster campaign ^", {
-                size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 20) : Math.floor(5 * (multiplyer - 1) - 10)
+                size: multiplyer < 10 ? (multiplyer < 8 ? (multiplyer < 6 ? 10 : 17) : 20) : 30
             }),
             layer("txt")
         ]);
@@ -771,7 +771,7 @@ scene("tutorial", ( { fromMenu, i } ) => {
             origin("top"),
             pos(Math.floor((width() / 4) * 3), Math.floor((height() / 10) * 5.25)),
             text("^ radio ads (from 1922) ^", {
-                size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 20) : Math.floor(5 * (multiplyer - 1) - 10)
+                size: multiplyer < 10 ? (multiplyer < 8 ? (multiplyer < 6 ? 10 : 17) : 20) : 30
             }),
             layer("txt")
         ]);
@@ -789,7 +789,7 @@ scene("tutorial", ( { fromMenu, i } ) => {
             origin("top"),
             pos(Math.floor((width() / 4) * 2), Math.floor((height() / 10) * 8)),
             text("^ social media ads (from 2008) ^", {
-                size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 20) : Math.floor(5 * (multiplyer - 1) - 10)
+                size: multiplyer < 10 ? (multiplyer < 8 ? (multiplyer < 6 ? 10 : 17) : 20) : 30
             }),
             layer("txt")
         ]);
