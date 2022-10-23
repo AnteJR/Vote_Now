@@ -5,7 +5,7 @@ scene("victoryPage", ({ isWin, playedScene, votes, winIfMoreThan50 }) => {
     music_menu.play();
 
     let monScore = parseFloat(localStorage.getItem("scenario_" + playedScene + "_score")),
-        realResults = scenarios[playedScene][18],
+        realResults = scenarios[LANG][playedScene][18],
         wasPerfectBefore = localStorage.getItem("scenario_" + playedScene + "_perfected") == "true" ? true : false;
 
     /* localStorage management */
@@ -72,7 +72,7 @@ scene("endExplaination", ({ isVictory, sceneTxtToShow, votesTotal, isNewPerf, re
         layer("bg")
     ]);
 
-    let explainationText = (realVote < 50 && votesTotal < 50 && gainWin) || (realVote >= 50 && votesTotal >= 50 && votesTotal < realVote && !gainWin) ? scenarios[sceneTxtToShow][16] + " You still managed to do better than what really happend, and for that, we congratulate you!" : (isVictory ? scenarios[sceneTxtToShow][15] : scenarios[sceneTxtToShow][16]);
+    let explainationText = (realVote < 50 && votesTotal < 50 && gainWin) || (realVote >= 50 && votesTotal >= 50 && votesTotal < realVote && !gainWin) ? scenarios[LANG][sceneTxtToShow][16] + " You still managed to do better than what really happend, and for that, we congratulate you!" : (isVictory ? scenarios[LANG][sceneTxtToShow][15] : scenarios[LANG][sceneTxtToShow][16]);
 
     const finalScreen_Text = add([
         origin("top"),

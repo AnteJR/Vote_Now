@@ -122,10 +122,11 @@ scene("levelSelect", ({ scenarioNumber }) => {
         monScore = parseFloat(localStorage.getItem("scenario_" + currentScenarioDisplayed + "_score")),
         hasNotBeenPlayed = localStorage.getItem("scenario_" + currentScenarioDisplayed + "_played") == null ? true : false,
         isPerfectScore = localStorage.getItem("scenario_" + currentScenarioDisplayed + "_perfected") == "true" ? true : false,
-        historicalScore = scenarios[currentScenarioDisplayed][18],
-        needsGain = scenarios[currentScenarioDisplayed][19],
+        historicalScore = scenarios[LANG][currentScenarioDisplayed][18],
+        needsGain = scenarios[LANG][currentScenarioDisplayed][19],
         logoName = hasNotBeenPlayed == false ? (isPerfectScore ? "perfect" : (needsGain ? (historicalScore >= 50 ? (monScore < 50 ? "fail" : "bravo") : (monScore < historicalScore ? "fail" : "bravo")) : (historicalScore >= 50 ? (monScore > historicalScore ? "fail" : "bravo") : (monScore > 50 ? "fail" : "bravo")))) : "new";
 
+    console.log(scenarios[LANG].length)
     layers([
         "bg",
         "txt",
@@ -152,7 +153,7 @@ scene("levelSelect", ({ scenarioNumber }) => {
     const levelSelect_ScenarioName = add([
         origin("top"),
         pos(Math.floor(width() / 2), Math.floor((height() / 10) * 3)),
-        text(scenarios[currentScenarioDisplayed][0], {
+        text(scenarios[LANG][currentScenarioDisplayed][0], {
             size: multiplyer % 2 == 0 ? Math.floor(10 * (multiplyer) - (5 * (multiplyer / 2))) : Math.floor(10 * (multiplyer - 1) - (5 * ((multiplyer - 1) / 2))),
             width: Math.floor(width() / 10 * 7)
         }),
@@ -163,7 +164,7 @@ scene("levelSelect", ({ scenarioNumber }) => {
     const levelSelect_ScenarioYear = add([
         origin("top"),
         pos(Math.floor(width() / 2), Math.floor((height() / 10) * 3.05 + levelSelect_ScenarioName.height)),
-        text(scenarios[currentScenarioDisplayed][14].split(".").pop(), {
+        text(scenarios[LANG][currentScenarioDisplayed][14].split(".").pop(), {
             size: multiplyer % 2 == 0 ? 5 * multiplyer : 5 * (multiplyer - 1) + 10
         }),
         area(),
@@ -198,7 +199,7 @@ scene("levelSelect", ({ scenarioNumber }) => {
         area()
     ]).onClick(() => {
         play("on_click_3");
-        currentScenarioDisplayed == 0 ? currentScenarioDisplayed = scenarios.length - 1 : currentScenarioDisplayed--;
+        currentScenarioDisplayed == 0 ? currentScenarioDisplayed = scenarios[LANG].length - 1 : currentScenarioDisplayed--;
         go("levelSelect", ({ scenarioNumber: currentScenarioDisplayed }));
     });
 
@@ -212,7 +213,7 @@ scene("levelSelect", ({ scenarioNumber }) => {
         area()
     ]).onClick(() => {
         play("on_click_3");
-        currentScenarioDisplayed == scenarios.length - 1 ? currentScenarioDisplayed = 0 : currentScenarioDisplayed++;
+        currentScenarioDisplayed == scenarios[LANG].length - 1 ? currentScenarioDisplayed = 0 : currentScenarioDisplayed++;
         go("levelSelect", ({ scenarioNumber: currentScenarioDisplayed }));
     });
 
@@ -267,7 +268,7 @@ scene("introTxtScenario", ({ idVote }) => {
     const introMission_Text = add([
         origin("center"),
         pos(Math.floor(width() / 2), Math.floor((height() / 2) - (height() / (multiplyer + 3)))),
-        text(scenarios[idVote][17], {
+        text(scenarios[LANG][idVote][17], {
             size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 10) : Math.floor(5 * (multiplyer - 1)),
             width: Math.floor(width() - (width() / multiplyer))
         }),
@@ -283,7 +284,7 @@ scene("introTxtScenario", ({ idVote }) => {
         layer("txt")
     ]).onClick(() => {
         play("on_click_1");
-        scenarios[idVote][19] == true ? goToGame(idVote, true) : go("showDisclaimer", ({ monScenario: idVote }));
+        scenarios[LANG][idVote][19] == true ? goToGame(idVote, true) : go("showDisclaimer", ({ monScenario: idVote }));
     });
 
     const introMission_BackButton = add([
@@ -455,7 +456,7 @@ scene("achievements_scene", ({ idVote }) => {
     const achievements_Title = add([
         origin("top"),
         pos(Math.floor(width() / 2), Math.floor(height() / 10)),
-        text(scenarios[idVote][0], {
+        text(scenarios[LANG][idVote][0], {
             size: Math.floor(5 * (multiplyer - 1)),
             width: Math.floor(width() / 10 * 8)
         }),
@@ -482,7 +483,7 @@ scene("achievements_scene", ({ idVote }) => {
     ]);
     achievements_PreviousButton.onClick(() => {
         play("on_click_3");
-        voteNbr == 0 ? voteNbr = scenarios.length - 1 : voteNbr--;
+        voteNbr == 0 ? voteNbr = scenarios[LANG].length - 1 : voteNbr--;
         go("achievements_scene", ({ idVote: voteNbr }));
     });
 
@@ -497,7 +498,7 @@ scene("achievements_scene", ({ idVote }) => {
     ]);
     achievements_NextButton.onClick(() => {
         play("on_click_3");
-        voteNbr == scenarios.length - 1 ? voteNbr = 0 : voteNbr++;
+        voteNbr == scenarios[LANG].length - 1 ? voteNbr = 0 : voteNbr++;
         go("achievements_scene", ({ idVote: voteNbr }));
     });
 
@@ -1004,10 +1005,10 @@ function goToGame(i, b) {
     go("game", ({
         idScenario: i,
         startTurn: 1,
-        intialVotes: scenarios[i][11],
-        initialMoney: scenarios[i][12],
-        initialOptics: scenarios[i][13],
-        dayOfVote: scenarios[i][14],
+        intialVotes: scenarios[LANG][i][11],
+        initialMoney: scenarios[LANG][i][12],
+        initialOptics: scenarios[LANG][i][13],
+        dayOfVote: scenarios[LANG][i][14],
         mustGain: b
     }));
 }

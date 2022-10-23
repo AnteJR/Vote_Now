@@ -3,8 +3,8 @@
 scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics, dayOfVote, mustGain }) => {
     let topCanBeHovered = true,
         bottomCanBeHovered = true,
-        top = scenarios[idScenario][startTurn][0],
-        bottom = scenarios[idScenario][startTurn][1],
+        top = scenarios[LANG][idScenario][startTurn][0],
+        bottom = scenarios[LANG][idScenario][startTurn][1],
         txtColor = 255 / (startTurn / (10 / startTurn)),
         eventNbrTopFinder = Math.random(),
         eventNbrBottomFinder = Math.random(),
