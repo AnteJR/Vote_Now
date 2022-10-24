@@ -39,3 +39,8 @@ Posters:
 * [For Women's Suffrage](https://www.posters.nb.admin.ch/discovery/fulldisplay?docid=alma991000208909703978&context=L&vid=41SNL_53_INST:posters&lang=fr&search_scope=MyInstitution&adaptor=Local%20Search%20Engine&tab=LibraryCatalog&query=any,contains,Mitspracherecht%20der%20Frauen%20auch%20im%20Bund&offset=0) (Poster)
 * [For the Removal of Mandatory Military Service for Men](https://swissvotes.ch/vote/357.00) (Poster)
 * [For the Prohibition of New Nuclear Power Plants' Construction](https://www.posters.nb.admin.ch/discovery/fulldisplay?docid=alma991000400309703978&context=L&vid=41SNL_53_INST:posters&lang=fr&search_scope=MyInstitution&adaptor=Local%20Search%20Engine&tab=LibraryCatalog&query=any,contains,nucl%C3%A9aire&offset=0) (Poster)
+* [For the Adhesion to the UN](https://swissvotes.ch/vote/485.00?term=%22ONU%22#search) (Poster)
+* [For the Restriction in Constructing New Secondary Residences](https://espazium.s3.eu-central-1.amazonaws.com/files/migration/images/586d022dd521d.jpg) (Poster)
+* [For the Law Against Discrimination Based on Sexual Orientation](https://www.psju.ch/wp-content/uploads/2020/02/StopalahaineOUI.png) (Web banner)
+* [For Marriage and Adoption For All](https://www.mariage-oui.ch/typo3conf/ext/va_template/Resources/Public/img/og-image-fr.jpg) (Web banner)
+* [Against the Reform of the Elderly's Insurance](https://www.watson.ch/fr/imgdb/ce9f/Qx,A,0,0,5751,3834,2396,1597,958,639/4784293144599269) (Poster)
