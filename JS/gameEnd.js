@@ -39,7 +39,7 @@ scene("victoryPage", ({ isWin, playedScene, votes, winIfMoreThan50 }) => {
     const victoryScreen_Text = add([
         origin("top"),
         pos(Math.floor(width() / 2), Math.floor((height() / 10) * 5.25)),
-        text(winIfMoreThan50 ? (isWin ? (realResults > 50 ? (votes < realResults ? "the bill passed, but you didn't reach the historical score" : "you reached and went beyond the historical score!") : "the bill passed despite failing in real life!") : (realResults < 50 ? (votes > realResults ? "you did better than the historical score, but the bill still failed" : "you didn't reach the historical score") : "the bill was blocked by the vote")) : (votes > 50 ? (votes > realResults ? "the bill passed with more votes than in real life..." : "you did better than the historical vote, but the bill still passed") : "the bill failed! congratulations!"), {
+        text(winIfMoreThan50 ? (isWin ? (realResults > 50 ? (votes < realResults ? "The bill passed, but you didn't reach the historical score." : "You reached and went beyond the historical score!") : "The bill passed despite failing in real life!") : (realResults < 50 ? (votes > realResults ? "You did better than the historical score, but the bill still failed" : "You didn't reach the historical score") : "The bill was blocked by the vote")) : (votes > 50 ? (votes > realResults ? "The bill passed with more votes than in real life..." : "You did better than the historical vote, but the bill still passed") : "The bill failed! Congratulations!"), {
             size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 10) : Math.floor(5 * (multiplyer - 1)),
             width: Math.floor(width() - (width() / 10))
         }),
@@ -72,7 +72,7 @@ scene("endExplaination", ({ isVictory, sceneTxtToShow, votesTotal, isNewPerf, re
         layer("bg")
     ]);
 
-    let explainationText = (realVote < 50 && votesTotal < 50 && gainWin) || (realVote >= 50 && votesTotal >= 50 && votesTotal < realVote && !gainWin) ? scenarios[sceneTxtToShow][16] + " You still managed to do better than what really happend, and for that, we congratulate you!" : (isVictory ? scenarios[sceneTxtToShow][15] : scenarios[sceneTxtToShow][16]);
+    let explainationText = (realVote < 50 && votesTotal < 50 && gainWin && votesTotal > realVote) || (realVote >= 50 && votesTotal >= 50 && votesTotal < realVote && !gainWin) ? scenarios[sceneTxtToShow][16] + " You still managed to do better than what really happend, and for that, we congratulate you!" : (isVictory ? scenarios[sceneTxtToShow][15] : scenarios[sceneTxtToShow][16]);
 
     const finalScreen_Text = add([
         origin("top"),

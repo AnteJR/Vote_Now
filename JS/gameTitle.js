@@ -421,8 +421,76 @@ scene("creditsPage", () => {
         layer("txt")
     ]).onClick(() => {
         play("on_click_1");
+        go("areYouSure");
+    });
+});
+
+scene("areYouSure", () =>{
+    layers([
+        "bg",
+        "txt"
+    ]);
+    
+    const sure_BG = add([
+        scale(multiplyer),
+        pos(0, 0),
+        sprite("BG_title", { anim: "animated_BG" }),
+        layer("bg")
+    ]);
+
+    const sure_GreyOutSquare = add([
+        rect(width(), height()),
+        pos(0, 0),
+        color(1, 1, 1),
+        area(),
+        opacity(0.9),
+        layer("grey_squares"),
+        layer("bg")
+    ]);
+
+    const sure_Title = add([
+        origin("top"),
+        pos(Math.floor(width() / 2), Math.floor(height() / 10)),
+        text(`Beware!`, {
+            size: Math.floor(10 * multiplyer)
+        }),
+        color(255, 0, 0),
+        layer("txt")
+    ]);
+
+    const sure_Text = add([
+        origin("top"),
+        pos(Math.floor(width() / 2), Math.floor(height() / 10 * 2)),
+        text(`You are about to delete all the progress saved on your browser. This includes your progression, scores, and achievements.\n\nAre you sure you want to proceed?`, {
+            size: Math.floor(5 * (multiplyer - 1)),
+            width: Math.floor(width() - width() / 10)
+        }),
+        layer("txt")
+    ]);
+
+    const sure_ProceedBtn = add([
+        origin("bot"),
+        scale(Math.floor(multiplyer * 1.25)),
+        pos(Math.floor(width() / 2), Math.floor(height() / 10 * 8)),
+        sprite("proceed"),
+        area(),
+        layer("txt")
+    ]).onClick(() => {
+        play("on_click_1");
         localStorage.clear();
         go("titleScreen");
+    });
+
+    const sure_BackBtn = add([
+        origin("bot"),
+        scale(Math.floor(multiplyer * 1.5)),
+        pos(Math.floor(width() / 2), Math.floor(height() / 10 * 9.5)),
+        sprite("back"),
+        area(),
+        layer("txt")
+    ]).onClick(() => {
+        play("on_click_2");
+        go("creditsPage");
     });
 });
 
@@ -554,7 +622,7 @@ scene("tutorial", ( { fromMenu, i } ) => {
         "The events you can choose from:",
         "",
         "There are 3 variables to take into consideration. You can follow your progress for each on the top of the screen. You can also check how many turns are left at the bottom.",
-        "Votes: the percentages of votes in favor of the bill\n\nMoney: the money you have, which is used to buy ads, or organize events\n\nOptics: optics are how favorably the people see your campaign. It's a multiplier for the votes you get. IE. if your optics are at 0.8 and you select an event who earns you 10% votes, you will actually gain 10x0.8 = 8%.",
+        "Votes: the percentages of votes in favor of the bill\n\nMoney: the money you have, which is used to buy ads, or organize events\n\nOptics: optics are how favorably the people see your campaign. It's a multiplier for the votes you get. IE: if your optics are at 0.8 and you select an event who earns you 10% votes, you will actually gain 10x0.8 = 8%.",
         "Balance those 3 variables to maximize your score! Depending on how well you succeed, you will have a varying degree of victory, going from failure (the bill didn't pass) to perfect (you reached or went beyond the original score of the vote).",
         "If you manage to get a perfect victory, you will unlock a pixel art reproduction of one piece of propaganda material of the time in the achievements section. Go to the main menu to check them out!\n\nOnce you get all the achievements, the game is pretty much finished. You can still reset your saved data at the credits page to start anew."
     ]
@@ -577,7 +645,6 @@ scene("tutorial", ( { fromMenu, i } ) => {
         color(1, 1, 1),
         area(),
         opacity(0.9),
-        layer("grey_squares"),
         layer("bg")
     ]);
 
@@ -623,7 +690,7 @@ scene("tutorial", ( { fromMenu, i } ) => {
         add([
             origin("top"),
             pos(Math.floor(width() / 2), Math.floor((height() / 10) * 6.25)),
-            text("^ a typical event with what it costs/earns you ^", {
+            text("a typical event with what it costs/earns you", {
                 size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 20) : Math.floor(5 * (multiplyer - 1) - 15),
                 width: Math.floor(width() - (width() / (multiplyer + 1)))
             }),

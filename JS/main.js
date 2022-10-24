@@ -1519,6 +1519,7 @@ loadSprite("achievements", "achievements.png");
 loadSprite("delete_game", "delete_progress.png");
 loadSprite("next", "next.png");
 loadSprite("previous", "previous.png");
+loadSprite("proceed", "proceed.png");
 loadSprite("tutorial", "tutorial.png");
 
 loadRoot("Images/Posters/");
