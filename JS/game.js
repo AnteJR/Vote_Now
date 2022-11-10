@@ -51,7 +51,7 @@ scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics
 
     const moneyCount = add([
         pos(Math.floor(width() / 3), Math.floor(height() / 100)),
-        text("Money:" + initialMoney, {
+        text("Argent:" + initialMoney, {
             size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 10) : Math.floor(5 * (multiplyer - 1))
         }),
         { value: initialMoney },
@@ -59,8 +59,8 @@ scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics
     ]);
 
     const opticsCount = add([
-        pos(Math.floor((width() / 60) * 41), Math.floor(height() / 100)),
-        text("Optics:" + initialOptics, {
+        pos(Math.floor((width() / 240) * 161), Math.floor(height() / 100)),
+        text("Opinion:" + initialOptics, {
             size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 10) : Math.floor(5 * (multiplyer - 1))
         }),
         { value: initialOptics },
@@ -118,7 +118,7 @@ scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics
 
     const dateOfTheVote = add([
         pos(Math.floor(width() / 100), height() - Math.floor(height() / 17)),
-        text("Vote day: " + dayOfVote, {
+        text("Vote le: " + dayOfVote, {
             size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 10) : Math.floor(5 * (multiplyer - 1))
         }),
         layer("ui_txt")
@@ -127,7 +127,7 @@ scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics
     const daysUntilVote = add([
         pos(Math.floor(width() / 120) * 77, height() - Math.floor(height() / 17)),
         color(255, txtColor, txtColor),
-        text(startTurn < 10 ? (11 - startTurn) + " days left" : (11 - startTurn) + " day left", {
+        text(startTurn < 10 ? "Dans " + (11 - startTurn) + " jours" : "Dans " + (11 - startTurn) + " jour", {
             size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 10) : Math.floor(5 * (multiplyer - 1))
         }),
         layer("ui_txt")

@@ -39,7 +39,7 @@ scene("victoryPage", ({ isWin, playedScene, votes, winIfMoreThan50 }) => {
     const victoryScreen_Text = add([
         origin("top"),
         pos(Math.floor(width() / 2), Math.floor((height() / 10) * 5.25)),
-        text(winIfMoreThan50 ? (isWin ? (realResults > 50 ? (votes < realResults ? "the bill passed, but you didn't reach the historical score" : "you reached and went beyond the historical score!") : "the bill passed despite failing in real life!") : (realResults < 50 ? (votes > realResults ? "you did better than the historical score, but the bill still failed" : "you didn't reach the historical score") : "the bill was blocked by the vote")) : (votes > 50 ? (votes > realResults ? "the bill passed with more votes than in real life..." : "you did better than the historical vote, but the bill still passed") : "the bill failed! congratulations!"), {
+        text(winIfMoreThan50 ? (isWin ? (realResults > 50 ? (votes < realResults ? "La loi est passée, mais le score historique n'a pas été atteint!" : "Le score historique a été dépassé!") : "La loi est passée, malgré qu'elle ait échoué en réalité!") : (realResults < 50 ? (votes > realResults ? "Le score historique a été dépassé, mais la loi a quand même échoué!" : "Le score historique n'a pas été atteint!") : "La loi a été rejettée...")) : (votes > 50 ? (votes > realResults ? "La loi est passée avec plus de voix qu'en réalité..." : "Le score historique a été dépassé, mais la loi est passée.") : "La loi a échoué! Félicitations!"), {
             size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 10) : Math.floor(5 * (multiplyer - 1)),
             width: Math.floor(width() - (width() / 10))
         }),
@@ -72,12 +72,12 @@ scene("endExplaination", ({ isVictory, sceneTxtToShow, votesTotal, isNewPerf, re
         layer("bg")
     ]);
 
-    let explainationText = (realVote < 50 && votesTotal < 50 && gainWin) || (realVote >= 50 && votesTotal >= 50 && votesTotal < realVote && !gainWin) ? scenarios[LANG][sceneTxtToShow][16] + " You still managed to do better than what really happend, and for that, we congratulate you!" : (isVictory ? scenarios[LANG][sceneTxtToShow][15] : scenarios[LANG][sceneTxtToShow][16]);
+    let explainationText = (realVote < 50 && votesTotal < 50 && gainWin) || (realVote >= 50 && votesTotal >= 50 && votesTotal < realVote && !gainWin) ? scenarios[LANG][sceneTxtToShow][16] + " Vous avez quand même fait mieux que le score historique, félicitations!" : (isVictory ? scenarios[LANG][sceneTxtToShow][15] : scenarios[LANG][sceneTxtToShow][16]);
 
     const finalScreen_Text = add([
         origin("top"),
         pos(Math.floor(width() / 2), Math.floor((height() / 10) * 0.5)),
-        text(explainationText + "\n\nYour score was: " + votesTotal + "%", {
+        text(explainationText + "\n\nVotre score était: " + votesTotal + "%", {
             size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 10) : Math.floor(5 * (multiplyer - 1)),
             width: Math.floor(width() - (width() / multiplyer))
         }),
@@ -113,7 +113,7 @@ scene("new_achievement", ({ scenarioToDisplay }) => {
     const newAchivement_Title = add([
         origin("top"),
         pos(Math.floor(width() / 2), Math.floor((height() / 10) * 0.5)),
-        text("Before you go back...!", {
+        text("Avant de partir...!", {
             size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) + 10) : Math.floor(5 * (multiplyer - 1) + 10),
             width: Math.floor(width() - (width() / 10))
         }),
@@ -123,7 +123,7 @@ scene("new_achievement", ({ scenarioToDisplay }) => {
     const newAchivement_Text = add([
         origin("top"),
         pos(Math.floor(width() / 2), Math.floor((height() / 10) * 1.25)),
-        text("You had a perfect victory! As such, you won a pixel art reproduction of one of the propaganda materials of the time. Congratulations!", {
+        text("C'était une partie parfaite! Vous avez gagnée une reproduction d'une affiche de propagande de l'époque. Félicitations!", {
             size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 20) : Math.floor(5 * (multiplyer - 1) - 10),
             width: Math.floor(width() - (width() / 10))
         }),
