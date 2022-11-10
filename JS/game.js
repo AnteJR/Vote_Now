@@ -231,7 +231,7 @@ scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics
                 elemTopStats = add([
                     scale(multiplyer),
                     pos(0, (ui_top.height * multiplyer)),
-                    sprite(mustGain ? "score_" + eventNames[x] + "_" + scoreModifier[eventNbrTop] : "score_" + eventNames[x] + "_reverse" + "_" + scoreModifier[eventNbrTop]),
+                    sprite(mustGain ? "score_" + eventNames[x] + "_" + scoreModifier[eventNbrTop] + langSprites[LANG] : "score_" + eventNames[x] + "_reverse" + "_" + scoreModifier[eventNbrTop] + langSprites[LANG]),
                     area(),
                     layer("hover_elements")
                 ]);
@@ -271,7 +271,7 @@ scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics
                 elemBottomStats = add([
                     scale(multiplyer),
                     pos(0, (ui_top.height * multiplyer) + (elemTop.height * multiplyer)),
-                    sprite(mustGain ? "score_" + eventNames[x] + "_" + scoreModifier[eventNbrBottom] : "score_" + eventNames[x] + "_reverse" + "_" + scoreModifier[eventNbrBottom]),
+                    sprite(mustGain ? "score_" + eventNames[x] + "_" + scoreModifier[eventNbrBottom] + langSprites[LANG] : "score_" + eventNames[x] + "_reverse" + "_" + scoreModifier[eventNbrBottom] + langSprites[LANG]),
                     area(),
                     layer("hover_elements")
                 ]);

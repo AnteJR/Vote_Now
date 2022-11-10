@@ -74,7 +74,7 @@ scene("victoryPage", ({ isWin, playedScene, votes, winIfMoreThan50 }) => {
         scale(Math.floor(multiplyer * 1.5)),
         origin("center"),
         pos(Math.floor(width() / 2), Math.floor((height() / 10) * 7.5)),
-        sprite("continue"),
+        sprite("continue" + langSprites[LANG]),
         area(),
         layer("victoryState")
     ]).onClick(() => {
@@ -120,7 +120,7 @@ scene("endExplaination", ({ isVictory, sceneTxtToShow, votesTotal, isNewPerf, re
         scale(Math.floor(multiplyer * 1.5)),
         origin("center"),
         pos(Math.floor(width() / 2), Math.floor(height() - height() / 10)),
-        sprite("to_menu"),
+        sprite("to_menu" + langSprites[LANG]),
         area(),
         layer("txt")
     ]).onClick(() => {
@@ -185,7 +185,7 @@ scene("new_achievement", ({ scenarioToDisplay }) => {
         scale(Math.floor(multiplyer * 1.5)),
         origin("center"),
         pos(Math.floor(width() / 2), Math.floor(height() - height() / 10)),
-        sprite("to_menu"),
+        sprite("to_menu" + langSprites[LANG]),
         area(),
         layer("txt")
     ]).onClick(() => {

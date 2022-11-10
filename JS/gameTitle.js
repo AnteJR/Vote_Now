@@ -25,7 +25,7 @@ scene("titleScreen", () => {
         origin("botleft"),
         scale(Math.floor(multiplyer * 1.5)),
         pos(Math.floor(width() / 10 * 0.25), Math.floor((height() / 10) * 6)),
-        sprite("play_now"),
+        sprite("play_now" + langSprites[LANG]),
         area(),
         layer("txt")
     ]).onClick(() => {
@@ -36,8 +36,8 @@ scene("titleScreen", () => {
     const menu_TutorialButton = add([
         origin("botleft"),
         scale(Math.floor(multiplyer * 1.15)),
-        pos(Math.floor(width() / 10 * 0.25), Math.floor((height() / 10) * 7.65)),
-        sprite("tutorial"),
+        pos(Math.floor(width() / 10 * 0.25), Math.floor((height() / 10) * 7.55)),
+        sprite("tutorial" + langSprites[LANG]),
         area(),
         layer("txt")
     ]).onClick(() => {
@@ -48,8 +48,8 @@ scene("titleScreen", () => {
     const menu_CreditsPageButton = add([
         origin("botleft"),
         scale(Math.floor(multiplyer * 1.15)),
-        pos(Math.floor(width() / 10 * 0.25), Math.floor((height() / 10) * 8.7)),
-        sprite("credits"),
+        pos(Math.floor(width() / 10 * 0.25), Math.floor((height() / 10) * 8.65)),
+        sprite("credits" + langSprites[LANG]),
         area(),
         layer("txt")
     ]).onClick(() => {
@@ -61,12 +61,24 @@ scene("titleScreen", () => {
         origin("botleft"),
         scale(Math.floor(multiplyer * 1.15)),
         pos(Math.floor(width() / 10 * 0.25), Math.floor((height() / 10) * 9.75)),
-        sprite("achievements"),
+        sprite("achievements" + langSprites[LANG]),
         area(),
         layer("txt")
     ]).onClick(() => {
         play("on_click_1");
         go("achievements_scene", { idVote: 0 });
+    });
+
+    const menu_LanguageButton = add([
+        origin("botright"),
+        scale(Math.floor(multiplyer * 0.75)),
+        pos(Math.floor(width() - (width() / 10 * 0.1)), Math.floor((height() / 10) * 9.9)),
+        sprite("language"),
+        area(),
+        layer("txt")
+    ]).onClick(() => {
+        play("on_click_1");
+        go("languageSelection");
     });
 });
 
@@ -112,7 +124,7 @@ scene("introTxtGeneral", () => {
         scale(Math.floor(multiplyer * 1.5)),
         origin("center"),
         pos(Math.floor(width() / 2), Math.floor(height() - (height() / 10))),
-        sprite("play"),
+        sprite("play" + langSprites[LANG]),
         area(),
         layer("txt")
     ]).onClick(() => {
@@ -129,7 +141,11 @@ scene("levelSelect", ({ scenarioNumber }) => {
         isPerfectScore = localStorage.getItem("scenario_" + currentScenarioDisplayed + "_perfected") == "true" ? true : false,
         historicalScore = scenarios[LANG][currentScenarioDisplayed][18],
         needsGain = scenarios[LANG][currentScenarioDisplayed][19],
-        logoName = hasNotBeenPlayed == false ? (isPerfectScore ? "perfect" : (needsGain ? (historicalScore >= 50 ? (monScore < 50 ? "fail" : "bravo") : (monScore < historicalScore ? "fail" : "bravo")) : (historicalScore >= 50 ? (monScore > historicalScore ? "fail" : "bravo") : (monScore > 50 ? "fail" : "bravo")))) : "new";
+        logoName = hasNotBeenPlayed == false ? (isPerfectScore ? "perfect" : (needsGain ? (historicalScore >= 50 ? (monScore < 50 ? "fail" : "bravo") : (monScore < historicalScore ? "fail" : "bravo")) : (historicalScore >= 50 ? (monScore > historicalScore ? "fail" : "bravo") : (monScore > 50 ? "fail" : "bravo")))) : "new",
+        langSprites = {
+            english: "_ENG",
+            french: "_FR"
+        };;
 
     layers([
         "bg",
@@ -179,7 +195,7 @@ scene("levelSelect", ({ scenarioNumber }) => {
         origin("top"),
         scale(Math.floor(multiplyer / 2)),
         pos(hasNotBeenPlayed == true ? [Math.floor(width() / 6), Math.floor(height() / 10 * 2)] : [Math.floor(width() / 10 * 3), Math.floor(height() / 10 * 1.75)]),
-        sprite(logoName + "_logo"),
+        sprite(logoName + "_logo" + langSprites[LANG]),
         rotate(-45),
         layer("bg")
     ]);
@@ -223,9 +239,9 @@ scene("levelSelect", ({ scenarioNumber }) => {
 
     const levelSelect_PlayButton = add([
         scale(Math.floor(multiplyer * 1.5)),
-        origin("right"),
-        pos(Math.floor(width() - width() / 5), Math.floor(height() - (height() / 10))),
-        sprite("play"),
+        origin("botleft"),
+        pos(Math.floor(width() / 2 + width() / 40), Math.floor(height() - (height() / 10))),
+        sprite("play" + langSprites[LANG]),
         area(),
         layer("btns")
     ]).onClick(() => {
@@ -235,9 +251,9 @@ scene("levelSelect", ({ scenarioNumber }) => {
 
     const levelSelect_BackButton = add([
         scale(Math.floor(multiplyer * 1.5)),
-        origin("left"),
-        pos(Math.floor(width() / 5), Math.floor(height() - (height() / 10))),
-        sprite("back"),
+        origin("botright"),
+        pos(Math.floor(width() / 2 - width() / 40), Math.floor(height() - (height() / 10))),
+        sprite("back" + langSprites[LANG]),
         area(),
         layer("txt")
     ]).onClick(() => {
@@ -281,9 +297,9 @@ scene("introTxtScenario", ({ idVote }) => {
 
     const introMission_PlayButton = add([
         scale(Math.floor(multiplyer * 1.5)),
-        origin("right"),
-        pos(Math.floor(width() - width() / 5), Math.floor(height() - (height() / 10))),
-        sprite("play"),
+        origin("botleft"),
+        pos(Math.floor(width() / 2 + width() / 40), Math.floor(height() - (height() / 10))),
+        sprite("play" + langSprites[LANG]),
         area(),
         layer("txt")
     ]).onClick(() => {
@@ -293,9 +309,9 @@ scene("introTxtScenario", ({ idVote }) => {
 
     const introMission_BackButton = add([
         scale(Math.floor(multiplyer * 1.5)),
-        origin("left"),
-        pos(Math.floor(width() / 5), Math.floor(height() - (height() / 10))),
-        sprite("back"),
+        origin("botright"),
+        pos(Math.floor(width() / 2 - width() / 40), Math.floor(height() - (height() / 10))),
+        sprite("back" + langSprites[LANG]),
         area(),
         layer("txt")
     ]).onClick(() => {
@@ -352,7 +368,7 @@ scene("showDisclaimer", ({ monScenario }) => {
         scale(Math.floor(multiplyer * 1.5)),
         origin("right"),
         pos(Math.floor(width() - width() / 5), Math.floor(height() - (height() / 7))),
-        sprite("play"),
+        sprite("play" + langSprites[LANG]),
         area(),
         layer("txt")
     ]).onClick(() => {
@@ -364,7 +380,7 @@ scene("showDisclaimer", ({ monScenario }) => {
         scale(Math.floor(multiplyer * 1.5)),
         origin("left"),
         pos(Math.floor(width() / 5), Math.floor(height() - (height() / 7))),
-        sprite("back"),
+        sprite("back" + langSprites[LANG]),
         area(),
         layer("txt")
     ]).onClick(() => {
@@ -377,6 +393,9 @@ scene("creditsPage", () => {
     let creditsTxt = {
         english: `A game created, written, designed, and developped by Joel Rimaz\n\nUnder the supervision of Isaac Pante\n\nAugust 2022`,
         french: `Un jeu créé, écrit, designé et développé par Joël Rimaz\n\nSous la supervision d'Isaac Pante\n\nAoût 2022`
+    }, langSprites = {
+        english: "_ENG",
+        french: "_FR"
     };
 
     layers([
@@ -414,7 +433,7 @@ scene("creditsPage", () => {
         scale(Math.floor(multiplyer * 1.5)),
         origin("bot"),
         pos(Math.floor(width() / 2), Math.floor(height() / 10 * 8.5)),
-        sprite("back"),
+        sprite("back" + langSprites[LANG]),
         area(),
         layer("txt")
     ]).onClick(() => {
@@ -426,7 +445,7 @@ scene("creditsPage", () => {
         scale(Math.floor(multiplyer)),
         origin("top"),
         pos(Math.floor(width() / 2), Math.floor(height() / 10 * 8.75)),
-        sprite("delete_game"),
+        sprite("delete_game" + langSprites[LANG]),
         area(),
         layer("txt")
     ]).onClick(() => {
@@ -445,13 +464,13 @@ scene("areYouSure", () => {
             "ATTENTION!",
             `Vous êtes sur le point d'effacer TOUTE votre progression. Cela comprend votre progression, vos scores, et vos succès.\n\nVoulez-vous VRAIMENT continuer?`
         ]
-    }
+    };
 
     layers([
         "bg",
         "txt"
     ]);
-    
+
     const sure_BG = add([
         scale(multiplyer),
         pos(0, 0),
@@ -493,7 +512,7 @@ scene("areYouSure", () => {
         origin("bot"),
         scale(Math.floor(multiplyer * 1.25)),
         pos(Math.floor(width() / 2), Math.floor(height() / 10 * 8)),
-        sprite("proceed"),
+        sprite("continue" + langSprites[LANG]),
         area(),
         layer("txt")
     ]).onClick(() => {
@@ -506,7 +525,7 @@ scene("areYouSure", () => {
         origin("bot"),
         scale(Math.floor(multiplyer * 1.5)),
         pos(Math.floor(width() / 2), Math.floor(height() / 10 * 9.5)),
-        sprite("back"),
+        sprite("back" + langSprites[LANG]),
         area(),
         layer("txt")
     ]).onClick(() => {
@@ -517,7 +536,11 @@ scene("areYouSure", () => {
 
 scene("achievements_scene", ({ idVote }) => {
     let voteNbr = idVote,
-        canGoBack = true;
+        canGoBack = true,
+        langSprites = {
+            english: "_ENG",
+            french: "_FR"
+        };
 
     layers([
         "bg",
@@ -594,7 +617,7 @@ scene("achievements_scene", ({ idVote }) => {
         scale(Math.floor(multiplyer * 1.5)),
         origin("center"),
         pos(Math.floor(width() / 2), Math.floor(height() - height() / 15)),
-        sprite("back"),
+        sprite("back" + langSprites[LANG]),
         area(),
         layer("txt")
     ]);
@@ -706,6 +729,10 @@ scene("tutorial", ({ fromMenu, i }) => {
                     "parfait"
                 ]
             ]
+        },
+        langSprites = {
+            english: "_ENG",
+            french: "_FR"
         }
 
     layers([
@@ -763,7 +790,7 @@ scene("tutorial", ({ fromMenu, i }) => {
             scale(multiplyer / 1.5),
             origin("top"),
             pos(Math.floor(width() / 2), Math.floor((height() / 10) * 3.25)),
-            sprite("score_journal_ok"),
+            sprite("score_journal_ok" + langSprites[LANG]),
             layer("txt")
         ]);
 
@@ -998,7 +1025,7 @@ scene("tutorial", ({ fromMenu, i }) => {
             origin("center"),
             scale(Math.floor(multiplyer / 2)),
             pos(Math.floor((width() / 10) * 1.25), Math.floor((height() / 10) * 6)),
-            sprite("fail_logo"),
+            sprite("fail_logo" + langSprites[LANG]),
             layer("bg")
         ]);
 
@@ -1018,7 +1045,7 @@ scene("tutorial", ({ fromMenu, i }) => {
             origin("center"),
             scale(Math.floor(multiplyer / 2)),
             pos(Math.floor((width() / 10) * 5), Math.floor((height() / 10) * 6)),
-            sprite("bravo_logo"),
+            sprite("bravo_logo" + langSprites[LANG]),
             layer("bg")
         ]);
 
@@ -1038,7 +1065,7 @@ scene("tutorial", ({ fromMenu, i }) => {
             origin("center"),
             scale(Math.floor(multiplyer / 2)),
             pos(Math.floor((width() / 10) * 8.75), Math.floor((height() / 10) * 6)),
-            sprite("perfect_logo"),
+            sprite("perfect_logo" + langSprites[LANG]),
             layer("bg")
         ]);
     }
@@ -1046,8 +1073,8 @@ scene("tutorial", ({ fromMenu, i }) => {
     const tutorial_NextButton = slideNumber < mesTxt[LANG].length - 1 ?
         add([
             scale(Math.floor(multiplyer * 1.25)),
-            origin("right"),
-            pos(Math.floor((width() / 10) * 9.75), Math.floor(height() - (height() / 10))),
+            origin("botright"),
+            pos(Math.floor((width() / 10) * 9.75), Math.floor(height() - (height() / 40))),
             sprite("next"),
             area(),
             layer("txt")
@@ -1058,10 +1085,10 @@ scene("tutorial", ({ fromMenu, i }) => {
         })
         :
         add([
-            scale(Math.floor(multiplyer * 1.5)),
-            origin("right"),
-            pos(Math.floor((width() / 10) * 9.5), Math.floor(height() - (height() / 10))),
-            sprite("play"),
+            scale(Math.floor(multiplyer * 1.75)),
+            origin("bot"),
+            pos(Math.floor(width() / 2), Math.floor(height() - (height() / 40))),
+            sprite("play" + langSprites[LANG]),
             area(),
             layer("txt")
         ]).onClick(() => {
@@ -1072,10 +1099,10 @@ scene("tutorial", ({ fromMenu, i }) => {
     const tutorial_BackButton = fromMenu == true ?
         (slideNumber == 0 ?
             add([
-                scale(Math.floor(multiplyer * 1.125)),
+                scale(Math.floor(multiplyer * 1.5)),
                 origin("bot"),
                 pos(Math.floor(width() / 2), Math.floor((height() / 10) * 9.75)),
-                sprite("back"),
+                sprite("back" + langSprites[LANG]),
                 area(),
                 layer("txt")
             ]).onClick(() => {
@@ -1085,8 +1112,8 @@ scene("tutorial", ({ fromMenu, i }) => {
             :
             add([
                 scale(Math.floor(multiplyer * 1.25)),
-                origin("left"),
-                pos(Math.floor(width() / 10 * 0.25), Math.floor(height() - (height() / 10))),
+                origin("botleft"),
+                pos(Math.floor(width() / 10 * 0.25), Math.floor(height() - (height() / 40))),
                 sprite("previous"),
                 area(),
                 layer("txt")
@@ -1101,8 +1128,8 @@ scene("tutorial", ({ fromMenu, i }) => {
             :
             add([
                 scale(Math.floor(multiplyer * 1.25)),
-                origin("left"),
-                pos(Math.floor(width() / 10 * 0.25), Math.floor(height() - (height() / 10))),
+                origin("botleft"),
+                pos(Math.floor(width() / 10 * 0.25), Math.floor(height() - (height() / 40))),
                 sprite("previous"),
                 area(),
                 layer("txt")
@@ -1111,6 +1138,86 @@ scene("tutorial", ({ fromMenu, i }) => {
                 slideNumber--
                 go("tutorial", { fromMenu: fromMenu, i: slideNumber });
             }));
+});
+
+scene("languageSelection", () => {
+    let languages = {
+        english: [
+            "Select a language",
+            "English",
+            "French"
+        ],
+        french: [
+            "Sélectionnez une langue",
+            "Anglais",
+            "Français"
+        ]
+    }
+
+    layers([
+        "bg",
+        "txt"
+    ]);
+
+    const language_BG = add([
+        scale(multiplyer),
+        pos(0, 0),
+        sprite("BG_title", { anim: "animated_BG" }),
+        layer("bg")
+    ]);
+
+    const languageTitle = add([
+        origin("top"),
+        pos(Math.floor(width() / 2), Math.floor(height() / 10)),
+        text(languages[LANG][0], {
+            size: Math.floor(5 * multiplyer),
+            width: Math.floor(width() / 10 * 8)
+        }),
+        area(),
+        layer("txt")
+    ]);
+
+    const languageChoice1 = add([
+        origin("top"),
+        pos(Math.floor(width() / 2), Math.floor(height() / 10 * 3)),
+        text(languages[LANG][1], {
+            size: Math.floor(5 * (multiplyer - 1)),
+            width: Math.floor(width() / 10 * 8)
+        }),
+        area(),
+        layer("txt")
+    ]).onClick(() => {
+        localStorage.setItem("language", "english");
+        LANG = "english"
+        go("languageSelection")
+    })
+
+    const languageChoice2 = add([
+        origin("top"),
+        pos(Math.floor(width() / 2), Math.floor(height() / 10 * 5)),
+        text(languages[LANG][2], {
+            size: Math.floor(5 * (multiplyer - 1)),
+            width: Math.floor(width() / 10 * 8)
+        }),
+        area(),
+        layer("txt")
+    ]).onClick(() => {
+        localStorage.setItem("language", "french");
+        LANG = "french"
+        go("languageSelection")
+    })
+
+    const language_BackButton = add([
+        scale(Math.floor(multiplyer * 1.5)),
+        origin("center"),
+        pos(Math.floor(width() / 2), Math.floor(height() - height() / 15)),
+        sprite("back" + langSprites[LANG]),
+        area(),
+        layer("txt")
+    ]).onClick(() => {
+        play("on_click_2");
+        go("titleScreen");
+    });
 });
 
 scene("errorLocalStorage", () => {

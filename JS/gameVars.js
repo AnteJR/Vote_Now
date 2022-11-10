@@ -1,4 +1,10 @@
 /* Main JS file for the game's variables */
+
+let langSprites = {
+    english: "_ENG",
+    french: "_FR"
+};
+
 let elemTopStats,
     elemBottomStats,
     music_menu,
