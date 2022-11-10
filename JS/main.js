@@ -2,6 +2,7 @@
 
 let heightWindow = window.innerHeight;
 let multiplyer = Math.floor(heightWindow / 98);
+let LANG = "french";
 
 kaboom({                                                /* Kaboom function */
     width: 124 * multiplyer,
@@ -9,6 +10,8 @@ kaboom({                                                /* Kaboom function */
     clearColor: [0, 0, 0],
     font: "sinko"
 });
+
+// loadFont("frenchFont", "Fonts/VCR_OSD_MONO_1.001.ttf")
 
 loadRoot("Images/Animated_BG/");
 loadSpriteAtlas("Affiches_mur_sheet.png", {      // Sprit Atlas for the flyers on the street walls
