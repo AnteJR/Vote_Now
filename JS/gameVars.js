@@ -102,8 +102,8 @@ let scores = [                                  // what each event does to the g
     ]
 ];
 
-let scenarios = [                                        // scenarios stores all useful data for each votation you can play
-    [
+let scenarios = {   // scenarios stores all useful data for each votation you can play
+    english: [
         [                                                    // scenarios is structured as follos:
             "Government's buyout of Swiss railways",            // 0. name
             [6, 4], [3, 1], [0, 6], [2, 1], [3, 4],             // 1-10. turn 1-10 (ie. what two events will be displayed each turn)
@@ -287,7 +287,7 @@ let scenarios = [                                        // scenarios stores all
             false
         ]
     ],
-    [
+    french: [
         [                                          // FRENCH
             "Rachat des chemins de fer fédéraux",
             [6, 4], [3, 1], [0, 6], [2, 1], [3, 4],
@@ -471,4 +471,4 @@ let scenarios = [                                        // scenarios stores all
             false
         ]
     ]
-];
+};

@@ -42,7 +42,7 @@ scene("titleScreen", () => {
         layer("txt")
     ]).onClick(() => {
         play("on_click_1");
-        go("tutorial", { fromMenu: true, i:0 });
+        go("tutorial", { fromMenu: true, i: 0 });
     });
 
     const menu_CreditsPageButton = add([
@@ -71,6 +71,11 @@ scene("titleScreen", () => {
 });
 
 scene("introTxtGeneral", () => {
+    let txtIntro = {
+        english: "Vote Now! is a minimalist strategy game that plays kind of like Reigns, as in you have a choice of 2 actions that you can pick from at a time.\n\nYou will play as a non-specific, left-leaning political party aiming to pass bills in Switzerland by propagandizing to influence voters' opinions. You will have to manage your money, the opinions of the voter base on your campaign, and the votes you are predicted to get.",
+        french: "Vote Now! est un jeu de stratégie minimaliste similaire à Reigns: vous avez une succession de choix de 2 options.\n\nVous jouez un parti de gauche non-spécifié dont le but est de faire passer des loi en Suisse à coup de propagande pour changer les opinions de la population...!"
+    };
+
     layers([
         "bg",
         "txt",
@@ -96,7 +101,7 @@ scene("introTxtGeneral", () => {
     const intro_Text = add([
         origin("center"),
         pos(Math.floor(width() / 2), Math.floor(((height() / 2) - (height() / 10)))),
-        text("Vote Now! is a minimalist strategy game that plays kind of like Reigns, as in you have a choice of 2 actions that you can pick from at a time.\n\nYou will play as a non-specific, left-leaning political party aiming to pass bills in Switzerland by propagandizing to influence voters' opinions. You will have to manage your money, the opinions of the voter base on your campaign, and the votes you are predicted to get.", {
+        text(txtIntro[LANG], {
             size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 10) : Math.floor(5 * (multiplyer - 1)),
             width: Math.floor(width() - (width() / (multiplyer + 1)))
         }),
@@ -113,7 +118,7 @@ scene("introTxtGeneral", () => {
     ]).onClick(() => {
         play("on_click_1");
         localStorage.setItem("hasReadIntro", true);
-        go("tutorial", { fromMenu: false, i:0 });
+        go("tutorial", { fromMenu: false, i: 0 });
     });
 });
 
@@ -126,7 +131,6 @@ scene("levelSelect", ({ scenarioNumber }) => {
         needsGain = scenarios[LANG][currentScenarioDisplayed][19],
         logoName = hasNotBeenPlayed == false ? (isPerfectScore ? "perfect" : (needsGain ? (historicalScore >= 50 ? (monScore < 50 ? "fail" : "bravo") : (monScore < historicalScore ? "fail" : "bravo")) : (historicalScore >= 50 ? (monScore > historicalScore ? "fail" : "bravo") : (monScore > 50 ? "fail" : "bravo")))) : "new";
 
-    console.log(scenarios[LANG].length)
     layers([
         "bg",
         "txt",
@@ -370,6 +374,11 @@ scene("showDisclaimer", ({ monScenario }) => {
 });
 
 scene("creditsPage", () => {
+    let creditsTxt = {
+        english: `A game created, written, designed, and developped by Joel Rimaz\n\nUnder the supervision of Isaac Pante\n\nAugust 2022`,
+        french: `Un jeu créé, écrit, designé et développé par Joël Rimaz\n\nSous la supervision d'Isaac Pante\n\nAoût 2022`
+    };
+
     layers([
         "bg",
         "txt"
@@ -394,7 +403,7 @@ scene("creditsPage", () => {
     const credits_Text = add([
         origin("top"),
         pos(Math.floor(width() / 2), Math.floor(height() / 10 * 3)),
-        text(`A game created, written, designed, and developped by Joel Rimaz\n\nUnder the supervision of Isaac Pante\n\nAugust 2022`, {
+        text(creditsTxt[LANG], {
             size: Math.floor(5 * (multiplyer - 1)),
             width: Math.floor(width() - width() / 10)
         }),
@@ -422,15 +431,94 @@ scene("creditsPage", () => {
         layer("txt")
     ]).onClick(() => {
         play("on_click_1");
+        go("areYouSure");
+    });
+});
+
+scene("areYouSure", () => {
+    let warningTxts = {
+        english: [
+            "BEWARE!",
+            `You are about to delete ALL the progress saved on your browser. This includes your progression, scores, and achievements.\n\nAre you SURE you want to proceed?`
+        ],
+        french: [
+            "ATTENTION!",
+            `Vous êtes sur le point d'effacer TOUTE votre progression. Cela comprend votre progression, vos scores, et vos succès.\n\nVoulez-vous VRAIMENT continuer?`
+        ]
+    }
+
+    layers([
+        "bg",
+        "txt"
+    ]);
+
+    const sure_BG = add([
+        scale(multiplyer),
+        pos(0, 0),
+        sprite("BG_title", { anim: "animated_BG" }),
+        layer("bg")
+    ]);
+
+    const sure_GreyOutSquare = add([
+        rect(width(), height()),
+        pos(0, 0),
+        color(1, 1, 1),
+        area(),
+        opacity(0.9),
+        layer("grey_squares"),
+        layer("bg")
+    ]);
+
+    const sure_Title = add([
+        origin("top"),
+        pos(Math.floor(width() / 2), Math.floor(height() / 10)),
+        text(warningTxts[LANG][0], {
+            size: Math.floor(10 * multiplyer)
+        }),
+        color(255, 0, 0),
+        layer("txt")
+    ]);
+
+    const sure_Text = add([
+        origin("top"),
+        pos(Math.floor(width() / 2), Math.floor(height() / 10 * 2)),
+        text(warningTxts[LANG][1], {
+            size: Math.floor(5 * (multiplyer - 1)),
+            width: Math.floor(width() - width() / 10)
+        }),
+        layer("txt")
+    ]);
+
+    const sure_ProceedBtn = add([
+        origin("bot"),
+        scale(Math.floor(multiplyer * 1.25)),
+        pos(Math.floor(width() / 2), Math.floor(height() / 10 * 8)),
+        sprite("proceed"),
+        area(),
+        layer("txt")
+    ]).onClick(() => {
+        play("on_click_1");
         localStorage.clear();
         go("titleScreen");
+    });
+
+    const sure_BackBtn = add([
+        origin("bot"),
+        scale(Math.floor(multiplyer * 1.5)),
+        pos(Math.floor(width() / 2), Math.floor(height() / 10 * 9.5)),
+        sprite("back"),
+        area(),
+        layer("txt")
+    ]).onClick(() => {
+        play("on_click_2");
+        go("creditsPage");
     });
 });
 
 scene("achievements_scene", ({ idVote }) => {
     let voteNbr = idVote,
         canGoBack = true;
-    
+
     layers([
         "bg",
         "txt",
@@ -547,18 +635,78 @@ scene("achievements_scene", ({ idVote }) => {
     }
 });
 
-scene("tutorial", ( { fromMenu, i } ) => {
-    let slideNumber = i;
-    let mesTxt = [
-        "Welcome to Vote Now! In this game, your aim is to pass bills and have your vote score reach the historical results of the votes.",
-        "In Vote Now!, you will have to choose between two options at a time. You will have 10 turns to reach the historical score of the vote (or at least 50%).",
-        "The events you can choose from:",
-        "",
-        "There are 3 variables to take into consideration. You can follow your progress for each on the top of the screen. You can also check how many turns are left at the bottom.",
-        "Votes: the percentages of votes in favor of the bill\n\nMoney: the money you have, which is used to buy ads, or organize events\n\nOptics: optics are how favorably the people see your campaign. It's a multiplier for the votes you get. IE. if your optics are at 0.8 and you select an event who earns you 10% votes, you will actually gain 10x0.8 = 8%.",
-        "Balance those 3 variables to maximize your score! Depending on how well you succeed, you will have a varying degree of victory, going from failure (the bill didn't pass) to perfect (you reached or went beyond the original score of the vote).",
-        "If you manage to get a perfect victory, you will unlock a pixel art reproduction of one piece of propaganda material of the time in the achievements section. Go to the main menu to check them out!\n\nOnce you get all the achievements, the game is pretty much finished. You can still reset your saved data at the credits page to start anew."
-    ]
+scene("tutorial", ({ fromMenu, i }) => {
+    let slideNumber = i,
+        mesTxt = {
+            english: [
+                "Welcome to Vote Now! In this game, your aim is to pass bills and have your vote score reach the historical results of the votes.",
+                "In Vote Now!, you will have to choose between two options at a time. You will have 10 turns to reach the historical score of the vote (or at least 50%).",
+                "The events you can choose from:",
+                "",
+                "There are 3 variables to take into consideration. You can follow your progress for each on the top of the screen. You can also check how many turns are left at the bottom.",
+                "Votes: the percentages of votes in favor of the bill\n\nMoney: the money you have, which is used to buy ads, or organize events\n\nOptics: optics are how favorably the people see your campaign. It's a multiplier for the votes you get. IE: if your optics are at 0.8 and you select an event who earns you 10% votes, you will actually gain 10x0.8 = 8%.",
+                "Balance those 3 variables to maximize your score! Depending on how well you succeed, you will have a varying degree of victory, going from failure (the bill didn't pass) to perfect (you reached or went beyond the original score of the vote).",
+                "If you manage to get a perfect victory, you will unlock a pixel art reproduction of one piece of propaganda material of the time in the achievements section. Go to the ACHIEVEMENTS section to check them out!\n\nOnce you get all the achievements, the game is pretty much finished. You can still reset your saved data at the CREDITS page to start anew."
+            ],
+            french: [
+                "Bienvenu sur Vote Now! Dans ce jeu, votre but est de faire passer des loi et d'atteindre le score historique des votations proposées.",
+                "Dans Vote Now!, vous devrez durant 10 tours faire des choix avec 2 options afin d'obtenir le meilleur score.",
+                "Les options à choix sont:",
+                "",
+                "Il y a 3 variables à considérer. Votre progrès est indiqué en haut de l'écran. Vous pouvez voir vos tours restants au bas de l'écran.",
+                "Votes: le pourcentage de votes en faveur de la loi\n\nArgent: l'argent à disposition pour faire propagande\n\nOpinion: l'opinion publique. Cette stat agit commme un multiplicateur des votes que vous obtenez. Par exemple: en choisissant une option qui donne 10% de vote avec une opinion à 0.8, vous obtiendrez en réalité 10x0.8 = 8%.",
+                "Gérez ces 3 variables et visez le meilleur score! Selon ce dernier, votre niveau de victoire variera, allant de l'échec (la loi n'est pas passée) à parfait (vous avez dépassé le score historique).",
+                "Si vous obtenez une victoire parfaite, vous débloquerez une reproduction en pixel art d'une affiche de l'époque. Elles se trouveront dans l'onglet des SUCCÈS!\n\nUne fois tous les succès obtenus, le jeu est fini. Vous pouvez toujours effacer votre progression et recommencer depuis la page des CRÉDITS."
+            ]
+        },
+        descriptions = {
+            english: [
+                "a typical event with what it costs/earns you",
+                [
+                    "train station ad",
+                    "flyer distribution",
+                    "ask sponsors for funds",
+                    "newspaper ads",
+                    "ask donors for funds",
+                    "protest in Bern",
+                    "poster campaign",
+                    "radio ads (from 1922)",
+                    "social media ads (from 2008)"
+                ],
+                [
+                    "top UI",
+                    "bottom UI"
+                ],
+                [
+                    "failure",
+                    "victory",
+                    "perfect"
+                ]
+            ],
+            french: [
+                "un choix typique, ainsi que ses coûts/produits",
+                [
+                    "affiche en gare",
+                    "distribution de flyers",
+                    "trouver un sponsor",
+                    "pub dans les journaux",
+                    "demander des dons",
+                    "protester à Berne",
+                    "campagne d'affiches",
+                    "pubs à la radio (dès 1922)",
+                    "pubs sur les réseaux sociaux (dès 2008)"
+                ],
+                [
+                    "interface du haut",
+                    "interface du bas"
+                ],
+                [
+                    "échec",
+                    "victoire",
+                    "parfait"
+                ]
+            ]
+        }
 
     layers([
         "bg",
@@ -578,14 +726,13 @@ scene("tutorial", ( { fromMenu, i } ) => {
         color(1, 1, 1),
         area(),
         opacity(0.9),
-        layer("grey_squares"),
         layer("bg")
     ]);
 
     const tutorial_Text = add([
         origin("top"),
         pos(Math.floor(width() / 2), Math.floor((height() / 10) * 0.5)),
-        text(mesTxt[slideNumber], {
+        text(mesTxt[LANG][slideNumber], {
             size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 10) : Math.floor(5 * (multiplyer - 1)),
             width: Math.floor(width() - (width() / (multiplyer + 1)))
         }),
@@ -600,7 +747,7 @@ scene("tutorial", ( { fromMenu, i } ) => {
             sprite("title", { anim: "animated_BG" }),
             layer("txt")
         ]);
-    
+
     }
     else if (slideNumber == 1) {
         // example event
@@ -624,7 +771,7 @@ scene("tutorial", ( { fromMenu, i } ) => {
         add([
             origin("top"),
             pos(Math.floor(width() / 2), Math.floor((height() / 10) * 6.25)),
-            text("^ a typical event with what it costs/earns you ^", {
+            text(descriptions[LANG][0], {
                 size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 20) : Math.floor(5 * (multiplyer - 1) - 15),
                 width: Math.floor(width() - (width() / (multiplyer + 1)))
             }),
@@ -644,8 +791,8 @@ scene("tutorial", ( { fromMenu, i } ) => {
         add([
             origin("top"),
             pos(Math.floor(width() / 4), Math.floor((height() / 10) * 4)),
-            text("^ train station ads ^", {
-                size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 20) : Math.floor(5 * (multiplyer - 1) - 10)
+            text("^ " + descriptions[LANG][1][0] + " ^", {
+                size: multiplyer < 10 ? (multiplyer < 8 ? (multiplyer < 6 ? 10 : 17) : 20) : 30
             }),
             layer("txt")
         ]);
@@ -662,12 +809,12 @@ scene("tutorial", ( { fromMenu, i } ) => {
         add([
             origin("top"),
             pos(Math.floor((width() / 4) * 3), Math.floor((height() / 10) * 4)),
-            text("^ market flyer distribution ^", {
-                size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 20) : Math.floor(5 * (multiplyer - 1) - 10)
+            text("^ " + descriptions[LANG][1][1] + " ^", {
+                size: multiplyer < 10 ? (multiplyer < 8 ? (multiplyer < 6 ? 10 : 17) : 20) : 30
             }),
             layer("txt")
         ]);
-        
+
         // AG ad
         add([
             scale(multiplyer / 2.25),
@@ -680,8 +827,8 @@ scene("tutorial", ( { fromMenu, i } ) => {
         add([
             origin("top"),
             pos(Math.floor(width() / 4), Math.floor((height() / 10) * 7)),
-            text("^ ask sponsors for funds ^", {
-                size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 20) : Math.floor(5 * (multiplyer - 1) - 10)
+            text("^ " + descriptions[LANG][1][2] + " ^", {
+                size: multiplyer < 10 ? (multiplyer < 8 ? (multiplyer < 6 ? 10 : 17) : 20) : 30
             }),
             layer("txt")
         ]);
@@ -698,8 +845,8 @@ scene("tutorial", ( { fromMenu, i } ) => {
         add([
             origin("top"),
             pos(Math.floor((width() / 4) * 3), Math.floor((height() / 10) * 7)),
-            text("^ newspaper ads ^", {
-                size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 20) : Math.floor(5 * (multiplyer - 1) - 10)
+            text("^ " + descriptions[LANG][1][3] + " ^", {
+                size: multiplyer < 10 ? (multiplyer < 8 ? (multiplyer < 6 ? 10 : 17) : 20) : 30
             }),
             layer("txt")
         ]);
@@ -717,8 +864,8 @@ scene("tutorial", ( { fromMenu, i } ) => {
         add([
             origin("top"),
             pos(Math.floor(width() / 4), Math.floor((height() / 10) * 2.5)),
-            text("^ ask donors for funds ^", {
-                size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 20) : Math.floor(5 * (multiplyer - 1) - 10)
+            text("^ " + descriptions[LANG][1][4] + " ^", {
+                size: multiplyer < 10 ? (multiplyer < 8 ? (multiplyer < 6 ? 10 : 17) : 20) : 30
             }),
             layer("txt")
         ]);
@@ -735,8 +882,8 @@ scene("tutorial", ( { fromMenu, i } ) => {
         add([
             origin("top"),
             pos(Math.floor((width() / 4) * 3), Math.floor((height() / 10) * 2.5)),
-            text("^ protest in Bern ^", {
-                size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 20) : Math.floor(5 * (multiplyer - 1) - 10)
+            text("^ " + descriptions[LANG][1][5] + " ^", {
+                size: multiplyer < 10 ? (multiplyer < 8 ? (multiplyer < 6 ? 10 : 17) : 20) : 30
             }),
             layer("txt")
         ]);
@@ -753,8 +900,8 @@ scene("tutorial", ( { fromMenu, i } ) => {
         add([
             origin("top"),
             pos(Math.floor(width() / 4), Math.floor((height() / 10) * 5.25)),
-            text("^ poster campaign ^", {
-                size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 20) : Math.floor(5 * (multiplyer - 1) - 10)
+            text("^ " + descriptions[LANG][1][6] + " ^", {
+                size: multiplyer < 10 ? (multiplyer < 8 ? (multiplyer < 6 ? 10 : 17) : 20) : 30
             }),
             layer("txt")
         ]);
@@ -771,8 +918,8 @@ scene("tutorial", ( { fromMenu, i } ) => {
         add([
             origin("top"),
             pos(Math.floor((width() / 4) * 3), Math.floor((height() / 10) * 5.25)),
-            text("^ radio ads (from 1922) ^", {
-                size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 20) : Math.floor(5 * (multiplyer - 1) - 10)
+            text("^ " + descriptions[LANG][1][7] + " ^", {
+                size: multiplyer < 10 ? (multiplyer < 8 ? (multiplyer < 6 ? 10 : 17) : 20) : 30
             }),
             layer("txt")
         ]);
@@ -789,8 +936,8 @@ scene("tutorial", ( { fromMenu, i } ) => {
         add([
             origin("top"),
             pos(Math.floor((width() / 4) * 2), Math.floor((height() / 10) * 8)),
-            text("^ social media ads (from 2008) ^", {
-                size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 20) : Math.floor(5 * (multiplyer - 1) - 10)
+            text("^ " + descriptions[LANG][1][8] + " ^", {
+                size: multiplyer < 10 ? (multiplyer < 8 ? (multiplyer < 6 ? 10 : 17) : 20) : 30
             }),
             layer("txt")
         ]);
@@ -800,14 +947,14 @@ scene("tutorial", ( { fromMenu, i } ) => {
         add([
             origin("top"),
             pos(Math.floor(width() / 2), Math.floor((height() / 10) * 5)),
-            text("^ top UI ^", {
+            text("^ " + descriptions[LANG][2][0] + " ^", {
                 size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 10) : Math.floor(5 * (multiplyer - 1)),
                 width: Math.floor(width() - (width() / (multiplyer + 1)))
             }),
             layer("txt")
         ]);
 
-        add ([
+        add([
             scale(Math.floor(multiplyer / 2) - 0.5),
             origin("top"),
             pos(Math.floor(width() / 2), Math.floor((height() / 10) * 4)),
@@ -819,14 +966,14 @@ scene("tutorial", ( { fromMenu, i } ) => {
         add([
             origin("top"),
             pos(Math.floor(width() / 2), Math.floor((height() / 10) * 7)),
-            text("^ bottom UI ^", {
+            text("^ " + descriptions[LANG][2][1] + " ^", {
                 size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 10) : Math.floor(5 * (multiplyer - 1)),
                 width: Math.floor(width() - (width() / (multiplyer + 1)))
             }),
             layer("txt")
         ]);
 
-        add ([
+        add([
             scale(Math.floor(multiplyer / 2) - 0.5),
             origin("top"),
             pos(Math.floor(width() / 2), Math.floor((height() / 10) * 6)),
@@ -839,7 +986,7 @@ scene("tutorial", ( { fromMenu, i } ) => {
         add([
             origin("top"),
             pos(Math.floor((width() / 10) * 1.25), Math.floor((height() / 10) * 7)),
-            text("failure", {
+            text(descriptions[LANG][3][0], {
                 size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 10) : Math.floor(5 * (multiplyer - 1)),
                 width: Math.floor(width() - (width() / (multiplyer + 1)))
             }),
@@ -859,7 +1006,7 @@ scene("tutorial", ( { fromMenu, i } ) => {
         add([
             origin("top"),
             pos(Math.floor((width() / 10) * 5), Math.floor((height() / 10) * 7)),
-            text("victory", {
+            text(descriptions[LANG][3][1], {
                 size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 10) : Math.floor(5 * (multiplyer - 1)),
                 width: Math.floor(width() - (width() / (multiplyer + 1)))
             }),
@@ -879,7 +1026,7 @@ scene("tutorial", ( { fromMenu, i } ) => {
         add([
             origin("top"),
             pos(Math.floor((width() / 10) * 8.75), Math.floor((height() / 10) * 7)),
-            text("perfect", {
+            text(descriptions[LANG][3][2], {
                 size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 10) : Math.floor(5 * (multiplyer - 1)),
                 width: Math.floor(width() - (width() / (multiplyer + 1)))
             }),
@@ -895,35 +1042,35 @@ scene("tutorial", ( { fromMenu, i } ) => {
             layer("bg")
         ]);
     }
-    
-    const tutorial_NextButton = slideNumber < mesTxt.length - 1 ? 
-            add([
-                scale(Math.floor(multiplyer * 1.25)),
-                origin("right"),
-                pos(Math.floor((width() / 10) * 9.75), Math.floor(height() - (height() / 10))),
-                sprite("next"),
-                area(),
-                layer("txt")
-            ]).onClick(() => {
-                play("on_click_1");
-                slideNumber++;
-                go("tutorial", { fromMenu: fromMenu, i: slideNumber });
-            })
-        :
-            add([
-                scale(Math.floor(multiplyer * 1.5)),
-                origin("right"),
-                pos(Math.floor((width() / 10) * 9.5), Math.floor(height() - (height() / 10))),
-                sprite("play"),
-                area(),
-                layer("txt")
-            ]).onClick(() => {
-                play("on_click_1");
-                go("levelSelect", { scenarioNumber: 0 });
-            });
 
-    const tutorial_BackButton = fromMenu == true ? 
-        (slideNumber == 0 ? 
+    const tutorial_NextButton = slideNumber < mesTxt[LANG].length - 1 ?
+        add([
+            scale(Math.floor(multiplyer * 1.25)),
+            origin("right"),
+            pos(Math.floor((width() / 10) * 9.75), Math.floor(height() - (height() / 10))),
+            sprite("next"),
+            area(),
+            layer("txt")
+        ]).onClick(() => {
+            play("on_click_1");
+            slideNumber++;
+            go("tutorial", { fromMenu: fromMenu, i: slideNumber });
+        })
+        :
+        add([
+            scale(Math.floor(multiplyer * 1.5)),
+            origin("right"),
+            pos(Math.floor((width() / 10) * 9.5), Math.floor(height() - (height() / 10))),
+            sprite("play"),
+            area(),
+            layer("txt")
+        ]).onClick(() => {
+            play("on_click_1");
+            go("levelSelect", { scenarioNumber: 0 });
+        });
+
+    const tutorial_BackButton = fromMenu == true ?
+        (slideNumber == 0 ?
             add([
                 scale(Math.floor(multiplyer * 1.125)),
                 origin("bot"),
@@ -934,8 +1081,8 @@ scene("tutorial", ( { fromMenu, i } ) => {
             ]).onClick(() => {
                 play("on_click_2");
                 go("titleScreen");
-            }) 
-            : 
+            })
+            :
             add([
                 scale(Math.floor(multiplyer * 1.25)),
                 origin("left"),
@@ -946,12 +1093,12 @@ scene("tutorial", ( { fromMenu, i } ) => {
             ]).onClick(() => {
                 play("on_click_2");
                 slideNumber--
-                go("tutorial", { fromMenu: fromMenu, i: slideNumber});
-            })) 
-        : 
-        (slideNumber == 0 ? 
-            null 
-        : 
+                go("tutorial", { fromMenu: fromMenu, i: slideNumber });
+            }))
+        :
+        (slideNumber == 0 ?
+            null
+            :
             add([
                 scale(Math.floor(multiplyer * 1.25)),
                 origin("left"),
@@ -962,11 +1109,16 @@ scene("tutorial", ( { fromMenu, i } ) => {
             ]).onClick(() => {
                 play("on_click_2");
                 slideNumber--
-                go("tutorial", { fromMenu: fromMenu, i: slideNumber});
+                go("tutorial", { fromMenu: fromMenu, i: slideNumber });
             }));
 });
 
 scene("errorLocalStorage", () => {
+    let errorMsg = {
+        english: "Vote Now requires the use of the local storage of your web browser. For reasons outside of my control, your browser doesn't allow the game access the local storage.\n\nTo fix this problem, please try using a different browser. I know that things should be fine using Firefox. Sorry for the inconvenience.",
+        french: "Vote Now a besoin du stockage local de votre navigateur pour fonctionner. Pour des raisons hors de mon contrôle, votre navigateur ne lui donne pas accès à ce stockage.\n\nPour résoudre ce problème, essayez un navigateur différent. Firefox devrait fonctionner sans problème. Navré de la gêne occasionnée."
+    }
+
     layers([
         "bg",
         "txt"
@@ -990,7 +1142,7 @@ scene("errorLocalStorage", () => {
     const error_Text = add([
         origin("top"),
         pos(Math.floor(width() / 2), Math.floor((height() / 10) * 3.5)),
-        text("Vote Now requires the use of the local storage of your web browser. For reasons outside of my control, your browser doesn't allow the game access the local storage.\n\nTo fix this problem, please try using a different browser. I know that things should be fine using Firefox. Sorry for the inconvenience.", {
+        text(errorMsg[LANG], {
             size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 10) : Math.floor(5 * (multiplyer - 1)),
             width: Math.floor(width() - (width() / (multiplyer + 1)))
         }),
@@ -1018,19 +1170,19 @@ function initFunction() {
     go("titleScreen");
 }
 
-function isLocalStorageAvailable(){
+function isLocalStorageAvailable() {
     var test = 'test';
     try {
         localStorage.setItem("testLS", test);
         localStorage.removeItem("testLS");
         return true;
-    } catch(e) {
+    } catch (e) {
         return false;
     }
 }
 
-if(isLocalStorageAvailable()){
+if (isLocalStorageAvailable()) {
     initFunction();
-}else{
+} else {
     go("errorLocalStorage")
 }

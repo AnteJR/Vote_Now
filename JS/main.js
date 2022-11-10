@@ -2,7 +2,7 @@
 
 let heightWindow = window.innerHeight;
 let multiplyer = Math.floor(heightWindow / 98);
-let LANG = 1;
+let LANG = "french";
 
 kaboom({                                                /* Kaboom function */
     width: 124 * multiplyer,

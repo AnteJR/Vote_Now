@@ -9,7 +9,23 @@ scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics
         eventNbrTopFinder = Math.random(),
         eventNbrBottomFinder = Math.random(),
         eventNbrTop = 2,
-        eventNbrBottom = 2;
+        eventNbrBottom = 2,
+        txts = {
+            english: [
+                "Votes",
+                "Money",
+                "Optics",
+                "Vote day",
+                startTurn < 10 ? (11 - startTurn) + " days left" : (11 - startTurn) + " day left"
+            ],
+            french: [
+                "Votes",
+                "Argent",
+                "Opinion",
+                "Vote le",
+                startTurn < 10 ? "Dans " + (11 - startTurn) + " jours" : "Dans " + (11 - startTurn) + " jour"
+            ]
+        };
     
     if (eventNbrTopFinder < 0.015) eventNbrTop = 0; // 1.5 %
     else if (eventNbrTopFinder < 0.15) eventNbrTop = 1; // 13.5 %
@@ -42,7 +58,7 @@ scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics
 
     const votesCount = add([
         pos(Math.floor(width() / 100), Math.floor(height() / 100)),
-        text("Votes:" + Math.round(((intialVotes) + Number.EPSILON) * 10) / 10 + "%", {
+        text(txts[LANG][0] + ":" + Math.round(((intialVotes) + Number.EPSILON) * 10) / 10 + "%", {
             size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 10) : Math.floor(5 * (multiplyer - 1))
         }),
         { value: intialVotes },
@@ -51,7 +67,7 @@ scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics
 
     const moneyCount = add([
         pos(Math.floor(width() / 3), Math.floor(height() / 100)),
-        text("Argent:" + initialMoney, {
+        text(txts[LANG][1] + ":" + initialMoney, {
             size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 10) : Math.floor(5 * (multiplyer - 1))
         }),
         { value: initialMoney },
@@ -60,7 +76,7 @@ scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics
 
     const opticsCount = add([
         pos(Math.floor((width() / 240) * 161), Math.floor(height() / 100)),
-        text("Opinion:" + initialOptics, {
+        text(txts[LANG][2] + ":" + initialOptics, {
             size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 10) : Math.floor(5 * (multiplyer - 1))
         }),
         { value: initialOptics },
@@ -118,7 +134,7 @@ scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics
 
     const dateOfTheVote = add([
         pos(Math.floor(width() / 100), height() - Math.floor(height() / 17)),
-        text("Vote le: " + dayOfVote, {
+        text(txts[LANG][3] + ":" + dayOfVote, {
             size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 10) : Math.floor(5 * (multiplyer - 1))
         }),
         layer("ui_txt")
@@ -127,7 +143,7 @@ scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics
     const daysUntilVote = add([
         pos(Math.floor(width() / 120) * 77, height() - Math.floor(height() / 17)),
         color(255, txtColor, txtColor),
-        text(startTurn < 10 ? "Dans " + (11 - startTurn) + " jours" : "Dans " + (11 - startTurn) + " jour", {
+        text(txts[LANG][4], {
             size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 10) : Math.floor(5 * (multiplyer - 1))
         }),
         layer("ui_txt")
@@ -199,12 +215,8 @@ scene("game", ({ idScenario, startTurn, intialVotes, initialMoney, initialOptics
                 }));
             }
             else {
-                if(mustGain) {
-                    votesCount.value >= 50 ? goToEndScene(true, scn, votesCount.value, mustGain) : goToEndScene(false, scn, votesCount.value, mustGain);
-                }
-                else {
-                     votesCount.value < 50 ? goToEndScene(true, scn, votesCount.value, mustGain) : goToEndScene(false, scn, votesCount.value, mustGain);
-                }
+                if(mustGain) votesCount.value >= 50 ? goToEndScene(true, scn, votesCount.value, mustGain) : goToEndScene(false, scn, votesCount.value, mustGain);
+                else votesCount.value < 50 ? goToEndScene(true, scn, votesCount.value, mustGain) : goToEndScene(false, scn, votesCount.value, mustGain);
             }
         }
     }
