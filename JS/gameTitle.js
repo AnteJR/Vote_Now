@@ -321,6 +321,17 @@ scene("introTxtScenario", ({ idVote }) => {
 });
 
 scene("showDisclaimer", ({ monScenario }) => {
+    let disclaimerTxt = {
+        english: {
+            title: "! This scenario is different from the rest !",
+            text: "Here, the goal is not to make the law pass; it's to make it fail. Thus, you will start at an above 50% approval ratings, and must campaign to make that number diminish.\n\nDon't worry if the votes are in the negative, then: it's normal!"
+        },
+        french: {
+            title: "! Ce scénario est différent du reste !",
+            text: "Ici, le but n'est pas de faire passer la loi; c'est de la faire échouer. Dès lors, vous commencerez avec des votes supérieurs à 50%, et devrez faire campagne pour faire descendre ce score\n\nPas d'inquiétudes si les votes sont inférieurs à 50% à la fin de la partie, c'est normal!"
+        }
+    }
+
     layers([
         "bg",
         "txt",
@@ -346,7 +357,7 @@ scene("showDisclaimer", ({ monScenario }) => {
     const disclaimer_Title = add([
         origin("center"),
         pos(Math.floor(width() / 2), Math.floor(height() / 10)),
-        text("This scenario is different from the rest!", {
+        text(disclaimerTxt[LANG].title, {
             size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 10) : Math.floor(5 * (multiplyer - 1)),
             width: Math.floor(width() - (width() / multiplyer))
         }),
@@ -357,7 +368,7 @@ scene("showDisclaimer", ({ monScenario }) => {
     const disclaimer_Text = add([
         origin("top"),
         pos(Math.floor(width() / 2), Math.floor(height() / 5)),
-        text("Here, the goal is not to make the law pass; it's to make it fail. Thus, you will start at an above 50% approval ratings, and must campaign to make that number diminish.\n\nDon't worry if the votes are in the negative, then: it's normal!", {
+        text(disclaimerTxt[LANG].text, {
             size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 10) : Math.floor(5 * (multiplyer - 1)),
             width: Math.floor(width() - (width() / multiplyer))
         }),
@@ -366,8 +377,8 @@ scene("showDisclaimer", ({ monScenario }) => {
 
     const disclaimer_PlayButton = add([
         scale(Math.floor(multiplyer * 1.5)),
-        origin("right"),
-        pos(Math.floor(width() - width() / 5), Math.floor(height() - (height() / 7))),
+        origin("botleft"),
+        pos(Math.floor(width() / 2 + width() / 40), Math.floor(height() - (height() / 10))),
         sprite("play" + langSprites[LANG]),
         area(),
         layer("txt")
@@ -378,8 +389,8 @@ scene("showDisclaimer", ({ monScenario }) => {
 
     const disclaimer_BackButton = add([
         scale(Math.floor(multiplyer * 1.5)),
-        origin("left"),
-        pos(Math.floor(width() / 5), Math.floor(height() - (height() / 7))),
+        origin("botright"),
+        pos(Math.floor(width() / 2 - width() / 40), Math.floor(height() - (height() / 10))),
         sprite("back" + langSprites[LANG]),
         area(),
         layer("txt")

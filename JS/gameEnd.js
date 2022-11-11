@@ -30,7 +30,8 @@ scene("victoryPage", ({ isWin, playedScene, votes, winIfMoreThan50 }) => {
                 "Le score historique a été dépassé, mais la loi est passée.",
                 "La loi a échoué! Félicitations!"
             ]
-        };
+        },
+        textToDisplay = (winIfMoreThan50 ? (isWin ? (realResults > 50 ? (votes < realResults ? "passed" : "victory") : "victory") : (realResults < 50 ? (votes > realResults ? "not_passed" : "failure") : "failure")) : (votes > 50 ? (votes > realResults ? "failure" : "passed") : "victory")) + langSprites[LANG];
 
     /* localStorage management */
     localStorage.setItem("scenario_" + playedScene + "_played", true);
@@ -54,15 +55,15 @@ scene("victoryPage", ({ isWin, playedScene, votes, winIfMoreThan50 }) => {
 
     const victoryScreen_VictoryState = add([
         scale(multiplyer),
-        pos(Math.floor(width() / 2), Math.floor((height() / 10) * 1.5)),
+        pos(Math.floor(width() / 2), textToDisplay == "failure_FR" ? Math.floor((height() / 40)) : Math.floor(height() / 10)),
         origin("top"),
         layer("victoryState"),
-        sprite((winIfMoreThan50 ? (isWin ? (realResults > 50 ? (votes < realResults ? "passed" : "victory") : "victory") : (realResults < 50 ? (votes > realResults ? "not_passed" : "failure") : "failure")) : (votes > 50 ? (votes > realResults ? "failure" : "passed") : "victory")) + langSprites[LANG], { anim: "animated_BG" })
+        sprite(textToDisplay, { anim: "animated_BG" })
     ]);
 
     const victoryScreen_Text = add([
         origin("top"),
-        pos(Math.floor(width() / 2), Math.floor((height() / 10) * 5.25)),
+        pos(Math.floor(width() / 2),  textToDisplay == "failure_FR" ? Math.floor((height() / 10 * 5.5)) : Math.floor((height() / 10) * 5)),
         text(winIfMoreThan50 ? (isWin ? (realResults > 50 ? (votes < realResults ? victoryTxt[LANG][0] : victoryTxt[LANG][1]) : victoryTxt[LANG][2]) : (realResults < 50 ? (votes > realResults ? victoryTxt[LANG][3] : victoryTxt[LANG][4]) : victoryTxt[LANG][5])) : (votes > 50 ? (votes > realResults ? victoryTxt[LANG][6] : victoryTxt[LANG][7]) : victoryTxt[LANG][8]), {
             size: multiplyer % 2 == 0 ? Math.floor(5 * (multiplyer) - 10) : Math.floor(5 * (multiplyer - 1)),
             width: Math.floor(width() - (width() / 10))

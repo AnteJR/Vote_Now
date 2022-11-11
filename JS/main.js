@@ -1962,6 +1962,60 @@ loadSpriteAtlas("Victory_FR.png", {         // Animated Victory text
         }
     }
 });
+loadSpriteAtlas("Failure_FR.png", {         // Animated Failure text
+    "failure_FR": {
+        "x": 0,
+        "y": 0,
+        "width": 1488,
+        "height": 46,
+        "sliceX": 12,
+        "anims": {
+            "animated_BG": {
+                "from": 0,
+                "to": 11,
+                "speed": 10,
+                "loop": true
+            },
+            "idle": 0
+        }
+    }
+});
+loadSpriteAtlas("Passed_FR.png", {             // Animated Passed text
+    "passed_FR": {
+        "x": 0,
+        "y": 0,
+        "width": 124*13,
+        "height": 32,
+        "sliceX": 13,
+        "anims": {
+            "animated_BG": {
+                "from": 0,
+                "to": 12,
+                "speed": 10,
+                "loop": true
+            },
+            "idle": 0
+        }
+    }
+});
+loadSpriteAtlas("stopped_FR.png", {         // Animated Not Passed text
+    "not_passed_FR": {
+        "x": 0,
+        "y": 0,
+        "width": 124*14,
+        "height": 35,
+        "sliceX": 14,
+        "anims": {
+            "animated_BG": {
+                "from": 0,
+                "to": 13,
+                "speed": 10,
+                "loop": true
+            },
+            "idle": 0
+        }
+    }
+});
 
 loadRoot("Images/UI/");
 loadSprite("ui_top", "UI.png");                  // Sprites for the UI and backgrounds
