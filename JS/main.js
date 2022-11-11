@@ -16,7 +16,7 @@ kaboom({                                                /* Kaboom function */
 // loadFont("frenchFont", "Fonts/VCR_OSD_MONO_1.001.ttf")
 
 loadRoot("Images/Animated_BG/");
-loadSpriteAtlas("Affiches_mur_sheet.png", {      // Sprit Atlas for the flyers on the street walls
+loadSpriteAtlas("Affiches_mur_sheet.png", {         // Sprit Atlas for the flyers on the street walls
     "event_affiche_day_nice": {                             // option #1: "day_nice"
         "x": 0,
         "y": 0,
@@ -109,8 +109,7 @@ loadSpriteAtlas("Affiches_mur_sheet.png", {      // Sprit Atlas for the flyers o
         }
     },
 });
-
-loadSpriteAtlas("Marche_sheet.png", {            // Sprite Atlas for the markets
+loadSpriteAtlas("Marche_sheet.png", {               // Sprite Atlas for the markets
     "event_marche_day_nice": {                              // option #1: "day_nice"
         "x": 0,
         "y": 0,
@@ -203,8 +202,7 @@ loadSpriteAtlas("Marche_sheet.png", {            // Sprite Atlas for the markets
         }
     },
 });
-
-loadSpriteAtlas("Coupole_sheet.png", {           // Sprite Atlas for protests
+loadSpriteAtlas("Coupole_sheet.png", {              // Sprite Atlas for protests
     "event_coupole_day_nice": {                             // option #1: "day_nice"
         "x": 0,
         "y": 0,
@@ -297,8 +295,7 @@ loadSpriteAtlas("Coupole_sheet.png", {           // Sprite Atlas for protests
         }
     },
 });
-
-loadSpriteAtlas("Poste_sheet.png", {         // Sprite Atlas for the post office
+loadSpriteAtlas("Poste_sheet.png", {                // Sprite Atlas for the post office
     "event_poste_day_nice": {                           // option #1: "day_nice"
         "x": 0,
         "y": 0,
@@ -391,8 +388,7 @@ loadSpriteAtlas("Poste_sheet.png", {         // Sprite Atlas for the post office
         }
     },
 });
-
-loadSpriteAtlas("Journal_sheet.png", {           // Sprite Atlas for the journal
+loadSpriteAtlas("Journal_sheet.png", {              // Sprite Atlas for the journal
     "event_journal_day_nice": {                             // option #1: "day_nice"
         "x": 0,
         "y": 0,
@@ -485,8 +481,7 @@ loadSpriteAtlas("Journal_sheet.png", {           // Sprite Atlas for the journal
         }
     },
 });
-
-loadSpriteAtlas("Train_sheet_day.png", {         // Sprite Atlas #1 for the train
+loadSpriteAtlas("Train_sheet_day.png", {            // Sprite Atlas #1 for the train
     "event_train_day_nice": {                               // option #1: "day_nice"
         "x": 0,
         "y": 0,
@@ -521,8 +516,7 @@ loadSpriteAtlas("Train_sheet_day.png", {         // Sprite Atlas #1 for the trai
         }
     }
 });
-
-loadSpriteAtlas("Train_sheet_dawn.png", {        // Sprite Atlas #2 for the train
+loadSpriteAtlas("Train_sheet_dawn.png", {           // Sprite Atlas #2 for the train
     "event_train_dawn_nice": {                              // option #3: "dawn_nice"
         "x": 0,
         "y": 0,
@@ -557,8 +551,7 @@ loadSpriteAtlas("Train_sheet_dawn.png", {        // Sprite Atlas #2 for the trai
         }
     }
 });
-
-loadSpriteAtlas("Train_sheet_dusk.png", {        // Sprite Atlas #3 for the train
+loadSpriteAtlas("Train_sheet_dusk.png", {           // Sprite Atlas #3 for the train
     "event_train_dusk_nice": {                              // option #5: "dusk_nice"
         "x": 0,
         "y": 0,
@@ -593,8 +586,7 @@ loadSpriteAtlas("Train_sheet_dusk.png", {        // Sprite Atlas #3 for the trai
         }
     }
 });
-
-loadSpriteAtlas("Radio_sheet.png", {     // Sprite Atlas for the radio
+loadSpriteAtlas("Radio_sheet.png", {                // Sprite Atlas for the radio
     "event_radio_day_nice": {                       // option #1: "day_nice"
         "x": 0,
         "y": 0,
@@ -687,8 +679,7 @@ loadSpriteAtlas("Radio_sheet.png", {     // Sprite Atlas for the radio
         }
     },
 });
-
-loadSpriteAtlas("AG_sheet.png", {    // Sprite Atlas for sponsoring
+loadSpriteAtlas("AG_sheet.png", {                   // Sprite Atlas for sponsoring
     "event_ag_day_nice": {                      // option #1: "day_nice"
         "x": 0,
         "y": 0,
@@ -781,8 +772,7 @@ loadSpriteAtlas("AG_sheet.png", {    // Sprite Atlas for sponsoring
         }
     },
 });
-
-loadSpriteAtlas("computer_sprite_sheet.png", {    // Sprite Atlas for sponsoring
+loadSpriteAtlas("computer_sprite_sheet.png", {      // Sprite Atlas for sponsoring
     "event_socials_day_nice": {                      // option #1: "day_nice"
         "x": 0,
         "y": 0,
@@ -875,8 +865,7 @@ loadSpriteAtlas("computer_sprite_sheet.png", {    // Sprite Atlas for sponsoring
         }
     },
 });
-
-loadSpriteAtlas("BG_Title.png", {    // Sprite Atlas for the main menu's background
+loadSpriteAtlas("BG_Title.png", {                   // Sprite Atlas for the main menu's background
     "BG_title": {
         "x": 0,
         "y": 0,
@@ -894,8 +883,8 @@ loadSpriteAtlas("BG_Title.png", {    // Sprite Atlas for the main menu's backgro
     }
 });
 
-loadRoot("Images/Effects_Texts/English/");  // ENGLISH =======================================================
-loadSpriteAtlas("Effects_Sheet.png", {       // Sprite Atlas for the events' effects
+loadRoot("Images/Effects_Texts/English/");      // ENGLISH =======================================================
+loadSpriteAtlas("Effects_Sheet.png", {              // Sprite Atlas for the events' effects
     "score_train_ok_ENG": {                                    // effect for the train
         "x": 0,
         "y": 0,
@@ -1376,8 +1365,8 @@ loadSpriteAtlas("Effects_Sheet_REVERSE_I.png", {
     },
 });
 
-loadRoot("Images/Effects_Texts/French/");  // FRENCH =======================================================
-loadSpriteAtlas("Effects_Sheet_FR.png", {       // Sprite Atlas for the events' effects
+loadRoot("Images/Effects_Texts/French/");       // FRENCH =======================================================
+loadSpriteAtlas("Effects_Sheet_FR.png", {           // Sprite Atlas for the events' effects
     "score_train_ok_FR": {                                    // effect for the train
         "x": 0,
         "y": 0,
@@ -1617,7 +1606,7 @@ loadSpriteAtlas("Effects_Sheet_I_FR.png", {
         "height": 42
     },
 });
-loadSpriteAtlas("Effects_Sheet_REVERSE_FR.png", {       // Sprite Atlas for the reversed events' effects
+loadSpriteAtlas("Effects_Sheet_REVERSE_FR.png", {   // Sprite Atlas for the reversed events' effects
     "score_train_reverse_ok_FR": {                                    // effect for the train
         "x": 0,
         "y": 0,
@@ -1880,8 +1869,9 @@ loadSpriteAtlas("Title.png", {           // Animated title
     }
 });
 
+loadRoot("Images/Animated_Texts/English/");
 loadSpriteAtlas("Victory.png", {         // Animated Victory text
-    "victory": {
+    "victory_ENG": {
         "x": 0,
         "y": 0,
         "width": 1476,
@@ -1898,9 +1888,8 @@ loadSpriteAtlas("Victory.png", {         // Animated Victory text
         }
     }
 });
-
 loadSpriteAtlas("Passed.png", {         // Animated Passed text
-    "passed": {
+    "passed_ENG": {
         "x": 0,
         "y": 0,
         "width": 124*13,
@@ -1917,9 +1906,8 @@ loadSpriteAtlas("Passed.png", {         // Animated Passed text
         }
     }
 });
-
 loadSpriteAtlas("stopped.png", {         // Animated Not Passed text
-    "not_passed": {
+    "not_passed_ENG": {
         "x": 0,
         "y": 0,
         "width": 124*15,
@@ -1936,9 +1924,8 @@ loadSpriteAtlas("stopped.png", {         // Animated Not Passed text
         }
     }
 });
-
 loadSpriteAtlas("Failure.png", {         // Animated Failure text
-    "failure": {
+    "failure_ENG": {
         "x": 0,
         "y": 0,
         "width": 1488,
@@ -1948,6 +1935,26 @@ loadSpriteAtlas("Failure.png", {         // Animated Failure text
             "animated_BG": {
                 "from": 0,
                 "to": 11,
+                "speed": 10,
+                "loop": true
+            },
+            "idle": 0
+        }
+    }
+});
+
+loadRoot("Images/Animated_Texts/French/");
+loadSpriteAtlas("Victory_FR.png", {         // Animated Victory text
+    "victory_FR": {
+        "x": 0,
+        "y": 0,
+        "width": 1722,
+        "height": 27,
+        "sliceX": 14,
+        "anims": {
+            "animated_BG": {
+                "from": 0,
+                "to": 13,
                 "speed": 10,
                 "loop": true
             },
@@ -1994,7 +2001,7 @@ loadSprite("BG_Mission_11", "Secondary_homes.png");
 loadSprite("BG_Mission_12", "Same-sex_protection.png");
 loadSprite("BG_Mission_13", "Same-sex_marriage.png");
 loadSprite("BG_Mission_14", "AVS_reform.png");
-
+                                                // ENGLISH =================================
 loadRoot("Images/Texts/English/");                  // Texts I use as buttons
 loadSprite("continue_ENG", "continue.png");
 loadSprite("to_menu_ENG", "to_menu.png");
@@ -2005,7 +2012,7 @@ loadSprite("back_ENG", "back.png");
 loadSprite("achievements_ENG", "achievements.png");
 loadSprite("delete_game_ENG", "delete_progress.png");
 loadSprite("tutorial_ENG", "tutorial.png");
-
+                                                // FRENCH =================================
 loadRoot("Images/Texts/French/");                  // Texts I use as buttons
 loadSprite("continue_FR", "continue_FR.png");
 loadSprite("to_menu_FR", "to_menu_FR.png");
@@ -2016,6 +2023,10 @@ loadSprite("back_FR", "back_FR.png");
 loadSprite("achievements_FR", "achievements_FR.png");
 loadSprite("delete_game_FR", "delete_progress_FR.png");
 loadSprite("tutorial_FR", "tutorial_FR.png");
+
+loadRoot("Images/Texts/");
+loadSprite("francais", "French.png");
+loadSprite("english", "English.png")
 
 loadRoot("Images/Posters/");
 loadSprite("Affiche_UKN", "Unknown_poster.png");

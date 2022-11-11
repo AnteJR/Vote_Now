@@ -1178,39 +1178,37 @@ scene("languageSelection", () => {
     ]);
 
     const languageChoice1 = add([
+        scale(multiplyer * 1.25),
         origin("top"),
         pos(Math.floor(width() / 2), Math.floor(height() / 10 * 3)),
-        text(languages[LANG][1], {
-            size: Math.floor(5 * (multiplyer - 1)),
-            width: Math.floor(width() / 10 * 8)
-        }),
+        sprite("english"),
         area(),
         layer("txt")
     ]).onClick(() => {
+        play("on_click_1");
         localStorage.setItem("language", "english");
         LANG = "english"
         go("languageSelection")
     })
 
     const languageChoice2 = add([
+        scale(multiplyer * 1.25),
         origin("top"),
         pos(Math.floor(width() / 2), Math.floor(height() / 10 * 5)),
-        text(languages[LANG][2], {
-            size: Math.floor(5 * (multiplyer - 1)),
-            width: Math.floor(width() / 10 * 8)
-        }),
+        sprite("francais"),
         area(),
         layer("txt")
     ]).onClick(() => {
+        play("on_click_1");
         localStorage.setItem("language", "french");
         LANG = "french"
         go("languageSelection")
     })
 
     const language_BackButton = add([
-        scale(Math.floor(multiplyer * 1.5)),
-        origin("center"),
-        pos(Math.floor(width() / 2), Math.floor(height() - height() / 15)),
+        scale(Math.floor(multiplyer * 1.15)),
+        origin("bot"),
+        pos(Math.floor(width() / 2), Math.floor(height() - height() / 40)),
         sprite("back" + langSprites[LANG]),
         area(),
         layer("txt")

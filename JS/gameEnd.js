@@ -57,7 +57,7 @@ scene("victoryPage", ({ isWin, playedScene, votes, winIfMoreThan50 }) => {
         pos(Math.floor(width() / 2), Math.floor((height() / 10) * 1.5)),
         origin("top"),
         layer("victoryState"),
-        sprite(winIfMoreThan50 ? (isWin ? (realResults > 50 ? (votes < realResults ? "passed" : "victory") : "victory") : (realResults < 50 ? (votes > realResults ? "not_passed" : "failure") : "failure")) : (votes > 50 ? (votes > realResults ? "failure" : "passed") : "victory"), { anim: "animated_BG" })
+        sprite((winIfMoreThan50 ? (isWin ? (realResults > 50 ? (votes < realResults ? "passed" : "victory") : "victory") : (realResults < 50 ? (votes > realResults ? "not_passed" : "failure") : "failure")) : (votes > 50 ? (votes > realResults ? "failure" : "passed") : "victory")) + langSprites[LANG], { anim: "animated_BG" })
     ]);
 
     const victoryScreen_Text = add([
