@@ -85,7 +85,7 @@ scene("titleScreen", () => {
 scene("introTxtGeneral", () => {
     let txtIntro = {
         english: "Vote Now! is a minimalist strategy game that plays kind of like Reigns, as in you have a choice of 2 actions that you can pick from at a time.\n\nYou will play as a non-specific, left-leaning political party aiming to pass bills in Switzerland by propagandizing to influence voters' opinions. You will have to manage your money, the opinions of the voter base on your campaign, and the votes you are predicted to get.",
-        french: "Vote Now! est un jeu de stratégie minimaliste similaire à Reigns: vous avez une succession de choix de 2 options.\n\nVous jouez un parti de gauche non-spécifié dont le but est de faire passer des loi en Suisse à coup de propagande pour changer les opinions de la population...!"
+        french: "Vote Now! est un jeu de strategie minimaliste similaire a Reigns: vous avez une succession de choix de 2 options.\n\nVous jouez un parti de gauche non-specifie dont le but est de faire passer des loi en Suisse a coup de propagande pour changer les opinions de la population...!"
     };
 
     layers([
@@ -327,8 +327,8 @@ scene("showDisclaimer", ({ monScenario }) => {
             text: "Here, the goal is not to make the law pass; it's to make it fail. Thus, you will start at an above 50% approval ratings, and must campaign to make that number diminish.\n\nDon't worry if the votes are in the negative, then: it's normal!"
         },
         french: {
-            title: "! Ce scénario est différent du reste !",
-            text: "Ici, le but n'est pas de faire passer la loi; c'est de la faire échouer. Dès lors, vous commencerez avec des votes supérieurs à 50%, et devrez faire campagne pour faire descendre ce score\n\nPas d'inquiétudes si les votes sont inférieurs à 50% à la fin de la partie, c'est normal!"
+            title: "! Ce scenario est different du reste !",
+            text: "Ici, le but n'est pas de faire passer la loi; c'est de la faire echouer. Des lors, vous commencerez avec des votes superieurs a 50%, et devrez faire campagne pour faire descendre ce score\n\nPas d'inquietudes si les votes sont inferieurs a 50% a la fin de la partie, c'est normal!"
         }
     }
 
@@ -403,7 +403,7 @@ scene("showDisclaimer", ({ monScenario }) => {
 scene("creditsPage", () => {
     let creditsTxt = {
         english: `A game created, written, designed, and developped by Joel Rimaz\n\nUnder the supervision of Isaac Pante\n\nAugust 2022`,
-        french: `Un jeu créé, écrit, designé et développé par Joël Rimaz\n\nSous la supervision d'Isaac Pante\n\nAoût 2022`
+        french: `Un jeu cree, ecrit, designe et developpe par Joel Rimaz\n\nSous la supervision d'Isaac Pante\n\nAout 2022`
     }, langSprites = {
         english: "_ENG",
         french: "_FR"
@@ -473,7 +473,7 @@ scene("areYouSure", () => {
         ],
         french: [
             "ATTENTION!",
-            `Vous êtes sur le point d'effacer TOUTE votre progression. Cela comprend votre progression, vos scores, et vos succès.\n\nVoulez-vous VRAIMENT continuer?`
+            `Vous etes sur le point d'effacer TOUTE votre progression. Cela comprend votre progression, vos scores, et vos succes.\n\nVoulez-vous VRAIMENT continuer?`
         ]
     };
 
@@ -683,14 +683,14 @@ scene("tutorial", ({ fromMenu, i }) => {
                 "If you manage to get a perfect victory, you will unlock a pixel art reproduction of one piece of propaganda material of the time in the achievements section. Go to the ACHIEVEMENTS section to check them out!\n\nOnce you get all the achievements, the game is pretty much finished. You can still reset your saved data at the CREDITS page to start anew."
             ],
             french: [
-                "Bienvenu sur Vote Now! Dans ce jeu, votre but est de faire passer des loi et d'atteindre le score historique des votations proposées.",
+                "Bienvenu sur Vote Now! Dans ce jeu, votre but est de faire passer des loi et d'atteindre le score historique des votations proposees.",
                 "Dans Vote Now!, vous devrez durant 10 tours faire des choix avec 2 options afin d'obtenir le meilleur score.",
-                "Les options à choix sont:",
+                "Les options a choix sont:",
                 "",
-                "Il y a 3 variables à considérer. Votre progrès est indiqué en haut de l'écran. Vous pouvez voir vos tours restants au bas de l'écran.",
-                "Votes: le pourcentage de votes en faveur de la loi\n\nArgent: l'argent à disposition pour faire propagande\n\nOpinion: l'opinion publique. Cette stat agit commme un multiplicateur des votes que vous obtenez. Par exemple: en choisissant une option qui donne 10% de vote avec une opinion à 0.8, vous obtiendrez en réalité 10x0.8 = 8%.",
-                "Gérez ces 3 variables et visez le meilleur score! Selon ce dernier, votre niveau de victoire variera, allant de l'échec (la loi n'est pas passée) à parfait (vous avez dépassé le score historique).",
-                "Si vous obtenez une victoire parfaite, vous débloquerez une reproduction en pixel art d'une affiche de l'époque. Elles se trouveront dans l'onglet des SUCCÈS!\n\nUne fois tous les succès obtenus, le jeu est fini. Vous pouvez toujours effacer votre progression et recommencer depuis la page des CRÉDITS."
+                "Il y a 3 variables a considerer. Votre progres est indique en haut de l'ecran. Vous pouvez voir vos tours restants au bas de l'ecran.",
+                "Votes: le pourcentage de votes en faveur de la loi\n\nArgent: l'argent a disposition pour faire propagande\n\nOpinion: l'opinion publique. Cette stat agit commme un multiplicateur des votes que vous obtenez. Par exemple: en choisissant une option qui donne 10% de vote avec une opinion a 0.8, vous obtiendrez en realite 10x0.8 = 8%.",
+                "Gerez ces 3 variables et visez le meilleur score! Selon ce dernier, votre niveau de victoire variera, allant de l'echec (la loi n'est pas passee) a parfait (vous avez depasse le score historique).",
+                "Si vous obtenez une victoire parfaite, vous debloquerez une reproduction en pixel art d'une affiche de l'epoque. Elles se trouveront dans l'onglet des SUCCES!\n\nUne fois tous les succes obtenus, le jeu est fini. Vous pouvez toujours effacer votre progression et recommencer depuis la page des CREDITS."
             ]
         },
         descriptions = {
@@ -718,24 +718,24 @@ scene("tutorial", ({ fromMenu, i }) => {
                 ]
             ],
             french: [
-                "un choix typique, ainsi que ses coûts/produits",
+                "un choix typique, ainsi que ses couts/produits",
                 [
                     "affiche en gare",
                     "distribution de flyers",
                     "trouver un sponsor",
                     "pub dans les journaux",
                     "demander des dons",
-                    "protester à Berne",
+                    "protester a Berne",
                     "campagne d'affiches",
-                    "pubs à la radio (dès 1922)",
-                    "pubs sur les réseaux sociaux (dès 2008)"
+                    "pubs a la radio (des 1922)",
+                    "pubs sur les reseaux sociaux (des 2008)"
                 ],
                 [
                     "interface du haut",
                     "interface du bas"
                 ],
                 [
-                    "échec",
+                    "echec",
                     "victoire",
                     "parfait"
                 ]
@@ -1159,7 +1159,7 @@ scene("languageSelection", () => {
             "French"
         ],
         french: [
-            "Sélectionnez une langue",
+            "Selectionnez une langue",
             "Anglais",
             "Français"
         ]
@@ -1232,7 +1232,7 @@ scene("languageSelection", () => {
 scene("errorLocalStorage", () => {
     let errorMsg = {
         english: "Vote Now requires the use of the local storage of your web browser. For reasons outside of my control, your browser doesn't allow the game access the local storage.\n\nTo fix this problem, please try using a different browser. I know that things should be fine using Firefox. Sorry for the inconvenience.",
-        french: "Vote Now a besoin du stockage local de votre navigateur pour fonctionner. Pour des raisons hors de mon contrôle, votre navigateur ne lui donne pas accès à ce stockage.\n\nPour résoudre ce problème, essayez un navigateur différent. Firefox devrait fonctionner sans problème. Navré de la gêne occasionnée."
+        french: "Vote Now a besoin du stockage local de votre navigateur pour fonctionner. Pour des raisons hors de mon contrôle, votre navigateur ne lui donne pas acces a ce stockage.\n\nPour resoudre ce probleme, essayez un navigateur different. Firefox devrait fonctionner sans probleme. Navre de la gene occasionnee."
     }
 
     layers([
