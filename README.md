@@ -2,7 +2,7 @@
 
 ***Vote Now!*** is a game created in the context of a university programming class called "2D Video Games", supervised by Isaac Pante at the University of Lausanne. In this course, we learned to use [KaboomJS](https://kaboomjs.com/), which I am using for this project.
 
-The game is available on [itch.io](https://jrante.itch.io/vote-now)and [GitHub Pages](https://antejr.github.io/Vote_Now/) !
+The game is available on [itch.io](https://jrante.itch.io/vote-now) and [GitHub Pages](https://antejr.github.io/Vote_Now/) !
 
 ***Vote Now!*** is a minimalist strategy game. The premise of the game is that you play as a political party aiming to pass a bill in Switzerland by propagandizing to influence voters' opinions. The game plays kind of like [Reigns](https://store.steampowered.com/app/474750/Reigns/), as in you have a choice of 2 actions that you can pick from at a time. The game works using 3 main variables:
 
