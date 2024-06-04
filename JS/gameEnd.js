@@ -20,15 +20,15 @@ scene("victoryPage", ({ isWin, playedScene, votes, winIfMoreThan50 }) => {
                 "The bill failed! Congratulations!"
             ],
             french: [
-                "La loi est passée, mais le score historique n'a pas été atteint!",
-                "Le score historique a été dépassé!",
-                "La loi est passée, malgré qu'elle ait échoué en réalité!",
-                "Le score historique a été dépassé, mais la loi a quand même échoué!",
-                "Le score historique n'a pas été atteint!",
-                "La loi a été rejetée...",
-                "La loi est passée avec plus de voix qu'en réalité...",
-                "Le score historique a été dépassé, mais la loi est passée.",
-                "La loi a échoué! Félicitations!"
+                "La loi est passee, mais le score historique n'a pas ete atteint!",
+                "Le score historique a ete depasse!",
+                "La loi est passee, malgre qu'elle ait echoue en realite!",
+                "Le score historique a ete depasse, mais la loi a quand meme echoue!",
+                "Le score historique n'a pas ete atteint!",
+                "La loi a ete rejetee...",
+                "La loi est passee avec plus de voix qu'en realite...",
+                "Le score historique a ete depasse, mais la loi est passee.",
+                "La loi a echoue! Felicitations!"
             ]
         },
         textToDisplay = (winIfMoreThan50 ? (isWin ? (realResults > 50 ? (votes < realResults ? "passed" : "victory") : "victory") : (realResults < 50 ? (votes > realResults ? "not_passed" : "failure") : "failure")) : (votes > 50 ? (votes > realResults ? "failure" : "passed") : "victory")) + langSprites[LANG];
@@ -87,10 +87,10 @@ scene("victoryPage", ({ isWin, playedScene, votes, winIfMoreThan50 }) => {
 scene("endExplaination", ({ isVictory, sceneTxtToShow, votesTotal, isNewPerf, realVote, gainWin }) => {
     let victoryInFailure = {
         english: " Still, you did better than the historical score, congratulations!",
-        french: " Vous avez quand même fait mieux que le score historique, félicitations!"
+        french: " Vous avez quand meme fait mieux que le score historique, felicitations!"
     }, yourScoreWas = {
         english: "Your score was",
-        french: "Votre score était"
+        french: "Votre score etait"
     }
 
     layers([
@@ -138,7 +138,7 @@ scene("new_achievement", ({ scenarioToDisplay }) => {
         },
         french: {
             title: "Avant de partir",
-            text: "C'était une partie parfaite! Vous avez gagné une reproduction d'une affiche de propagande de l'époque. Félicitations!"
+            text: "C'etait une partie parfaite! Vous avez gagne une reproduction d'une affiche de propagande de l'epoque. Felicitations!"
         }
     };
 
